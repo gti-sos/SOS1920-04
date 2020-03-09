@@ -8,4 +8,4 @@
 - **Project description**: Analysis of the traffic in Spain.
 - **Repository**: [SOS1920/SOS1920-04](https://github.com/SOS1920/SOS1920-04)
 - **URL**: [TBD](#)
->>>>>>> f921fd17ab92d200d3c8050776756c32ccec8a77
+
