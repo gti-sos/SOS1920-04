@@ -11,8 +11,9 @@ app.use("/", express.static("./public"));
 const BASE_API_URL = "/api/v1";
 	
 	// INITIAL DATA
+var vehicles = [];
 
-var vehicles = [
+var initialVehicles = [
 	{
 		province:"Almería",
 		year: 2018,
@@ -33,6 +34,7 @@ var vehicles = [
 		total: 839149
 	}
 ];
+
 
 var roads = [
 	{
@@ -76,12 +78,41 @@ var traffic_accidents = [
 	}
 ];
 
-	// GET VEHICLES
+	// LOAD INITIAL DATA VEHICLES
 
 app.get(BASE_API_URL+"/vehicles/loadInitialData", (req,res) =>{
+	vehicles.push(initialVehicles[0]);
+	vehicles.push(initialVehicles[1]);
+	res.send("Initial dates have been load");
+	res.sendStatus(201,"CREATED");
+});
+
+	// GET VEHICLES
+
+app.get(BASE_API_URL+"/vehicles", (req,res) =>{
 	res.send(JSON.stringify(vehicles,null,2));
 	console.log("Data sent:"+JSON.stringify(vehicles,null));
 });
+
+	// POST VEHICLES
+
+app.post(BASE_API_URL+"/vehicles", (req,res) =>{
+		var newVehicle = req.body;
+	if((newVehicle.province==null) || (newVehicle.year==null) || (newVehicle.car==null) || (newVehicle.motorcycle==null)  ||(newVehicle.bus==null) || (newVehicle.truck==null) ||(newVehicle.total==null) || (newVehicle == "")){
+		res.sendStatus(400,"BAD REQUEST");
+	}else{
+		vehicles.push(newVehicle);
+		res.sendStatus(201,"CREATED");
+	}
+});
+
+	// DELETE VEHICLES
+app.delete(BASE_API_URL+"/vehicles", (req,res) =>{
+	vehicles = [];
+	res.sendStatus(200);
+});
+
+	// SERVER READY
 
 app.listen(port, () => {
 		console.log("server ready");
