@@ -35,8 +35,9 @@ var initialVehicles = [
 	}
 ];
 
+var roads = [];
 
-var roads = [
+var initialRoads = [
 	{
 		province:"Almería",
 		year: 2018,
@@ -57,7 +58,9 @@ var roads = [
 	}
 ];
 
-var traffic_accidents = [
+var traffic_accidents = [];
+
+var initialTraffic_accidents = [
 	{
 		province:"Almería",
 		year: 2018,
@@ -112,6 +115,74 @@ app.delete(BASE_API_URL+"/vehicles", (req,res) =>{
 	res.sendStatus(200);
 });
 
+	// LOAD INITIAL DATA ROADS
+
+app.get(BASE_API_URL+"/roads/loadInitialData", (req,res) =>{
+	roads.push(initialRoads[0]);
+	roads.push(initialRoads[1]);
+	res.send("Initial dates have been load");
+	res.sendStatus(201,"CREATED");
+});
+
+	// GET ROADS
+
+app.get(BASE_API_URL+"/roads", (req,res) =>{
+	res.send(JSON.stringify(roads,null,2));
+	console.log("Data sent:"+JSON.stringify(roads,null));
+});
+
+	// POST ROADS
+
+
+app.post(BASE_API_URL+"/roads", (req,res) =>{
+		var newRoads = req.body;
+	if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  ||(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")){
+		res.sendStatus(400,"BAD REQUEST");
+	}else{
+		roads.push(newRoads);
+		res.sendStatus(201,"CREATED");
+	}
+});
+
+	// DELETE ROADS
+app.delete(BASE_API_URL+"/roads", (req,res) =>{
+	roads = [];
+	res.sendStatus(200);
+});
+		
+	// LOAD INITIAL DATA traffic_accidents
+
+app.get(BASE_API_URL+"/traffic_accidents/loadInitialData", (req,res) =>{
+	traffic_accidents.push(initialTraffic_accidents[0]);
+	traffic_accidents.push(initialTraffic_accidents[1]);
+	res.send("Initial dates have been load");
+	res.sendStatus(201,"CREATED");
+});
+
+	// GET traffic_accidents
+
+app.get(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+	res.send(JSON.stringify(traffic_accidents,null,2));
+	console.log("Data sent:"+JSON.stringify(traffic_accidents,null));
+});
+
+	// POST traffic_accidents
+
+app.post(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+		var newTraffic_accidents = req.body;
+	if((newTraffic_accidents.province==null) || (newTraffic_accidents.year==null) || (newTraffic_accidents.accidentWithVictims==null) || (newTraffic_accidents.mortalaccident==null)  ||(newTraffic_accidents.death==null) || (newTraffic_accidents.hospitalizedWounded==null) ||(newTraffic_accidents.notHospitalizedWounded==null) || (newTraffic_accidents == "")){
+		res.sendStatus(400,"BAD REQUEST");
+	}else{
+		traffic_accidents.push(newTraffic_accidents);
+		res.sendStatus(201,"CREATED");
+	}
+});
+
+	// DELETE traffic_accidents
+app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+	traffic_accidents = [];
+	res.sendStatus(200);
+});
 	// SERVER READY
 
 app.listen(port, () => {
