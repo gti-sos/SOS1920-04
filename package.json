@@ -1,0 +1,23 @@
+{
+  "name": "f02",
+  "version": "1.0.0",
+  "description": "This will show a page with readme text.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gti-sos/SOS1920-04.git"
+  },
+  "author": "Isatrugom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gti-sos/SOS1920-04/issues"
+  },
+  "homepage": "https://github.com/gti-sos/SOS1920-04#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
