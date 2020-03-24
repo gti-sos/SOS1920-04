@@ -40,8 +40,8 @@ var roads = [
 		year: 2018,
 		oneway: 2003,
 		multipleway: 4,
-		dualcarriagewaysandhighway: 321,
-		highwaywithtoll: 28,
+		dualCarriagewayAndHighway: 321,
+		highwayWithToll: 28,
 		total: 2356
 	},
 	{
@@ -49,8 +49,8 @@ var roads = [
 		year: 2017,
 		oneway: 1962,
 		multipleway: 76,
-		dualcarriagewaysandhighway: 129,
-		highwaywithtoll: 0,
+		dualCarriagewayAndHighway: 129,
+		highwayWithToll: 0,
 		total: 2149
 	}
 ];
@@ -59,20 +59,20 @@ var traffic_accidents = [
 	{
 		province:"Almería",
 		year: 2018,
-		accidentwithvictims: 1194,
+		accidentWithVictims: 1194,
 		mortalaccident: 27,
 		death: 27,
-		hospitalizedwounded: 111,
-		nothospitalizedwounded: 1780
+		hospitalizedWounded: 111,
+		notHospitalizedWounded: 1780
 	},
 	{
 		province:"Las Palmas",
 		year: 2017,
-		accidentwithvictims: 1302,
-		mortalaccident: 29,
+		accidentWithVictims: 1302,
+		mortalAccident: 29,
 		death: 30,
-		hospitalizedwounded: 115,
-		nothospitalizedwounded: 1886
+		hospitalizedWounded: 115,
+		nothHspitalizedWounded: 1886
 	}
 ];
 
