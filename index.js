@@ -15,7 +15,7 @@ var vehicles = [];
 
 var initialVehicles = [
 	{
-		province:"Almería",
+		province:"Almeria",
 		year: 2018,
 		car: 361888,
 		bus: 831,
@@ -39,7 +39,7 @@ var roads = [];
 
 var initialRoads = [
 	{
-		province:"Almería",
+		province:"Almeria",
 		year: 2018,
 		oneway: 2003,
 		multipleway: 4,
@@ -62,7 +62,7 @@ var traffic_accidents = [];
 
 var initialTraffic_accidents = [
 	{
-		province:"Almería",
+		province:"Almeria",
 		year: 2018,
 		accidentWithVictims: 1194,
 		mortalaccident: 27,
@@ -115,6 +115,60 @@ app.delete(BASE_API_URL+"/vehicles", (req,res) =>{
 	res.sendStatus(200);
 });
 
+	// PUT VEHICLES
+
+app.put(BASE_API_URL+"/vehicles", (req,res) =>{
+	res.sendStatus(405);
+});
+
+	// GET VEHICLES/XXXX
+app.get(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredVehicles = vehicles.filter((v) => {
+		return (v.province == province && v.year == year);
+	});
+	
+	if(filteredVehicles.length >= 1){
+		res.send(filteredVehicles[0]);
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"PROVINCE NOT FOUND");
+	}
+});
+
+	// PUT VEHICLE/XXX
+app.put(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
+	var newVehicle = req.body;
+	if((newVehicle.province==null) || (newVehicle.year==null) || (newVehicle.car==null) || (newVehicle.motorcycle==null)  ||(newVehicle.bus==null) || (newVehicle.truck==null) ||(newVehicle.total==null) || (newVehicle == "")){
+		res.sendStatus(400,"BAD REQUEST");
+	}else{
+		var filteredVehicles = vehicles.filter((v) => {
+		return (v.province != newVehicle.province && v.year != newVehicle.year);
+		});
+		vehicles = filteredVehicles;
+		vehicles.push(newVehicle);
+		res.sendStatus(200,"OK");
+	}
+});
+
+	// DELETE VEHICLE/XXX
+
+app.delete(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredVehicles = vehicles.filter((v) => {
+		return (v.province != province && v.year != year);
+	});
+	
+	if(filteredVehicles.length < vehicles.length){
+		vehicles = filteredVehicles;
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"VEHICLE NOT FOUND");
+	}
+});
+
 	// LOAD INITIAL DATA ROADS
 
 app.get(BASE_API_URL+"/roads/loadInitialData", (req,res) =>{
@@ -132,8 +186,6 @@ app.get(BASE_API_URL+"/roads", (req,res) =>{
 });
 
 	// POST ROADS
-
-
 app.post(BASE_API_URL+"/roads", (req,res) =>{
 		var newRoads = req.body;
 	if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  ||(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")){
