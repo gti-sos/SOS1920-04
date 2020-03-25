@@ -201,7 +201,56 @@ app.delete(BASE_API_URL+"/roads", (req,res) =>{
 	roads = [];
 	res.sendStatus(200);
 });
-		
+
+	// PUT ROADS
+app.put(BASE_API_URL+"/roads", (req,res) =>{
+	res.sendStatus(405);
+});
+
+	// GET ROADS/xxxx
+app.get(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredRoads = roads.filter((v) => {
+		return (v.province == province && v.year == year);
+	});
+	
+	if(filteredRoads.length >= 1){
+		res.send(filteredRoads[0]);
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"ROAD NOT FOUND");
+	}
+});
+	// PUT ROAD/xxxx
+app.put(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
+	var newRoad = req.body;
+	if((newRoad.province==null) || (newRoad.year==null) || (newRoad.oneway==null) || (newRoad.multipleway==null)  ||	               (newRoad.dualCarriagewayAndHighway==null) || (newRoad.highwayWithToll==null) ||(newRoad.total==null) || (newRoad == "")){
+		res.sendStatus(400,"BAD REQUEST");
+	}else{
+		var filteredRoads = roads.filter((v) => {
+		return (v.province != newRoad.province && v.year != newRoad.year);
+		});
+		roads = filteredRoads;
+		roads.push(newRoad);
+		res.sendStatus(200,"OK");
+	}
+});
+	// DELETE ROAD/xxxx
+	app.delete(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredRoads = roads.filter((v) => {
+		return (v.province != province && v.year != year);
+	});
+	
+	if(filteredRoads.length < roads.length){
+		roads = filteredRoads;
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"ROAD NOT FOUND");
+	}
+});	
 	// LOAD INITIAL DATA traffic_accidents
 
 app.get(BASE_API_URL+"/traffic_accidents/loadInitialData", (req,res) =>{
@@ -235,6 +284,55 @@ app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 	traffic_accidents = [];
 	res.sendStatus(200);
 });
+
+	// PUT TRAFIC_ACCIDENTS
+app.put(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+	res.sendStatus(405);
+});
+	// GET TRAFIC_ACCIDENTS/xxxx
+app.get(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredTraffic_accidents = traffic_accidents.filter((v) => {
+		return (v.province == province && v.year == year);
+	});
+	
+	if(filteredTraffic_accidents.length >= 1){
+		res.send(filteredTraffic_accidents[0]);
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"TRAFFIC ACCIDENT NOT FOUND");
+	}
+});
+	// PUT TRAFIC_ACCIDENT/xxxx
+app.put(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
+	var newTraffic_accident = req.body;
+	if((newTraffic_accident.province==null) || (newTraffic_accident.year==null) || (newTraffic_accident.accidentWithVictims==null) || (newTraffic_accident.mortalaccident==null)  || (newTraffic_accident.death==null) || (newTraffic_accident.hospitalizedWounded==null) ||(newTraffic_accident.notHospitalizedWounded==null) || (newTraffic_accident == "")){
+		res.sendStatus(400,"BAD REQUEST");
+	}else{
+		var filteredTraffic_accidents = traffic_accidents.filter((v) => {
+		return (v.province != newTraffic_accident.province && v.year != newTraffic_accident.year);
+		});
+		traffic_accidents = filteredTraffic_accidents;
+		traffic_accidents.push(newTraffic_accident);
+		res.sendStatus(200,"OK");
+	}
+});
+	// DELETE TRAFIC_ACCIDENT/xxxx
+app.delete(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
+	var province = req.params.province;
+	var year = req.params.year;
+	var filteredTraffic_accidents = traffic_accidents.filter((v) => {
+		return (v.province != province && v.year != year);
+	});
+	
+	if(filteredTraffic_accidents.length < traffic_accidents.length){
+		traffic_accidents = filteredTraffic_accidents;
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"TRAFFIC ACCIDENT NOT FOUND");
+	}
+});		
 	// SERVER READY
 
 app.listen(port, () => {
