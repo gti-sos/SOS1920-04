@@ -121,6 +121,10 @@ app.put(BASE_API_URL+"/vehicles", (req,res) =>{
 	res.sendStatus(405);
 });
 
+	// POST VEHICLES/xxxx
+app.post(BASE_API_URL+"/vehicles/:province/:year", (req,res) =>{
+	res.sendStatus(405);
+});
 	// GET VEHICLES/XXXX
 app.get(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
 	var province = req.params.province;
@@ -222,6 +226,12 @@ app.get(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
 		res.sendStatus(404,"ROAD NOT FOUND");
 	}
 });
+
+	// POST ROAD/xxxx
+app.post(BASE_API_URL+"/roads/:province/:year", (req,res) =>{
+	res.sendStatus(405);
+});
+
 	// PUT ROAD/xxxx
 app.put(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
 	var newRoad = req.body;
@@ -285,6 +295,7 @@ app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 	res.sendStatus(200);
 });
 
+
 	// PUT TRAFIC_ACCIDENTS
 app.put(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 	res.sendStatus(405);
@@ -303,6 +314,11 @@ app.get(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
 	}else{
 		res.sendStatus(404,"TRAFFIC ACCIDENT NOT FOUND");
 	}
+});
+
+	// POST TRAFIC_ACCIDENT/xxxx
+app.post(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res) =>{
+	res.sendStatus(405);
 });
 	// PUT TRAFIC_ACCIDENT/xxxx
 app.put(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
