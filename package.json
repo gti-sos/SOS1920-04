@@ -19,7 +19,10 @@
   "homepage": "https://github.com/gti-sos/SOS1920-04#readme",
   "dependencies": {
     "express": "^4.17.1",
+<<<<<<< HEAD
     "nedb": "^1.8.0",
+=======
+>>>>>>> 7f95c8b1b7872042cdd67b7f7333241dfd5ba15a
     "path": "^0.12.7"
   }
 }
