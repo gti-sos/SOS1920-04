@@ -55,22 +55,52 @@ module.exports = function(app){
 			});
 		
 			res.send(JSON.stringify(traffic_accidents,null,2));
-			res.sendStatus(200);
 			console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
 		});	
 	});
+	
+	
+
+	// POST traffic_accidents
+
+	app.post(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+		console.log("New POST .../traffic_accidents");
+		
+		
+		var newTraffic_accidents = req.body;
+		if((newTraffic_accidents.province==null) || (newTraffic_accidents.year==null) || (newTraffic_accidents.accidentWithVictims==null) || 				(newTraffic_accidents.mortalaccident==null)  ||(newTraffic_accidents.death==null) || (newTraffic_accidents.hospitalizedWounded==null) ||			(newTraffic_accidents.notHospitalizedWounded==null) || (newTraffic_accidents == "" || (newTraffic_accident.length() != 7))){
+			res.sendStatus(400,"BAD REQUEST");
+			console.log("Data sent: "+JSON.stringify(newTraffic_accidents,null,2));
+		}else{
+			db.insert(newTraffic_accident);
+			res.sendStatus(201, "CREATED");
+		}
+	});
+	
+	
+	// DELETE traffic_accidents
+app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+	console.log("New DELETE .../traffic_accidents");
+	db.remove({}, {multi: true}, function (err, numRemoved) {} );
+	res.sendStatus(200);
+});
+
+		// PUT TRAFIC_ACCIDENTS
+app.put(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+	console.log("New PUT .../traffic_accidents");
+	res.sendStatus(405);
+});
+
 
 };
 
 
-/*	
-	// GET traffic_accidents
 
-app.get(BASE_API_URL+"/traffic_accidents", (req,res) =>{
-	res.send(JSON.stringify(traffic_accidents,null,2));
-	console.log("Data sent:"+JSON.stringify(traffic_accidents,null));
-});
 
+
+
+
+/*
 	// POST traffic_accidents
 
 app.post(BASE_API_URL+"/traffic_accidents", (req,res) =>{
@@ -82,6 +112,8 @@ app.post(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 		res.sendStatus(201,"CREATED");
 	}
 });
+
+
 
 	// DELETE traffic_accidents
 app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
