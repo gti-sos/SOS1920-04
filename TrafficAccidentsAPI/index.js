@@ -1,6 +1,6 @@
 module.exports = function(app){
 	console.log("Registering Traffic Accidents API...")
-	const DataStore = require("nedb");
+	const dataStore = require("nedb");
 	const path = require("path");
 	
 	const dbFileName = path.join(__dirname,"TrafficAccidentsAPI.db");
@@ -48,7 +48,7 @@ module.exports = function(app){
 	// GET traffic_accidents
 
 	app.get(BASE_API_URL+"/traffic_accidents", (req,res) =>{
-		cosole.log("New GET .../traffic_accidents");
+		console.log("New GET .../traffic_accidents");
 		db.find({}, (err, traffic_accidents) =>{
 			traffic_accidents.forEach( (v) => {
 				delete v.id;
@@ -63,7 +63,7 @@ module.exports = function(app){
 };
 
 
-	
+/*	
 	// GET traffic_accidents
 
 app.get(BASE_API_URL+"/traffic_accidents", (req,res) =>{
@@ -150,3 +150,4 @@ app.listen(port, () => {
 });
 
 console.log("Starting server...");
+*/

@@ -1,5 +1,5 @@
 module.exports = function(app){
-	console.log("Registering roads API...")
+	console.log("Registering roads API...");
 	const dataStore = require("nedb");
 	const path = require("path");
 	
@@ -67,7 +67,7 @@ module.exports = function(app){
 		
 	});
 	
-}
+};
 
 /*
 	// POST ROADS
@@ -142,3 +142,4 @@ app.put(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
 		res.sendStatus(404,"ROAD NOT FOUND");
 	}
 });	
+*/
