@@ -68,7 +68,7 @@ module.exports = function (app) {
 	app.post(BASE_API_URL+"/vehicles", (req,res) =>{
 		console.log("New POST .../vehicles");
 		var newVehicle = req.body;
-		if((newVehicle.province==null) || (newVehicle.year==null) || (newVehicle.car==null) || (newVehicle.motorcycle==null)  ||(newVehicle.bus==null) || (newVehicle.truck==null) ||(newVehicle.total==null) || (newVehicle == "") || (newVehicle.length(9 != 7))){
+		if((newVehicle.province==null) || (newVehicle.year==null) || (newVehicle.car==null) || (newVehicle.motorcycle==null)  ||(newVehicle.bus==null) || (newVehicle.truck==null) ||(newVehicle.total==null) || (newVehicle == "")){
 			res.sendStatus(400,"BAD REQUEST");
 		}else{
 			db.insert(newVehicle);
@@ -91,31 +91,33 @@ module.exports = function (app) {
 		res.sendStatus(405);
 	});
 	
+		// GET VEHICLES/XXXX
+	app.get(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
+		console.log("New GET .../vehicles/:province/:year");
+		var searchProvince = req.params.province;
+		var searchYear = parseInt(req.params.year);
+		db.find({province: searchProvince, year: searchYear}, (err, vehicles) =>{
+			
+			vehicles.forEach( (v) => {
+				delete v._id;
+			});
+			
+			if(vehicles.length == 1){
+				res.send(JSON.stringify(vehicles[0],null,2));
+				console.log("Data sent:"+JSON.stringify(vehicles[0],null,2));
+			}else{
+				res.sendStatus(404,"NOT FOUND");
+				console.log("Not found");
+			}
+			
+		});
+	});
+	
 };
 
 
 
 /*
-	// POST VEHICLES/xxxx
-app.post(BASE_API_URL+"/vehicles/:province/:year", (req,res) =>{
-	res.sendStatus(405);
-});
-	// GET VEHICLES/XXXX
-app.get(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
-	var province = req.params.province;
-	var year = req.params.year;
-	var filteredVehicles = vehicles.filter((v) => {
-		return (v.province == province && v.year == year);
-	});
-	
-	if(filteredVehicles.length >= 1){
-		res.send(filteredVehicles[0]);
-		res.sendStatus(200);
-	}else{
-		res.sendStatus(404,"PROVINCE NOT FOUND");
-	}
-});
-
 	// PUT VEHICLE/XXX
 app.put(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
 	var newVehicle = req.body;
