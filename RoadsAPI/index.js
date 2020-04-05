@@ -95,8 +95,7 @@ module.exports = function(app){
 	// POST ROADS
 	app.post(BASE_API_URL+"/roads", (req,res) =>{
 		var newRoads = req.body;
-		if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  |	            						(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")
-		  || newRoads.length != 7){
+		if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  |	            						(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")){
 			res.sendStatus(400,"BAD REQUEST");
 		}else{
 			db.insert(newRoads);
@@ -104,68 +103,72 @@ module.exports = function(app){
 		}
 	});
 	
-};
-
-	
-
 	// DELETE ROADS
-app.delete(BASE_API_URL+"/roads", (req,res) =>{
-	roads = [];
-	res.sendStatus(200);
-});
-
-	// PUT ROADS
-app.put(BASE_API_URL+"/roads", (req,res) =>{
-	res.sendStatus(405);
-});
-
-	// GET ROADS/xxxx
-app.get(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
-	var province = req.params.province;
-	var year = req.params.year;
-	var filteredRoads = roads.filter((v) => {
-		return (v.province == province && v.year == year);
-	});
-	
-	if(filteredRoads.length >= 1){
-		res.send(filteredRoads[0]);
+	app.delete(BASE_API_URL+"/roads", (req,res) =>{
+		console.log("New DELETE .../roads");
+		db.remove({}, { multi: true }, function (err, numRemoved) {});
 		res.sendStatus(200);
-	}else{
-		res.sendStatus(404,"ROAD NOT FOUND");
-	}
-});
+	});
+		// PUT ROADS
+	app.put(BASE_API_URL+"/roads", (req,res) =>{
+		console.log("New PUT .../roads");
+		res.sendStatus(405);
+	});
+		// GET ROADS/xxxx
+	app.get(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
+		console.log("New GET .../roads/:province/:year");
+		var searchProvince = req.params.province;
+		var searchYear = parseInt(req.params.year);
+		db.find({province: searchProvince, year: searchYear}, (err, roads) =>{
 
-	// POST ROAD/xxxx
-app.post(BASE_API_URL+"/roads/:province/:year", (req,res) =>{
-	res.sendStatus(405);
-});
+			roads.forEach( (v) => {
+				delete v._id;
+			});
 
-	// PUT ROAD/xxxx
-app.put(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
-	var newRoad = req.body;
-	if((newRoad.province==null) || (newRoad.year==null) || (newRoad.oneway==null) || (newRoad.multipleway==null)  ||	               (newRoad.dualCarriagewayAndHighway==null) || (newRoad.highwayWithToll==null) ||(newRoad.total==null) || (newRoad == "")){
-		res.sendStatus(400,"BAD REQUEST");
-	}else{
-		var filteredRoads = roads.filter((v) => {
-		return (v.province != newRoad.province && v.year != newRoad.year);
+			if(roads.length == 1){
+				res.send(JSON.stringify(roads[0],null,2));
+				console.log("Data sent:"+JSON.stringify(roads[0],null,2));
+			}else{
+				res.sendStatus(404,"NOT FOUND");
+				console.log("Not found");
+			}
+
 		});
-		roads = filteredRoads;
-		roads.push(newRoad);
-		res.sendStatus(200,"OK");
-	}
-});
+	});
+	// POST ROAD/xxxx
+	app.post(BASE_API_URL+"/roads/:province/:year", (req,res) =>{
+		console.log("New POST .../roads/:province/:year");
+		res.sendStatus(405);
+	});
+		// PUT ROAD/xxxx
+	app.put(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
+		var newRoads = req.body;
+		var searchProvince= req.params.province;
+		var searchYear = parseInt(req.params.year);
+			if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  |	            						(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")){
+				res.sendStatus(400,"BAD REQUEST");
+			}else{
+				db.remove({province: searchProvince, year: searchYear}, { multi: true }, function (err, numRemoved) {});
+				db.insert(newRoads);
+				res.sendStatus(200);
+			}
+	});
 	// DELETE ROAD/xxxx
 	app.delete(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
-	var province = req.params.province;
-	var year = req.params.year;
-	var filteredRoads = roads.filter((v) => {
-		return (v.province != province && v.year != year);
-	});
+		var searchProvince = req.params.province;
+		var searchYear = req.params.year;
+		db.remove({province: searchProvince, year: searchYear},  {}, function(err, numRemoved){
+			if(numRemoved == 1) {
+				res.sendStatus(200);
+				console.log("Removed");
+			}else {
+				res.sendStatus(404);
+				console.log("Not found");
+			}
+		})
+		
+	});	
+};
+
+
 	
-	if(filteredRoads.length < roads.length){
-		roads = filteredRoads;
-		res.sendStatus(200);
-	}else{
-		res.sendStatus(404,"ROAD NOT FOUND");
-	}
-});	
