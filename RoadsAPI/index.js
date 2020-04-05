@@ -79,8 +79,18 @@ module.exports = function(app){
 	app.get(BASE_API_URL+"/roads", (req,res) =>{
 		
 		console.log("New GET .../roads");
+		var limit = req.query.limit;
+		var offset= req.query.offset;
 		
-		db.find({}, (err, roads) =>{
+		province = req.query.province;
+		year = req.query.year;
+		oneway = req.query.oneway;
+		multipleway = req.query.multipleway;
+		dualCarriagewayAndHighway = req.query.dualCarriagewayAndHighway;
+		highwayWithToll = req.query.highwayWithToll;
+		total = req.query.total;
+		
+		db.find({province: province, year: year}).skip(offset).limit(limit).exec(function (err, roads) {
 			
 			roads.forEach((v) => {
 				delete v._id;
