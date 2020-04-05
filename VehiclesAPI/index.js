@@ -138,7 +138,7 @@ module.exports = function (app) {
 	app.delete(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
 		console.log("New DELETE .../vehicles/:province/:year");
 		var searchProvince = req.params.province;
-		var searchYear = req.params.year;
+		var searchYear = parseInt(req.params.year);
 		db.remove({province: searchProvince, year: searchYear}, {}, function (err, numRemoved) {
 			if (numRemoved == 1){
 				res.sendStatus(200);
