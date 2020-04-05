@@ -91,7 +91,7 @@ module.exports = function (app) {
 		res.sendStatus(405);
 	});
 	
-		// GET VEHICLES/XXXX
+	// GET VEHICLES/XXXX
 	app.get(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
 		console.log("New GET .../vehicles/:province/:year");
 		var searchProvince = req.params.province;
@@ -113,42 +113,40 @@ module.exports = function (app) {
 		});
 	});
 	
-};
-
-
-
-/*
-	// PUT VEHICLE/XXX
-app.put(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
-	var newVehicle = req.body;
-	if((newVehicle.province==null) || (newVehicle.year==null) || (newVehicle.car==null) || (newVehicle.motorcycle==null)  ||(newVehicle.bus==null) || (newVehicle.truck==null) ||(newVehicle.total==null) || (newVehicle == "")){
-		res.sendStatus(400,"BAD REQUEST");
-	}else{
-		var filteredVehicles = vehicles.filter((v) => {
-		return (v.province != newVehicle.province && v.year != newVehicle.year);
-		});
-		vehicles = filteredVehicles;
-		vehicles.push(newVehicle);
-		res.sendStatus(200,"OK");
-	}
-});
-
-	// DELETE VEHICLE/XXX
-
-app.delete(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
-	var province = req.params.province;
-	var year = req.params.year;
-	var filteredVehicles = vehicles.filter((v) => {
-		return (v.province != province && v.year != year);
+	// POST VEHICLES/XXXX
+	app.post(BASE_API_URL+"/vehicles/:province/:year", (req,res) =>{
+		console.log("New POST .../vehicles/:province/:year");
+		res.sendStatus(405);
 	});
 	
-	if(filteredVehicles.length < vehicles.length){
-		vehicles = filteredVehicles;
-		res.sendStatus(200);
-	}else{
-		res.sendStatus(404,"VEHICLE NOT FOUND");
-	}
-});
-
-
-*/
+		// PUT VEHICLE/XXX
+	app.put(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
+		console.log("New PUT .../vehicles/:province/:year");
+		var newVehicle = req.body;
+		var searchProvince = req.params.province;
+		var searchYear = parseInt(req.params.year);
+		if((newVehicle.province==null) || (newVehicle.year==null) || (newVehicle.car==null) || (newVehicle.motorcycle==null)  ||(newVehicle.bus==null) || (newVehicle.truck==null) ||(newVehicle.total==null) || (newVehicle == "")){
+			res.sendStatus(400,"BAD REQUEST");
+		}else{
+			db.remove({province: searchProvince, year: searchYear}, {}, function (err, numRemoved) {});
+			db.insert(newVehicle);
+			res.sendStatus(200);
+		};
+	});
+	
+	// DELETE VEHICLES/XXX
+	app.delete(BASE_API_URL+"/vehicles/:province/:year", (req,res)=>{
+		console.log("New DELETE .../vehicles/:province/:year");
+		var searchProvince = req.params.province;
+		var searchYear = parseInt(req.params.year);
+		db.remove({province: searchProvince, year: searchYear}, {}, function (err, numRemoved) {
+			if (numRemoved == 1){
+				res.sendStatus(200);
+				console.log("Removed");
+			}else{
+				res.sendStatus(404);
+				console.log("Not found");
+			}
+		});
+	});
+};
