@@ -32,6 +32,33 @@ module.exports = function(app){
 			death: 30,
 			hospitalizedWounded: 115,
 			nothHspitalizedWounded: 1886
+		},
+		{
+			province:"Pontevedra",
+			year: 2016,
+			accidentWithVictims: 1726,
+			mortalAccident: 35,
+			death: 36,
+			hospitalizedWounded: 260,
+			nothHspitalizedWounded: 2372
+		},
+		{
+			province:"Madrid",
+			year: 2015,
+			accidentWithVictims: 15442,
+			mortalAccident: 101,
+			death: 111,
+			hospitalizedWounded: 1314,
+			nothHspitalizedWounded: 18689
+		},
+		{
+			province:"Cádiz",
+			year: 2018,
+			accidentWithVictims: 1872,
+			mortalAccident: 15,
+			death: 15,
+			hospitalizedWounded: 115,
+			nothHspitalizedWounded: 2644
 		}
 	];
 	// LOAD INITIAL DATA traffic_accidents
