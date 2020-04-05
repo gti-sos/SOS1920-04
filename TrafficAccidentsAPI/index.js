@@ -50,6 +50,7 @@ module.exports = function(app){
 	app.get(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 		console.log("New GET .../traffic_accidents");
 		db.find({}, (err, traffic_accidents) =>{
+			
 			traffic_accidents.forEach( (v) => {
 				delete v.id;
 			});
@@ -65,31 +66,28 @@ module.exports = function(app){
 
 	app.post(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 		console.log("New POST .../traffic_accidents");
-		
-		
 		var newTraffic_accidents = req.body;
-		if((newTraffic_accidents.province==null) || (newTraffic_accidents.year==null) || (newTraffic_accidents.accidentWithVictims==null) || 				(newTraffic_accidents.mortalaccident==null)  ||(newTraffic_accidents.death==null) || (newTraffic_accidents.hospitalizedWounded==null) ||			(newTraffic_accidents.notHospitalizedWounded==null) || (newTraffic_accidents == "" || (newTraffic_accident.length() != 7))){
+		if((newTraffic_accidents.province==null) || (newTraffic_accidents.year==null) || (newTraffic_accidents.accidentWithVictims==null) || 				(newTraffic_accidents.mortalaccident==null)  ||(newTraffic_accidents.death==null) || (newTraffic_accidents.hospitalizedWounded==null) ||			(newTraffic_accidents.notHospitalizedWounded==null) || (newTraffic_accidents == "")){
 			res.sendStatus(400,"BAD REQUEST");
-			console.log("Data sent: "+JSON.stringify(newTraffic_accidents,null,2));
 		}else{
-			db.insert(newTraffic_accident);
+			db.insert(newTraffic_accidents);
 			res.sendStatus(201, "CREATED");
 		}
 	});
 	
 	
 	// DELETE traffic_accidents
-app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
-	console.log("New DELETE .../traffic_accidents");
-	db.remove({}, {multi: true}, function (err, numRemoved) {} );
-	res.sendStatus(200);
-});
+	app.delete(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+		console.log("New DELETE .../traffic_accidents");
+		db.remove({}, {multi: true}, function (err, numRemoved) {} );
+		res.sendStatus(200);
+	});
 
-		// PUT TRAFIC_ACCIDENTS
-app.put(BASE_API_URL+"/traffic_accidents", (req,res) =>{
-	console.log("New PUT .../traffic_accidents");
-	res.sendStatus(405);
-});
+	// PUT TRAFIC_ACCIDENTS
+	app.put(BASE_API_URL+"/traffic_accidents", (req,res) =>{
+		console.log("New PUT .../traffic_accidents");
+		res.sendStatus(405);
+	});
 
 
 };

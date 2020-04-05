@@ -39,13 +39,12 @@ module.exports = function(app){
 	// LOAD INITIAL DATA ROADS
 
 	app.get(BASE_API_URL+"/roads/loadInitialData", (req,res) =>{
-	console.log("Nwe GET .../loadInitialData");
-
-	db.insert(initialRoads);
-	res.sendStatus(200);
-
-	console.log("Initial Roads loaded: " + JSON.stringify(initialRoads,null,2));
-
+		console.log("Nwe GET .../loadInitialData");
+		
+		db.insert(initialRoads);
+		res.sendStatus(200);
+		
+		console.log("Initial Roads loaded: " + JSON.stringify(initialRoads,null,2));
 	});
 	
 		// GET ROADS
@@ -61,7 +60,6 @@ module.exports = function(app){
 			});
 			
 			res.send(JSON.stringify(roads,null,2));
-			res.sendStatus(200);
 			console.log("Data sent:"+JSON.stringify(roads,null));
 		});
 		
