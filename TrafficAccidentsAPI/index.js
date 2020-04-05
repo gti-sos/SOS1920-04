@@ -141,7 +141,7 @@ app.put(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
 	// DELETE TRAFIC_ACCIDENT/xxxx
 app.delete(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
 	var searchProvince = req.params.province;
-	var searchYear = req.params.year;
+	var searchYear = parseInt(req.params.year);
 	db.remove({province: searchProvince, year: searchYear}, {}, function (err, numRemoved) {
 		if (numRemoved == 1){
 		res.sendStatus(200);
