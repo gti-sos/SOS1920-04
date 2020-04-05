@@ -33,6 +33,33 @@ module.exports = function(app){
 			dualCarriagewayAndHighway: 129,
 			highwayWithToll: 0,
 			total: 2149
+		},
+		{
+			province:"Pontevedra",
+			year: 2016,
+			oneway: 3220,
+			multipleway: 16,
+			dualCarriagewayAndHighway: 109,
+			highwayWithToll: 148,
+			total: 3492
+		},
+		{
+			province:"Madrid",
+			year: 2015,
+			oneway: 2347,
+			multipleway: 208,
+			dualCarriagewayAndHighway: 622,
+			highwayWithToll: 161,
+			total: 3338
+		},
+		{
+			province:"Cádiz",
+			year: 2018,
+			oneway: 1804,
+			multipleway: 40,
+			dualCarriagewayAndHighway: 276,
+			highwayWithToll: 48,
+			total: 2168
 		}
 	];
 
@@ -67,19 +94,21 @@ module.exports = function(app){
 		
 	});
 	
+	// POST ROADS
+	app.post(BASE_API_URL+"/roads", (req,res) =>{
+		var newRoads = req.body;
+		if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  |	            						(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")
+		  || newRoads.length != 7){
+			res.sendStatus(400,"BAD REQUEST");
+		}else{
+			db.insert(newRoads);
+			res.sendStatus(201,"CREATED");
+		}
+	});
+	
 };
 
-/*
-	// POST ROADS
-app.post(BASE_API_URL+"/roads", (req,res) =>{
-		var newRoads = req.body;
-	if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  ||(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")){
-		res.sendStatus(400,"BAD REQUEST");
-	}else{
-		roads.push(newRoads);
-		res.sendStatus(201,"CREATED");
-	}
-});
+	
 
 	// DELETE ROADS
 app.delete(BASE_API_URL+"/roads", (req,res) =>{
@@ -142,4 +171,3 @@ app.put(BASE_API_URL+"/roads/:province/:year", (req,res)=>{
 		res.sendStatus(404,"ROAD NOT FOUND");
 	}
 });	
-*/
