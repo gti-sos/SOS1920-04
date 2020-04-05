@@ -52,7 +52,20 @@ module.exports = function (app) {
 	app.get(BASE_API_URL+"/vehicles", (req,res) =>{
 		console.log("New GET .../vehicles");
 		
-		db.find({}, (err, vehicles) =>{
+		limit = req.query.limit;
+		offset = req.query.offset;
+		console.log("Limit="+limit+", offset="+offset);
+		
+		province = req.query.province;
+		year = parseInt(req.query.year);
+		car = req.query.car;
+		bus = req.query.bus;
+		motorcycle = req.query.motorcycle;
+		truck = req.query.truck;
+		total = req.query.total;
+		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle);
+		
+		db.find({province: province, year: year}).skip(offset).limit(limit).exec( function (err, vehicles) {
 			
 			vehicles.forEach( (v) => {
 				delete v._id;

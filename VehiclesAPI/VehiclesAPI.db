@@ -1,14 +1,6 @@
-{"province":"Test","year":0,"car":0,"motorcycle":0,"bus":0,"truck":0,"total":0,"_id":"acwW5njkIIRXpnff"}
-{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"eOHnwRCchc3WvS07"}
-{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"z2E3VcobvpDfhAlu"}
-{"$$deleted":true,"_id":"acwW5njkIIRXpnff"}
-{"$$deleted":true,"_id":"eOHnwRCchc3WvS07"}
-{"$$deleted":true,"_id":"z2E3VcobvpDfhAlu"}
-{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"935vWIoTUJmgYFW2"}
-{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"trrgMFfSbFzAaKRO"}
-{"province":"Test","year":0,"car":0,"motorcycle":0,"bus":0,"truck":0,"total":0,"_id":"EhT9GVheBPj0BJbs"}
-{"$$deleted":true,"_id":"EhT9GVheBPj0BJbs"}
-{"province":"Test","year":0,"car":1,"motorcycle":1,"bus":1,"truck":1,"total":1,"_id":"C6DjdkPutZvuMitV"}
-{"$$deleted":true,"_id":"935vWIoTUJmgYFW2"}
-{"$$deleted":true,"_id":"C6DjdkPutZvuMitV"}
-{"$$deleted":true,"_id":"trrgMFfSbFzAaKRO"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"14fd5qs6RjQTuS3a"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"LiFIhz64LkymO75A"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"YFQta4FAgBUTyyDn"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"Z9mdFm4CCFc4sH0c"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"qtiNPl0xjMe3omzc"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"x5vZ7AcEFP7BoqOy"}
