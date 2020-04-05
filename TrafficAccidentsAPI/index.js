@@ -76,7 +76,19 @@ module.exports = function(app){
 
 	app.get(BASE_API_URL+"/traffic_accidents", (req,res) =>{
 		console.log("New GET .../traffic_accidents");
-		db.find({}, (err, traffic_accidents) =>{
+		limit = req.query.limit;
+		offset = req.query.offset;
+		console.log("limit="+limit+":, offset="+offset);
+		
+		province = req.query.province;
+		year = req.query.year;
+		accidentWithVictims = req.query.accidentWithVictims;
+		mortalAccident = req.query.mortalAccident;
+		death = req.query.death;
+		hospitalizedWounded = req.query.hospitalizedWounded;
+		nothHspitalizedWounded = req.query.nothHspitalizedWounded;
+		
+		db.find({}).skip(offset).limit(limit).exec( function(err,traffic_accidents){
 			
 			traffic_accidents.forEach( (v) => {
 				delete v.id;
