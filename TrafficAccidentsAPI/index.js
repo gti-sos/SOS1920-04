@@ -253,14 +253,14 @@ app.post(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res) =>{
 	// PUT TRAFIC_ACCIDENT/xxxx
 app.put(BASE_API_URL+"/traffic_accidents/:province/:year", (req,res)=>{
 	console.log("New PUT .../traffic_accidents/:province/:year");
-	var newTraffic_accident = req.body;
+	var newTraffic_accidents = req.body;
 	var searchProvince = req.params.province;
 	var searchYear = parseInt(req.params.year);
 	if((newTraffic_accidents.province==null) || (newTraffic_accidents.year==null) || (newTraffic_accidents.accidentWithVictims==null) || 				(newTraffic_accidents.mortalaccident==null)  ||(newTraffic_accidents.death==null) || (newTraffic_accidents.hospitalizedWounded==null) ||			(newTraffic_accidents.notHospitalizedWounded==null) || (newTraffic_accidents == "")){
 		res.sendStatus(400,"BAD REQUEST");
 	}else{
 		db.remove({province: searchProvince, year: searchYear}, {}, function (err, numRemoved) {} );
-		db.insert(newTraffic_accident);
+		db.insert(newTraffic_accidents);
 		res.sendStatus(200);
 		
 	}
