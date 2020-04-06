@@ -81,7 +81,7 @@ module.exports = function (app) {
 		
 		limit = req.query.limit;
 		offset = req.query.offset;
-		console.log("Limit="+limit+", offset="+offset);
+		console.log("limit="+limit+", offset="+offset);
 		
 		province = req.query.province;
 		year = parseInt(req.query.year);
@@ -90,17 +90,27 @@ module.exports = function (app) {
 		motorcycle = req.query.motorcycle;
 		truck = req.query.truck;
 		total = req.query.total;
-		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle);
+		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle+", truck="+truck+", total="+total);
 		
-		db.find({province: province, year: year}).skip(offset).limit(limit).exec( function (err, vehicles) {
+		if(province){
 			
-			vehicles.forEach( (v) => {
-				delete v._id;
+			db.find({province: province}).skip(offset).limit(limit).exec( function (err, vehicles) {
+				vehicles.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(vehicles,null,2));
+				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
 			});
-			
-			res.send(JSON.stringify(vehicles,null,2));
-			console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-		});
+		}else{
+																		 
+			db.find({}).skip(offset).limit(limit).exec( function (err, vehicles) {
+				vehicles.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(vehicles,null,2));
+				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
+			});
+		}
 	});
 	
 	// POST VEHICLES
