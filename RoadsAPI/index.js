@@ -89,7 +89,7 @@ module.exports = function(app){
 		dualCarriagewayAndHighway = parseInt(req.query.dualCarriagewayAndHighway);
 		highwayWithToll = parseInt(req.query.highwayWithToll);
 		total = parseInt(req.query.total);
-		minTotal = parseInt(req.query.minTotal);;
+		minTotal = parseInt(req.query.minTotal);
 		maxTotal = parseInt(req.query.maxTotal);
 		console.log("province="+province+", year="+year+", oneway="+oneway+", multipleway="+multipleway+", dualCarriagewayAndHighway="+dualCarriagewayAndHighway+", highwayWithToll="+highwayWithToll+", total="+total);
 
