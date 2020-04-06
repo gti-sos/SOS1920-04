@@ -31,7 +31,7 @@ module.exports = function(app){
 			mortalAccident: 29,
 			death: 30,
 			hospitalizedWounded: 115,
-			nothHspitalizedWounded: 1886
+			notHospitalizedWounded: 1886
 		},
 		{
 			province:"Pontevedra",
@@ -40,7 +40,7 @@ module.exports = function(app){
 			mortalAccident: 35,
 			death: 36,
 			hospitalizedWounded: 260,
-			nothHspitalizedWounded: 2372
+			notHospitalizedWounded: 2372
 		},
 		{
 			province:"Madrid",
@@ -49,7 +49,7 @@ module.exports = function(app){
 			mortalAccident: 101,
 			death: 111,
 			hospitalizedWounded: 1314,
-			nothHspitalizedWounded: 18689
+			notHospitalizedWounded: 18689
 		},
 		{
 			province:"Cadiz",
@@ -58,7 +58,7 @@ module.exports = function(app){
 			mortalAccident: 15,
 			death: 15,
 			hospitalizedWounded: 115,
-			nothHspitalizedWounded: 2644
+			notHospitalizedWounded: 2644
 		}
 	];
 	// LOAD INITIAL DATA traffic_accidents
