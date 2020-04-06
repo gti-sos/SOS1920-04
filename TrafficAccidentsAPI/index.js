@@ -52,7 +52,7 @@ module.exports = function(app){
 			nothHspitalizedWounded: 18689
 		},
 		{
-			province:"Cádiz",
+			province:"Cรกdiz",
 			year: 2018,
 			accidentWithVictims: 1872,
 			mortalAccident: 15,
@@ -81,22 +81,111 @@ module.exports = function(app){
 		console.log("limit="+limit+":, offset="+offset);
 		
 		province = req.query.province;
-		year = req.query.year;
-		accidentWithVictims = req.query.accidentWithVictims;
-		mortalAccident = req.query.mortalAccident;
-		death = req.query.death;
-		hospitalizedWounded = req.query.hospitalizedWounded;
-		nothHspitalizedWounded = req.query.nothHspitalizedWounded;
+		year = parseInt(req.query.year);
+		accidentWithVictims = parseInt(req.query.accidentWithVictims);
+		mortalAccident = parseInt(req.query.mortalAccident);
+		death = parseInt(req.query.death);
+		limdeath = parseInt(req.query.limdeath);
+		hospitalizedWounded = parseInt(req.query.hospitalizedWounded);
+		nothHspitalizedWounded = parseInt(req.query.nothHspitalizedWounded);
+		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle+", truck="+truck+", total="+total);
 		
-		db.find({}).skip(offset).limit(limit).exec( function(err,traffic_accidents){
+		if(province){
 			
-			traffic_accidents.forEach( (v) => {
-				delete v.id;
+			db.find({province: province}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
 			});
-		
-			res.send(JSON.stringify(traffic_accidents,null,2));
-			console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
-		});	
+		}else if(year){
+				
+			
+			db.find({year: year}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+				 
+		}else if(accidentWithVictims){
+				
+			
+			db.find({accidentWithVictims: accidentWithVictims}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+				 
+		}else if(mortalAccident){
+				
+			
+			db.find({mortalAccident: mortalAccident}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+				 
+		}else if(death){
+				
+			
+			db.find({death: death}).sort({death: 1}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+		}else if(limdeath){
+				
+			
+			db.find({death: {$gte: limdeath}}).sort({death: 1}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+				 
+		}else if(hospitalizedWounded){
+				
+			
+			db.find({hospitalizedWounded: hospitalizedWounded}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+				 
+		}else if(nothHspitalizedWounded){
+				
+			
+			db.find({nothHspitalizedWounded: nothHspitalizedWounded}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			}); 
+				 
+		}else{
+				 
+																		 
+			db.find({}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+				traffic_accidents.forEach( (v) => {
+					delete v._id;
+				});
+				res.send(JSON.stringify(traffic_accidents,null,2));
+				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
+			});
+		}
 	});
 	
 	
