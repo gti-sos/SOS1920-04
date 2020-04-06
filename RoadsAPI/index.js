@@ -53,7 +53,7 @@ module.exports = function(app){
 			total: 3338
 		},
 		{
-			province:"Cádiz",
+			province:"Cรกdiz",
 			year: 2018,
 			oneway: 1804,
 			multipleway: 40,
@@ -83,14 +83,19 @@ module.exports = function(app){
 		var offset= req.query.offset;
 		
 		province = req.query.province;
-		year = req.query.year;
-		oneway = req.query.oneway;
-		multipleway = req.query.multipleway;
-		dualCarriagewayAndHighway = req.query.dualCarriagewayAndHighway;
-		highwayWithToll = req.query.highwayWithToll;
-		total = req.query.total;
+		year = parseInt(req.query.year);
+		oneway = parseInt(req.query.oneway);
+		multipleway = parseInt(req.query.multipleway);
+		dualCarriagewayAndHighway = parseInt(req.query.dualCarriagewayAndHighway);
+		highwayWithToll = parseInt(req.query.highwayWithToll);
+		total = parseInt(req.query.total);
+		minTotal = parseInt(req.query.minTotal);;
+		maxTotal = parseInt(req.query.maxTotal);
+		console.log("province="+province+", year="+year+", oneway="+oneway+", multipleway="+multipleway+", dualCarriagewayAndHighway="+dualCarriagewayAndHighway+", highwayWithToll="+highwayWithToll+", total="+total);
+
 		
-		db.find({province: province, year: year}).skip(offset).limit(limit).exec(function (err, roads) {
+		if(province) {
+			db.find({province: province}).skip(offset).limit(limit).exec(function (err, roads) {
 			
 			roads.forEach((v) => {
 				delete v._id;
@@ -99,6 +104,86 @@ module.exports = function(app){
 			res.send(JSON.stringify(roads,null,2));
 			console.log("Data sent:"+JSON.stringify(roads,null));
 		});
+		}else if(year){
+			db.find({year: year}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}else if(oneway){
+			db.find({oneway: oneway}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}else if(multipleway){
+			db.find({multipleway: multipleway}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}else if(dualCarriagewayAndHighway){
+			db.find({dualCarriagewayAndHighway: dualCarriagewayAndHighway}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}else if(highwayWithToll){
+			db.find({highwayWithToll: highwayWithToll}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}else if(total){
+			db.find({total: total}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});			
+		}else if(minTotal && maxTotal){
+			db.find({total: {$ls: minTotal, $gt: maxTotal}}).sort({total: -1}).skip(offset).limit(limit).exec(function (err, roads) {
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}else{
+			db.find({}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
+			res.send(JSON.stringify(roads,null,2));
+			console.log("Data sent:"+JSON.stringify(roads,null));
+		});
+		}
 		
 	});
 	
