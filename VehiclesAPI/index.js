@@ -79,19 +79,19 @@ module.exports = function (app) {
 	app.get(BASE_API_URL+"/vehicles", (req,res) =>{
 		console.log("New GET .../vehicles");
 		
-		limit = req.query.limit;
-		offset = req.query.offset;
+		var limit = req.query.limit;
+		var offset = req.query.offset;
 		console.log("limit="+limit+", offset="+offset);
 		
-		province = req.query.province;
-		year = parseInt(req.query.year);
-		car = parseInt(req.query.car);
-		bus = parseInt(req.query.bus);
-		motorcycle = parseInt(req.query.motorcycle);
-		truck = parseInt(req.query.truck);
-		total = parseInt(req.query.total);
-		fromYear = parseInt(req.query.fromYear);
-		toYear = parseInt(req.query.toYear);
+		var province = req.query.province;
+		var year = parseInt(req.query.year);
+		var car = parseInt(req.query.car);
+		var bus = parseInt(req.query.bus);
+		var motorcycle = parseInt(req.query.motorcycle);
+		var truck = parseInt(req.query.truck);
+		var total = parseInt(req.query.total);
+		var fromYear = parseInt(req.query.fromYear);
+		var toYear = parseInt(req.query.toYear);
 		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle+", truck="+truck+", total="+total
 				   +", fromYear="+fromYear+", toYear="+toYear);
 		
