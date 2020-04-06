@@ -88,7 +88,7 @@ module.exports = function(app){
 		limdeath = parseInt(req.query.limdeath);
 		hospitalizedWounded = parseInt(req.query.hospitalizedWounded);
 		nothHspitalizedWounded = parseInt(req.query.nothHspitalizedWounded);
-		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle+", truck="+truck+", total="+total);
+		console.log("province="+province+", year="+year+", accidentWithVictims="+accidentWithVictims+", mortalAccident="+mortalAccident+", death="+death+", limdeath="+limdeath+", hospitalizedWounded="+hospitalizedWounded+", nothHospitalizedWounded="+nothHospitalizedWounded);
 		
 		if(province){
 			
