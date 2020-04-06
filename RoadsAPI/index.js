@@ -53,7 +53,7 @@ module.exports = function(app){
 			total: 3338
 		},
 		{
-			province:"Cรกdiz",
+			province:"Cadiz",
 			year: 2018,
 			oneway: 1804,
 			multipleway: 40,
