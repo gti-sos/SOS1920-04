@@ -52,7 +52,7 @@ module.exports = function(app){
 			nothHspitalizedWounded: 18689
 		},
 		{
-			province:"Cรกdiz",
+			province:"Cadiz",
 			year: 2018,
 			accidentWithVictims: 1872,
 			mortalAccident: 15,
@@ -87,8 +87,8 @@ module.exports = function(app){
 		death = parseInt(req.query.death);
 		limdeath = parseInt(req.query.limdeath);
 		hospitalizedWounded = parseInt(req.query.hospitalizedWounded);
-		nothHspitalizedWounded = parseInt(req.query.nothHspitalizedWounded);
-		console.log("province="+province+", year="+year+", accidentWithVictims="+accidentWithVictims+", mortalAccident="+mortalAccident+", death="+death+", limdeath="+limdeath+", hospitalizedWounded="+hospitalizedWounded+", nothHospitalizedWounded="+nothHospitalizedWounded);
+		notHospitalizedWounded = parseInt(req.query.notHospitalizedWounded);
+		console.log("province="+province+", year="+year+", accidentWithVictims="+accidentWithVictims+", mortalAccident="+mortalAccident+", death="+death+", limdeath="+limdeath+", hospitalizedWounded="+hospitalizedWounded+", notHospitalizedWounded="+notHospitalizedWounded);
 		
 		if(province){
 			
@@ -164,10 +164,10 @@ module.exports = function(app){
 				console.log("Data sent:"+JSON.stringify(traffic_accidents,null,2));
 			}); 
 				 
-		}else if(nothHspitalizedWounded){
+		}else if(notHospitalizedWounded){
 				
 			
-			db.find({nothHspitalizedWounded: nothHspitalizedWounded}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
+			db.find({notHospitalizedWounded: notHospitalizedWounded}).skip(offset).limit(limit).exec( function (err, traffic_accidents) {
 				traffic_accidents.forEach( (v) => {
 					delete v._id;
 				});
