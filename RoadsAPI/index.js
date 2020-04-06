@@ -165,7 +165,7 @@ module.exports = function(app){
 			console.log("Data sent:"+JSON.stringify(roads,null));
 		});			
 		}else if(minTotal && maxTotal){
-			db.find({total: {$lt: minTotal, $gt: maxTotal}}).sort({total: -1}).skip(offset).limit(limit).exec(function (err, roads) {
+			db.find({total: {$lt: maxTotal, $gt: minTotal}}).sort({total: -1}).skip(offset).limit(limit).exec(function (err, roads) {
 			roads.forEach((v) => {
 				delete v._id;
 			});
