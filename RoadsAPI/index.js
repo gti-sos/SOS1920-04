@@ -82,15 +82,15 @@ module.exports = function(app){
 		var limit = req.query.limit;
 		var offset= req.query.offset;
 		
-		province = req.query.province;
-		year = parseInt(req.query.year);
-		oneway = parseInt(req.query.oneway);
-		multipleway = parseInt(req.query.multipleway);
-		dualCarriagewayAndHighway = parseInt(req.query.dualCarriagewayAndHighway);
-		highwayWithToll = parseInt(req.query.highwayWithToll);
-		total = parseInt(req.query.total);
-		minTotal = parseInt(req.query.minTotal);
-		maxTotal = parseInt(req.query.maxTotal);
+		var province = req.query.province;
+		var year = parseInt(req.query.year);
+		var oneway = parseInt(req.query.oneway);
+		var multipleway = parseInt(req.query.multipleway);
+		var dualCarriagewayAndHighway = parseInt(req.query.dualCarriagewayAndHighway);
+		var highwayWithToll = parseInt(req.query.highwayWithToll);
+		var total = parseInt(req.query.total);
+		var minTotal = parseInt(req.query.minTotal);
+		var maxTotal = parseInt(req.query.maxTotal);
 		console.log("province="+province+", year="+year+", oneway="+oneway+", multipleway="+multipleway+", dualCarriagewayAndHighway="+dualCarriagewayAndHighway+", highwayWithToll="+highwayWithToll+", total="+total);
 
 		
