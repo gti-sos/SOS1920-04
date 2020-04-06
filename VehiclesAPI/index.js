@@ -33,6 +33,33 @@ module.exports = function (app) {
 			motorcycle: 62944,
 			truck: 180984,
 			total: 839149
+		},
+		{
+			province:"Pontevedra",
+			year: 2016,
+			car: 512529,
+			bus: 1224,
+			motorcycle: 66323,
+			truck: 81665,
+			total: 685522
+		},
+		{
+			province:"Madrid",
+			year: 2015,
+			car: 3336964,
+			bus: 10279,
+			motorcycle: 320169,
+			truck: 586914,
+			total: 4339426
+		},
+		{
+			province:"Cadiz",
+			year: 2018,
+			car: 572171,
+			bus: 1100,
+			motorcycle: 102634,
+			truck: 92205,
+			total: 787838
 		}
 	];
 	
