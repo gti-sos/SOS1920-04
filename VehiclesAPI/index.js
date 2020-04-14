@@ -12,7 +12,6 @@ module.exports = function (app) {
 				});
 	
 		// INITIAL DATA
-	var vehicles = [];
 
 	var initialVehicles = [
 		{
@@ -95,81 +94,55 @@ module.exports = function (app) {
 		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle+", truck="+truck+", total="+total
 				   +", fromYear="+fromYear+", toYear="+toYear);
 		
-		if(province){
-			
-			db.find({province: province}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
-				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
+		
+		db.find({}).skip(offset).limit(limit).exec( function (err, vehicles) {
+			vehicles.forEach( (v) => {
+				delete v._id;
 			});
-		}else if(year){
-			db.find({year: year}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			if(province){
+				vehicles.filter((v) => {
+					v.province = province;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(car){
-			db.find({car: car}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+				
+			};
+			if(year){
+				vehicles.filter((v) => {
+					v.year = year;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(bus){
-			db.find({bus: bus}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(car){
+				vehicles.filter((v) => {
+					v.car = car;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(motorcycle){
-			db.find({motorcycle: motorcycle}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(bus){
+				vehicles.filter((v) => {
+					v.bus = bus;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(truck){
-			db.find({truck: truck}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(motorcycle){
+				vehicles.filter((v) => {
+					v.motorcycle = motorcycle;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(total){
-			db.find({total: total}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(truck){
+				vehicles.filter((v) => {
+					v.truck = truck;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(fromYear && toYear){
-			db.find({year: {$gte: fromYear, $lt: toYear}}).sort({year: 1}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(total){
+				vehicles.filter((v) => {
+					v.total = year;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else{
-			 
-			db.find({}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(fromYear && toYear){
+				vehicles.filter((v) => {
+					v.year >= fromYear && v.year < toYear;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}
+			};
+			res.send(JSON.stringify(vehicles,null,2));
+			console.log("Data sent:"+JSON.stringify(vehicles,null,2));
+		});
 	});
 	
 	// POST VEHICLES
