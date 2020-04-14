@@ -100,44 +100,43 @@ module.exports = function (app) {
 				delete v._id;
 			});
 			if(province){
-				vehicles.filter((v) => {
-					v.province = province;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.province == province;
 				});
-				
 			};
 			if(year){
-				vehicles.filter((v) => {
-					v.year = year;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.year == year;
 				});
 			};
 			if(car){
-				vehicles.filter((v) => {
-					v.car = car;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.car == car;
 				});
 			};
 			if(bus){
-				vehicles.filter((v) => {
-					v.bus = bus;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.bus == bus;
 				});
 			};
 			if(motorcycle){
-				vehicles.filter((v) => {
-					v.motorcycle = motorcycle;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.motorcycle == motorcycle;
 				});
 			};
 			if(truck){
-				vehicles.filter((v) => {
-					v.truck = truck;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.truck == truck;
 				});
 			};
 			if(total){
-				vehicles.filter((v) => {
-					v.total = year;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.total == total;
 				});
 			};
 			if(fromYear && toYear){
-				vehicles.filter((v) => {
-					v.year >= fromYear && v.year < toYear;
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.year >= fromYear && vehicle.year < toYear;
 				});
 			};
 			res.send(JSON.stringify(vehicles,null,2));
