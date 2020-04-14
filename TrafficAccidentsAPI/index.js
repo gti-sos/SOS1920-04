@@ -98,43 +98,41 @@ module.exports = function(app){
 		x
 		
 			if(province){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.province == province;
 				});
 			}if(year){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.year == province;
 				});
 
 			}if(accidentWithVictims){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.accidentWithVictims == province;
 				});
 
 			}if(mortalAccident){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.mortalAccident == province;
 				});
 
 			}if(death){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.death == province;
 				});
 			}if(limdeath){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.death > limdeath;
 				});
 
 			}if(hospitalizedWounded){
-				traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.hospitalizedWounded == province;
 				});
 
 			}if(notHospitalizedWounded){
-				traffic_accidentsFiltered.filter((v) => {
-					traffic_accidentsFiltered = traffic_accidents.filter(function(traffic_accident){
+				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
 						return traffic_accident.notHospitalizedWounded == province;
-					});
 				});
 			};
 
