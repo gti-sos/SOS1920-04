@@ -1,22 +1,5 @@
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"0em9wlxwwtZ6a168"}
-{"province":"Cรกdiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"1iTszIb75GRdeIPt"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"3IDrL5ncjAENr9Cp"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"5A78wshPXap0erc3"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"8sFZBmgvyFEyPSNN"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"9mhpr5DlNo5mrO5m"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"FOfmcSOokDbYVsWx"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"NjavGgfWhCygO86t"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"SkA25V1EDjF9IMMv"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"W0VBtjeKHplEXwdD"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"ZSgEJWwz1VwsXLXN"}
-{"province":"Cรกdiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"aEcgHLS68RrvEkEE"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"adqMnhADoAdSHIgz"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"eSvSRZlmdS1ybwZ0"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"gCwtAyXUuABtFMon"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"ijR7t8Aifnp8i92p"}
-{"province":"Cรกdiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"m10FssAIFWYcbXv8"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"mtjUT6TkFdYOQmGw"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"q3iilMQM6TWaEDmv"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"tDW7QA9jpQkxMCQD"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"tgWdh5rpb6uC9VP6"}
-{"province":"Cรกdiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"wY8mZy4iFX4aptB3"}
+{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"FZHOgRzN1jnvQvUv"}
+{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"gYFOdQU349g1ECs8"}
+{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"h5Aun299hAw4wJLX"}
+{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"iCCG8dP8BrLLCQxM"}
+{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"lTvd2ttGWTqwYo55"}
