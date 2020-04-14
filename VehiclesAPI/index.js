@@ -12,7 +12,6 @@ module.exports = function (app) {
 				});
 	
 		// INITIAL DATA
-	var vehicles = [];
 
 	var initialVehicles = [
 		{
@@ -95,81 +94,54 @@ module.exports = function (app) {
 		console.log("province="+province+", year="+year+", car="+car+", bus="+bus+", motorcycle="+motorcycle+", truck="+truck+", total="+total
 				   +", fromYear="+fromYear+", toYear="+toYear);
 		
-		if(province){
-			
-			db.find({province: province}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
-				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
+		
+		db.find({}).skip(offset).limit(limit).exec( function (err, vehicles) {
+			vehicles.forEach( (v) => {
+				delete v._id;
 			});
-		}else if(year){
-			db.find({year: year}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			if(province){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.province == province;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(car){
-			db.find({car: car}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(year){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.year == year;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(bus){
-			db.find({bus: bus}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(car){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.car == car;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(motorcycle){
-			db.find({motorcycle: motorcycle}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(bus){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.bus == bus;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(truck){
-			db.find({truck: truck}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(motorcycle){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.motorcycle == motorcycle;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(total){
-			db.find({total: total}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(truck){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.truck == truck;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else if(fromYear && toYear){
-			db.find({year: {$gte: fromYear, $lt: toYear}}).sort({year: 1}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(total){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.total == total;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}else{
-			 
-			db.find({}).skip(offset).limit(limit).exec( function (err, vehicles) {
-				vehicles.forEach( (v) => {
-					delete v._id;
+			};
+			if(fromYear && toYear){
+				vehicles = vehicles.filter(function(vehicle) {
+ 					return vehicle.year >= fromYear && vehicle.year < toYear;
 				});
-				res.send(JSON.stringify(vehicles,null,2));
-				console.log("Data sent:"+JSON.stringify(vehicles,null,2));
-			});
-		}
+			};
+			res.send(JSON.stringify(vehicles,null,2));
+			console.log("Data sent:"+JSON.stringify(vehicles,null,2));
+		});
 	});
 	
 	// POST VEHICLES
