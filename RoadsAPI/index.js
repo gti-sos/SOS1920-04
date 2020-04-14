@@ -92,100 +92,58 @@ module.exports = function(app){
 		var minTotal = parseInt(req.query.minTotal);
 		var maxTotal = parseInt(req.query.maxTotal);
 		console.log("province="+province+", year="+year+", oneway="+oneway+", multipleway="+multipleway+", dualCarriagewayAndHighway="+dualCarriagewayAndHighway+", highwayWithToll="+highwayWithToll+", total="+total);
-
-		
+	
+		db.find({}).skip(offset).limit(limit).exec(function (err, roads) {
+			
+			roads.forEach((v) => {
+				delete v._id;
+			});
+			
 		if(province) {
-			db.find({province: province}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
+			roads = roads.filter(function(road) {
+				return road.province == province;
 			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else if(year){
-			db.find({year: year}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else if(oneway){
-			db.find({oneway: oneway}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else if(multipleway){
-			db.find({multipleway: multipleway}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else if(dualCarriagewayAndHighway){
-			db.find({dualCarriagewayAndHighway: dualCarriagewayAndHighway}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else if(highwayWithToll){
-			db.find({highwayWithToll: highwayWithToll}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else if(total){
-			db.find({total: total}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});			
-		}else if(minTotal && maxTotal){
-			db.find({total: {$lt: maxTotal, $gt: minTotal}}).sort({total: -1}).skip(offset).limit(limit).exec(function (err, roads) {
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
-		}else{
-			db.find({}).skip(offset).limit(limit).exec(function (err, roads) {
-			
-			roads.forEach((v) => {
-				delete v._id;
-			});
-			
-			res.send(JSON.stringify(roads,null,2));
-			console.log("Data sent:"+JSON.stringify(roads,null));
-		});
 		}
+		if(year){
+			roads = roads.filter(function(road) {
+				return road.year == year;
+			});
+		}
+		if(oneway){
+			roads = roads.filter(function(road) {
+				return road.oneway == oneway;
+			});
+		}
+		if(multipleway){
+			roads = roads.filter(function(road) {
+				return road.multipleway == multipleway;
+			});
+		}
+		if(dualCarriagewayAndHighway){
+			roads = roads.filter(function(road) {
+				return road.dualCarriagewayAndHighway == dualCarriagewayAndHighway;
+			});
+		}
+		if(highwayWithToll){
+			roads = roads.filter(function(road) {
+				return road.highwayWithToll == highwayWithToll;
+			});
+		}
+		if(total){
+			roads = roads.filter(function(road) {
+				return road.total == total;
+			});	
+		}
+		if(minTotal && maxTotal){
+			roads = roads.filter(function(road) {
+				return road.total >= minTotal && road.total <= maxTotal;
+			});
+		}
+		res.send(JSON.stringify(roads,null,2));
+		console.log("Data sent:"+JSON.stringify(roads,null));
 		
 	});
+});
 	
 	// POST ROADS
 	app.post(BASE_API_URL+"/roads", (req,res) =>{
@@ -263,7 +221,8 @@ module.exports = function(app){
 		})
 		
 	});	
-};
+		
+}
 
 
 	
