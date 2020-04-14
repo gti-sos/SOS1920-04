@@ -147,6 +147,7 @@ module.exports = function(app){
 	
 	// POST ROADS
 	app.post(BASE_API_URL+"/roads", (req,res) =>{
+		console.log("New POST .../roads");
 		var newRoads = req.body;
 		if((newRoads.province==null) || (newRoads.year==null) || (newRoads.oneway==null) || (newRoads.multipleway==null)  |	            						(newRoads.dualCarriagewayAndHighway==null) || (newRoads.highwayWithToll==null) ||(newRoads.total==null) || (newRoads == "")){
 			res.sendStatus(400,"BAD REQUEST");
@@ -178,7 +179,7 @@ module.exports = function(app){
 				delete v._id;
 			});
 
-			if(roads.length == 1){
+			if(roads.length > 0){
 				res.send(JSON.stringify(roads[0],null,2));
 				console.log("Data sent:"+JSON.stringify(roads[0],null,2));
 			}else{
