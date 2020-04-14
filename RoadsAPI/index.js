@@ -136,7 +136,7 @@ module.exports = function(app){
 		}
 		if(minTotal && maxTotal){
 			roads = roads.filter(function(road) {
-				return road.total >= minTotal && road.total <= maxTotal;
+				return road.total > minTotal && road.total < maxTotal;
 			});
 		}
 		res.send(JSON.stringify(roads,null,2));
