@@ -2943,7 +2943,7 @@ var app = (function () {
     	return block;
     }
 
-    // (87:10) <Button outline  color="primary" on:click={insertRoads}>
+    // (88:10) <Button outline  color="primary" on:click={insertRoads}>
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -2963,14 +2963,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(87:10) <Button outline  color=\\\"primary\\\" on:click={insertRoads}>",
+    		source: "(88:10) <Button outline  color=\\\"primary\\\" on:click={insertRoads}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:11) <Button outline color="danger" on:click="{deleteRoads(roads.province)}">
+    // (101:11) <Button outline color="danger" on:click="{deleteRoads(road.province, road.year)}">
     function create_default_slot_1(ctx) {
     	let t;
 
@@ -2990,42 +2990,46 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(99:11) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteRoads(roads.province)}\\\">",
+    		source: "(101:11) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteRoads(road.province, road.year)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:4) {#each roads as road}
+    // (91:4) {#each roads as road}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*roads*/ ctx[1].year + "";
+    	let t0_value = /*road*/ ctx[12].province + "";
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*roads*/ ctx[1].oneway + "";
+    	let t2_value = /*road*/ ctx[12].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*roads*/ ctx[1].multipleway + "";
+    	let t4_value = /*road*/ ctx[12].oneway + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*roads*/ ctx[1].dualCarriagewayAndHighway + "";
+    	let t6_value = /*road*/ ctx[12].multipleway + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*roads*/ ctx[1].highwayWithToll + "";
+    	let t8_value = /*road*/ ctx[12].dualCarriagewayAndHighway + "";
     	let t8;
     	let t9;
     	let td5;
-    	let t10_value = /*roads*/ ctx[1].total + "";
+    	let t10_value = /*road*/ ctx[12].highwayWithToll + "";
     	let t10;
     	let t11;
     	let td6;
+    	let t12_value = /*road*/ ctx[12].total + "";
     	let t12;
+    	let t13;
+    	let td7;
+    	let t14;
     	let current;
 
     	const button = new Button({
@@ -3039,7 +3043,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*deleteRoads*/ ctx[3](/*roads*/ ctx[1].province))) /*deleteRoads*/ ctx[3](/*roads*/ ctx[1].province).apply(this, arguments);
+    		if (is_function(/*deleteRoads*/ ctx[3](/*road*/ ctx[12].province, /*road*/ ctx[12].year))) /*deleteRoads*/ ctx[3](/*road*/ ctx[12].province, /*road*/ ctx[12].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -3062,18 +3066,22 @@ var app = (function () {
     			t9 = space();
     			td5 = element("td");
     			t10 = text(t10_value);
-    			t11 = text("\r\n\r\n¡\t\t\t\t\t\t");
+    			t11 = space();
     			td6 = element("td");
+    			t12 = text(t12_value);
+    			t13 = text("\r\n\r\n¡\t\t\t\t\t\t");
+    			td7 = element("td");
     			create_component(button.$$.fragment);
-    			t12 = space();
-    			add_location(td0, file$4, 91, 24, 2274);
-    			add_location(td1, file$4, 92, 24, 2321);
-    			add_location(td2, file$4, 93, 6, 2352);
-    			add_location(td3, file$4, 94, 6, 2388);
-    			add_location(td4, file$4, 95, 24, 2456);
-    			add_location(td5, file$4, 96, 24, 2514);
-    			add_location(td6, file$4, 98, 7, 2547);
-    			add_location(tr, file$4, 90, 5, 2244);
+    			t14 = space();
+    			add_location(td0, file$4, 92, 24, 2319);
+    			add_location(td1, file$4, 93, 24, 2369);
+    			add_location(td2, file$4, 94, 24, 2415);
+    			add_location(td3, file$4, 95, 6, 2445);
+    			add_location(td4, file$4, 96, 6, 2480);
+    			add_location(td5, file$4, 97, 24, 2547);
+    			add_location(td6, file$4, 98, 24, 2604);
+    			add_location(td7, file$4, 100, 7, 2636);
+    			add_location(tr, file$4, 91, 5, 2289);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -3096,18 +3104,22 @@ var app = (function () {
     			append_dev(td5, t10);
     			append_dev(tr, t11);
     			append_dev(tr, td6);
-    			mount_component(button, td6, null);
-    			append_dev(tr, t12);
+    			append_dev(td6, t12);
+    			append_dev(tr, t13);
+    			append_dev(tr, td7);
+    			mount_component(button, td7, null);
+    			append_dev(tr, t14);
     			current = true;
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*roads*/ 2) && t0_value !== (t0_value = /*roads*/ ctx[1].year + "")) set_data_dev(t0, t0_value);
-    			if ((!current || dirty & /*roads*/ 2) && t2_value !== (t2_value = /*roads*/ ctx[1].oneway + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*roads*/ 2) && t4_value !== (t4_value = /*roads*/ ctx[1].multipleway + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*roads*/ 2) && t6_value !== (t6_value = /*roads*/ ctx[1].dualCarriagewayAndHighway + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*roads*/ 2) && t8_value !== (t8_value = /*roads*/ ctx[1].highwayWithToll + "")) set_data_dev(t8, t8_value);
-    			if ((!current || dirty & /*roads*/ 2) && t10_value !== (t10_value = /*roads*/ ctx[1].total + "")) set_data_dev(t10, t10_value);
+    			if ((!current || dirty & /*roads*/ 2) && t0_value !== (t0_value = /*road*/ ctx[12].province + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*roads*/ 2) && t2_value !== (t2_value = /*road*/ ctx[12].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*roads*/ 2) && t4_value !== (t4_value = /*road*/ ctx[12].oneway + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*roads*/ 2) && t6_value !== (t6_value = /*road*/ ctx[12].multipleway + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*roads*/ 2) && t8_value !== (t8_value = /*road*/ ctx[12].dualCarriagewayAndHighway + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty & /*roads*/ 2) && t10_value !== (t10_value = /*road*/ ctx[12].highwayWithToll + "")) set_data_dev(t10, t10_value);
+    			if ((!current || dirty & /*roads*/ 2) && t12_value !== (t12_value = /*road*/ ctx[12].total + "")) set_data_dev(t12, t12_value);
     			const button_changes = {};
 
     			if (dirty & /*$$scope*/ 32768) {
@@ -3135,7 +3147,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(90:4) {#each roads as road}",
+    		source: "(91:4) {#each roads as road}",
     		ctx
     	});
 
@@ -3160,31 +3172,33 @@ var app = (function () {
     	let t11;
     	let th6;
     	let t13;
+    	let th7;
+    	let t15;
     	let tbody;
     	let tr1;
     	let td0;
     	let input0;
-    	let t14;
+    	let t16;
     	let td1;
     	let input1;
-    	let t15;
+    	let t17;
     	let td2;
     	let input2;
-    	let t16;
+    	let t18;
     	let td3;
     	let input3;
-    	let t17;
+    	let t19;
     	let td4;
     	let input4;
-    	let t18;
+    	let t20;
     	let td5;
     	let input5;
-    	let t19;
+    	let t21;
     	let td6;
     	let input6;
-    	let t20;
+    	let t22;
     	let td7;
-    	let t21;
+    	let t23;
     	let current;
     	let dispose;
 
@@ -3236,63 +3250,67 @@ var app = (function () {
     			th6 = element("th");
     			th6.textContent = "Total";
     			t13 = space();
+    			th7 = element("th");
+    			th7.textContent = "Acciones";
+    			t15 = space();
     			tbody = element("tbody");
     			tr1 = element("tr");
     			td0 = element("td");
     			input0 = element("input");
-    			t14 = space();
+    			t16 = space();
     			td1 = element("td");
     			input1 = element("input");
-    			t15 = space();
+    			t17 = space();
     			td2 = element("td");
     			input2 = element("input");
-    			t16 = space();
+    			t18 = space();
     			td3 = element("td");
     			input3 = element("input");
-    			t17 = space();
+    			t19 = space();
     			td4 = element("td");
     			input4 = element("input");
-    			t18 = space();
+    			t20 = space();
     			td5 = element("td");
     			input5 = element("input");
-    			t19 = space();
+    			t21 = space();
     			td6 = element("td");
     			input6 = element("input");
-    			t20 = space();
+    			t22 = space();
     			td7 = element("td");
     			create_component(button.$$.fragment);
-    			t21 = space();
+    			t23 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$4, 67, 5, 1394);
-    			add_location(th1, file$4, 68, 5, 1419);
-    			add_location(th2, file$4, 69, 5, 1438);
-    			add_location(th3, file$4, 70, 20, 1482);
-    			add_location(th4, file$4, 71, 20, 1526);
-    			add_location(th5, file$4, 72, 20, 1564);
-    			add_location(th6, file$4, 73, 20, 1604);
-    			add_location(tr0, file$4, 66, 4, 1383);
-    			add_location(thead, file$4, 65, 3, 1370);
-    			add_location(input0, file$4, 78, 9, 1675);
-    			add_location(td0, file$4, 78, 5, 1671);
-    			add_location(input1, file$4, 79, 9, 1731);
-    			add_location(td1, file$4, 79, 5, 1727);
-    			add_location(input2, file$4, 80, 24, 1798);
-    			add_location(td2, file$4, 80, 20, 1794);
-    			add_location(input3, file$4, 81, 24, 1867);
-    			add_location(td3, file$4, 81, 20, 1863);
-    			add_location(input4, file$4, 82, 9, 1926);
-    			add_location(td4, file$4, 82, 5, 1922);
-    			add_location(input5, file$4, 83, 9, 1999);
-    			add_location(td5, file$4, 83, 5, 1995);
-    			add_location(input6, file$4, 84, 9, 2062);
-    			add_location(td6, file$4, 84, 5, 2058);
-    			add_location(td7, file$4, 86, 5, 2113);
-    			add_location(tr1, file$4, 77, 4, 1660);
-    			add_location(tbody, file$4, 76, 3, 1647);
+    			add_location(th0, file$4, 67, 5, 1400);
+    			add_location(th1, file$4, 68, 5, 1425);
+    			add_location(th2, file$4, 69, 5, 1444);
+    			add_location(th3, file$4, 70, 20, 1488);
+    			add_location(th4, file$4, 71, 20, 1532);
+    			add_location(th5, file$4, 72, 20, 1570);
+    			add_location(th6, file$4, 73, 20, 1610);
+    			add_location(th7, file$4, 74, 20, 1646);
+    			add_location(tr0, file$4, 66, 4, 1389);
+    			add_location(thead, file$4, 65, 3, 1376);
+    			add_location(input0, file$4, 79, 9, 1720);
+    			add_location(td0, file$4, 79, 5, 1716);
+    			add_location(input1, file$4, 80, 9, 1776);
+    			add_location(td1, file$4, 80, 5, 1772);
+    			add_location(input2, file$4, 81, 24, 1843);
+    			add_location(td2, file$4, 81, 20, 1839);
+    			add_location(input3, file$4, 82, 24, 1912);
+    			add_location(td3, file$4, 82, 20, 1908);
+    			add_location(input4, file$4, 83, 9, 1971);
+    			add_location(td4, file$4, 83, 5, 1967);
+    			add_location(input5, file$4, 84, 9, 2044);
+    			add_location(td5, file$4, 84, 5, 2040);
+    			add_location(input6, file$4, 85, 9, 2107);
+    			add_location(td6, file$4, 85, 5, 2103);
+    			add_location(td7, file$4, 87, 5, 2158);
+    			add_location(tr1, file$4, 78, 4, 1705);
+    			add_location(tbody, file$4, 77, 3, 1692);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -3310,40 +3328,42 @@ var app = (function () {
     			append_dev(tr0, th5);
     			append_dev(tr0, t11);
     			append_dev(tr0, th6);
-    			insert_dev(target, t13, anchor);
+    			append_dev(tr0, t13);
+    			append_dev(tr0, th7);
+    			insert_dev(target, t15, anchor);
     			insert_dev(target, tbody, anchor);
     			append_dev(tbody, tr1);
     			append_dev(tr1, td0);
     			append_dev(td0, input0);
     			set_input_value(input0, /*newRoads*/ ctx[0].province);
-    			append_dev(tr1, t14);
+    			append_dev(tr1, t16);
     			append_dev(tr1, td1);
     			append_dev(td1, input1);
     			set_input_value(input1, /*newRoads*/ ctx[0].year);
-    			append_dev(tr1, t15);
+    			append_dev(tr1, t17);
     			append_dev(tr1, td2);
     			append_dev(td2, input2);
     			set_input_value(input2, /*newRoads*/ ctx[0].oneway);
-    			append_dev(tr1, t16);
+    			append_dev(tr1, t18);
     			append_dev(tr1, td3);
     			append_dev(td3, input3);
     			set_input_value(input3, /*newRoads*/ ctx[0].multipleway);
-    			append_dev(tr1, t17);
+    			append_dev(tr1, t19);
     			append_dev(tr1, td4);
     			append_dev(td4, input4);
     			set_input_value(input4, /*newRoads*/ ctx[0].dualCarriagewayAndHighway);
-    			append_dev(tr1, t18);
+    			append_dev(tr1, t20);
     			append_dev(tr1, td5);
     			append_dev(td5, input5);
     			set_input_value(input5, /*newRoads*/ ctx[0].highwayWithToll);
-    			append_dev(tr1, t19);
+    			append_dev(tr1, t21);
     			append_dev(tr1, td6);
     			append_dev(td6, input6);
     			set_input_value(input6, /*newRoads*/ ctx[0].total);
-    			append_dev(tr1, t20);
+    			append_dev(tr1, t22);
     			append_dev(tr1, td7);
     			mount_component(button, td7, null);
-    			append_dev(tbody, t21);
+    			append_dev(tbody, t23);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(tbody, null);
@@ -3449,7 +3469,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(thead);
-    			if (detaching) detach_dev(t13);
+    			if (detaching) detach_dev(t15);
     			if (detaching) detach_dev(tbody);
     			destroy_component(button);
     			destroy_each(each_blocks, detaching);
@@ -3520,7 +3540,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			info.block.c();
-    			add_location(main, file$4, 59, 0, 1278);
+    			add_location(main, file$4, 59, 0, 1284);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3606,7 +3626,7 @@ var app = (function () {
     	async function insertRoads() {
     		console.log("Inserting roads..." + JSON.stringify(newRoads));
 
-    		const res = await fetch("/api/v1/contacts", {
+    		const res = await fetch("/api/v1/roads", {
     			method: "POST",
     			body: JSON.stringify(newRoads),
     			headers: { "Content-Type": "application/json" }
@@ -3615,7 +3635,7 @@ var app = (function () {
     		});
     	}
 
-    	async function deleteRoads(name) {
+    	async function deleteRoads(province, year) {
     		const res = await fetch("/api/v1/roads/" + province + "/" + year, { method: "DELETE" }).then(function (res) {
     			getRoads();
     		});
@@ -3726,7 +3746,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (1:0) <script>  import {   onMount  }
+    // (1:0) <script>   import {    onMount   }
     function create_catch_block$1(ctx) {
     	const block = {
     		c: noop,
@@ -3741,7 +3761,7 @@ var app = (function () {
     		block,
     		id: create_catch_block$1.name,
     		type: "catch",
-    		source: "(1:0) <script>  import {   onMount  }",
+    		source: "(1:0) <script>   import {    onMount   }",
     		ctx
     	});
 
@@ -3933,15 +3953,15 @@ var app = (function () {
     			td7 = element("td");
     			create_component(button.$$.fragment);
     			t14 = space();
-    			add_location(td0, file$5, 94, 6, 2013);
-    			add_location(td1, file$5, 95, 6, 2047);
-    			add_location(td2, file$5, 96, 6, 2077);
-    			add_location(td3, file$5, 97, 6, 2106);
-    			add_location(td4, file$5, 98, 6, 2135);
-    			add_location(td5, file$5, 99, 6, 2171);
-    			add_location(td6, file$5, 100, 6, 2202);
-    			add_location(td7, file$5, 101, 6, 2233);
-    			add_location(tr, file$5, 93, 5, 2002);
+    			add_location(td0, file$5, 94, 6, 2107);
+    			add_location(td1, file$5, 95, 6, 2142);
+    			add_location(td2, file$5, 96, 6, 2173);
+    			add_location(td3, file$5, 97, 6, 2203);
+    			add_location(td4, file$5, 98, 6, 2233);
+    			add_location(td5, file$5, 99, 6, 2270);
+    			add_location(td6, file$5, 100, 6, 2302);
+    			add_location(td7, file$5, 101, 6, 2334);
+    			add_location(tr, file$5, 93, 5, 2095);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -4144,33 +4164,33 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$5, 70, 5, 1275);
-    			add_location(th1, file$5, 71, 5, 1299);
-    			add_location(th2, file$5, 72, 5, 1317);
-    			add_location(th3, file$5, 73, 5, 1338);
-    			add_location(th4, file$5, 74, 5, 1358);
-    			add_location(th5, file$5, 75, 5, 1378);
-    			add_location(th6, file$5, 76, 5, 1401);
-    			add_location(th7, file$5, 77, 5, 1421);
-    			add_location(tr0, file$5, 69, 4, 1265);
-    			add_location(thead, file$5, 68, 3, 1253);
-    			add_location(input0, file$5, 82, 9, 1490);
-    			add_location(td0, file$5, 82, 5, 1486);
-    			add_location(input1, file$5, 83, 9, 1547);
-    			add_location(td1, file$5, 83, 5, 1543);
-    			add_location(input2, file$5, 84, 9, 1600);
-    			add_location(td2, file$5, 84, 5, 1596);
-    			add_location(input3, file$5, 85, 9, 1652);
-    			add_location(td3, file$5, 85, 5, 1648);
-    			add_location(input4, file$5, 86, 9, 1704);
-    			add_location(td4, file$5, 86, 5, 1700);
-    			add_location(input5, file$5, 87, 9, 1763);
-    			add_location(td5, file$5, 87, 5, 1759);
-    			add_location(input6, file$5, 88, 9, 1817);
-    			add_location(td6, file$5, 88, 5, 1813);
-    			add_location(td7, file$5, 89, 5, 1867);
-    			add_location(tr1, file$5, 81, 4, 1476);
-    			add_location(tbody, file$5, 80, 3, 1464);
+    			add_location(th0, file$5, 70, 5, 1345);
+    			add_location(th1, file$5, 71, 5, 1370);
+    			add_location(th2, file$5, 72, 5, 1389);
+    			add_location(th3, file$5, 73, 5, 1411);
+    			add_location(th4, file$5, 74, 5, 1432);
+    			add_location(th5, file$5, 75, 5, 1453);
+    			add_location(th6, file$5, 76, 5, 1477);
+    			add_location(th7, file$5, 77, 5, 1498);
+    			add_location(tr0, file$5, 69, 4, 1334);
+    			add_location(thead, file$5, 68, 3, 1321);
+    			add_location(input0, file$5, 82, 9, 1572);
+    			add_location(td0, file$5, 82, 5, 1568);
+    			add_location(input1, file$5, 83, 9, 1630);
+    			add_location(td1, file$5, 83, 5, 1626);
+    			add_location(input2, file$5, 84, 9, 1684);
+    			add_location(td2, file$5, 84, 5, 1680);
+    			add_location(input3, file$5, 85, 9, 1737);
+    			add_location(td3, file$5, 85, 5, 1733);
+    			add_location(input4, file$5, 86, 9, 1790);
+    			add_location(td4, file$5, 86, 5, 1786);
+    			add_location(input5, file$5, 87, 9, 1850);
+    			add_location(td5, file$5, 87, 5, 1846);
+    			add_location(input6, file$5, 88, 9, 1905);
+    			add_location(td6, file$5, 88, 5, 1901);
+    			add_location(td7, file$5, 89, 5, 1956);
+    			add_location(tr1, file$5, 81, 4, 1557);
+    			add_location(tbody, file$5, 80, 3, 1544);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -4348,7 +4368,7 @@ var app = (function () {
     	return block;
     }
 
-    // (65:18)    Cargando vehículos...  {:then vehicles}
+    // (65:18)     Cargando vehículos...   {:then vehicles}
     function create_pending_block$1(ctx) {
     	let t;
 
@@ -4371,7 +4391,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(65:18)    Cargando vehículos...  {:then vehicles}",
+    		source: "(65:18)     Cargando vehículos...   {:then vehicles}",
     		ctx
     	});
 
@@ -4400,7 +4420,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			info.block.c();
-    			add_location(main, file$5, 62, 0, 1162);
+    			add_location(main, file$5, 62, 0, 1224);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4683,7 +4703,7 @@ var app = (function () {
     	return block;
     }
 
-    // (87:10) <Button outline  color="primary" on:click={insertTrafficAccident}>
+    // (88:10) <Button outline  color="primary" on:click={insertTrafficAccident}>
     function create_default_slot_2$2(ctx) {
     	let t;
 
@@ -4703,14 +4723,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$2.name,
     		type: "slot",
-    		source: "(87:10) <Button outline  color=\\\"primary\\\" on:click={insertTrafficAccident}>",
+    		source: "(88:10) <Button outline  color=\\\"primary\\\" on:click={insertTrafficAccident}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:10) <Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.province)}">
+    // (100:10) <Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">
     function create_default_slot_1$2(ctx) {
     	let t;
 
@@ -4730,14 +4750,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$2.name,
     		type: "slot",
-    		source: "(99:10) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteTrafficAccident(traffic_accident.province, traffic_accident.province)}\\\">",
+    		source: "(100:10) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:4) {#each trafficAccidents as traffic_accident}
+    // (91:4) {#each trafficAccidents as traffic_accident}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
@@ -4783,7 +4803,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*deleteTrafficAccident*/ ctx[3](/*traffic_accident*/ ctx[12].province, /*traffic_accident*/ ctx[12].province))) /*deleteTrafficAccident*/ ctx[3](/*traffic_accident*/ ctx[12].province, /*traffic_accident*/ ctx[12].province).apply(this, arguments);
+    		if (is_function(/*deleteTrafficAccident*/ ctx[3](/*traffic_accident*/ ctx[12].province, /*traffic_accident*/ ctx[12].year))) /*deleteTrafficAccident*/ ctx[3](/*traffic_accident*/ ctx[12].province, /*traffic_accident*/ ctx[12].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -4813,15 +4833,15 @@ var app = (function () {
     			td7 = element("td");
     			create_component(button.$$.fragment);
     			t14 = space();
-    			add_location(td0, file$6, 91, 6, 2651);
-    			add_location(td1, file$6, 92, 6, 2695);
-    			add_location(td2, file$6, 93, 24, 2753);
-    			add_location(td3, file$6, 94, 24, 2826);
-    			add_location(td4, file$6, 95, 24, 2894);
-    			add_location(td5, file$6, 96, 24, 2953);
-    			add_location(td6, file$6, 97, 6, 3008);
-    			add_location(td7, file$6, 98, 6, 3066);
-    			add_location(tr, file$6, 90, 5, 2639);
+    			add_location(td0, file$6, 92, 6, 2690);
+    			add_location(td1, file$6, 93, 6, 2734);
+    			add_location(td2, file$6, 94, 24, 2792);
+    			add_location(td3, file$6, 95, 24, 2865);
+    			add_location(td4, file$6, 96, 24, 2933);
+    			add_location(td5, file$6, 97, 24, 2992);
+    			add_location(td6, file$6, 98, 6, 3047);
+    			add_location(td7, file$6, 99, 6, 3105);
+    			add_location(tr, file$6, 91, 5, 2678);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -4887,7 +4907,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(90:4) {#each trafficAccidents as traffic_accident}",
+    		source: "(91:4) {#each trafficAccidents as traffic_accident}",
     		ctx
     	});
 
@@ -4912,31 +4932,33 @@ var app = (function () {
     	let t11;
     	let th6;
     	let t13;
+    	let th7;
+    	let t15;
     	let tbody;
     	let tr1;
     	let td0;
     	let input0;
-    	let t14;
+    	let t16;
     	let td1;
     	let input1;
-    	let t15;
+    	let t17;
     	let td2;
     	let input2;
-    	let t16;
+    	let t18;
     	let td3;
     	let input3;
-    	let t17;
+    	let t19;
     	let td4;
     	let input4;
-    	let t18;
+    	let t20;
     	let td5;
     	let input5;
-    	let t19;
+    	let t21;
     	let td6;
     	let input6;
-    	let t20;
+    	let t22;
     	let td7;
-    	let t21;
+    	let t23;
     	let current;
     	let dispose;
 
@@ -4988,32 +5010,35 @@ var app = (function () {
     			th6 = element("th");
     			th6.textContent = "No hospitalizados";
     			t13 = space();
+    			th7 = element("th");
+    			th7.textContent = "Acciones";
+    			t15 = space();
     			tbody = element("tbody");
     			tr1 = element("tr");
     			td0 = element("td");
     			input0 = element("input");
-    			t14 = space();
+    			t16 = space();
     			td1 = element("td");
     			input1 = element("input");
-    			t15 = space();
+    			t17 = space();
     			td2 = element("td");
     			input2 = element("input");
-    			t16 = space();
+    			t18 = space();
     			td3 = element("td");
     			input3 = element("input");
-    			t17 = space();
+    			t19 = space();
     			td4 = element("td");
     			input4 = element("input");
-    			t18 = space();
+    			t20 = space();
     			td5 = element("td");
     			input5 = element("input");
-    			t19 = space();
+    			t21 = space();
     			td6 = element("td");
     			input6 = element("input");
-    			t20 = space();
+    			t22 = space();
     			td7 = element("td");
     			create_component(button.$$.fragment);
-    			t21 = space();
+    			t23 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
@@ -5026,25 +5051,26 @@ var app = (function () {
     			add_location(th4, file$6, 72, 20, 1751);
     			add_location(th5, file$6, 73, 20, 1789);
     			add_location(th6, file$6, 74, 20, 1834);
+    			add_location(th7, file$6, 75, 20, 1882);
     			add_location(tr0, file$6, 67, 4, 1592);
     			add_location(thead, file$6, 66, 3, 1579);
-    			add_location(input0, file$6, 79, 9, 1917);
-    			add_location(td0, file$6, 79, 5, 1913);
-    			add_location(input1, file$6, 80, 9, 1984);
-    			add_location(td1, file$6, 80, 5, 1980);
-    			add_location(input2, file$6, 81, 24, 2062);
-    			add_location(td2, file$6, 81, 20, 2058);
-    			add_location(input3, file$6, 82, 24, 2155);
-    			add_location(td3, file$6, 82, 20, 2151);
-    			add_location(input4, file$6, 83, 9, 2228);
-    			add_location(td4, file$6, 83, 5, 2224);
-    			add_location(input5, file$6, 84, 24, 2307);
-    			add_location(td5, file$6, 84, 20, 2303);
-    			add_location(input6, file$6, 85, 24, 2400);
-    			add_location(td6, file$6, 85, 20, 2396);
-    			add_location(td7, file$6, 86, 5, 2477);
-    			add_location(tr1, file$6, 78, 4, 1902);
-    			add_location(tbody, file$6, 77, 3, 1889);
+    			add_location(input0, file$6, 80, 9, 1956);
+    			add_location(td0, file$6, 80, 5, 1952);
+    			add_location(input1, file$6, 81, 9, 2023);
+    			add_location(td1, file$6, 81, 5, 2019);
+    			add_location(input2, file$6, 82, 24, 2101);
+    			add_location(td2, file$6, 82, 20, 2097);
+    			add_location(input3, file$6, 83, 24, 2194);
+    			add_location(td3, file$6, 83, 20, 2190);
+    			add_location(input4, file$6, 84, 9, 2267);
+    			add_location(td4, file$6, 84, 5, 2263);
+    			add_location(input5, file$6, 85, 24, 2346);
+    			add_location(td5, file$6, 85, 20, 2342);
+    			add_location(input6, file$6, 86, 24, 2439);
+    			add_location(td6, file$6, 86, 20, 2435);
+    			add_location(td7, file$6, 87, 5, 2516);
+    			add_location(tr1, file$6, 79, 4, 1941);
+    			add_location(tbody, file$6, 78, 3, 1928);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -5062,40 +5088,42 @@ var app = (function () {
     			append_dev(tr0, th5);
     			append_dev(tr0, t11);
     			append_dev(tr0, th6);
-    			insert_dev(target, t13, anchor);
+    			append_dev(tr0, t13);
+    			append_dev(tr0, th7);
+    			insert_dev(target, t15, anchor);
     			insert_dev(target, tbody, anchor);
     			append_dev(tbody, tr1);
     			append_dev(tr1, td0);
     			append_dev(td0, input0);
     			set_input_value(input0, /*newTraffic_accident*/ ctx[0].province);
-    			append_dev(tr1, t14);
+    			append_dev(tr1, t16);
     			append_dev(tr1, td1);
     			append_dev(td1, input1);
     			set_input_value(input1, /*newTraffic_accident*/ ctx[0].year);
-    			append_dev(tr1, t15);
+    			append_dev(tr1, t17);
     			append_dev(tr1, td2);
     			append_dev(td2, input2);
     			set_input_value(input2, /*newTraffic_accident*/ ctx[0].accidentWithVictims);
-    			append_dev(tr1, t16);
+    			append_dev(tr1, t18);
     			append_dev(tr1, td3);
     			append_dev(td3, input3);
     			set_input_value(input3, /*newTraffic_accident*/ ctx[0].mortalAccident);
-    			append_dev(tr1, t17);
+    			append_dev(tr1, t19);
     			append_dev(tr1, td4);
     			append_dev(td4, input4);
     			set_input_value(input4, /*newTraffic_accident*/ ctx[0].death);
-    			append_dev(tr1, t18);
+    			append_dev(tr1, t20);
     			append_dev(tr1, td5);
     			append_dev(td5, input5);
     			set_input_value(input5, /*newTraffic_accident*/ ctx[0].hospitalizedWounded);
-    			append_dev(tr1, t19);
+    			append_dev(tr1, t21);
     			append_dev(tr1, td6);
     			append_dev(td6, input6);
     			set_input_value(input6, /*newTraffic_accident*/ ctx[0].notHospitalizedWounded);
-    			append_dev(tr1, t20);
+    			append_dev(tr1, t22);
     			append_dev(tr1, td7);
     			mount_component(button, td7, null);
-    			append_dev(tbody, t21);
+    			append_dev(tbody, t23);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(tbody, null);
@@ -5201,7 +5229,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(thead);
-    			if (detaching) detach_dev(t13);
+    			if (detaching) detach_dev(t15);
     			if (detaching) detach_dev(tbody);
     			destroy_component(button);
     			destroy_each(each_blocks, detaching);
@@ -5488,8 +5516,8 @@ var app = (function () {
     			h1.textContent = "API Manager";
     			t1 = space();
     			create_component(router.$$.fragment);
-    			add_location(h1, file$7, 20, 1, 502);
-    			add_location(main, file$7, 19, 0, 494);
+    			add_location(h1, file$7, 20, 1, 522);
+    			add_location(main, file$7, 19, 0, 513);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

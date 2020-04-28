@@ -94,8 +94,6 @@ module.exports = function(app){
 				traffic_accidents.forEach( (v) => {
 					delete v._id;
 				});
-			
-		x
 		
 			if(province){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){

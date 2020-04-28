@@ -73,6 +73,7 @@
                     <th>Muertes</th>
                     <th>Hospitalizados</th>
                     <th>No hospitalizados</th>
+                    <th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -96,7 +97,7 @@
                         <td>{traffic_accident.death}</td>
                         <td>{traffic_accident.hospitalizedWounded}</td>
 						<td>{traffic_accident.notHospitalizedWounded}</td>
-						<td><Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.province)}">Delete</Button></td>
+						<td><Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">Delete</Button></td>
 					</tr>
 				{/each}
 			</tbody>
