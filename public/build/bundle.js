@@ -4873,16 +4873,16 @@ var app = (function () {
     			td7 = element("td");
     			create_component(button.$$.fragment);
     			t14 = space();
-    			attr_dev(a, "href", a_href_value = "#/vehicles/" + /*traffic_accident*/ ctx[12].province + "/" + /*traffic_accident*/ ctx[12].year);
+    			attr_dev(a, "href", a_href_value = "#/traffic_accidents/" + /*traffic_accident*/ ctx[12].province + "/" + /*traffic_accident*/ ctx[12].year);
     			add_location(a, file$6, 100, 7, 3219);
     			add_location(td0, file$6, 99, 6, 3206);
-    			add_location(td1, file$6, 102, 6, 3344);
-    			add_location(td2, file$6, 103, 24, 3402);
-    			add_location(td3, file$6, 104, 24, 3475);
-    			add_location(td4, file$6, 105, 24, 3543);
-    			add_location(td5, file$6, 106, 24, 3602);
-    			add_location(td6, file$6, 107, 6, 3657);
-    			add_location(td7, file$6, 108, 6, 3715);
+    			add_location(td1, file$6, 102, 6, 3353);
+    			add_location(td2, file$6, 103, 24, 3411);
+    			add_location(td3, file$6, 104, 24, 3484);
+    			add_location(td4, file$6, 105, 24, 3552);
+    			add_location(td5, file$6, 106, 24, 3611);
+    			add_location(td6, file$6, 107, 6, 3666);
+    			add_location(td7, file$6, 108, 6, 3724);
     			add_location(tr, file$6, 98, 5, 3194);
     		},
     		m: function mount(target, anchor) {
@@ -4918,7 +4918,7 @@ var app = (function () {
     			ctx = new_ctx;
     			if ((!current || dirty & /*trafficAccidents*/ 2) && t0_value !== (t0_value = /*traffic_accident*/ ctx[12].province + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty & /*trafficAccidents*/ 2 && a_href_value !== (a_href_value = "#/vehicles/" + /*traffic_accident*/ ctx[12].province + "/" + /*traffic_accident*/ ctx[12].year)) {
+    			if (!current || dirty & /*trafficAccidents*/ 2 && a_href_value !== (a_href_value = "#/traffic_accidents/" + /*traffic_accident*/ ctx[12].province + "/" + /*traffic_accident*/ ctx[12].year)) {
     				attr_dev(a, "href", a_href_value);
     			}
 

@@ -98,7 +98,7 @@
 				{#each trafficAccidents as traffic_accident}
 					<tr>
 						<td>
-							<a href="#/vehicles/{traffic_accident.province}/{traffic_accident.year}">{traffic_accident.province}</a>
+							<a href="#/traffic_accidents/{traffic_accident.province}/{traffic_accident.year}">{traffic_accident.province}</a>
 						</td>
 						<td>{traffic_accident.year}</td>
                         <td>{traffic_accident.accidentWithVictims}</td>
