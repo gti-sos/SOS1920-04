@@ -42,7 +42,7 @@
 		newTraffic_accident.death = parseInt(newTraffic_accident.death);
 		newTraffic_accident.hospitalizedWounded = parseInt(newTraffic_accident.hospitalizedWounded);
 		newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded);
-
+		console.log(newTraffic_accident);
 		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
 
 		const res = await fetch("/api/v1/traffic_accidents", {
@@ -84,7 +84,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr>						
 					<td><input bind:value="{newTraffic_accident.province}"></td>
 					<td><input bind:value="{newTraffic_accident.year}"></td>
                     <td><input bind:value="{newTraffic_accident.accidentWithVictims}"></td>

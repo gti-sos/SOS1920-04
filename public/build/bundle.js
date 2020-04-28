@@ -4874,16 +4874,16 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			t14 = space();
     			attr_dev(a, "href", a_href_value = "#/traffic_accidents/" + /*traffic_accident*/ ctx[12].province + "/" + /*traffic_accident*/ ctx[12].year);
-    			add_location(a, file$6, 100, 7, 3219);
-    			add_location(td0, file$6, 99, 6, 3206);
-    			add_location(td1, file$6, 102, 6, 3353);
-    			add_location(td2, file$6, 103, 24, 3411);
-    			add_location(td3, file$6, 104, 24, 3484);
-    			add_location(td4, file$6, 105, 24, 3552);
-    			add_location(td5, file$6, 106, 24, 3611);
-    			add_location(td6, file$6, 107, 6, 3666);
-    			add_location(td7, file$6, 108, 6, 3724);
-    			add_location(tr, file$6, 98, 5, 3194);
+    			add_location(a, file$6, 100, 7, 3260);
+    			add_location(td0, file$6, 99, 6, 3247);
+    			add_location(td1, file$6, 102, 6, 3394);
+    			add_location(td2, file$6, 103, 24, 3452);
+    			add_location(td3, file$6, 104, 24, 3525);
+    			add_location(td4, file$6, 105, 24, 3593);
+    			add_location(td5, file$6, 106, 24, 3652);
+    			add_location(td6, file$6, 107, 6, 3707);
+    			add_location(td7, file$6, 108, 6, 3765);
+    			add_location(tr, file$6, 98, 5, 3235);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -5092,33 +5092,33 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$6, 75, 5, 2119);
-    			add_location(th1, file$6, 76, 5, 2144);
-    			add_location(th2, file$6, 77, 5, 2163);
-    			add_location(th3, file$6, 78, 20, 2217);
-    			add_location(th4, file$6, 79, 20, 2267);
-    			add_location(th5, file$6, 80, 20, 2305);
-    			add_location(th6, file$6, 81, 20, 2350);
-    			add_location(th7, file$6, 82, 20, 2398);
-    			add_location(tr0, file$6, 74, 4, 2108);
-    			add_location(thead, file$6, 73, 3, 2095);
-    			add_location(input0, file$6, 87, 9, 2472);
-    			add_location(td0, file$6, 87, 5, 2468);
-    			add_location(input1, file$6, 88, 9, 2539);
-    			add_location(td1, file$6, 88, 5, 2535);
-    			add_location(input2, file$6, 89, 24, 2617);
-    			add_location(td2, file$6, 89, 20, 2613);
-    			add_location(input3, file$6, 90, 24, 2710);
-    			add_location(td3, file$6, 90, 20, 2706);
-    			add_location(input4, file$6, 91, 9, 2783);
-    			add_location(td4, file$6, 91, 5, 2779);
-    			add_location(input5, file$6, 92, 24, 2862);
-    			add_location(td5, file$6, 92, 20, 2858);
-    			add_location(input6, file$6, 93, 24, 2955);
-    			add_location(td6, file$6, 93, 20, 2951);
-    			add_location(td7, file$6, 94, 5, 3032);
-    			add_location(tr1, file$6, 86, 4, 2457);
-    			add_location(tbody, file$6, 85, 3, 2444);
+    			add_location(th0, file$6, 75, 5, 2154);
+    			add_location(th1, file$6, 76, 5, 2179);
+    			add_location(th2, file$6, 77, 5, 2198);
+    			add_location(th3, file$6, 78, 20, 2252);
+    			add_location(th4, file$6, 79, 20, 2302);
+    			add_location(th5, file$6, 80, 20, 2340);
+    			add_location(th6, file$6, 81, 20, 2385);
+    			add_location(th7, file$6, 82, 20, 2433);
+    			add_location(tr0, file$6, 74, 4, 2143);
+    			add_location(thead, file$6, 73, 3, 2130);
+    			add_location(input0, file$6, 87, 9, 2513);
+    			add_location(td0, file$6, 87, 5, 2509);
+    			add_location(input1, file$6, 88, 9, 2580);
+    			add_location(td1, file$6, 88, 5, 2576);
+    			add_location(input2, file$6, 89, 24, 2658);
+    			add_location(td2, file$6, 89, 20, 2654);
+    			add_location(input3, file$6, 90, 24, 2751);
+    			add_location(td3, file$6, 90, 20, 2747);
+    			add_location(input4, file$6, 91, 9, 2824);
+    			add_location(td4, file$6, 91, 5, 2820);
+    			add_location(input5, file$6, 92, 24, 2903);
+    			add_location(td5, file$6, 92, 20, 2899);
+    			add_location(input6, file$6, 93, 24, 2996);
+    			add_location(td6, file$6, 93, 20, 2992);
+    			add_location(td7, file$6, 94, 5, 3073);
+    			add_location(tr1, file$6, 86, 4, 2492);
+    			add_location(tbody, file$6, 85, 3, 2479);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -5348,7 +5348,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			info.block.c();
-    			add_location(main, file$6, 67, 0, 1970);
+    			add_location(main, file$6, 67, 0, 2005);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5438,6 +5438,7 @@ var app = (function () {
     		$$invalidate(0, newTraffic_accident.death = parseInt(newTraffic_accident.death), newTraffic_accident);
     		$$invalidate(0, newTraffic_accident.hospitalizedWounded = parseInt(newTraffic_accident.hospitalizedWounded), newTraffic_accident);
     		$$invalidate(0, newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded), newTraffic_accident);
+    		console.log(newTraffic_accident);
     		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
 
     		const res = await fetch("/api/v1/traffic_accidents", {
@@ -7051,14 +7052,14 @@ var app = (function () {
     	return block;
     }
 
-    // (72:1) {:then traffic_accident}
+    // (73:1) {:then traffic_accident}
     function create_then_block$5(ctx) {
     	let current;
 
     	const table = new Table({
     			props: {
     				bordered: true,
-    				$$slots: { default: [create_default_slot$5] },
+    				$$slots: { default: [create_default_slot_1$5] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -7075,7 +7076,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, updateNotHospitalizedWounded, updateHospitalizedWounded, updatedDeath, updateMortalAccident, updateAccidentWithVictims, updatedYear*/ 131198) {
+    			if (dirty & /*$$scope, updatedNotHospitalizedWounded, updatedHospitalizedWounded, updatedDeath, updatedMortalAccident, updatedAccidentWithVictims, updatedYear, updatedProvince*/ 131580) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -7099,15 +7100,15 @@ var app = (function () {
     		block,
     		id: create_then_block$5.name,
     		type: "then",
-    		source: "(72:1) {:then traffic_accident}",
+    		source: "(73:1) {:then traffic_accident}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:10) <Button outline  color="primary" on:click={updateTrafficAccident()}>
-    function create_default_slot_1$5(ctx) {
+    // (96:10) <Button outline  color="primary" on:click={updateTrafficAccident}>
+    function create_default_slot_2$3(ctx) {
     	let t;
 
     	const block = {
@@ -7124,17 +7125,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$5.name,
+    		id: create_default_slot_2$3.name,
     		type: "slot",
-    		source: "(94:10) <Button outline  color=\\\"primary\\\" on:click={updateTrafficAccident()}>",
+    		source: "(96:10) <Button outline  color=\\\"primary\\\" on:click={updateTrafficAccident}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:2) <Table bordered>
-    function create_default_slot$5(ctx) {
+    // (74:2) <Table bordered>
+    function create_default_slot_1$5(ctx) {
     	let thead;
     	let tr0;
     	let th0;
@@ -7156,24 +7157,27 @@ var app = (function () {
     	let tbody;
     	let tr1;
     	let td0;
-    	let input0;
     	let t16;
-    	let td1;
-    	let input1;
     	let t17;
-    	let td2;
-    	let input2;
+    	let td1;
     	let t18;
-    	let td3;
-    	let input3;
     	let t19;
-    	let td4;
-    	let input4;
+    	let td2;
+    	let input0;
     	let t20;
-    	let td5;
-    	let input5;
+    	let td3;
+    	let input1;
     	let t21;
+    	let td4;
+    	let input2;
+    	let t22;
+    	let td5;
+    	let input3;
+    	let t23;
     	let td6;
+    	let input4;
+    	let t24;
+    	let td7;
     	let current;
     	let dispose;
 
@@ -7181,13 +7185,13 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "primary",
-    				$$slots: { default: [create_default_slot_1$5] },
+    				$$slots: { default: [create_default_slot_2$3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	button.$on("click", /*updateTrafficAccident*/ ctx[7]());
+    	button.$on("click", /*updateTrafficAccident*/ ctx[10]);
 
     	const block = {
     		c: function create() {
@@ -7220,50 +7224,53 @@ var app = (function () {
     			tbody = element("tbody");
     			tr1 = element("tr");
     			td0 = element("td");
-    			input0 = element("input");
-    			t16 = space();
-    			td1 = element("td");
-    			input1 = element("input");
+    			t16 = text(/*updatedProvince*/ ctx[2]);
     			t17 = space();
-    			td2 = element("td");
-    			input2 = element("input");
-    			t18 = space();
-    			td3 = element("td");
-    			input3 = element("input");
+    			td1 = element("td");
+    			t18 = text(/*updatedYear*/ ctx[3]);
     			t19 = space();
-    			td4 = element("td");
-    			input4 = element("input");
+    			td2 = element("td");
+    			input0 = element("input");
     			t20 = space();
-    			td5 = element("td");
-    			input5 = element("input");
+    			td3 = element("td");
+    			input1 = element("input");
     			t21 = space();
+    			td4 = element("td");
+    			input2 = element("input");
+    			t22 = space();
+    			td5 = element("td");
+    			input3 = element("input");
+    			t23 = space();
     			td6 = element("td");
+    			input4 = element("input");
+    			t24 = space();
+    			td7 = element("td");
     			create_component(button.$$.fragment);
-    			add_location(th0, file$9, 75, 5, 2875);
-    			add_location(th1, file$9, 76, 5, 2900);
-    			add_location(th2, file$9, 77, 5, 2919);
-    			add_location(th3, file$9, 78, 20, 2973);
-    			add_location(th4, file$9, 79, 20, 3023);
-    			add_location(th5, file$9, 80, 20, 3061);
-    			add_location(th6, file$9, 81, 20, 3106);
-    			add_location(th7, file$9, 82, 20, 3154);
-    			add_location(tr0, file$9, 74, 4, 2864);
-    			add_location(thead, file$9, 73, 3, 2851);
-    			add_location(input0, file$9, 87, 9, 3228);
-    			add_location(td0, file$9, 87, 5, 3224);
-    			add_location(input1, file$9, 88, 24, 3293);
-    			add_location(td1, file$9, 88, 20, 3289);
-    			add_location(input2, file$9, 89, 24, 3372);
-    			add_location(td2, file$9, 89, 20, 3368);
-    			add_location(input3, file$9, 90, 24, 3446);
-    			add_location(td3, file$9, 90, 20, 3442);
-    			add_location(input4, file$9, 91, 24, 3512);
-    			add_location(td4, file$9, 91, 20, 3508);
-    			add_location(input5, file$9, 92, 9, 3576);
-    			add_location(td5, file$9, 92, 5, 3572);
-    			add_location(td6, file$9, 93, 5, 3639);
-    			add_location(tr1, file$9, 86, 4, 3213);
-    			add_location(tbody, file$9, 85, 3, 3200);
+    			add_location(th0, file$9, 76, 5, 2951);
+    			add_location(th1, file$9, 77, 5, 2976);
+    			add_location(th2, file$9, 78, 5, 2995);
+    			add_location(th3, file$9, 79, 20, 3049);
+    			add_location(th4, file$9, 80, 20, 3099);
+    			add_location(th5, file$9, 81, 20, 3137);
+    			add_location(th6, file$9, 82, 20, 3182);
+    			add_location(th7, file$9, 83, 20, 3230);
+    			add_location(tr0, file$9, 75, 4, 2940);
+    			add_location(thead, file$9, 74, 3, 2927);
+    			add_location(td0, file$9, 88, 20, 3315);
+    			add_location(td1, file$9, 89, 20, 3363);
+    			add_location(input0, file$9, 90, 24, 3411);
+    			add_location(td2, file$9, 90, 20, 3407);
+    			add_location(input1, file$9, 91, 24, 3491);
+    			add_location(td3, file$9, 91, 20, 3487);
+    			add_location(input2, file$9, 92, 24, 3566);
+    			add_location(td4, file$9, 92, 20, 3562);
+    			add_location(input3, file$9, 93, 24, 3632);
+    			add_location(td5, file$9, 93, 20, 3628);
+    			add_location(input4, file$9, 94, 9, 3697);
+    			add_location(td6, file$9, 94, 5, 3693);
+    			add_location(td7, file$9, 95, 5, 3761);
+    			add_location(tr1, file$9, 87, 4, 3289);
+    			add_location(tbody, file$9, 86, 3, 3276);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -7287,66 +7294,66 @@ var app = (function () {
     			insert_dev(target, tbody, anchor);
     			append_dev(tbody, tr1);
     			append_dev(tr1, td0);
-    			append_dev(td0, input0);
-    			set_input_value(input0, /*updatedYear*/ ctx[1]);
-    			append_dev(tr1, t16);
-    			append_dev(tr1, td1);
-    			append_dev(td1, input1);
-    			set_input_value(input1, /*updateAccidentWithVictims*/ ctx[2]);
+    			append_dev(td0, t16);
     			append_dev(tr1, t17);
-    			append_dev(tr1, td2);
-    			append_dev(td2, input2);
-    			set_input_value(input2, /*updateMortalAccident*/ ctx[3]);
-    			append_dev(tr1, t18);
-    			append_dev(tr1, td3);
-    			append_dev(td3, input3);
-    			set_input_value(input3, /*updatedDeath*/ ctx[4]);
+    			append_dev(tr1, td1);
+    			append_dev(td1, t18);
     			append_dev(tr1, t19);
-    			append_dev(tr1, td4);
-    			append_dev(td4, input4);
-    			set_input_value(input4, /*updateHospitalizedWounded*/ ctx[5]);
+    			append_dev(tr1, td2);
+    			append_dev(td2, input0);
+    			set_input_value(input0, /*updatedAccidentWithVictims*/ ctx[4]);
     			append_dev(tr1, t20);
-    			append_dev(tr1, td5);
-    			append_dev(td5, input5);
-    			set_input_value(input5, /*updateNotHospitalizedWounded*/ ctx[6]);
+    			append_dev(tr1, td3);
+    			append_dev(td3, input1);
+    			set_input_value(input1, /*updatedMortalAccident*/ ctx[5]);
     			append_dev(tr1, t21);
+    			append_dev(tr1, td4);
+    			append_dev(td4, input2);
+    			set_input_value(input2, /*updatedDeath*/ ctx[6]);
+    			append_dev(tr1, t22);
+    			append_dev(tr1, td5);
+    			append_dev(td5, input3);
+    			set_input_value(input3, /*updatedHospitalizedWounded*/ ctx[7]);
+    			append_dev(tr1, t23);
     			append_dev(tr1, td6);
-    			mount_component(button, td6, null);
+    			append_dev(td6, input4);
+    			set_input_value(input4, /*updatedNotHospitalizedWounded*/ ctx[8]);
+    			append_dev(tr1, t24);
+    			append_dev(tr1, td7);
+    			mount_component(button, td7, null);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[12]),
-    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[13]),
-    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[14]),
-    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[15]),
-    				listen_dev(input5, "input", /*input5_input_handler*/ ctx[16])
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[12]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[13]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[14]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[15]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[16])
     			];
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*updatedYear*/ 2 && input0.value !== /*updatedYear*/ ctx[1]) {
-    				set_input_value(input0, /*updatedYear*/ ctx[1]);
+    			if (!current || dirty & /*updatedProvince*/ 4) set_data_dev(t16, /*updatedProvince*/ ctx[2]);
+    			if (!current || dirty & /*updatedYear*/ 8) set_data_dev(t18, /*updatedYear*/ ctx[3]);
+
+    			if (dirty & /*updatedAccidentWithVictims*/ 16 && input0.value !== /*updatedAccidentWithVictims*/ ctx[4]) {
+    				set_input_value(input0, /*updatedAccidentWithVictims*/ ctx[4]);
     			}
 
-    			if (dirty & /*updateAccidentWithVictims*/ 4 && input1.value !== /*updateAccidentWithVictims*/ ctx[2]) {
-    				set_input_value(input1, /*updateAccidentWithVictims*/ ctx[2]);
+    			if (dirty & /*updatedMortalAccident*/ 32 && input1.value !== /*updatedMortalAccident*/ ctx[5]) {
+    				set_input_value(input1, /*updatedMortalAccident*/ ctx[5]);
     			}
 
-    			if (dirty & /*updateMortalAccident*/ 8 && input2.value !== /*updateMortalAccident*/ ctx[3]) {
-    				set_input_value(input2, /*updateMortalAccident*/ ctx[3]);
+    			if (dirty & /*updatedDeath*/ 64 && input2.value !== /*updatedDeath*/ ctx[6]) {
+    				set_input_value(input2, /*updatedDeath*/ ctx[6]);
     			}
 
-    			if (dirty & /*updatedDeath*/ 16 && input3.value !== /*updatedDeath*/ ctx[4]) {
-    				set_input_value(input3, /*updatedDeath*/ ctx[4]);
+    			if (dirty & /*updatedHospitalizedWounded*/ 128 && input3.value !== /*updatedHospitalizedWounded*/ ctx[7]) {
+    				set_input_value(input3, /*updatedHospitalizedWounded*/ ctx[7]);
     			}
 
-    			if (dirty & /*updateHospitalizedWounded*/ 32 && input4.value !== /*updateHospitalizedWounded*/ ctx[5]) {
-    				set_input_value(input4, /*updateHospitalizedWounded*/ ctx[5]);
-    			}
-
-    			if (dirty & /*updateNotHospitalizedWounded*/ 64 && input5.value !== /*updateNotHospitalizedWounded*/ ctx[6]) {
-    				set_input_value(input5, /*updateNotHospitalizedWounded*/ ctx[6]);
+    			if (dirty & /*updatedNotHospitalizedWounded*/ 256 && input4.value !== /*updatedNotHospitalizedWounded*/ ctx[8]) {
+    				set_input_value(input4, /*updatedNotHospitalizedWounded*/ ctx[8]);
     			}
 
     			const button_changes = {};
@@ -7377,16 +7384,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$5.name,
+    		id: create_default_slot_1$5.name,
     		type: "slot",
-    		source: "(73:2) <Table bordered>",
+    		source: "(74:2) <Table bordered>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:29)     Loading traffic accidents...   {:then traffic_accident}
+    // (71:29)     Loading traffic accidents...   {:then traffic_accident}
     function create_pending_block$5(ctx) {
     	let t;
 
@@ -7409,28 +7416,35 @@ var app = (function () {
     		block,
     		id: create_pending_block$5.name,
     		type: "pending",
-    		source: "(70:29)     Loading traffic accidents...   {:then traffic_accident}",
+    		source: "(71:29)     Loading traffic accidents...   {:then traffic_accident}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:4) {#if errorMsg}
+    // (102:4) {#if errorMsg}
     function create_if_block$4(ctx) {
     	let p;
+    	let t0;
+    	let t1;
 
     	const block = {
     		c: function create() {
     			p = element("p");
-    			p.textContent = `ERROR: ${errorMsg}`;
+    			t0 = text("ERROR: ");
+    			t1 = text(/*errorMsg*/ ctx[1]);
     			set_style(p, "color", "red");
-    			add_location(p, file$9, 100, 8, 3815);
+    			add_location(p, file$9, 102, 4, 3931);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
     		},
-    		p: noop,
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*errorMsg*/ 2) set_data_dev(t1, /*errorMsg*/ ctx[1]);
+    		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
     		}
@@ -7440,7 +7454,34 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(100:4) {#if errorMsg}",
+    		source: "(102:4) {#if errorMsg}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (105:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$5(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Atrás");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$5.name,
+    		type: "slot",
+    		source: "(105:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
     		ctx
     	});
 
@@ -7467,17 +7508,24 @@ var app = (function () {
     		pending: create_pending_block$5,
     		then: create_then_block$5,
     		catch: create_catch_block$5,
-    		value: 8,
+    		value: 9,
     		blocks: [,,,]
     	};
 
-    	handle_promise(promise = /*traffic_accident*/ ctx[8], info);
-    	let if_block = errorMsg && create_if_block$4(ctx);
+    	handle_promise(promise = /*traffic_accident*/ ctx[9], info);
+    	let if_block = /*errorMsg*/ ctx[1] && create_if_block$4(ctx);
 
     	const button = new Button({
-    			props: { outline: true, color: "secondary" },
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$5] },
+    				$$scope: { ctx }
+    			},
     			$$inline: true
     		});
+
+    	button.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -7492,9 +7540,9 @@ var app = (function () {
     			if (if_block) if_block.c();
     			t4 = space();
     			create_component(button.$$.fragment);
-    			add_location(strong, file$9, 67, 8, 2666);
-    			add_location(h3, file$9, 67, 4, 2662);
-    			add_location(main, file$9, 66, 0, 2650);
+    			add_location(strong, file$9, 68, 8, 2742);
+    			add_location(h3, file$9, 68, 4, 2738);
+    			add_location(main, file$9, 67, 0, 2726);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7518,14 +7566,34 @@ var app = (function () {
     		p: function update(new_ctx, [dirty]) {
     			ctx = new_ctx;
     			if ((!current || dirty & /*params*/ 1) && t1_value !== (t1_value = /*params*/ ctx[0].traffic_accidentProvince + "")) set_data_dev(t1, t1_value);
+    			info.ctx = ctx;
 
-    			{
+    			if (dirty & /*traffic_accident*/ 512 && promise !== (promise = /*traffic_accident*/ ctx[9]) && handle_promise(promise, info)) ; else {
     				const child_ctx = ctx.slice();
-    				child_ctx[8] = info.resolved;
+    				child_ctx[9] = info.resolved;
     				info.block.p(child_ctx, dirty);
     			}
 
-    			if (errorMsg) if_block.p(ctx, dirty);
+    			if (/*errorMsg*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$4(ctx);
+    					if_block.c();
+    					if_block.m(main, t4);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 131072) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -7565,34 +7633,35 @@ var app = (function () {
 
     function instance$a($$self, $$props, $$invalidate) {
     	let { params = {} } = $$props;
+    	let errorMsg = false;
     	let traffic_accident = {};
     	let updatedProvince;
     	let updatedYear;
-    	let updateAccidentWithVictims;
-    	let updateMortalAccident;
+    	let updatedAccidentWithVictims;
+    	let updatedMortalAccident;
     	let updatedDeath;
-    	let updateHospitalizedWounded;
-    	let updateNotHospitalizedWounded;
+    	let updatedHospitalizedWounded;
+    	let updatedNotHospitalizedWounded;
     	onMount(getTrafficAccident);
 
     	async function getTrafficAccident() {
     		console.log("Fetching traffic accidents...");
-    		const res = await fetch("/api/v1/traffic_accidents" + params.traffic_accidentProvince + "/" + params.traffic_accidentYear);
+    		const res = await fetch("/api/v1/traffic_accidents/" + params.traffic_accidentProvince + "/" + params.traffic_accidentYear);
 
     		if (res.ok) {
     			console.log("Ok:");
     			const json = await res.json();
-    			let traffic_accident = json;
-    			let updatedProvince = params.traffic_accidentProvince;
-    			let updatedYear = params.traffic_accidentYear;
-    			let updateAccidentWithVictims = traffic_accident.accidentWithVictims;
-    			let updateMortalAccident = traffic_accident.mortalAccident;
-    			let updatedDeath = traffic_accident.death;
-    			let updateHospitalizedWounded = traffic_accident.hospitalizedWounded;
-    			let updateNotHospitalizedWounded = traffic_accident.notHospitalizedWounded;
+    			$$invalidate(9, traffic_accident = json);
+    			$$invalidate(2, updatedProvince = params.traffic_accidentProvince);
+    			$$invalidate(3, updatedYear = params.traffic_accidentYear);
+    			$$invalidate(4, updatedAccidentWithVictims = traffic_accident.accidentWithVictims);
+    			$$invalidate(5, updatedMortalAccident = traffic_accident.mortalAccident);
+    			$$invalidate(6, updatedDeath = traffic_accident.death);
+    			$$invalidate(7, updatedHospitalizedWounded = traffic_accident.hospitalizedWounded);
+    			$$invalidate(8, updatedNotHospitalizedWounded = traffic_accident.notHospitalizedWounded);
     			console.log("Received " + traffic_accident.length + " traffic accident.");
     		} else {
-    			errorMsg = res.status + ": " + res.statusText;
+    			$$invalidate(1, errorMsg = res.status + ": " + res.statusText);
     			console.log("ERROR!");
     		}
     	}
@@ -7600,16 +7669,16 @@ var app = (function () {
     	async function updateTrafficAccident() {
     		console.log("Updating trafficc accident..." + JSON.stringify(params.traffic_accidentProvince) + JSON.stringify(params.traffic_accidentYear));
 
-    		const res = await fetch("/api/v1/traffic_accidents" + params.traffic_accidentProvince + params.traffic_accidentYear, {
+    		const res = await fetch("/api/v1/traffic_accidents/" + params.traffic_accidentProvince + "/" + params.traffic_accidentYear, {
     			method: "PUT",
     			body: JSON.stringify({
     				province: params.traffic_accidentProvince,
-    				year: params.traffic_accidentYear,
-    				accidentWithVictims: updateAccidentWithVictims,
-    				mortalAccident: updateMortalAccident,
-    				death: updatedDeath,
-    				hospitalizedWounded: updateHospitalizedWounded,
-    				notHospitalizedWounded: updateNotHospitalizedWounded
+    				year: parseInt(params.traffic_accidentYear),
+    				accidentWithVictims: parseInt(updatedAccidentWithVictims),
+    				mortalAccident: parseInt(updatedMortalAccident),
+    				death: parseInt(updatedDeath),
+    				hospitalizedWounded: parseInt(updatedHospitalizedWounded),
+    				notHospitalizedWounded: parseInt(updatedNotHospitalizedWounded)
     			}),
     			headers: { "Content-Type": "application/json" }
     		}).then(function (res) {
@@ -7628,33 +7697,28 @@ var app = (function () {
     	validate_slots("TrafficAccidentsUpdate", $$slots, []);
 
     	function input0_input_handler() {
-    		updatedYear = this.value;
-    		$$invalidate(1, updatedYear);
+    		updatedAccidentWithVictims = this.value;
+    		$$invalidate(4, updatedAccidentWithVictims);
     	}
 
     	function input1_input_handler() {
-    		updateAccidentWithVictims = this.value;
-    		$$invalidate(2, updateAccidentWithVictims);
+    		updatedMortalAccident = this.value;
+    		$$invalidate(5, updatedMortalAccident);
     	}
 
     	function input2_input_handler() {
-    		updateMortalAccident = this.value;
-    		$$invalidate(3, updateMortalAccident);
+    		updatedDeath = this.value;
+    		$$invalidate(6, updatedDeath);
     	}
 
     	function input3_input_handler() {
-    		updatedDeath = this.value;
-    		$$invalidate(4, updatedDeath);
+    		updatedHospitalizedWounded = this.value;
+    		$$invalidate(7, updatedHospitalizedWounded);
     	}
 
     	function input4_input_handler() {
-    		updateHospitalizedWounded = this.value;
-    		$$invalidate(5, updateHospitalizedWounded);
-    	}
-
-    	function input5_input_handler() {
-    		updateNotHospitalizedWounded = this.value;
-    		$$invalidate(6, updateNotHospitalizedWounded);
+    		updatedNotHospitalizedWounded = this.value;
+    		$$invalidate(8, updatedNotHospitalizedWounded);
     	}
 
     	$$self.$set = $$props => {
@@ -7667,28 +7731,30 @@ var app = (function () {
     		Button,
     		pop,
     		params,
+    		errorMsg,
     		traffic_accident,
     		updatedProvince,
     		updatedYear,
-    		updateAccidentWithVictims,
-    		updateMortalAccident,
+    		updatedAccidentWithVictims,
+    		updatedMortalAccident,
     		updatedDeath,
-    		updateHospitalizedWounded,
-    		updateNotHospitalizedWounded,
+    		updatedHospitalizedWounded,
+    		updatedNotHospitalizedWounded,
     		getTrafficAccident,
     		updateTrafficAccident
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("params" in $$props) $$invalidate(0, params = $$props.params);
-    		if ("traffic_accident" in $$props) $$invalidate(8, traffic_accident = $$props.traffic_accident);
-    		if ("updatedProvince" in $$props) updatedProvince = $$props.updatedProvince;
-    		if ("updatedYear" in $$props) $$invalidate(1, updatedYear = $$props.updatedYear);
-    		if ("updateAccidentWithVictims" in $$props) $$invalidate(2, updateAccidentWithVictims = $$props.updateAccidentWithVictims);
-    		if ("updateMortalAccident" in $$props) $$invalidate(3, updateMortalAccident = $$props.updateMortalAccident);
-    		if ("updatedDeath" in $$props) $$invalidate(4, updatedDeath = $$props.updatedDeath);
-    		if ("updateHospitalizedWounded" in $$props) $$invalidate(5, updateHospitalizedWounded = $$props.updateHospitalizedWounded);
-    		if ("updateNotHospitalizedWounded" in $$props) $$invalidate(6, updateNotHospitalizedWounded = $$props.updateNotHospitalizedWounded);
+    		if ("errorMsg" in $$props) $$invalidate(1, errorMsg = $$props.errorMsg);
+    		if ("traffic_accident" in $$props) $$invalidate(9, traffic_accident = $$props.traffic_accident);
+    		if ("updatedProvince" in $$props) $$invalidate(2, updatedProvince = $$props.updatedProvince);
+    		if ("updatedYear" in $$props) $$invalidate(3, updatedYear = $$props.updatedYear);
+    		if ("updatedAccidentWithVictims" in $$props) $$invalidate(4, updatedAccidentWithVictims = $$props.updatedAccidentWithVictims);
+    		if ("updatedMortalAccident" in $$props) $$invalidate(5, updatedMortalAccident = $$props.updatedMortalAccident);
+    		if ("updatedDeath" in $$props) $$invalidate(6, updatedDeath = $$props.updatedDeath);
+    		if ("updatedHospitalizedWounded" in $$props) $$invalidate(7, updatedHospitalizedWounded = $$props.updatedHospitalizedWounded);
+    		if ("updatedNotHospitalizedWounded" in $$props) $$invalidate(8, updatedNotHospitalizedWounded = $$props.updatedNotHospitalizedWounded);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -7697,22 +7763,22 @@ var app = (function () {
 
     	return [
     		params,
-    		updatedYear,
-    		updateAccidentWithVictims,
-    		updateMortalAccident,
-    		updatedDeath,
-    		updateHospitalizedWounded,
-    		updateNotHospitalizedWounded,
-    		updateTrafficAccident,
-    		traffic_accident,
+    		errorMsg,
     		updatedProvince,
+    		updatedYear,
+    		updatedAccidentWithVictims,
+    		updatedMortalAccident,
+    		updatedDeath,
+    		updatedHospitalizedWounded,
+    		updatedNotHospitalizedWounded,
+    		traffic_accident,
+    		updateTrafficAccident,
     		getTrafficAccident,
     		input0_input_handler,
     		input1_input_handler,
     		input2_input_handler,
     		input3_input_handler,
-    		input4_input_handler,
-    		input5_input_handler
+    		input4_input_handler
     	];
     }
 
@@ -7759,8 +7825,8 @@ var app = (function () {
     			h1.textContent = "API Manager";
     			t1 = space();
     			create_component(router.$$.fragment);
-    			add_location(h1, file$a, 26, 1, 938);
-    			add_location(main, file$a, 25, 0, 929);
+    			add_location(h1, file$a, 26, 1, 937);
+    			add_location(main, file$a, 25, 0, 928);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -7807,7 +7873,7 @@ var app = (function () {
     		"/roads": RoadsTable,
     		"/vehicles/:vehicleProvince/:vehicleYear": VehiclesUpdate,
     		"/roads/:roadProvince/:roadYear": RoadsUpdate,
-    		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentsYear": TrafficAccidentsUpdate,
+    		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentYear": TrafficAccidentsUpdate,
     		"*": NotFound
     	};
 
