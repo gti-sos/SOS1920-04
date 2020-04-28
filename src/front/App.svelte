@@ -8,7 +8,7 @@
 	import VehiclesAPI from './VehiclesAPI/VehiclesTable.svelte';
 	import TrafficAccidentsAPI from './TrafficAccidentsAPI/TrafficAccidentsTable.svelte';
 	import EditRoad from './RoadsAPI/RoadsUpdate.svelte';
-	import EditVehicle from './VehiclesRoadsAPI/VehiclesUpdate.svelte';
+	import EditVehicle from './VehiclesAPI/VehiclesUpdate.svelte';
 	import EditTrafficAccidents from './TrafficAccidentsAPI/TrafficAccidentsUpdate.svelte';
 
 	const routes = {

@@ -33,7 +33,7 @@
             updatedMotorcycle = vehicle.motorcycle;
             updatedTruck = vehicle.truck;
             updatedTotal = vehicle.total;
-            console.log("Received " + vehicle.length + " contacts.");
+            console.log("Received " + vehicle.length + " vehicle.");
         } else {
             errorMsg = res.status + ": " + res.statusText;
             console.log("ERROR!");
@@ -92,7 +92,7 @@
                     <td><input bind:value="{updatedMotorcycle}"></td>
                     <td><input bind:value="{updatedTruck}"></td>
                     <td><input bind:value="{updatedTotal}"></td>
-					<td> <Button outline  color="primary" on:click={updateVehicle}>Actualizar</Button> </td>
+					<td> <Button outline  color="primary" on:click={updateVehicle()}>Actualizar</Button> </td>
 				</tr>
 
 			</tbody>
