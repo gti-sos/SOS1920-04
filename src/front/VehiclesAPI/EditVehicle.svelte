@@ -6,73 +6,93 @@
     import Button from "sveltestrap/src/Button.svelte";
     import {pop} from "svelte-spa-router";
     export let params = {};
-    let contact = {};
-    let updatedName = "pepe";
-    let updatedPhone = "123456789";
-    let updatedEmail = "hola@gmail.com";
+    let vehicle = {};
+    let updatedProvince;
+    let updatedYear;
+    let updatedCar;
+    let updatedBus;
+    let updatedMotorcycle;
+    let updatedTruck;
+    let updatedTotal;
 
-    onMount(getContact);
+    onMount(getVehicle);
 
-    async function getContact() {
+    async function getVehicle() {
 
-        console.log("Fetching contacts...");
-        const res = await fetch("/api/v1/contacts" + params.contactName);
+        console.log("Fetching vehicles...");
+        const res = await fetch("/api/v1/vehicles/" + params.vehicleProvince +"/" + params.vehicleYear);
 
         if (res.ok) {
             console.log("Ok:");
             const json = await res.json();
-            contact = json;
-            updatedName = contact.name;
-            updatedEmail = contact.email;
-            updatedPhone = contact.phone;
-            console.log("Received " + contact.length + " contacts.");
+            vehicle = json;
+            updatedProvince = params.vehicleProvince;
+            updatedYear = params.vehicleYear;
+            updatedCar = vehicle.car;
+            updatedBus = vehicle.bus;
+            updatedMotorcycle = vehicle.motorcycle;
+            updatedTruck = vehicle.truck;
+            updatedTotal = vehicle.total;
+            console.log("Received " + vehicle.length + " contacts.");
         } else {
             errorMsg = res.status + ": " + res.statusText;
             console.log("ERROR!");
         }
     }
     
-    async function updateContact() {
+    async function updateVehicle() {
         
-		console.log("Updating contact..." + JSON.stringify(params.contactName));
-        const res = await fetch("/api/v1/contacts"+ params.contactName, {
+		console.log("Updating vehicle..." + JSON.stringify(params.vehicleProvince) + JSON.stringify(params.vehicleYear));
+        const res = await fetch("/api/v1/contacts"+ params.vehicleProvince + params.vehicleYear, {
             method: "PUT",
             body: JSON.stringify({
-                name : params.contactName,
-                phone : updatedPhone,
-                email : updatedEmail
+                province : params.vehicleProvince,
+                year : params.vehicleYear,
+                car : updatedCar,
+                bus : updatedBus,
+                motorcycle : updatedMotorcycle,
+                truck : updatedTruck,
+                total : updatedTotal
             }),
             headers: {
                 "Content-Type": "application/json"
             }
         }).then(function (res) {
-            getContact();
+            getVehicle();
         });
 
     };
 </script>
 
 <main>
-    <h3><strong>Edit Contact {params.contactName}</strong></h3>
+    <h3><strong>Edita el dato de vehículos asociado a {params.vehicleProvince} y {params.vehicleYear}</strong></h3>
 
-    {#await contacts}
-		Loading contacts...
-	{:then contacts}
+    {#await vehicles}
+		Cargando vehículo...
+	{:then vehicles}
 		<Table bordered>
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Phone</th>
-					<th>Actions</th>
+					<th>Provincia</th>
+					<th>Año</th>
+					<th>Coches</th>
+					<th>Buses</th>
+					<th>Motos</th>
+					<th>Camiones</th>
+					<th>Total</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>{updatedName}</td>
-					<td><input bind:value="{updatedEmail}"></td>
-					<td><input bind:value="{updatedPhone}"></td>
-					<td> <Button outline  color="primary" on:click={updateContact}>Update</Button> </td>
+                    <td>{updatedProvince}</td>
+                    <td>{updatedYear}</td>
+                    <td><input bind:value="{updatedCar}"></td>
+                    <td><input bind:value="{updatedBus}"></td>
+                    <td><input bind:value="{updatedMotorcycle}"></td>
+                    <td><input bind:value="{updatedTruck}"></td>
+                    <td><input bind:value="{updatedTotal}"></td>
+					<td> <Button outline  color="primary" on:click={updateVehicle}>Actualizar</Button> </td>
 				</tr>
 
 			</tbody>
