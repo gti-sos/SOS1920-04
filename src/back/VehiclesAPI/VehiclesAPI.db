@@ -3,3 +3,7 @@
 {"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"ItjOnkIEgWmDMNNz"}
 {"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"vDPuZOYnpOOyxttQ"}
 {"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"vhK0Y1hInLaTPPro"}
+{"$$deleted":true,"_id":"CGJur2D5m6V6bhCX"}
+{"province":"Madrid","year":"2015","car":"1234","bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"IzeJkQxV77H2WVfM"}
+{"$$deleted":true,"_id":"ItjOnkIEgWmDMNNz"}
+{"province":"Almeria","year":2018,"car":123,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"0Ore4LEpunfsEcZx"}
