@@ -36,7 +36,7 @@
 
     console.log("Inserting roads..." + JSON.stringify(newRoads));
 
-    const res = await fetch("/api/v1/contacts", {
+    const res = await fetch("/api/v1/roads", {
         method: "POST",
         body: JSON.stringify(newRoads),
         headers: {
@@ -47,7 +47,7 @@
     });
 
     }
-    async function deleteRoads(name) {
+    async function deleteRoads(province,year) {
 		const res = await fetch("/api/v1/roads/" + province + "/" + year, {
 			method: "DELETE"
 		}).then(function (res) {
@@ -72,6 +72,7 @@
                     <th>Autovia</th>
                     <th>Autopista</th>
                     <th>Total</th>
+                    <th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -89,14 +90,15 @@
 
 				{#each roads as road}
 					<tr>
-                        <td>{roads.year}</td>
-                        <td>{roads.oneway}</td>
-						<td>{roads.multipleway}</td>
-						<td>{roads.dualCarriagewayAndHighway}</td>
-                        <td>{roads.highwayWithToll}</td>
-                        <td>{roads.total}</td>
+                        <td>{road.province}</td>
+                        <td>{road.year}</td>
+                        <td>{road.oneway}</td>
+						<td>{road.multipleway}</td>
+						<td>{road.dualCarriagewayAndHighway}</td>
+                        <td>{road.highwayWithToll}</td>
+                        <td>{road.total}</td>
 
-¡						<td><Button outline color="danger" on:click="{deleteRoads(roads.province)}">Eliminar</Button></td>
+¡						<td><Button outline color="danger" on:click="{deleteRoads(road.province, road.year)}">Eliminar</Button></td>
 					</tr>
 				{/each}
 			</tbody>
