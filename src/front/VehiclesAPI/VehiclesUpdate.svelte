@@ -67,9 +67,9 @@
 <main>
     <h3><strong>Edita el dato de vehículos asociado a {params.vehicleProvince} y {params.vehicleYear}</strong></h3>
 
-    {#await vehicles}
+    {#await vehicle}
 		Cargando vehículo...
-	{:then vehicles}
+	{:then vehicle}
 		<Table bordered>
 			<thead>
 				<tr>
