@@ -89,14 +89,14 @@
 			<tbody>
 				{#each roads as road}
 					<tr>
-					<td><input bind:value="{newRoads.province}"></td>
-					<td><input bind:value="{newRoads.year}"></td>
-                    <td><input bind:value="{newRoads.oneway}"></td>
-                    <td><input bind:value="{newRoads.multipleway}"></td>
-					<td><input bind:value="{newRoads.dualCarriagewayAndHighway}"></td>
-					<td><input bind:value="{newRoads.highwayWithToll}"></td>
-					<td><input bind:value="{newRoads.total}"></td>
-                    <td> <Button outline  color="primary" on:click={actualizarRoads}>Actualizar</Button> </td>
+					<td><input bind:value="{updatedProvince}"></td>
+					<td><input bind:value="{updatedYear}"></td>
+                    <td><input bind:value="{updatedOneway}"></td>
+                    <td><input bind:value="{updatedMultipleway}"></td>
+					<td><input bind:value="{updatedDualCarriagewayAndHighway}"></td>
+					<td><input bind:value="{updatedHighwayWithToll}"></td>
+					<td><input bind:value="{updatedTotal}"></td>
+                    <td> <Button outline  color="primary" on:click={updateRoad()}>Actualizar</Button> </td>
                     </tr>
 				{/each}
 			</tbody>
