@@ -65,11 +65,11 @@
 </script>
 
 <main>
-    <h3><strong>Edit Contact {params.contactName}</strong></h3>
+    <h3><strong>Edit Contact {params.traffic_accidentProvince}</strong></h3>
 
-    {#await traffic_accidents}
+    {#await traffic_accident}
 		Loading traffic accidents...
-	{:then traffic_accidents}
+	{:then traffic_accident}
 		<Table bordered>
 			<thead>
 				<tr>
@@ -85,14 +85,13 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>{updatedPhone}</td>
 					<td><input bind:value="{updatedYear}"></td>
                     <td><input bind:value="{updateAccidentWithVictims}"></td>
                     <td><input bind:value="{updateMortalAccident}"></td>
                     <td><input bind:value="{updatedDeath}"></td>
                     <td><input bind:value="{updateHospitalizedWounded}"></td>
 					<td><input bind:value="{updateNotHospitalizedWounded}"></td>
-					<td> <Button outline  color="primary" on:click={updateTrafficAccident}>Update</Button> </td>
+					<td> <Button outline  color="primary" on:click={updateTrafficAccident()}>Update</Button> </td>
 				</tr>
 
 			</tbody>

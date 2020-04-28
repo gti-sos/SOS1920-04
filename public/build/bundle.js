@@ -148,6 +148,9 @@ var app = (function () {
             input.value = value;
         }
     }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, false, false, detail);
@@ -4682,7 +4685,7 @@ var app = (function () {
     	return block;
     }
 
-    // (65:1) {:then trafficAccidents}
+    // (72:1) {:then trafficAccidents}
     function create_then_block$2(ctx) {
     	let current;
 
@@ -4730,14 +4733,14 @@ var app = (function () {
     		block,
     		id: create_then_block$2.name,
     		type: "then",
-    		source: "(65:1) {:then trafficAccidents}",
+    		source: "(72:1) {:then trafficAccidents}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (88:10) <Button outline  color="primary" on:click={insertTrafficAccident}>
+    // (95:10) <Button outline  color="primary" on:click={insertTrafficAccident}>
     function create_default_slot_2$2(ctx) {
     	let t;
 
@@ -4757,14 +4760,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$2.name,
     		type: "slot",
-    		source: "(88:10) <Button outline  color=\\\"primary\\\" on:click={insertTrafficAccident}>",
+    		source: "(95:10) <Button outline  color=\\\"primary\\\" on:click={insertTrafficAccident}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:10) <Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">
+    // (109:10) <Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">
     function create_default_slot_1$2(ctx) {
     	let t;
 
@@ -4784,14 +4787,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$2.name,
     		type: "slot",
-    		source: "(102:10) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}\\\">",
+    		source: "(109:10) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:4) {#each trafficAccidents as traffic_accident}
+    // (98:4) {#each trafficAccidents as traffic_accident}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
@@ -4871,16 +4874,16 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			t14 = space();
     			attr_dev(a, "href", a_href_value = "#/vehicles/" + /*traffic_accident*/ ctx[12].province + "/" + /*traffic_accident*/ ctx[12].year);
-    			add_location(a, file$6, 93, 7, 2703);
-    			add_location(td0, file$6, 92, 6, 2690);
-    			add_location(td1, file$6, 95, 6, 2828);
-    			add_location(td2, file$6, 96, 24, 2886);
-    			add_location(td3, file$6, 97, 24, 2959);
-    			add_location(td4, file$6, 98, 24, 3027);
-    			add_location(td5, file$6, 99, 24, 3086);
-    			add_location(td6, file$6, 100, 6, 3141);
-    			add_location(td7, file$6, 101, 6, 3199);
-    			add_location(tr, file$6, 91, 5, 2678);
+    			add_location(a, file$6, 100, 7, 3219);
+    			add_location(td0, file$6, 99, 6, 3206);
+    			add_location(td1, file$6, 102, 6, 3344);
+    			add_location(td2, file$6, 103, 24, 3402);
+    			add_location(td3, file$6, 104, 24, 3475);
+    			add_location(td4, file$6, 105, 24, 3543);
+    			add_location(td5, file$6, 106, 24, 3602);
+    			add_location(td6, file$6, 107, 6, 3657);
+    			add_location(td7, file$6, 108, 6, 3715);
+    			add_location(tr, file$6, 98, 5, 3194);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -4952,14 +4955,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(91:4) {#each trafficAccidents as traffic_accident}",
+    		source: "(98:4) {#each trafficAccidents as traffic_accident}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (66:2) <Table bordered>
+    // (73:2) <Table bordered>
     function create_default_slot$2(ctx) {
     	let thead;
     	let tr0;
@@ -5089,33 +5092,33 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$6, 68, 5, 1603);
-    			add_location(th1, file$6, 69, 5, 1628);
-    			add_location(th2, file$6, 70, 5, 1647);
-    			add_location(th3, file$6, 71, 20, 1701);
-    			add_location(th4, file$6, 72, 20, 1751);
-    			add_location(th5, file$6, 73, 20, 1789);
-    			add_location(th6, file$6, 74, 20, 1834);
-    			add_location(th7, file$6, 75, 20, 1882);
-    			add_location(tr0, file$6, 67, 4, 1592);
-    			add_location(thead, file$6, 66, 3, 1579);
-    			add_location(input0, file$6, 80, 9, 1956);
-    			add_location(td0, file$6, 80, 5, 1952);
-    			add_location(input1, file$6, 81, 9, 2023);
-    			add_location(td1, file$6, 81, 5, 2019);
-    			add_location(input2, file$6, 82, 24, 2101);
-    			add_location(td2, file$6, 82, 20, 2097);
-    			add_location(input3, file$6, 83, 24, 2194);
-    			add_location(td3, file$6, 83, 20, 2190);
-    			add_location(input4, file$6, 84, 9, 2267);
-    			add_location(td4, file$6, 84, 5, 2263);
-    			add_location(input5, file$6, 85, 24, 2346);
-    			add_location(td5, file$6, 85, 20, 2342);
-    			add_location(input6, file$6, 86, 24, 2439);
-    			add_location(td6, file$6, 86, 20, 2435);
-    			add_location(td7, file$6, 87, 5, 2516);
-    			add_location(tr1, file$6, 79, 4, 1941);
-    			add_location(tbody, file$6, 78, 3, 1928);
+    			add_location(th0, file$6, 75, 5, 2119);
+    			add_location(th1, file$6, 76, 5, 2144);
+    			add_location(th2, file$6, 77, 5, 2163);
+    			add_location(th3, file$6, 78, 20, 2217);
+    			add_location(th4, file$6, 79, 20, 2267);
+    			add_location(th5, file$6, 80, 20, 2305);
+    			add_location(th6, file$6, 81, 20, 2350);
+    			add_location(th7, file$6, 82, 20, 2398);
+    			add_location(tr0, file$6, 74, 4, 2108);
+    			add_location(thead, file$6, 73, 3, 2095);
+    			add_location(input0, file$6, 87, 9, 2472);
+    			add_location(td0, file$6, 87, 5, 2468);
+    			add_location(input1, file$6, 88, 9, 2539);
+    			add_location(td1, file$6, 88, 5, 2535);
+    			add_location(input2, file$6, 89, 24, 2617);
+    			add_location(td2, file$6, 89, 20, 2613);
+    			add_location(input3, file$6, 90, 24, 2710);
+    			add_location(td3, file$6, 90, 20, 2706);
+    			add_location(input4, file$6, 91, 9, 2783);
+    			add_location(td4, file$6, 91, 5, 2779);
+    			add_location(input5, file$6, 92, 24, 2862);
+    			add_location(td5, file$6, 92, 20, 2858);
+    			add_location(input6, file$6, 93, 24, 2955);
+    			add_location(td6, file$6, 93, 20, 2951);
+    			add_location(td7, file$6, 94, 5, 3032);
+    			add_location(tr1, file$6, 86, 4, 2457);
+    			add_location(tbody, file$6, 85, 3, 2444);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -5286,14 +5289,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(66:2) <Table bordered>",
+    		source: "(73:2) <Table bordered>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:26)     Cargando Accidentes de Tráfico...   {:then trafficAccidents}
+    // (70:26)     Cargando Accidentes de Tráfico...   {:then trafficAccidents}
     function create_pending_block$2(ctx) {
     	let t;
 
@@ -5316,7 +5319,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(63:26)     Cargando Accidentes de Tráfico...   {:then trafficAccidents}",
+    		source: "(70:26)     Cargando Accidentes de Tráfico...   {:then trafficAccidents}",
     		ctx
     	});
 
@@ -5345,7 +5348,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			info.block.c();
-    			add_location(main, file$6, 60, 0, 1454);
+    			add_location(main, file$6, 67, 0, 1970);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5429,6 +5432,12 @@ var app = (function () {
     	}
 
     	async function insertTrafficAccident() {
+    		$$invalidate(0, newTraffic_accident.year = parseInt(newTraffic_accident.year), newTraffic_accident);
+    		$$invalidate(0, newTraffic_accident.accidentWithVictims = parseInt(newTraffic_accident.accidentWithVictims), newTraffic_accident);
+    		$$invalidate(0, newTraffic_accident.mortalAccident = parseInt(newTraffic_accident.mortalAccident), newTraffic_accident);
+    		$$invalidate(0, newTraffic_accident.death = parseInt(newTraffic_accident.death), newTraffic_accident);
+    		$$invalidate(0, newTraffic_accident.hospitalizedWounded = parseInt(newTraffic_accident.hospitalizedWounded), newTraffic_accident);
+    		$$invalidate(0, newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded), newTraffic_accident);
     		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
 
     		const res = await fetch("/api/v1/traffic_accidents", {
@@ -5540,10 +5549,2199 @@ var app = (function () {
     	}
     }
 
-    /* src\front\App.svelte generated by Svelte v3.21.0 */
-    const file$7 = "src\\front\\App.svelte";
+    /* src\front\RoadsAPI\RoadsUpdate.svelte generated by Svelte v3.21.0 */
+
+    const { console: console_1$4 } = globals;
+    const file$7 = "src\\front\\RoadsAPI\\RoadsUpdate.svelte";
+
+    function get_each_context$3(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[17] = list[i];
+    	return child_ctx;
+    }
+
+    // (1:0) <script>   import {          onMount      }
+    function create_catch_block$3(ctx) {
+    	const block = {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_catch_block$3.name,
+    		type: "catch",
+    		source: "(1:0) <script>   import {          onMount      }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (75:1) {:then roads}
+    function create_then_block$3(ctx) {
+    	let current;
+
+    	const table = new Table({
+    			props: {
+    				bordered: true,
+    				$$slots: { default: [create_default_slot$3] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(table.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(table, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const table_changes = {};
+
+    			if (dirty & /*$$scope, roads, updatedTotal, updatedHighwayWithToll, updatedDualCarriagewayAndHighway, updatedMultipleway, updatedOneway, updatedYear, updatedProvince*/ 1048831) {
+    				table_changes.$$scope = { dirty, ctx };
+    			}
+
+    			table.$set(table_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(table.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(table.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(table, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_then_block$3.name,
+    		type: "then",
+    		source: "(75:1) {:then roads}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (99:25) <Button outline  color="primary" on:click={updateRoad()}>
+    function create_default_slot_1$3(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Actualizar");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$3.name,
+    		type: "slot",
+    		source: "(99:25) <Button outline  color=\\\"primary\\\" on:click={updateRoad()}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (90:4) {#each roads as road}
+    function create_each_block$3(ctx) {
+    	let tr;
+    	let td0;
+    	let input0;
+    	let t0;
+    	let td1;
+    	let input1;
+    	let t1;
+    	let td2;
+    	let input2;
+    	let t2;
+    	let td3;
+    	let input3;
+    	let t3;
+    	let td4;
+    	let input4;
+    	let t4;
+    	let td5;
+    	let input5;
+    	let t5;
+    	let td6;
+    	let input6;
+    	let t6;
+    	let td7;
+    	let t7;
+    	let current;
+    	let dispose;
+
+    	const button = new Button({
+    			props: {
+    				outline: true,
+    				color: "primary",
+    				$$slots: { default: [create_default_slot_1$3] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("click", /*updateRoad*/ ctx[8]());
+
+    	const block = {
+    		c: function create() {
+    			tr = element("tr");
+    			td0 = element("td");
+    			input0 = element("input");
+    			t0 = space();
+    			td1 = element("td");
+    			input1 = element("input");
+    			t1 = space();
+    			td2 = element("td");
+    			input2 = element("input");
+    			t2 = space();
+    			td3 = element("td");
+    			input3 = element("input");
+    			t3 = space();
+    			td4 = element("td");
+    			input4 = element("input");
+    			t4 = space();
+    			td5 = element("td");
+    			input5 = element("input");
+    			t5 = space();
+    			td6 = element("td");
+    			input6 = element("input");
+    			t6 = space();
+    			td7 = element("td");
+    			create_component(button.$$.fragment);
+    			t7 = space();
+    			add_location(input0, file$7, 91, 9, 2649);
+    			add_location(td0, file$7, 91, 5, 2645);
+    			add_location(input1, file$7, 92, 9, 2703);
+    			add_location(td1, file$7, 92, 5, 2699);
+    			add_location(input2, file$7, 93, 24, 2768);
+    			add_location(td2, file$7, 93, 20, 2764);
+    			add_location(input3, file$7, 94, 24, 2835);
+    			add_location(td3, file$7, 94, 20, 2831);
+    			add_location(input4, file$7, 95, 9, 2892);
+    			add_location(td4, file$7, 95, 5, 2888);
+    			add_location(input5, file$7, 96, 9, 2963);
+    			add_location(td5, file$7, 96, 5, 2959);
+    			add_location(input6, file$7, 97, 9, 3024);
+    			add_location(td6, file$7, 97, 5, 3020);
+    			add_location(td7, file$7, 98, 20, 3086);
+    			add_location(tr, file$7, 90, 5, 2634);
+    		},
+    		m: function mount(target, anchor, remount) {
+    			insert_dev(target, tr, anchor);
+    			append_dev(tr, td0);
+    			append_dev(td0, input0);
+    			set_input_value(input0, /*updatedProvince*/ ctx[0]);
+    			append_dev(tr, t0);
+    			append_dev(tr, td1);
+    			append_dev(td1, input1);
+    			set_input_value(input1, /*updatedYear*/ ctx[1]);
+    			append_dev(tr, t1);
+    			append_dev(tr, td2);
+    			append_dev(td2, input2);
+    			set_input_value(input2, /*updatedOneway*/ ctx[2]);
+    			append_dev(tr, t2);
+    			append_dev(tr, td3);
+    			append_dev(td3, input3);
+    			set_input_value(input3, /*updatedMultipleway*/ ctx[3]);
+    			append_dev(tr, t3);
+    			append_dev(tr, td4);
+    			append_dev(td4, input4);
+    			set_input_value(input4, /*updatedDualCarriagewayAndHighway*/ ctx[4]);
+    			append_dev(tr, t4);
+    			append_dev(tr, td5);
+    			append_dev(td5, input5);
+    			set_input_value(input5, /*updatedHighwayWithToll*/ ctx[5]);
+    			append_dev(tr, t5);
+    			append_dev(tr, td6);
+    			append_dev(td6, input6);
+    			set_input_value(input6, /*updatedTotal*/ ctx[6]);
+    			append_dev(tr, t6);
+    			append_dev(tr, td7);
+    			mount_component(button, td7, null);
+    			append_dev(tr, t7);
+    			current = true;
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[10]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[11]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[12]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[13]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[14]),
+    				listen_dev(input5, "input", /*input5_input_handler*/ ctx[15]),
+    				listen_dev(input6, "input", /*input6_input_handler*/ ctx[16])
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*updatedProvince*/ 1 && input0.value !== /*updatedProvince*/ ctx[0]) {
+    				set_input_value(input0, /*updatedProvince*/ ctx[0]);
+    			}
+
+    			if (dirty & /*updatedYear*/ 2 && input1.value !== /*updatedYear*/ ctx[1]) {
+    				set_input_value(input1, /*updatedYear*/ ctx[1]);
+    			}
+
+    			if (dirty & /*updatedOneway*/ 4 && input2.value !== /*updatedOneway*/ ctx[2]) {
+    				set_input_value(input2, /*updatedOneway*/ ctx[2]);
+    			}
+
+    			if (dirty & /*updatedMultipleway*/ 8 && input3.value !== /*updatedMultipleway*/ ctx[3]) {
+    				set_input_value(input3, /*updatedMultipleway*/ ctx[3]);
+    			}
+
+    			if (dirty & /*updatedDualCarriagewayAndHighway*/ 16 && input4.value !== /*updatedDualCarriagewayAndHighway*/ ctx[4]) {
+    				set_input_value(input4, /*updatedDualCarriagewayAndHighway*/ ctx[4]);
+    			}
+
+    			if (dirty & /*updatedHighwayWithToll*/ 32 && input5.value !== /*updatedHighwayWithToll*/ ctx[5]) {
+    				set_input_value(input5, /*updatedHighwayWithToll*/ ctx[5]);
+    			}
+
+    			if (dirty & /*updatedTotal*/ 64 && input6.value !== /*updatedTotal*/ ctx[6]) {
+    				set_input_value(input6, /*updatedTotal*/ ctx[6]);
+    			}
+
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 1048576) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(tr);
+    			destroy_component(button);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$3.name,
+    		type: "each",
+    		source: "(90:4) {#each roads as road}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (76:2) <Table bordered>
+    function create_default_slot$3(ctx) {
+    	let thead;
+    	let tr;
+    	let th0;
+    	let t1;
+    	let th1;
+    	let t3;
+    	let th2;
+    	let t5;
+    	let th3;
+    	let t7;
+    	let th4;
+    	let t9;
+    	let th5;
+    	let t11;
+    	let th6;
+    	let t13;
+    	let th7;
+    	let t15;
+    	let tbody;
+    	let current;
+    	let each_value = /*roads*/ ctx[7];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			thead = element("thead");
+    			tr = element("tr");
+    			th0 = element("th");
+    			th0.textContent = "Provincia";
+    			t1 = space();
+    			th1 = element("th");
+    			th1.textContent = "Año";
+    			t3 = space();
+    			th2 = element("th");
+    			th2.textContent = "Unico Sentido";
+    			t5 = space();
+    			th3 = element("th");
+    			th3.textContent = "Doble sentido";
+    			t7 = space();
+    			th4 = element("th");
+    			th4.textContent = "Autovia";
+    			t9 = space();
+    			th5 = element("th");
+    			th5.textContent = "Autopista";
+    			t11 = space();
+    			th6 = element("th");
+    			th6.textContent = "Total";
+    			t13 = space();
+    			th7 = element("th");
+    			th7.textContent = "Acciones";
+    			t15 = space();
+    			tbody = element("tbody");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(th0, file$7, 78, 5, 2301);
+    			add_location(th1, file$7, 79, 5, 2326);
+    			add_location(th2, file$7, 80, 5, 2345);
+    			add_location(th3, file$7, 81, 20, 2389);
+    			add_location(th4, file$7, 82, 20, 2433);
+    			add_location(th5, file$7, 83, 20, 2471);
+    			add_location(th6, file$7, 84, 20, 2511);
+    			add_location(th7, file$7, 85, 20, 2547);
+    			add_location(tr, file$7, 77, 4, 2290);
+    			add_location(thead, file$7, 76, 3, 2277);
+    			add_location(tbody, file$7, 88, 3, 2593);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, thead, anchor);
+    			append_dev(thead, tr);
+    			append_dev(tr, th0);
+    			append_dev(tr, t1);
+    			append_dev(tr, th1);
+    			append_dev(tr, t3);
+    			append_dev(tr, th2);
+    			append_dev(tr, t5);
+    			append_dev(tr, th3);
+    			append_dev(tr, t7);
+    			append_dev(tr, th4);
+    			append_dev(tr, t9);
+    			append_dev(tr, th5);
+    			append_dev(tr, t11);
+    			append_dev(tr, th6);
+    			append_dev(tr, t13);
+    			append_dev(tr, th7);
+    			insert_dev(target, t15, anchor);
+    			insert_dev(target, tbody, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*updateRoad, updatedTotal, updatedHighwayWithToll, updatedDualCarriagewayAndHighway, updatedMultipleway, updatedOneway, updatedYear, updatedProvince, roads*/ 511) {
+    				each_value = /*roads*/ ctx[7];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block$3(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(tbody, null);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(thead);
+    			if (detaching) detach_dev(t15);
+    			if (detaching) detach_dev(tbody);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$3.name,
+    		type: "slot",
+    		source: "(76:2) <Table bordered>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (73:15)     Cargando carreteras...   {:then roads}
+    function create_pending_block$3(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Cargando carreteras...");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_pending_block$3.name,
+    		type: "pending",
+    		source: "(73:15)     Cargando carreteras...   {:then roads}",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$8(ctx) {
+    	let main;
+    	let promise;
+    	let current;
+
+    	let info = {
+    		ctx,
+    		current: null,
+    		token: null,
+    		pending: create_pending_block$3,
+    		then: create_then_block$3,
+    		catch: create_catch_block$3,
+    		value: 7,
+    		blocks: [,,,]
+    	};
+
+    	handle_promise(promise = /*roads*/ ctx[7], info);
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			info.block.c();
+    			add_location(main, file$7, 70, 0, 2185);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			info.block.m(main, info.anchor = null);
+    			info.mount = () => main;
+    			info.anchor = null;
+    			current = true;
+    		},
+    		p: function update(new_ctx, [dirty]) {
+    			ctx = new_ctx;
+    			info.ctx = ctx;
+
+    			if (dirty & /*roads*/ 128 && promise !== (promise = /*roads*/ ctx[7]) && handle_promise(promise, info)) ; else {
+    				const child_ctx = ctx.slice();
+    				child_ctx[7] = info.resolved;
+    				info.block.p(child_ctx, dirty);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(info.block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < 3; i += 1) {
+    				const block = info.blocks[i];
+    				transition_out(block);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			info.block.d();
+    			info.token = null;
+    			info = null;
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let roads = [];
+    	let updatedProvince = "";
+    	let updatedYear = "";
+    	let updatedOneway = "";
+    	let updatedMultipleway = "";
+    	let updatedDualCarriagewayAndHighway = "";
+    	let updatedHighwayWithToll = "";
+    	let updatedTotal = "";
+    	onMount(getRoads);
+
+    	async function getRoads() {
+    		console.log("Fetching road...");
+    		const res = await fetch("/api/v1/roads/" + params.roadProvince + "/" + params.roadYear);
+
+    		if (res.ok) {
+    			console.log("Ok:");
+    			const json = await res.json();
+    			$$invalidate(7, roads = json);
+    			$$invalidate(0, updatedProvince = roads.province);
+    			$$invalidate(1, updatedYear = roads.year);
+    			$$invalidate(2, updatedOneway = roads.oneway);
+    			$$invalidate(3, updatedMultipleway = roads.multipleway);
+    			$$invalidate(4, updatedDualCarriagewayAndHighway = roads.dualCarriagewayAndHighway);
+    			$$invalidate(5, updatedHighwayWithToll = roads.highwayWithToll);
+    			$$invalidate(6, updatedTotal = roads.total);
+    			console.log("Received road.");
+    		} else {
+    			errorMsg = res.status + ": " + res.statusText;
+    			console.log("ERROR!" + errorMsg);
+    		}
+    	}
+
+    	async function updateRoad() {
+    		console.log("Updating road..." + JSON.stringify(params.roadProvince) + " de " + JSON.stringify(params.roadProvince));
+
+    		const res = await fetch("/api/v1/roads/" + params.roadProvince + "/" + params.roadYear, {
+    			method: "PUT",
+    			body: JSON.stringify({
+    				province: params.roadProvince,
+    				year: params.roadYear,
+    				oneway: updatedOneway,
+    				multipleway: updatedMultipleway,
+    				dualCarriagewayAndHighway: updatedDualCarriagewayAndHighway,
+    				highwayWithToll: updatedHighwayWithToll,
+    				total: updatedTotal
+    			}),
+    			headers: { "Content-Type": "application/json" }
+    		}).then(function (res) {
+    			getContact();
+    		});
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$4.warn(`<RoadsUpdate> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("RoadsUpdate", $$slots, []);
+
+    	function input0_input_handler() {
+    		updatedProvince = this.value;
+    		$$invalidate(0, updatedProvince);
+    	}
+
+    	function input1_input_handler() {
+    		updatedYear = this.value;
+    		$$invalidate(1, updatedYear);
+    	}
+
+    	function input2_input_handler() {
+    		updatedOneway = this.value;
+    		$$invalidate(2, updatedOneway);
+    	}
+
+    	function input3_input_handler() {
+    		updatedMultipleway = this.value;
+    		$$invalidate(3, updatedMultipleway);
+    	}
+
+    	function input4_input_handler() {
+    		updatedDualCarriagewayAndHighway = this.value;
+    		$$invalidate(4, updatedDualCarriagewayAndHighway);
+    	}
+
+    	function input5_input_handler() {
+    		updatedHighwayWithToll = this.value;
+    		$$invalidate(5, updatedHighwayWithToll);
+    	}
+
+    	function input6_input_handler() {
+    		updatedTotal = this.value;
+    		$$invalidate(6, updatedTotal);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		pop,
+    		Table,
+    		Button,
+    		roads,
+    		updatedProvince,
+    		updatedYear,
+    		updatedOneway,
+    		updatedMultipleway,
+    		updatedDualCarriagewayAndHighway,
+    		updatedHighwayWithToll,
+    		updatedTotal,
+    		getRoads,
+    		updateRoad
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("roads" in $$props) $$invalidate(7, roads = $$props.roads);
+    		if ("updatedProvince" in $$props) $$invalidate(0, updatedProvince = $$props.updatedProvince);
+    		if ("updatedYear" in $$props) $$invalidate(1, updatedYear = $$props.updatedYear);
+    		if ("updatedOneway" in $$props) $$invalidate(2, updatedOneway = $$props.updatedOneway);
+    		if ("updatedMultipleway" in $$props) $$invalidate(3, updatedMultipleway = $$props.updatedMultipleway);
+    		if ("updatedDualCarriagewayAndHighway" in $$props) $$invalidate(4, updatedDualCarriagewayAndHighway = $$props.updatedDualCarriagewayAndHighway);
+    		if ("updatedHighwayWithToll" in $$props) $$invalidate(5, updatedHighwayWithToll = $$props.updatedHighwayWithToll);
+    		if ("updatedTotal" in $$props) $$invalidate(6, updatedTotal = $$props.updatedTotal);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		updatedProvince,
+    		updatedYear,
+    		updatedOneway,
+    		updatedMultipleway,
+    		updatedDualCarriagewayAndHighway,
+    		updatedHighwayWithToll,
+    		updatedTotal,
+    		roads,
+    		updateRoad,
+    		getRoads,
+    		input0_input_handler,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input3_input_handler,
+    		input4_input_handler,
+    		input5_input_handler,
+    		input6_input_handler
+    	];
+    }
+
+    class RoadsUpdate extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "RoadsUpdate",
+    			options,
+    			id: create_fragment$8.name
+    		});
+    	}
+    }
+
+    /* src\front\VehiclesAPI\VehiclesUpdate.svelte generated by Svelte v3.21.0 */
+
+    const { console: console_1$5 } = globals;
+    const file$8 = "src\\front\\VehiclesAPI\\VehiclesUpdate.svelte";
+
+    // (1:0) <script>       import {    onMount   }
+    function create_catch_block$4(ctx) {
+    	const block = {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_catch_block$4.name,
+    		type: "catch",
+    		source: "(1:0) <script>       import {    onMount   }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (72:1) {:then vehicles}
+    function create_then_block$4(ctx) {
+    	let current;
+
+    	const table = new Table({
+    			props: {
+    				bordered: true,
+    				$$slots: { default: [create_default_slot$4] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(table.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(table, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const table_changes = {};
+
+    			if (dirty & /*$$scope, updatedTotal, updatedTruck, updatedMotorcycle, updatedBus, updatedCar, updatedYear, updatedProvince*/ 131326) {
+    				table_changes.$$scope = { dirty, ctx };
+    			}
+
+    			table.$set(table_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(table.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(table.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(table, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_then_block$4.name,
+    		type: "then",
+    		source: "(72:1) {:then vehicles}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (95:10) <Button outline  color="primary" on:click={updateVehicle}>
+    function create_default_slot_1$4(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Actualizar");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$4.name,
+    		type: "slot",
+    		source: "(95:10) <Button outline  color=\\\"primary\\\" on:click={updateVehicle}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (73:2) <Table bordered>
+    function create_default_slot$4(ctx) {
+    	let thead;
+    	let tr0;
+    	let th0;
+    	let t1;
+    	let th1;
+    	let t3;
+    	let th2;
+    	let t5;
+    	let th3;
+    	let t7;
+    	let th4;
+    	let t9;
+    	let th5;
+    	let t11;
+    	let th6;
+    	let t13;
+    	let th7;
+    	let t15;
+    	let tbody;
+    	let tr1;
+    	let td0;
+    	let t16;
+    	let t17;
+    	let td1;
+    	let t18;
+    	let t19;
+    	let td2;
+    	let input0;
+    	let t20;
+    	let td3;
+    	let input1;
+    	let t21;
+    	let td4;
+    	let input2;
+    	let t22;
+    	let td5;
+    	let input3;
+    	let t23;
+    	let td6;
+    	let input4;
+    	let t24;
+    	let td7;
+    	let current;
+    	let dispose;
+
+    	const button = new Button({
+    			props: {
+    				outline: true,
+    				color: "primary",
+    				$$slots: { default: [create_default_slot_1$4] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("click", /*updateVehicle*/ ctx[8]);
+
+    	const block = {
+    		c: function create() {
+    			thead = element("thead");
+    			tr0 = element("tr");
+    			th0 = element("th");
+    			th0.textContent = "Provincia";
+    			t1 = space();
+    			th1 = element("th");
+    			th1.textContent = "Año";
+    			t3 = space();
+    			th2 = element("th");
+    			th2.textContent = "Coches";
+    			t5 = space();
+    			th3 = element("th");
+    			th3.textContent = "Buses";
+    			t7 = space();
+    			th4 = element("th");
+    			th4.textContent = "Motos";
+    			t9 = space();
+    			th5 = element("th");
+    			th5.textContent = "Camiones";
+    			t11 = space();
+    			th6 = element("th");
+    			th6.textContent = "Total";
+    			t13 = space();
+    			th7 = element("th");
+    			th7.textContent = "Acciones";
+    			t15 = space();
+    			tbody = element("tbody");
+    			tr1 = element("tr");
+    			td0 = element("td");
+    			t16 = text(/*updatedProvince*/ ctx[1]);
+    			t17 = space();
+    			td1 = element("td");
+    			t18 = text(/*updatedYear*/ ctx[2]);
+    			t19 = space();
+    			td2 = element("td");
+    			input0 = element("input");
+    			t20 = space();
+    			td3 = element("td");
+    			input1 = element("input");
+    			t21 = space();
+    			td4 = element("td");
+    			input2 = element("input");
+    			t22 = space();
+    			td5 = element("td");
+    			input3 = element("input");
+    			t23 = space();
+    			td6 = element("td");
+    			input4 = element("input");
+    			t24 = space();
+    			td7 = element("td");
+    			create_component(button.$$.fragment);
+    			add_location(th0, file$8, 75, 5, 2368);
+    			add_location(th1, file$8, 76, 5, 2393);
+    			add_location(th2, file$8, 77, 5, 2412);
+    			add_location(th3, file$8, 78, 5, 2434);
+    			add_location(th4, file$8, 79, 5, 2455);
+    			add_location(th5, file$8, 80, 5, 2476);
+    			add_location(th6, file$8, 81, 5, 2500);
+    			add_location(th7, file$8, 82, 5, 2521);
+    			add_location(tr0, file$8, 74, 4, 2357);
+    			add_location(thead, file$8, 73, 3, 2344);
+    			add_location(td0, file$8, 87, 20, 2606);
+    			add_location(td1, file$8, 88, 20, 2654);
+    			add_location(input0, file$8, 89, 24, 2702);
+    			add_location(td2, file$8, 89, 20, 2698);
+    			add_location(input1, file$8, 90, 24, 2766);
+    			add_location(td3, file$8, 90, 20, 2762);
+    			add_location(input2, file$8, 91, 24, 2830);
+    			add_location(td4, file$8, 91, 20, 2826);
+    			add_location(input3, file$8, 92, 24, 2901);
+    			add_location(td5, file$8, 92, 20, 2897);
+    			add_location(input4, file$8, 93, 24, 2967);
+    			add_location(td6, file$8, 93, 20, 2963);
+    			add_location(td7, file$8, 94, 5, 3014);
+    			add_location(tr1, file$8, 86, 4, 2580);
+    			add_location(tbody, file$8, 85, 3, 2567);
+    		},
+    		m: function mount(target, anchor, remount) {
+    			insert_dev(target, thead, anchor);
+    			append_dev(thead, tr0);
+    			append_dev(tr0, th0);
+    			append_dev(tr0, t1);
+    			append_dev(tr0, th1);
+    			append_dev(tr0, t3);
+    			append_dev(tr0, th2);
+    			append_dev(tr0, t5);
+    			append_dev(tr0, th3);
+    			append_dev(tr0, t7);
+    			append_dev(tr0, th4);
+    			append_dev(tr0, t9);
+    			append_dev(tr0, th5);
+    			append_dev(tr0, t11);
+    			append_dev(tr0, th6);
+    			append_dev(tr0, t13);
+    			append_dev(tr0, th7);
+    			insert_dev(target, t15, anchor);
+    			insert_dev(target, tbody, anchor);
+    			append_dev(tbody, tr1);
+    			append_dev(tr1, td0);
+    			append_dev(td0, t16);
+    			append_dev(tr1, t17);
+    			append_dev(tr1, td1);
+    			append_dev(td1, t18);
+    			append_dev(tr1, t19);
+    			append_dev(tr1, td2);
+    			append_dev(td2, input0);
+    			set_input_value(input0, /*updatedCar*/ ctx[3]);
+    			append_dev(tr1, t20);
+    			append_dev(tr1, td3);
+    			append_dev(td3, input1);
+    			set_input_value(input1, /*updatedBus*/ ctx[4]);
+    			append_dev(tr1, t21);
+    			append_dev(tr1, td4);
+    			append_dev(td4, input2);
+    			set_input_value(input2, /*updatedMotorcycle*/ ctx[5]);
+    			append_dev(tr1, t22);
+    			append_dev(tr1, td5);
+    			append_dev(td5, input3);
+    			set_input_value(input3, /*updatedTruck*/ ctx[6]);
+    			append_dev(tr1, t23);
+    			append_dev(tr1, td6);
+    			append_dev(td6, input4);
+    			set_input_value(input4, /*updatedTotal*/ ctx[7]);
+    			append_dev(tr1, t24);
+    			append_dev(tr1, td7);
+    			mount_component(button, td7, null);
+    			current = true;
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[12]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[13]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[14]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[15])
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!current || dirty & /*updatedProvince*/ 2) set_data_dev(t16, /*updatedProvince*/ ctx[1]);
+    			if (!current || dirty & /*updatedYear*/ 4) set_data_dev(t18, /*updatedYear*/ ctx[2]);
+
+    			if (dirty & /*updatedCar*/ 8 && input0.value !== /*updatedCar*/ ctx[3]) {
+    				set_input_value(input0, /*updatedCar*/ ctx[3]);
+    			}
+
+    			if (dirty & /*updatedBus*/ 16 && input1.value !== /*updatedBus*/ ctx[4]) {
+    				set_input_value(input1, /*updatedBus*/ ctx[4]);
+    			}
+
+    			if (dirty & /*updatedMotorcycle*/ 32 && input2.value !== /*updatedMotorcycle*/ ctx[5]) {
+    				set_input_value(input2, /*updatedMotorcycle*/ ctx[5]);
+    			}
+
+    			if (dirty & /*updatedTruck*/ 64 && input3.value !== /*updatedTruck*/ ctx[6]) {
+    				set_input_value(input3, /*updatedTruck*/ ctx[6]);
+    			}
+
+    			if (dirty & /*updatedTotal*/ 128 && input4.value !== /*updatedTotal*/ ctx[7]) {
+    				set_input_value(input4, /*updatedTotal*/ ctx[7]);
+    			}
+
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 131072) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(thead);
+    			if (detaching) detach_dev(t15);
+    			if (detaching) detach_dev(tbody);
+    			destroy_component(button);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$4.name,
+    		type: "slot",
+    		source: "(73:2) <Table bordered>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (70:21)     Cargando vehículo...   {:then vehicles}
+    function create_pending_block$4(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Cargando vehículo...");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_pending_block$4.name,
+    		type: "pending",
+    		source: "(70:21)     Cargando vehículo...   {:then vehicles}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (101:4) {#if errorMsg}
+    function create_if_block$3(ctx) {
+    	let p;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = `ERROR: ${errorMsg}`;
+    			set_style(p, "color", "red");
+    			add_location(p, file$8, 101, 8, 3184);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(101:4) {#if errorMsg}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$9(ctx) {
+    	let main;
+    	let h3;
+    	let strong;
+    	let t0;
+    	let t1_value = /*params*/ ctx[0].vehicleProvince + "";
+    	let t1;
+    	let t2;
+    	let t3_value = /*params*/ ctx[0].vehicleYear + "";
+    	let t3;
+    	let t4;
+    	let promise;
+    	let t5;
+    	let t6;
+    	let current;
+
+    	let info = {
+    		ctx,
+    		current: null,
+    		token: null,
+    		pending: create_pending_block$4,
+    		then: create_then_block$4,
+    		catch: create_catch_block$4,
+    		value: 16,
+    		blocks: [,,,]
+    	};
+
+    	handle_promise(promise = vehicles, info);
+    	let if_block = errorMsg && create_if_block$3(ctx);
+
+    	const button = new Button({
+    			props: { outline: true, color: "secondary" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			h3 = element("h3");
+    			strong = element("strong");
+    			t0 = text("Edita el dato de vehículos asociado a ");
+    			t1 = text(t1_value);
+    			t2 = text(" y ");
+    			t3 = text(t3_value);
+    			t4 = space();
+    			info.block.c();
+    			t5 = space();
+    			if (if_block) if_block.c();
+    			t6 = space();
+    			create_component(button.$$.fragment);
+    			add_location(strong, file$8, 67, 8, 2144);
+    			add_location(h3, file$8, 67, 4, 2140);
+    			add_location(main, file$8, 66, 0, 2128);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, h3);
+    			append_dev(h3, strong);
+    			append_dev(strong, t0);
+    			append_dev(strong, t1);
+    			append_dev(strong, t2);
+    			append_dev(strong, t3);
+    			append_dev(main, t4);
+    			info.block.m(main, info.anchor = null);
+    			info.mount = () => main;
+    			info.anchor = t5;
+    			append_dev(main, t5);
+    			if (if_block) if_block.m(main, null);
+    			append_dev(main, t6);
+    			mount_component(button, main, null);
+    			current = true;
+    		},
+    		p: function update(new_ctx, [dirty]) {
+    			ctx = new_ctx;
+    			if ((!current || dirty & /*params*/ 1) && t1_value !== (t1_value = /*params*/ ctx[0].vehicleProvince + "")) set_data_dev(t1, t1_value);
+    			if ((!current || dirty & /*params*/ 1) && t3_value !== (t3_value = /*params*/ ctx[0].vehicleYear + "")) set_data_dev(t3, t3_value);
+
+    			{
+    				const child_ctx = ctx.slice();
+    				child_ctx[16] = info.resolved;
+    				info.block.p(child_ctx, dirty);
+    			}
+
+    			if (errorMsg) if_block.p(ctx, dirty);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(info.block);
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < 3; i += 1) {
+    				const block = info.blocks[i];
+    				transition_out(block);
+    			}
+
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			info.block.d();
+    			info.token = null;
+    			info = null;
+    			if (if_block) if_block.d();
+    			destroy_component(button);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { params = {} } = $$props;
+    	let vehicle = {};
+    	let updatedProvince;
+    	let updatedYear;
+    	let updatedCar;
+    	let updatedBus;
+    	let updatedMotorcycle;
+    	let updatedTruck;
+    	let updatedTotal;
+    	onMount(getVehicle);
+
+    	async function getVehicle() {
+    		console.log("Fetching vehicles...");
+    		const res = await fetch("/api/v1/vehicles/" + params.vehicleProvince + "/" + params.vehicleYear);
+
+    		if (res.ok) {
+    			console.log("Ok:");
+    			const json = await res.json();
+    			vehicle = json;
+    			$$invalidate(1, updatedProvince = params.vehicleProvince);
+    			$$invalidate(2, updatedYear = params.vehicleYear);
+    			$$invalidate(3, updatedCar = vehicle.car);
+    			$$invalidate(4, updatedBus = vehicle.bus);
+    			$$invalidate(5, updatedMotorcycle = vehicle.motorcycle);
+    			$$invalidate(6, updatedTruck = vehicle.truck);
+    			$$invalidate(7, updatedTotal = vehicle.total);
+    			console.log("Received " + vehicle.length + " contacts.");
+    		} else {
+    			errorMsg = res.status + ": " + res.statusText;
+    			console.log("ERROR!");
+    		}
+    	}
+
+    	async function updateVehicle() {
+    		console.log("Updating vehicle..." + JSON.stringify(params.vehicleProvince) + JSON.stringify(params.vehicleYear));
+
+    		const res = await fetch("/api/v1/contacts" + params.vehicleProvince + params.vehicleYear, {
+    			method: "PUT",
+    			body: JSON.stringify({
+    				province: params.vehicleProvince,
+    				year: params.vehicleYear,
+    				car: updatedCar,
+    				bus: updatedBus,
+    				motorcycle: updatedMotorcycle,
+    				truck: updatedTruck,
+    				total: updatedTotal
+    			}),
+    			headers: { "Content-Type": "application/json" }
+    		}).then(function (res) {
+    			getVehicle();
+    		});
+    	}
+
+    	
+    	const writable_props = ["params"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$5.warn(`<VehiclesUpdate> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("VehiclesUpdate", $$slots, []);
+
+    	function input0_input_handler() {
+    		updatedCar = this.value;
+    		$$invalidate(3, updatedCar);
+    	}
+
+    	function input1_input_handler() {
+    		updatedBus = this.value;
+    		$$invalidate(4, updatedBus);
+    	}
+
+    	function input2_input_handler() {
+    		updatedMotorcycle = this.value;
+    		$$invalidate(5, updatedMotorcycle);
+    	}
+
+    	function input3_input_handler() {
+    		updatedTruck = this.value;
+    		$$invalidate(6, updatedTruck);
+    	}
+
+    	function input4_input_handler() {
+    		updatedTotal = this.value;
+    		$$invalidate(7, updatedTotal);
+    	}
+
+    	$$self.$set = $$props => {
+    		if ("params" in $$props) $$invalidate(0, params = $$props.params);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		Table,
+    		Button,
+    		pop,
+    		params,
+    		vehicle,
+    		updatedProvince,
+    		updatedYear,
+    		updatedCar,
+    		updatedBus,
+    		updatedMotorcycle,
+    		updatedTruck,
+    		updatedTotal,
+    		getVehicle,
+    		updateVehicle
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("params" in $$props) $$invalidate(0, params = $$props.params);
+    		if ("vehicle" in $$props) vehicle = $$props.vehicle;
+    		if ("updatedProvince" in $$props) $$invalidate(1, updatedProvince = $$props.updatedProvince);
+    		if ("updatedYear" in $$props) $$invalidate(2, updatedYear = $$props.updatedYear);
+    		if ("updatedCar" in $$props) $$invalidate(3, updatedCar = $$props.updatedCar);
+    		if ("updatedBus" in $$props) $$invalidate(4, updatedBus = $$props.updatedBus);
+    		if ("updatedMotorcycle" in $$props) $$invalidate(5, updatedMotorcycle = $$props.updatedMotorcycle);
+    		if ("updatedTruck" in $$props) $$invalidate(6, updatedTruck = $$props.updatedTruck);
+    		if ("updatedTotal" in $$props) $$invalidate(7, updatedTotal = $$props.updatedTotal);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		params,
+    		updatedProvince,
+    		updatedYear,
+    		updatedCar,
+    		updatedBus,
+    		updatedMotorcycle,
+    		updatedTruck,
+    		updatedTotal,
+    		updateVehicle,
+    		vehicle,
+    		getVehicle,
+    		input0_input_handler,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input3_input_handler,
+    		input4_input_handler
+    	];
+    }
+
+    class VehiclesUpdate extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, { params: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "VehiclesUpdate",
+    			options,
+    			id: create_fragment$9.name
+    		});
+    	}
+
+    	get params() {
+    		throw new Error("<VehiclesUpdate>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set params(value) {
+    		throw new Error("<VehiclesUpdate>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\front\TrafficAccidentsAPI\TrafficAccidentsUpdate.svelte generated by Svelte v3.21.0 */
+
+    const { console: console_1$6 } = globals;
+    const file$9 = "src\\front\\TrafficAccidentsAPI\\TrafficAccidentsUpdate.svelte";
+
+    // (1:0) <script>       import {    onMount   }
+    function create_catch_block$5(ctx) {
+    	const block = {
+    		c: noop,
+    		m: noop,
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_catch_block$5.name,
+    		type: "catch",
+    		source: "(1:0) <script>       import {    onMount   }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (72:1) {:then traffic_accident}
+    function create_then_block$5(ctx) {
+    	let current;
+
+    	const table = new Table({
+    			props: {
+    				bordered: true,
+    				$$slots: { default: [create_default_slot$5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(table.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(table, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const table_changes = {};
+
+    			if (dirty & /*$$scope, updateNotHospitalizedWounded, updateHospitalizedWounded, updatedDeath, updateMortalAccident, updateAccidentWithVictims, updatedYear*/ 131198) {
+    				table_changes.$$scope = { dirty, ctx };
+    			}
+
+    			table.$set(table_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(table.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(table.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(table, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_then_block$5.name,
+    		type: "then",
+    		source: "(72:1) {:then traffic_accident}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (94:10) <Button outline  color="primary" on:click={updateTrafficAccident()}>
+    function create_default_slot_1$5(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Update");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$5.name,
+    		type: "slot",
+    		source: "(94:10) <Button outline  color=\\\"primary\\\" on:click={updateTrafficAccident()}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (73:2) <Table bordered>
+    function create_default_slot$5(ctx) {
+    	let thead;
+    	let tr0;
+    	let th0;
+    	let t1;
+    	let th1;
+    	let t3;
+    	let th2;
+    	let t5;
+    	let th3;
+    	let t7;
+    	let th4;
+    	let t9;
+    	let th5;
+    	let t11;
+    	let th6;
+    	let t13;
+    	let th7;
+    	let t15;
+    	let tbody;
+    	let tr1;
+    	let td0;
+    	let input0;
+    	let t16;
+    	let td1;
+    	let input1;
+    	let t17;
+    	let td2;
+    	let input2;
+    	let t18;
+    	let td3;
+    	let input3;
+    	let t19;
+    	let td4;
+    	let input4;
+    	let t20;
+    	let td5;
+    	let input5;
+    	let t21;
+    	let td6;
+    	let current;
+    	let dispose;
+
+    	const button = new Button({
+    			props: {
+    				outline: true,
+    				color: "primary",
+    				$$slots: { default: [create_default_slot_1$5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("click", /*updateTrafficAccident*/ ctx[7]());
+
+    	const block = {
+    		c: function create() {
+    			thead = element("thead");
+    			tr0 = element("tr");
+    			th0 = element("th");
+    			th0.textContent = "Provincia";
+    			t1 = space();
+    			th1 = element("th");
+    			th1.textContent = "Año";
+    			t3 = space();
+    			th2 = element("th");
+    			th2.textContent = "Accidentes con víctimas";
+    			t5 = space();
+    			th3 = element("th");
+    			th3.textContent = "Accidentes mortales";
+    			t7 = space();
+    			th4 = element("th");
+    			th4.textContent = "Muertes";
+    			t9 = space();
+    			th5 = element("th");
+    			th5.textContent = "Hospitalizados";
+    			t11 = space();
+    			th6 = element("th");
+    			th6.textContent = "No hospitalizados";
+    			t13 = space();
+    			th7 = element("th");
+    			th7.textContent = "Acciones";
+    			t15 = space();
+    			tbody = element("tbody");
+    			tr1 = element("tr");
+    			td0 = element("td");
+    			input0 = element("input");
+    			t16 = space();
+    			td1 = element("td");
+    			input1 = element("input");
+    			t17 = space();
+    			td2 = element("td");
+    			input2 = element("input");
+    			t18 = space();
+    			td3 = element("td");
+    			input3 = element("input");
+    			t19 = space();
+    			td4 = element("td");
+    			input4 = element("input");
+    			t20 = space();
+    			td5 = element("td");
+    			input5 = element("input");
+    			t21 = space();
+    			td6 = element("td");
+    			create_component(button.$$.fragment);
+    			add_location(th0, file$9, 75, 5, 2875);
+    			add_location(th1, file$9, 76, 5, 2900);
+    			add_location(th2, file$9, 77, 5, 2919);
+    			add_location(th3, file$9, 78, 20, 2973);
+    			add_location(th4, file$9, 79, 20, 3023);
+    			add_location(th5, file$9, 80, 20, 3061);
+    			add_location(th6, file$9, 81, 20, 3106);
+    			add_location(th7, file$9, 82, 20, 3154);
+    			add_location(tr0, file$9, 74, 4, 2864);
+    			add_location(thead, file$9, 73, 3, 2851);
+    			add_location(input0, file$9, 87, 9, 3228);
+    			add_location(td0, file$9, 87, 5, 3224);
+    			add_location(input1, file$9, 88, 24, 3293);
+    			add_location(td1, file$9, 88, 20, 3289);
+    			add_location(input2, file$9, 89, 24, 3372);
+    			add_location(td2, file$9, 89, 20, 3368);
+    			add_location(input3, file$9, 90, 24, 3446);
+    			add_location(td3, file$9, 90, 20, 3442);
+    			add_location(input4, file$9, 91, 24, 3512);
+    			add_location(td4, file$9, 91, 20, 3508);
+    			add_location(input5, file$9, 92, 9, 3576);
+    			add_location(td5, file$9, 92, 5, 3572);
+    			add_location(td6, file$9, 93, 5, 3639);
+    			add_location(tr1, file$9, 86, 4, 3213);
+    			add_location(tbody, file$9, 85, 3, 3200);
+    		},
+    		m: function mount(target, anchor, remount) {
+    			insert_dev(target, thead, anchor);
+    			append_dev(thead, tr0);
+    			append_dev(tr0, th0);
+    			append_dev(tr0, t1);
+    			append_dev(tr0, th1);
+    			append_dev(tr0, t3);
+    			append_dev(tr0, th2);
+    			append_dev(tr0, t5);
+    			append_dev(tr0, th3);
+    			append_dev(tr0, t7);
+    			append_dev(tr0, th4);
+    			append_dev(tr0, t9);
+    			append_dev(tr0, th5);
+    			append_dev(tr0, t11);
+    			append_dev(tr0, th6);
+    			append_dev(tr0, t13);
+    			append_dev(tr0, th7);
+    			insert_dev(target, t15, anchor);
+    			insert_dev(target, tbody, anchor);
+    			append_dev(tbody, tr1);
+    			append_dev(tr1, td0);
+    			append_dev(td0, input0);
+    			set_input_value(input0, /*updatedYear*/ ctx[1]);
+    			append_dev(tr1, t16);
+    			append_dev(tr1, td1);
+    			append_dev(td1, input1);
+    			set_input_value(input1, /*updateAccidentWithVictims*/ ctx[2]);
+    			append_dev(tr1, t17);
+    			append_dev(tr1, td2);
+    			append_dev(td2, input2);
+    			set_input_value(input2, /*updateMortalAccident*/ ctx[3]);
+    			append_dev(tr1, t18);
+    			append_dev(tr1, td3);
+    			append_dev(td3, input3);
+    			set_input_value(input3, /*updatedDeath*/ ctx[4]);
+    			append_dev(tr1, t19);
+    			append_dev(tr1, td4);
+    			append_dev(td4, input4);
+    			set_input_value(input4, /*updateHospitalizedWounded*/ ctx[5]);
+    			append_dev(tr1, t20);
+    			append_dev(tr1, td5);
+    			append_dev(td5, input5);
+    			set_input_value(input5, /*updateNotHospitalizedWounded*/ ctx[6]);
+    			append_dev(tr1, t21);
+    			append_dev(tr1, td6);
+    			mount_component(button, td6, null);
+    			current = true;
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[11]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[12]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[13]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[14]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[15]),
+    				listen_dev(input5, "input", /*input5_input_handler*/ ctx[16])
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*updatedYear*/ 2 && input0.value !== /*updatedYear*/ ctx[1]) {
+    				set_input_value(input0, /*updatedYear*/ ctx[1]);
+    			}
+
+    			if (dirty & /*updateAccidentWithVictims*/ 4 && input1.value !== /*updateAccidentWithVictims*/ ctx[2]) {
+    				set_input_value(input1, /*updateAccidentWithVictims*/ ctx[2]);
+    			}
+
+    			if (dirty & /*updateMortalAccident*/ 8 && input2.value !== /*updateMortalAccident*/ ctx[3]) {
+    				set_input_value(input2, /*updateMortalAccident*/ ctx[3]);
+    			}
+
+    			if (dirty & /*updatedDeath*/ 16 && input3.value !== /*updatedDeath*/ ctx[4]) {
+    				set_input_value(input3, /*updatedDeath*/ ctx[4]);
+    			}
+
+    			if (dirty & /*updateHospitalizedWounded*/ 32 && input4.value !== /*updateHospitalizedWounded*/ ctx[5]) {
+    				set_input_value(input4, /*updateHospitalizedWounded*/ ctx[5]);
+    			}
+
+    			if (dirty & /*updateNotHospitalizedWounded*/ 64 && input5.value !== /*updateNotHospitalizedWounded*/ ctx[6]) {
+    				set_input_value(input5, /*updateNotHospitalizedWounded*/ ctx[6]);
+    			}
+
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 131072) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(thead);
+    			if (detaching) detach_dev(t15);
+    			if (detaching) detach_dev(tbody);
+    			destroy_component(button);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$5.name,
+    		type: "slot",
+    		source: "(73:2) <Table bordered>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (70:29)     Loading traffic accidents...   {:then traffic_accident}
+    function create_pending_block$5(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Loading traffic accidents...");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_pending_block$5.name,
+    		type: "pending",
+    		source: "(70:29)     Loading traffic accidents...   {:then traffic_accident}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (100:4) {#if errorMsg}
+    function create_if_block$4(ctx) {
+    	let p;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			p.textContent = `ERROR: ${errorMsg}`;
+    			set_style(p, "color", "red");
+    			add_location(p, file$9, 100, 8, 3815);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$4.name,
+    		type: "if",
+    		source: "(100:4) {#if errorMsg}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$a(ctx) {
+    	let main;
+    	let h3;
+    	let strong;
+    	let t0;
+    	let t1_value = /*params*/ ctx[0].traffic_accidentProvince + "";
+    	let t1;
+    	let t2;
+    	let promise;
+    	let t3;
+    	let t4;
+    	let current;
+
+    	let info = {
+    		ctx,
+    		current: null,
+    		token: null,
+    		pending: create_pending_block$5,
+    		then: create_then_block$5,
+    		catch: create_catch_block$5,
+    		value: 8,
+    		blocks: [,,,]
+    	};
+
+    	handle_promise(promise = /*traffic_accident*/ ctx[8], info);
+    	let if_block = errorMsg && create_if_block$4(ctx);
+
+    	const button = new Button({
+    			props: { outline: true, color: "secondary" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			h3 = element("h3");
+    			strong = element("strong");
+    			t0 = text("Edit Contact ");
+    			t1 = text(t1_value);
+    			t2 = space();
+    			info.block.c();
+    			t3 = space();
+    			if (if_block) if_block.c();
+    			t4 = space();
+    			create_component(button.$$.fragment);
+    			add_location(strong, file$9, 67, 8, 2666);
+    			add_location(h3, file$9, 67, 4, 2662);
+    			add_location(main, file$9, 66, 0, 2650);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, h3);
+    			append_dev(h3, strong);
+    			append_dev(strong, t0);
+    			append_dev(strong, t1);
+    			append_dev(main, t2);
+    			info.block.m(main, info.anchor = null);
+    			info.mount = () => main;
+    			info.anchor = t3;
+    			append_dev(main, t3);
+    			if (if_block) if_block.m(main, null);
+    			append_dev(main, t4);
+    			mount_component(button, main, null);
+    			current = true;
+    		},
+    		p: function update(new_ctx, [dirty]) {
+    			ctx = new_ctx;
+    			if ((!current || dirty & /*params*/ 1) && t1_value !== (t1_value = /*params*/ ctx[0].traffic_accidentProvince + "")) set_data_dev(t1, t1_value);
+
+    			{
+    				const child_ctx = ctx.slice();
+    				child_ctx[8] = info.resolved;
+    				info.block.p(child_ctx, dirty);
+    			}
+
+    			if (errorMsg) if_block.p(ctx, dirty);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(info.block);
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < 3; i += 1) {
+    				const block = info.blocks[i];
+    				transition_out(block);
+    			}
+
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			info.block.d();
+    			info.token = null;
+    			info = null;
+    			if (if_block) if_block.d();
+    			destroy_component(button);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$a($$self, $$props, $$invalidate) {
+    	let { params = {} } = $$props;
+    	let traffic_accident = {};
+    	let updatedProvince;
+    	let updatedYear;
+    	let updateAccidentWithVictims;
+    	let updateMortalAccident;
+    	let updatedDeath;
+    	let updateHospitalizedWounded;
+    	let updateNotHospitalizedWounded;
+    	onMount(getTrafficAccident);
+
+    	async function getTrafficAccident() {
+    		console.log("Fetching traffic accidents...");
+    		const res = await fetch("/api/v1/traffic_accidents" + params.traffic_accidentProvince + "/" + params.traffic_accidentYear);
+
+    		if (res.ok) {
+    			console.log("Ok:");
+    			const json = await res.json();
+    			let traffic_accident = json;
+    			let updatedProvince = params.traffic_accidentProvince;
+    			let updatedYear = params.traffic_accidentYear;
+    			let updateAccidentWithVictims = traffic_accident.accidentWithVictims;
+    			let updateMortalAccident = traffic_accident.mortalAccident;
+    			let updatedDeath = traffic_accident.death;
+    			let updateHospitalizedWounded = traffic_accident.hospitalizedWounded;
+    			let updateNotHospitalizedWounded = traffic_accident.notHospitalizedWounded;
+    			console.log("Received " + traffic_accident.length + " traffic accident.");
+    		} else {
+    			errorMsg = res.status + ": " + res.statusText;
+    			console.log("ERROR!");
+    		}
+    	}
+
+    	async function updateTrafficAccident() {
+    		console.log("Updating trafficc accident..." + JSON.stringify(params.traffic_accidentProvince) + JSON.stringify(params.traffic_accidentYear));
+
+    		const res = await fetch("/api/v1/traffic_accidents" + params.traffic_accidentProvince + params.traffic_accidentYear, {
+    			method: "PUT",
+    			body: JSON.stringify({
+    				province: params.traffic_accidentProvince,
+    				year: params.traffic_accidentYear,
+    				accidentWithVictims: updateAccidentWithVictims,
+    				mortalAccident: updateMortalAccident,
+    				death: updatedDeath,
+    				hospitalizedWounded: updateHospitalizedWounded,
+    				notHospitalizedWounded: updateNotHospitalizedWounded
+    			}),
+    			headers: { "Content-Type": "application/json" }
+    		}).then(function (res) {
+    			getTrafficAccident();
+    		});
+    	}
+
+    	
+    	const writable_props = ["params"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1$6.warn(`<TrafficAccidentsUpdate> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("TrafficAccidentsUpdate", $$slots, []);
+
+    	function input0_input_handler() {
+    		updatedYear = this.value;
+    		$$invalidate(1, updatedYear);
+    	}
+
+    	function input1_input_handler() {
+    		updateAccidentWithVictims = this.value;
+    		$$invalidate(2, updateAccidentWithVictims);
+    	}
+
+    	function input2_input_handler() {
+    		updateMortalAccident = this.value;
+    		$$invalidate(3, updateMortalAccident);
+    	}
+
+    	function input3_input_handler() {
+    		updatedDeath = this.value;
+    		$$invalidate(4, updatedDeath);
+    	}
+
+    	function input4_input_handler() {
+    		updateHospitalizedWounded = this.value;
+    		$$invalidate(5, updateHospitalizedWounded);
+    	}
+
+    	function input5_input_handler() {
+    		updateNotHospitalizedWounded = this.value;
+    		$$invalidate(6, updateNotHospitalizedWounded);
+    	}
+
+    	$$self.$set = $$props => {
+    		if ("params" in $$props) $$invalidate(0, params = $$props.params);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		Table,
+    		Button,
+    		pop,
+    		params,
+    		traffic_accident,
+    		updatedProvince,
+    		updatedYear,
+    		updateAccidentWithVictims,
+    		updateMortalAccident,
+    		updatedDeath,
+    		updateHospitalizedWounded,
+    		updateNotHospitalizedWounded,
+    		getTrafficAccident,
+    		updateTrafficAccident
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("params" in $$props) $$invalidate(0, params = $$props.params);
+    		if ("traffic_accident" in $$props) $$invalidate(8, traffic_accident = $$props.traffic_accident);
+    		if ("updatedProvince" in $$props) updatedProvince = $$props.updatedProvince;
+    		if ("updatedYear" in $$props) $$invalidate(1, updatedYear = $$props.updatedYear);
+    		if ("updateAccidentWithVictims" in $$props) $$invalidate(2, updateAccidentWithVictims = $$props.updateAccidentWithVictims);
+    		if ("updateMortalAccident" in $$props) $$invalidate(3, updateMortalAccident = $$props.updateMortalAccident);
+    		if ("updatedDeath" in $$props) $$invalidate(4, updatedDeath = $$props.updatedDeath);
+    		if ("updateHospitalizedWounded" in $$props) $$invalidate(5, updateHospitalizedWounded = $$props.updateHospitalizedWounded);
+    		if ("updateNotHospitalizedWounded" in $$props) $$invalidate(6, updateNotHospitalizedWounded = $$props.updateNotHospitalizedWounded);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		params,
+    		updatedYear,
+    		updateAccidentWithVictims,
+    		updateMortalAccident,
+    		updatedDeath,
+    		updateHospitalizedWounded,
+    		updateNotHospitalizedWounded,
+    		updateTrafficAccident,
+    		traffic_accident,
+    		updatedProvince,
+    		getTrafficAccident,
+    		input0_input_handler,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input3_input_handler,
+    		input4_input_handler,
+    		input5_input_handler
+    	];
+    }
+
+    class TrafficAccidentsUpdate extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, { params: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "TrafficAccidentsUpdate",
+    			options,
+    			id: create_fragment$a.name
+    		});
+    	}
+
+    	get params() {
+    		throw new Error("<TrafficAccidentsUpdate>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set params(value) {
+    		throw new Error("<TrafficAccidentsUpdate>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\front\App.svelte generated by Svelte v3.21.0 */
+    const file$a = "src\\front\\App.svelte";
+
+    function create_fragment$b(ctx) {
     	let main;
     	let h1;
     	let t1;
@@ -5561,8 +7759,8 @@ var app = (function () {
     			h1.textContent = "API Manager";
     			t1 = space();
     			create_component(router.$$.fragment);
-    			add_location(h1, file$7, 20, 1, 522);
-    			add_location(main, file$7, 19, 0, 513);
+    			add_location(h1, file$a, 26, 1, 938);
+    			add_location(main, file$a, 25, 0, 929);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5592,7 +7790,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$8.name,
+    		id: create_fragment$b.name,
     		type: "component",
     		source: "",
     		ctx
@@ -5601,12 +7799,15 @@ var app = (function () {
     	return block;
     }
 
-    function instance$8($$self, $$props, $$invalidate) {
+    function instance$b($$self, $$props, $$invalidate) {
     	const routes = {
     		"/": Home,
     		"/vehicles": VehiclesTable,
     		"/traffic_accidents": TrafficAccidentsTable,
     		"/roads": RoadsTable,
+    		"/vehicles/:vehicleProvince/:vehicleYear": VehiclesUpdate,
+    		"/roads/:roadProvince/:roadYear": RoadsUpdate,
+    		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentsYear": TrafficAccidentsUpdate,
     		"*": NotFound
     	};
 
@@ -5626,6 +7827,9 @@ var app = (function () {
     		RoadsAPI: RoadsTable,
     		VehiclesAPI: VehiclesTable,
     		TrafficAccidentsAPI: TrafficAccidentsTable,
+    		EditRoad: RoadsUpdate,
+    		EditVehicle: VehiclesUpdate,
+    		EditTrafficAccidents: TrafficAccidentsUpdate,
     		routes
     	});
 
@@ -5635,13 +7839,13 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$8, create_fragment$8, safe_not_equal, {});
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$8.name
+    			id: create_fragment$b.name
     		});
     	}
     }
