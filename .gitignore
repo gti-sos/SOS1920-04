@@ -2,4 +2,12 @@ node_modules
 public/build
 src/back/RoadsAPI/RoadsAPI.db
 src/back/VehiclesAPI/VehiclesAPI.db
+<<<<<<< HEAD
 src/back/TrafficAccidentsAPI/TrafficAccidentsAPI.db
+=======
+<<<<<<< HEAD
+src/back/TrafficAccidentsAPI/TrafficAccidentsAPI.db
+=======
+src/back/TrafficAccidentsAPI/TrafficAccidentsAPI.db
+>>>>>>> 9bc383b1d3156f8417e9a189b162ce7c47cb6fa5
+>>>>>>> 8ec6acacdad25dba0aacdc22cb5e1fd153959e7c

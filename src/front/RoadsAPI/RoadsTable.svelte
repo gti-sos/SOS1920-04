@@ -33,11 +33,17 @@
 		}
     }
     async function insertRoads() {
+		newRoads.year = ParseInt(newRoads.year);
+		newRoads.oneway = ParseInt(newRoads.oneway);
+        newRoads.multipleway = ParseInt(newRoads.multipleway);
+		newRoads.dualCarriagewayAndHighway = ParseInt(newRoads.dualCarriagewayAndHighway);
+		newRoads.highwayWithToll = ParseInt(newRoads.highwayWithToll);
+		newRoads.total = ParseInt(newRoads.total);
 
     console.log("Inserting roads..." + JSON.stringify(newRoads));
 
     const res = await fetch("/api/v1/roads", {
-        method: "POST",
+		method: "POST",
         body: JSON.stringify(newRoads),
         headers: {
             "Content-Type": "application/json"
@@ -84,26 +90,22 @@
 					<td><input bind:value="{newRoads.dualCarriagewayAndHighway}"></td>
 					<td><input bind:value="{newRoads.highwayWithToll}"></td>
 					<td><input bind:value="{newRoads.total}"></td>
-
 					<td> <Button outline  color="primary" on:click={insertRoads}>Insertar</Button> </td>
 				</tr>
 
 				{#each roads as road}
 					<tr>
-                        <td>{road.province}</td>
+						<td><a href="#/road/{road.province}/{road.year}">{road.province}</a></td>
                         <td>{road.year}</td>
                         <td>{road.oneway}</td>
 						<td>{road.multipleway}</td>
 						<td>{road.dualCarriagewayAndHighway}</td>
                         <td>{road.highwayWithToll}</td>
                         <td>{road.total}</td>
-
-¡						<td><Button outline color="danger" on:click="{deleteRoads(road.province, road.year)}">Eliminar</Button></td>
+						<td><Button outline color="danger" on:click="{deleteRoads(road.province, road.year)}">Eliminar</Button></td>
 					</tr>
 				{/each}
 			</tbody>
 		</Table>
 	{/await}
-
-
 </main>

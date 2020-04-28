@@ -3,7 +3,7 @@ module.exports = function(app){
 	const dataStore = require("nedb");
 	const path = require("path");
 	
-	const dbFileName = path.join(__dirname, "RoadsAPI.json");
+	const dbFileName = path.join(__dirname, "RoadsAPI.db");
 	const BASE_API_URL = "/api/v1";
 	
 	const db = new dataStore({
@@ -66,7 +66,7 @@ module.exports = function(app){
 	// LOAD INITIAL DATA ROADS
 
 	app.get(BASE_API_URL+"/roads/loadInitialData", (req,res) =>{
-		console.log("Nwe GET .../loadInitialData");
+		console.log("New GET .../loadInitialData");
 		
 		db.insert(initialRoads);
 		res.sendStatus(200);
