@@ -114,6 +114,4 @@
 			</tbody>
 		</Table>
 	{/await}
-
-
 </main>

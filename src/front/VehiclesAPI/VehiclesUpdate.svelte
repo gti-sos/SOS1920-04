@@ -21,7 +21,6 @@
 
         console.log("Fetching vehicles...");
         const res = await fetch("/api/v1/vehicles/" + params.vehicleProvince +"/" + params.vehicleYear);
-
         if (res.ok) {
             console.log("Ok:");
             const json = await res.json();
@@ -43,16 +42,16 @@
     async function updateVehicle() {
         
 		console.log("Updating vehicle..." + JSON.stringify(params.vehicleProvince) + JSON.stringify(params.vehicleYear));
-        const res = await fetch("/api/v1/contacts"+ params.vehicleProvince + params.vehicleYear, {
+        const res = await fetch("/api/v1/vehicles/"+ params.vehicleProvince +"/"+ params.vehicleYear, {
             method: "PUT",
             body: JSON.stringify({
                 province : params.vehicleProvince,
-                year : params.vehicleYear,
-                car : updatedCar,
-                bus : updatedBus,
-                motorcycle : updatedMotorcycle,
-                truck : updatedTruck,
-                total : updatedTotal
+                year : parseInt(params.vehicleYear),
+                car : parseInt(updatedCar),
+                bus : parseInt(updatedBus),
+                motorcycle : parseInt(updatedMotorcycle),
+                truck : parseInt(updatedTruck),
+                total : parseInt(updatedTotal)
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -92,15 +91,12 @@
                     <td><input bind:value="{updatedMotorcycle}"></td>
                     <td><input bind:value="{updatedTruck}"></td>
                     <td><input bind:value="{updatedTotal}"></td>
-					<td> <Button outline  color="primary" on:click={updateVehicle()}>Actualizar</Button> </td>
+					<td> <Button outline  color="primary" on:click={updateVehicle}>Actualizar</Button> </td>
 				</tr>
 
 			</tbody>
 		</Table>
     {/await}
-    {#if errorMsg}
-        <p style="color: red">ERROR: {errorMsg}</p>
-    {/if}
-    <Button outline color="secondary"></Button>
+	<Button outline color="secondary" on:click="{pop}">Atrás</Button>
 </main>
 
