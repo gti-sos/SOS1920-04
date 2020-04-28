@@ -33,15 +33,14 @@
 		}
     }
     async function insertRoads() {
-		newRoads.year = ParseInt(newRoads.year);
-		newRoads.oneway = ParseInt(newRoads.oneway);
-        newRoads.multipleway = ParseInt(newRoads.multipleway);
-		newRoads.dualCarriagewayAndHighway = ParseInt(newRoads.dualCarriagewayAndHighway);
-		newRoads.highwayWithToll = ParseInt(newRoads.highwayWithToll);
-		newRoads.total = ParseInt(newRoads.total);
+		newRoads.year = parseInt(newRoads.year);
+		newRoads.oneway = parseInt(newRoads.oneway);
+		newRoads.multipleway = parseInt(newRoads.multipleway);
+		newRoads.dualCarriagewayAndHighway = parseInt(newRoads.dualCarriagewayAndHighway);
+		newRoads.highwayWithToll = parseInt(newRoads.highwayWithToll);
+		newRoads.total = parseInt(newRoads.total);
 
     console.log("Inserting roads..." + JSON.stringify(newRoads));
-
     const res = await fetch("/api/v1/roads", {
 		method: "POST",
         body: JSON.stringify(newRoads),
@@ -95,7 +94,7 @@
 
 				{#each roads as road}
 					<tr>
-						<td><a href="#/road/{road.province}/{road.year}">{road.province}</a></td>
+						<td><a href="#/roads/{road.province}/{road.year}">{road.province}</a></td>
                         <td>{road.year}</td>
                         <td>{road.oneway}</td>
 						<td>{road.multipleway}</td>

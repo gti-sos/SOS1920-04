@@ -11,7 +11,10 @@
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
 
-	let roads = [];
+    export let params = {};
+
+    let errorMsg = false;
+	let roads = {};
     let updatedProvince = "";
     let updatedYear = "";
     let updatedOneway = "";
@@ -24,6 +27,7 @@
 	async function getRoads() {
         console.log("Fetching road...");
         const res = await fetch("/api/v1/roads/" + params.roadProvince + "/" + params.roadYear);
+        console.log(res);
 
         if (res.ok) {
             console.log("Ok:");
@@ -51,25 +55,25 @@
         method: "PUT",
         body: JSON.stringify({
             province: params.roadProvince,
-            year: params.roadYear,
-            oneway : updatedOneway,
-            multipleway : updatedMultipleway,
-            dualCarriagewayAndHighway : updatedDualCarriagewayAndHighway,
-            highwayWithToll : updatedHighwayWithToll,
-            total : updatedTotal
+            year: parseInt(params.roadYear),
+            oneway : parseInt(updatedOneway),
+            multipleway : parseInt(updatedMultipleway),
+            dualCarriagewayAndHighway : parseInt(updatedDualCarriagewayAndHighway),
+            highwayWithToll : parseInt(updatedHighwayWithToll),
+            total : parseInt(updatedTotal)
            
         }),
         headers: {
             "Content-Type": "application/json"
         }
     }).then(function (res) {
-        getContact();
+        getRoads();
     });
 }
 </script>
 
 <main>
-
+    <h3>Edit Roads <strong>{params.roadProvince}</strong></h3>
 	{#await roads}
 		Cargando carreteras...
 	{:then roads}
@@ -87,19 +91,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each roads as road}
-					<tr>
-					<td><input bind:value="{updatedProvince}"></td>
-					<td><input bind:value="{updatedYear}"></td>
+				<tr>
+                    <td>{updatedProvince}</td>
+                    <td>{updatedYear}</td>
                     <td><input bind:value="{updatedOneway}"></td>
                     <td><input bind:value="{updatedMultipleway}"></td>
 					<td><input bind:value="{updatedDualCarriagewayAndHighway}"></td>
 					<td><input bind:value="{updatedHighwayWithToll}"></td>
 					<td><input bind:value="{updatedTotal}"></td>
-                    <td> <Button outline  color="primary" on:click={updateRoad()}>Actualizar</Button> </td>
-                    </tr>
-				{/each}
+                    <td> <Button outline  color="primary" on:click={updateRoad}>Actualizar</Button> </td>
+                </tr>
 			</tbody>
 		</Table>
-	{/await}
+    {/await}
+    {#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+    <Button outline color="secondary" on:click="{pop}">Atras</Button>
 </main>
