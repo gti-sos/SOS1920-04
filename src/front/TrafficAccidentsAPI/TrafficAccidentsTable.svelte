@@ -36,6 +36,13 @@
 
 	async function insertTrafficAccident() {
 
+		newTraffic_accident.year = parseInt(newTraffic_accident.year);
+		newTraffic_accident.accidentWithVictims = parseInt(newTraffic_accident.accidentWithVictims);
+		newTraffic_accident.mortalAccident = parseInt(newTraffic_accident.mortalAccident);
+		newTraffic_accident.death = parseInt(newTraffic_accident.death);
+		newTraffic_accident.hospitalizedWounded = parseInt(newTraffic_accident.hospitalizedWounded);
+		newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded);
+
 		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
 
 		const res = await fetch("/api/v1/traffic_accidents", {
