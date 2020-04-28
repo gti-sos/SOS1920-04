@@ -3,7 +3,7 @@ module.exports = function (app) {
 	const dataStore = require("nedb");
 	const path = require("path");
 	
-	const dbFileName = path.join(__dirname,"VehiclesAPI.db");
+	const dbFileName = path.join(__dirname,"VehiclesAPI.json");
 	const BASE_API_URL = "/api/v1";
 	
 	const db = new dataStore({
@@ -12,7 +12,6 @@ module.exports = function (app) {
 				});
 	
 		// INITIAL DATA
-
 	var initialVehicles = [
 		{
 			province:"Almeria",

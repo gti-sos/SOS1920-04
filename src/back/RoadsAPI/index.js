@@ -3,7 +3,7 @@ module.exports = function(app){
 	const dataStore = require("nedb");
 	const path = require("path");
 	
-	const dbFileName = path.join(__dirname, "RoadsAPI.db");
+	const dbFileName = path.join(__dirname, "RoadsAPI.json");
 	const BASE_API_URL = "/api/v1";
 	
 	const db = new dataStore({
