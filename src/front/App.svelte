@@ -13,6 +13,9 @@
 		"/vehicles": VehiclesAPI,
 		"/traffic_accidents": TrafficAccidentsAPI,
 		"/roads": RoadsAPI,
+		"/vehicles/:vehicleProvince/:vehicleYear" : EditVehicle,
+		"/roads/:roadProvince/:roadYear" : EditRoad,
+		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentsYear" : EditTrafficAccidents,
 		"*" : NotFound
 	};
 </script>
