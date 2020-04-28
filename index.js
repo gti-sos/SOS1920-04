@@ -5,7 +5,7 @@ const RoadsAPI = require(path.join(__dirname,"RoadsAPI"));
 const VehiclesAPI = require(path.join(__dirname,"VehiclesAPI"));
 const TrafficAccidentsAPI = require(path.join(__dirname,"TrafficAccidentsAPI"));
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 1234;
 
 const app = express();
 app.use(bodyParser.json());
