@@ -36,6 +36,13 @@
 
 	async function insertVehicle() {
 
+		newVehicle.year = parseInt(newVehicle.year);
+		newVehicle.car = parseInt(newVehicle.car);
+		newVehicle.bus = parseInt(newVehicle.bus);
+		newVehicle.motorcycle = parseInt(newVehicle.motorcycle);
+		newVehicle.truck = parseInt(newVehicle.truck);
+		newVehicle.total = parseInt(newVehicle.total);
+
 		console.log("Inserting vehicle..." + JSON.stringify(newVehicle));
 
 		const res = await fetch("/api/v1/vehicles", {
@@ -92,7 +99,9 @@
 
 				{#each vehicles as vehicle}
 					<tr>
-						<td>{vehicle.province}</td>
+						<td>
+							<a href="#/vehicles/{vehicle.province}/{vehicle.year}">{vehicle.province}</a>
+						</td>
 						<td>{vehicle.year}</td>
 						<td>{vehicle.car}</td>
 						<td>{vehicle.bus}</td>
