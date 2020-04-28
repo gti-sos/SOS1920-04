@@ -16,4 +16,3 @@
 {"province":"Test","year":0,"accidentWithVictims":1,"mortalaccident":1,"death":1,"hospitalizedWounded":1,"notHospitalizedWounded":1,"_id":"soXWJhKQ8vvch3JP"}
 {"province":"Pontevedra","year":2016,"accidentWithVictims":1726,"mortalAccident":35,"death":36,"hospitalizedWounded":260,"notHospitalizedWounded":2372,"_id":"sx83MGGcwqSZJ0d2"}
 {"province":"Almeria","year":2018,"accidentWithVictims":1194,"mortalaccident":27,"death":27,"hospitalizedWounded":111,"notHospitalizedWounded":1780,"_id":"xi5QhkdQelexPoEv"}
-

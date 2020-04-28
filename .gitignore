@@ -1,2 +1,5 @@
 node_modules
 public/build
+src/back/RoadsAPI/RoadsAPI.db
+src/back/VehiclesAPI/VehiclesAPI.db
+src/back/TrafficAccidentsAPI/TrafficAccidentsAPI.db
