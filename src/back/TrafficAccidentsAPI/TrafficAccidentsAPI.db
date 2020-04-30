@@ -1,15 +1,1 @@
-<<<<<<< HEAD
 {"province":"Las%20Palmas","year":2017,"accidentWithVictims":1,"mortalAccident":29,"death":30,"hospitalizedWounded":115,"notHospitalizedWounded":1886,"_id":"dp8gfkmxsuvmPkwn"}
-=======
-{"province":"tthth","year":5,"accidentWithVictims":5,"mortalAccident":5,"death":5,"hospitalizedWounded":5,"notHospitalizedWounded":5,"_id":"cjXneKgyMEsbgXay"}
-{"province":"Las%20Palmas","year":2017,"accidentWithVictims":1,"mortalAccident":29,"death":30,"hospitalizedWounded":115,"notHospitalizedWounded":1886,"_id":"dp8gfkmxsuvmPkwn"}
-{"province":"Pontevedra","year":2016,"accidentWithVictims":1726,"mortalAccident":35,"death":36,"hospitalizedWounded":260,"notHospitalizedWounded":2372,"_id":"jH1CfbJCdAPBRx5T"}
-{"province":"Pontevedra","year":2016,"accidentWithVictims":1726,"mortalAccident":35,"death":36,"hospitalizedWounded":260,"notHospitalizedWounded":2372,"_id":"sx83MGGcwqSZJ0d2"}
-{"province":"Madrid","year":2015,"accidentWithVictims":1,"mortalAccident":1,"death":1,"hospitalizedWounded":1314,"notHospitalizedWounded":18689,"_id":"wP03HDnbLOcjoRy3"}
-{"province":"Almeria","year":2018,"accidentWithVictims":1194,"mortalaccident":27,"death":27,"hospitalizedWounded":111,"notHospitalizedWounded":1780,"_id":"xi5QhkdQelexPoEv"}
-{"$$deleted":true,"_id":"cjXneKgyMEsbgXay"}
-{"$$deleted":true,"_id":"jH1CfbJCdAPBRx5T"}
-{"$$deleted":true,"_id":"sx83MGGcwqSZJ0d2"}
-{"$$deleted":true,"_id":"wP03HDnbLOcjoRy3"}
-{"$$deleted":true,"_id":"xi5QhkdQelexPoEv"}
->>>>>>> 9596a54b66f725e0c258d79e087b6fc2f6009086
