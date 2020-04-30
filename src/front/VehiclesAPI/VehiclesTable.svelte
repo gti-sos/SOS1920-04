@@ -81,6 +81,7 @@
 			getVehicles();
 		});
 		successMsg = "El dato ha sido borrado correctamente.";
+		errorMsg = false;
 	};
 
 	async function deleteAllVehicles() {
@@ -90,6 +91,7 @@
 			getVehicles();
 		});
 		successMsg = "Se han borrado todos los datos correctamente.";
+		errorMsg = false;
 	};
 
 	async function loadInitialDataVehicles() {
@@ -99,6 +101,7 @@
 			getVehicles();
 		});;
 		successMsg = "Se han cargado los datos iniciales correctamente.";
+		errorMsg = false;
 	};
 
 </script>
