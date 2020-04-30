@@ -45,8 +45,8 @@
 		newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded);
 		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
 
-		if(isNan(newTraffic_accident.year) || isNan(newTraffic_accident.accidentWithVictims) || isNan(newTraffic_accident.mortalAccident)
-		|| isNan(newTraffic_accident.death) || isNan(newTraffic_accident.hospitalizedWounded)|| isNan(newTraffic_accident.notHospitalizedWounded)){
+		if(isNaN(newTraffic_accident.year) || isNaN(newTraffic_accident.accidentWithVictims) || isNaN(newTraffic_accident.mortalAccident)
+		|| isNaN(newTraffic_accident.death) || isNaN(newTraffic_accident.hospitalizedWounded)|| isNaN(newTraffic_accident.notHospitalizedWounded)){
 			errorMsg = "Alguno de los valores introducidos no es numérico";
 			successMsg = false;
 		}else{
@@ -157,6 +157,6 @@
 		<p style="color: green">ÉXITO: {successMsg}</p>
 	{/if}
 	<Button outline color="danger" on:click="{deleteAllTrafficAccidents}">Borrar todo</Button>
-	<Button outline color="danger" on:click="{loadInitialDataTrafficAccidents}">Cargar datos iniciales</Button>
+	<Button outline color="primary" on:click="{loadInitialDataTrafficAccidents}">Cargar datos iniciales</Button>
 
 </main>

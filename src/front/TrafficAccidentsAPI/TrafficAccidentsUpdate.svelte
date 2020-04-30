@@ -7,6 +7,7 @@
     import {pop} from "svelte-spa-router";
     export let params = {};
     let errorMsg = false;
+    let successMsg = false;
     let traffic_accident = {};
     let updatedProvince;
     let updatedYear;
@@ -52,8 +53,8 @@
         updatedHospitalizedWounded = parseInt(updatedHospitalizedWounded);
         updatedNotHospitalizedWounded = parseInt(updatedNotHospitalizedWounded);
 
-        if(isNan(newTraffic_accident.year) || isNan(newTraffic_accident.accidentWithVictims) || isNan(newTraffic_accident.mortalAccident)
-		|| isNan(newTraffic_accident.death) || isNan(newTraffic_accident.hospitalizedWounded)|| isNan(newTraffic_accident.notHospitalizedWounded)){
+        if(isNaN(updatedYear) || isNaN(updatedAccidentWithVictims) || isNaN(updatedMortalAccident)
+		|| isNaN(updatedDeath) || isNaN(updatedHospitalizedWounded)|| isNaN(updatedNotHospitalizedWounded)){
             errorMsg = "Alguno de los valores introducidos no es numérico";
             successMsg = false;
 		}else{
