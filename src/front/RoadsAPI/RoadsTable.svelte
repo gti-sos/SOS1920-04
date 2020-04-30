@@ -59,6 +59,13 @@
 			getRoads();
 		});
 	}
+	async function deleteAllRoads() {
+		const res = await fetch("/api/v1/roads", {
+			method: "DELETE"
+		}).then(function (res) {
+			getRoads();
+		});
+	}
 
 </script>
 
@@ -107,4 +114,5 @@
 			</tbody>
 		</Table>
 	{/await}
+	<Button outline color="danger" on:click="{deleteAllRoads}">Borrar todo</Button>
 </main>
