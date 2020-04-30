@@ -65,6 +65,14 @@
 		});
 	}
 
+	async function deleteAll() {
+		const res = await fetch("/api/v1/vehicles", {
+			method: "DELETE"
+		}).then(function (res) {
+			getVehicles();
+		});
+	}
+
 </script>
 
 <main>
@@ -114,4 +122,5 @@
 			</tbody>
 		</Table>
 	{/await}
+	<Button outline color="danger" on:click="{deleteAll}">Borrar todo</Button>
 </main>
