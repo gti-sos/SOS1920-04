@@ -93,7 +93,7 @@
                     <td><input bind:value="{updatedDeath}"></td>
                     <td><input bind:value="{updatedHospitalizedWounded}"></td>
 					<td><input bind:value="{updatedNotHospitalizedWounded}"></td>
-					<td> <Button outline  color="primary" on:click={updateTrafficAccident}>Update</Button> </td>
+					<td> <Button outline  color="primary" on:click={updateTrafficAccident}>Actualizar</Button> </td>
 				</tr>
 
 			</tbody>

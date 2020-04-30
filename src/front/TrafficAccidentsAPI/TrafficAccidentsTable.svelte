@@ -44,16 +44,22 @@
 		newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded);
 		console.log(newTraffic_accident);
 		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
-
-		const res = await fetch("/api/v1/traffic_accidents", {
+		const dataBaseGet = await fetch("/api/v1/traffic_accidents/" + newTraffic_accident.province +"/" + newTraffic_accident.year);
+		if(!dataBaseGet.ok){
+			const res = await fetch("/api/v1/traffic_accidents", {
 			method: "POST",
 			body: JSON.stringify(newTraffic_accident),
 			headers: {
 				"Content-Type": "application/json"
 			}
-		}).then(function (res) {
-			getTrafficAccidents();
-		});
+				}).then(function (res) {
+					getTrafficAccidents();
+				});
+
+		}else{
+			errorMsg = "Ya existe ese dato";	
+		}
+		
 
 	}
 	async function deleteTrafficAccident(province, year) {
@@ -64,12 +70,31 @@
 		});
 	}
 
-	async function deleteAll() {
+	async function deleteAllTrafficAccidents() {
 		const res = await fetch("/api/v1/traffic_accidents/", {
 			method: "DELETE"
 		}).then(function (res) {
 			getTrafficAccidents();
 		});
+	}
+
+	async function loadInitialDataTrafficAccidents(){
+		
+		console.log("Loading trafficAccidents...");
+		const res = await fetch("/api/v1/traffic_accidents/loadInitialData", {
+		}).then(function (res) {
+			getTrafficAccidents();
+		});
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			trafficAccidents = json;
+			console.log("Received " + trafficAccidents.length + " trafficAccidents.");
+		} else {
+			console.log("ERROR!");
+		}
+
 	}
 </script>
 
@@ -100,7 +125,7 @@
 					<td><input bind:value="{newTraffic_accident.death}"></td>
                     <td><input bind:value="{newTraffic_accident.hospitalizedWounded}"></td>
                     <td><input bind:value="{newTraffic_accident.notHospitalizedWounded}"></td>
-					<td> <Button outline  color="primary" on:click={insertTrafficAccident}>Insert</Button> </td>
+					<td> <Button outline  color="primary" on:click={insertTrafficAccident}>Insertar</Button> </td>
 				</tr>
 
 				{#each trafficAccidents as traffic_accident}
@@ -120,6 +145,7 @@
 			</tbody>
 		</Table>
 	{/await}
-	<Button outline color="danger" on:click="{deleteAll()}">Borrar todo</Button>
+	<Button outline color="danger" on:click="{deleteAllTrafficAccidents}">Borrar todo</Button>
+	<Button outline color="danger" on:click="{loadInitialDataTrafficAccidents}">Cargar datos iniciales</Button>
 
 </main>

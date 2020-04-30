@@ -19,7 +19,7 @@ module.exports = function(app){
 			province:"Almeria",
 			year: 2018,
 			accidentWithVictims: 1194,
-			mortalaccident: 27,
+			mortalAccident: 27,
 			death: 27,
 			hospitalizedWounded: 111,
 			notHospitalizedWounded: 1780
