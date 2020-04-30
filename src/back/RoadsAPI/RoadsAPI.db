@@ -1,37 +1,5 @@
-{"province":"a","year":0,"oneway":0,"multipleway":0,"dualCarriagewayAndHighway":0,"highwayWithToll":0,"total":0,"_id":"CQMmYuoyz3jWkWKo"}
-{"$$deleted":true,"_id":"CQMmYuoyz3jWkWKo"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"4s3gKdnd4tk7Q5CA"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"I7HV5JBjBGrXkDGM"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"IKO1lnlIPCu5nkc8"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"MuN19U45jbr6V3WT"}
-{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"CrG7RoDK7QJCWmmx"}
-{"province":"Salamanca","year":2020,"oneway":15,"multipleway":1,"dualCarriagewayAndHighway":515,"highwayWithToll":15,"total":45,"_id":"lv8inbZJ0F46aZvB"}
-{"$$deleted":true,"_id":"lv8inbZJ0F46aZvB"}
-{"$$deleted":true,"_id":"4s3gKdnd4tk7Q5CA"}
 {"province":"Almeria","year":"2018","oneway":"2004","multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"Fpn4QnFdHCGAxdln"}
-{"$$deleted":true,"_id":"CrG7RoDK7QJCWmmx"}
-{"province":"Cadiz","year":"2018","oneway":"1805","multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"Ux7GELayX0wNjFRh"}
-{"$$deleted":true,"_id":"I7HV5JBjBGrXkDGM"}
 {"province":"Las Palmas","year":"2017","oneway":"1963","multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"MN0UD2jxALL4P8vz"}
-{"$$deleted":true,"_id":"IKO1lnlIPCu5nkc8"}
+{"province":"Cadiz","year":"2018","oneway":"1805","multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"Ux7GELayX0wNjFRh"}
 {"province":"Pontevedra","year":2016,"oneway":3221,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"covwITYMr84iCM2Q"}
-{"$$deleted":true,"_id":"MuN19U45jbr6V3WT"}
-{"province":"Madrid","year":2015,"oneway":0,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"x02b6V07m8JtVnbC"}
-{"$$deleted":true,"_id":"x02b6V07m8JtVnbC"}
 {"province":"Madrid","year":2015,"oneway":20,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"mq6FCl6RP0ofA8pc"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"4eSGT3FyQjA97Pvq"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"AiNgeNfucbx558dq"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"9KT4FZMTCpCJZSP9"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"MnO9XWHdoIB5r3ou"}
-{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"Ie1fBxbkffmHMpvn"}
-{"$$deleted":true,"_id":"MnO9XWHdoIB5r3ou"}
-{"$$deleted":true,"_id":"4eSGT3FyQjA97Pvq"}
-{"$$deleted":true,"_id":"Ie1fBxbkffmHMpvn"}
-{"$$deleted":true,"_id":"AiNgeNfucbx558dq"}
-{"$$deleted":true,"_id":"9KT4FZMTCpCJZSP9"}
-{"province":"Dada","year":12,"oneway":0,"multipleway":2,"dualCarriagewayAndHighway":54,"highwayWithToll":44,"total":1,"_id":"ZCZAu5HjfAdky5Jt"}
-{"$$deleted":true,"_id":"ZCZAu5HjfAdky5Jt"}
-{"province":"Dada","year":12,"oneway":0,"multipleway":2,"dualCarriagewayAndHighway":54,"highwayWithToll":44,"total":1,"_id":"asOrlY7w6m1keDat"}
-{"$$deleted":true,"_id":"asOrlY7w6m1keDat"}
-{"province":"Dada","year":12,"oneway":14,"multipleway":2,"dualCarriagewayAndHighway":54,"highwayWithToll":44,"total":1,"_id":"IFCNe0HsaC2dThZv"}
-{"$$deleted":true,"_id":"IFCNe0HsaC2dThZv"}
