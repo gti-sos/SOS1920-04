@@ -45,7 +45,6 @@
         
         console.log("Updating trafficc accident..." + JSON.stringify(params.traffic_accidentProvince) + JSON.stringify(params.traffic_accidentYear));
         
-        updatedProvince = parseInt(updatedProvince);
         updatedYear = parseInt(updatedYear);
         updatedAccidentWithVictims = parseInt(updatedAccidentWithVictims);
         updatedMortalAccident = parseInt(updatedMortalAccident);
@@ -82,7 +81,7 @@
 </script>
 
 <main>
-    <h3><strong>Edit Contact {params.traffic_accidentProvince}</strong></h3>
+    <h3><strong>Edita el dato de accidentes de tráfico asociado a {params.traffic_accidentProvince}</strong></h3>
 
     {#await traffic_accident}
 		Loading traffic accidents...
