@@ -43,25 +43,39 @@
     
     async function updateTrafficAccident() {
         
-		console.log("Updating trafficc accident..." + JSON.stringify(params.traffic_accidentProvince) + JSON.stringify(params.traffic_accidentYear));
-        const res = await fetch("/api/v1/traffic_accidents/"+ params.traffic_accidentProvince + "/" + params.traffic_accidentYear, {
-            method: "PUT",
-            body: JSON.stringify({
-                province : params.traffic_accidentProvince,
-                year : parseInt(params.traffic_accidentYear),
-                accidentWithVictims : parseInt(updatedAccidentWithVictims),
-                mortalAccident : parseInt(updatedMortalAccident),
-                death : parseInt(updatedDeath),
-                hospitalizedWounded : parseInt(updatedHospitalizedWounded),
-                notHospitalizedWounded : parseInt(updatedNotHospitalizedWounded)
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (res) {
-            getTrafficAccident();
-        });
+        console.log("Updating trafficc accident..." + JSON.stringify(params.traffic_accidentProvince) + JSON.stringify(params.traffic_accidentYear));
+        
+        updatedProvince = parseInt(updatedProvince);
+        updatedYear = parseInt(updatedYear);
+        updatedAccidentWithVictims = parseInt(updatedAccidentWithVictims);
+        updatedMortalAccident = parseInt(updatedMortalAccident);
+        updatedDeath = parseInt(updatedDeath);
+        updatedHospitalizedWounded = parseInt(updatedHospitalizedWounded);
+        updatedNotHospitalizedWounded = parseInt(updatedNotHospitalizedWounded);
 
+        if(isNan(newTraffic_accident.year) || isNan(newTraffic_accident.accidentWithVictims) || isNan(newTraffic_accident.mortalAccident)
+		|| isNan(newTraffic_accident.death) || isNan(newTraffic_accident.hospitalizedWounded)|| isNan(newTraffic_accident.notHospitalizedWounded)){
+			errorMsg = "Alguno de los valores introducidos no es numérico";
+		}else{
+            errorMsg=false;
+            const res = await fetch("/api/v1/traffic_accidents/"+ params.traffic_accidentProvince + "/" + params.traffic_accidentYear, {
+                method: "PUT",
+                body: JSON.stringify({
+                    province : params.traffic_accidentProvince,
+                    year : parseInt(params.traffic_accidentYear),
+                    accidentWithVictims : parseInt(updatedAccidentWithVictims),
+                    mortalAccident : parseInt(updatedMortalAccident),
+                    death : parseInt(updatedDeath),
+                    hospitalizedWounded : parseInt(updatedHospitalizedWounded),
+                    notHospitalizedWounded : parseInt(updatedNotHospitalizedWounded)
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (res) {
+                getTrafficAccident();
+            });
+        }
     };
 </script>
 

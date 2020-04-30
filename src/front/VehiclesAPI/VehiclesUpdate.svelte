@@ -14,7 +14,7 @@
     let updatedMotorcycle;
     let updatedTruck;
     let updatedTotal;
-
+    let errorMsg = false;
     onMount(getVehicle);
 
     async function getVehicle() {
@@ -97,6 +97,9 @@
 			</tbody>
 		</Table>
     {/await}
+    {#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
 	<Button outline color="secondary" on:click="{pop}">Atrás</Button>
 </main>
 
