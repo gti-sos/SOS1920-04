@@ -16,6 +16,7 @@
 		truck: "",
 		total: ""
 	};
+	let errorMsg = false;
 
 	onMount(getVehicles);
 
@@ -44,16 +45,21 @@
 		newVehicle.total = parseInt(newVehicle.total);
 
 		console.log("Inserting vehicle..." + JSON.stringify(newVehicle));
-
-		const res = await fetch("/api/v1/vehicles", {
-			method: "POST",
-			body: JSON.stringify(newVehicle),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		}).then(function (res) {
-			getVehicles();
-		});
+		const dataBaseGet = await fetch("/api/v1/vehicles/" + newVehicle.province +"/"+ newVehicle.year);
+		if (!dataBaseGet.ok){
+			const res = await fetch("/api/v1/vehicles", {
+				method: "POST",
+				body: JSON.stringify(newVehicle),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}).then(function (res) {
+				getVehicles();
+			});
+		}else{
+			errorMsg = "Ya existe ese dato";
+		}
+		
 
 	}
 
@@ -63,15 +69,32 @@
 		}).then(function (res) {
 			getVehicles();
 		});
-	}
+	};
 
-	async function deleteAll() {
+	async function deleteAllVehicles() {
 		const res = await fetch("/api/v1/vehicles", {
 			method: "DELETE"
 		}).then(function (res) {
 			getVehicles();
 		});
-	}
+	};
+
+	async function loadInitialDataVehicles() {
+
+		console.log("Loading vehicles...");
+		const res = await fetch("/api/v1/vehicles/loadInitialData").then(function (res) {
+			getVehicles();
+		});;
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			vehicles = json;
+			console.log("Received " + vehicles.length + " vehicles.");
+		} else {
+			console.log("ERROR!");
+		}
+	};
 
 </script>
 
@@ -122,5 +145,9 @@
 			</tbody>
 		</Table>
 	{/await}
-	<Button outline color="danger" on:click="{deleteAll}">Borrar todo</Button>
+	{#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+	<Button outline color="danger" on:click="{deleteAllVehicles}">Borrar todo</Button>
+	<Button outline color="primary" on:click="{loadInitialDataVehicles}">Cargar datos iniciales</Button>
 </main>
