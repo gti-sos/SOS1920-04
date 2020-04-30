@@ -16,7 +16,7 @@
         hospitalizedWounded: "",
         notHospitalizedWounded: ""
 	};
-
+	let errorMsg = false;
 	onMount(getTrafficAccidents);
 
 	async function getTrafficAccidents() {
@@ -46,6 +46,7 @@
 		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
 		const dataBaseGet = await fetch("/api/v1/traffic_accidents/" + newTraffic_accident.province +"/" + newTraffic_accident.year);
 		if(!dataBaseGet.ok){
+			errorMsg = false;
 			const res = await fetch("/api/v1/traffic_accidents", {
 			method: "POST",
 			body: JSON.stringify(newTraffic_accident),
@@ -145,6 +146,9 @@
 			</tbody>
 		</Table>
 	{/await}
+	{#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
 	<Button outline color="danger" on:click="{deleteAllTrafficAccidents}">Borrar todo</Button>
 	<Button outline color="danger" on:click="{loadInitialDataTrafficAccidents}">Cargar datos iniciales</Button>
 
