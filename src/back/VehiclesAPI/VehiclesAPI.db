@@ -3,7 +3,89 @@
 {"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"SHoX6xTH9YITkfc9"}
 {"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"cYRD35oR58zaUzgh"}
 {"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"v9MF8LCfPzuhEomX"}
-{"province":"Cadiz","year":2018,"car":1,"bus":1,"motorcycle":1,"truck":1,"total":1,"_id":"5lz0YC1fdMbR4ikv"}
-{"$$deleted":true,"_id":"5lz0YC1fdMbR4ikv"}
-{"province":"Cadiz","year":2020,"car":1,"bus":1,"motorcycle":1,"truck":1,"total":1,"_id":"gbKM9KQ9Gsfnv7t6"}
-{"$$deleted":true,"_id":"gbKM9KQ9Gsfnv7t6"}
+{"province":"Cadiz","year":2020,"car":1,"bus":1,"motorcycle":1,"truck":1,"total":1,"_id":"SUwjBieYODGr6gWN"}
+{"province":"Cadiz ","year":2018,"car":1,"bus":2,"motorcycle":3,"truck":3,"total":6,"_id":"c4DoqzFJbrNAhN60"}
+{"province":"Cadiz ","year":2019,"car":1,"bus":2,"motorcycle":3,"truck":3,"total":6,"_id":"SU29rNseOe3gdrhK"}
+{"$$deleted":true,"_id":"SU29rNseOe3gdrhK"}
+{"$$deleted":true,"_id":"SUwjBieYODGr6gWN"}
+{"$$deleted":true,"_id":"c4DoqzFJbrNAhN60"}
+{"province":"Cadiz","year":2020,"car":1,"bus":2,"motorcycle":3,"truck":3,"total":4,"_id":"ETFYvlMgfsJIuho1"}
+{"$$deleted":true,"_id":"ETFYvlMgfsJIuho1"}
+{"province":"Cadiz ","year":"a","car":3,"bus":2,"motorcycle":4,"truck":5,"total":7,"_id":"MjfNvqGDq0cbPEij"}
+{"$$deleted":true,"_id":"89Ieee8S6Y9PmpPk"}
+{"$$deleted":true,"_id":"KmQLOFH4V7eh3d3k"}
+{"$$deleted":true,"_id":"MjfNvqGDq0cbPEij"}
+{"$$deleted":true,"_id":"SHoX6xTH9YITkfc9"}
+{"$$deleted":true,"_id":"cYRD35oR58zaUzgh"}
+{"$$deleted":true,"_id":"v9MF8LCfPzuhEomX"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"1FGQVYCYHUUppzq5"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"cOVzpttZ9TKp3mfh"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"CYHY62ttoi3IFQLV"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"0zLGyPXD7Fs9v06N"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"GWcEbzdIgiUDkKKX"}
+{"$$deleted":true,"_id":"0zLGyPXD7Fs9v06N"}
+{"province":"Madrid","year":2015,"car":2,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"g5qdvBbqI3N9Bgw7"}
+{"$$deleted":true,"_id":"g5qdvBbqI3N9Bgw7"}
+{"province":"Madrid","year":2015,"car":1,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"5BwrwkXUz4LUrLPY"}
+{"$$deleted":true,"_id":"1FGQVYCYHUUppzq5"}
+{"$$deleted":true,"_id":"5BwrwkXUz4LUrLPY"}
+{"$$deleted":true,"_id":"CYHY62ttoi3IFQLV"}
+{"$$deleted":true,"_id":"GWcEbzdIgiUDkKKX"}
+{"$$deleted":true,"_id":"cOVzpttZ9TKp3mfh"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"sF0yd6aGk3mKwQ0m"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"x4t1g6HniiLQoCOn"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"8MxmVWOFSJYFLOEC"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"C1RkbnUU5KA9otDq"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"o4POADcLSVmgyWHs"}
+{"$$deleted":true,"_id":"8MxmVWOFSJYFLOEC"}
+{"province":"Pontevedra","year":2016,"car":2,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"EE6DHLgLDwNQPLNF"}
+{"$$deleted":true,"_id":"EE6DHLgLDwNQPLNF"}
+{"province":"Pontevedra","year":2016,"car":1,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"s4LXAH4gfpJxiyAp"}
+{"$$deleted":true,"_id":"s4LXAH4gfpJxiyAp"}
+{"province":"Pontevedra","year":2016,"car":1,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"RdiqXWVaUM1NA28D"}
+{"$$deleted":true,"_id":"RdiqXWVaUM1NA28D"}
+{"province":"Pontevedra","year":2016,"car":3,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"oXjLZ73nickHEWzI"}
+{"$$deleted":true,"_id":"C1RkbnUU5KA9otDq"}
+{"$$deleted":true,"_id":"o4POADcLSVmgyWHs"}
+{"$$deleted":true,"_id":"oXjLZ73nickHEWzI"}
+{"$$deleted":true,"_id":"sF0yd6aGk3mKwQ0m"}
+{"$$deleted":true,"_id":"x4t1g6HniiLQoCOn"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"zQCU2pUgN8SRg7go"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"LnMhsuy0FxVzq9Q8"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"rPsQN4oCo6EkeHIe"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"PWqGvlDYoDH1bAj7"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"T93MXC2FhEdP9QvD"}
+{"$$deleted":true,"_id":"LnMhsuy0FxVzq9Q8"}
+{"$$deleted":true,"_id":"PWqGvlDYoDH1bAj7"}
+{"$$deleted":true,"_id":"T93MXC2FhEdP9QvD"}
+{"$$deleted":true,"_id":"rPsQN4oCo6EkeHIe"}
+{"$$deleted":true,"_id":"zQCU2pUgN8SRg7go"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"HLuPtyAZlw43aAvE"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"uveTvCIRhvh5nMdM"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"LUTxWvZj17mfGnQg"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"6BvU5czG19TPlOnq"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"TfRHnJQ1H0AqILk0"}
+{"$$deleted":true,"_id":"6BvU5czG19TPlOnq"}
+{"$$deleted":true,"_id":"HLuPtyAZlw43aAvE"}
+{"$$deleted":true,"_id":"LUTxWvZj17mfGnQg"}
+{"$$deleted":true,"_id":"TfRHnJQ1H0AqILk0"}
+{"$$deleted":true,"_id":"uveTvCIRhvh5nMdM"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"9xrsIytap8U5IYDb"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"J1MBPrXk9nzzje8a"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"Va9kVzfzNYjhlU54"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"hyCeyxKFH0fi1KsB"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"rKdUYh1RIi9bgLVH"}
+{"province":"Almeria","year":2020,"car":1,"bus":2,"motorcycle":54,"truck":6,"total":8,"_id":"mOWUKDBLksVCluIk"}
+{"$$deleted":true,"_id":"mOWUKDBLksVCluIk"}
+{"$$deleted":true,"_id":"9xrsIytap8U5IYDb"}
+{"$$deleted":true,"_id":"J1MBPrXk9nzzje8a"}
+{"$$deleted":true,"_id":"Va9kVzfzNYjhlU54"}
+{"$$deleted":true,"_id":"hyCeyxKFH0fi1KsB"}
+{"$$deleted":true,"_id":"rKdUYh1RIi9bgLVH"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"TJJ7Y23bd5vg4L3Z"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"JUC91khu9faCvUXJ"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"D2ubEyclRrPO5n6u"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"q822T4kV9p3fsSbH"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"jaRpRol2t4iIVPCK"}
+{"province":"A","year":2,"car":1,"bus":24,"motorcycle":5,"truck":7,"total":89,"_id":"iN7zHhaPSIiWOYqX"}
+{"$$deleted":true,"_id":"iN7zHhaPSIiWOYqX"}
