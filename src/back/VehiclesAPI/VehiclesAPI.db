@@ -1,5 +1,9 @@
-{"province":"Almeria","year":2018,"car":123,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"0Ore4LEpunfsEcZx"}
-{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"FAekkrOsFv0euE7w"}
-{"province":"Madrid","year":"2015","car":"1234","bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"IzeJkQxV77H2WVfM"}
-{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"vDPuZOYnpOOyxttQ"}
-{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"vhK0Y1hInLaTPPro"}
+{"province":"Cadiz","year":2018,"car":572171,"bus":1100,"motorcycle":102634,"truck":92205,"total":787838,"_id":"89Ieee8S6Y9PmpPk"}
+{"province":"Pontevedra","year":2016,"car":512529,"bus":1224,"motorcycle":66323,"truck":81665,"total":685522,"_id":"KmQLOFH4V7eh3d3k"}
+{"province":"Las Palmas","year":2017,"car":570714,"bus":2949,"motorcycle":62944,"truck":180984,"total":839149,"_id":"SHoX6xTH9YITkfc9"}
+{"province":"Madrid","year":2015,"car":3336964,"bus":10279,"motorcycle":320169,"truck":586914,"total":4339426,"_id":"cYRD35oR58zaUzgh"}
+{"province":"Almeria","year":2018,"car":361888,"bus":831,"motorcycle":44574,"truck":96518,"total":533067,"_id":"v9MF8LCfPzuhEomX"}
+{"province":"Cadiz","year":2018,"car":1,"bus":1,"motorcycle":1,"truck":1,"total":1,"_id":"5lz0YC1fdMbR4ikv"}
+{"$$deleted":true,"_id":"5lz0YC1fdMbR4ikv"}
+{"province":"Cadiz","year":2020,"car":1,"bus":1,"motorcycle":1,"truck":1,"total":1,"_id":"gbKM9KQ9Gsfnv7t6"}
+{"$$deleted":true,"_id":"gbKM9KQ9Gsfnv7t6"}
