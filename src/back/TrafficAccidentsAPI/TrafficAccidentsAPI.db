@@ -1,21 +1,6 @@
-{"province":"Betis","year":2020,"accidentWithVictims":2432,"mortalAccident":34,"death":22,"hospitalizedWounded":32,"notHospitalizedWounded":13,"_id":"Deu8wZ0QlY0Ro7XJ"}
 {"province":"Pontevedra","year":2016,"accidentWithVictims":1726,"mortalAccident":35,"death":36,"hospitalizedWounded":260,"notHospitalizedWounded":2372,"_id":"RrcGi6NON9a6u39Z"}
+{"province":"Betis","year":2020,"accidentWithVictims":2432,"mortalAccident":34,"death":22,"hospitalizedWounded":32,"notHospitalizedWounded":12,"_id":"Tktl840iKH3Uttwn"}
 {"province":"Almeria","year":2018,"accidentWithVictims":1194,"mortalAccident":27,"death":27,"hospitalizedWounded":111,"notHospitalizedWounded":1780,"_id":"dUV3SFgFhVFGZrxx"}
 {"province":"Cadiz","year":2018,"accidentWithVictims":1872,"mortalAccident":15,"death":15,"hospitalizedWounded":115,"notHospitalizedWounded":2644,"_id":"e7Z5xn0lEVemusHP"}
 {"province":"Las Palmas","year":2017,"accidentWithVictims":1302,"mortalAccident":29,"death":30,"hospitalizedWounded":115,"notHospitalizedWounded":1886,"_id":"fD1kD9eLbz2FGXqC"}
 {"province":"Madrid","year":2015,"accidentWithVictims":15442,"mortalAccident":101,"death":111,"hospitalizedWounded":1314,"notHospitalizedWounded":18689,"_id":"hZccwknfFWwNkSbm"}
-{"province":"Cadiz","year":2013,"accidentWithVictims":1,"mortalAccident":1,"death":1,"hospitalizedWounded":1,"notHospitalizedWounded":1,"_id":"Zf2oe8fTNQGIlpnc"}
-{"$$deleted":true,"_id":"Zf2oe8fTNQGIlpnc"}
-{"province":"Cadiz","year":2013,"accidentWithVictims":1,"mortalAccident":1,"death":1,"hospitalizedWounded":1,"notHospitalizedWounded":1,"_id":"z27Z5vf08FI3Iu4C"}
-{"$$deleted":true,"_id":"z27Z5vf08FI3Iu4C"}
-{"$$deleted":true,"_id":"Deu8wZ0QlY0Ro7XJ"}
-{"$$deleted":true,"_id":"RrcGi6NON9a6u39Z"}
-{"$$deleted":true,"_id":"dUV3SFgFhVFGZrxx"}
-{"$$deleted":true,"_id":"e7Z5xn0lEVemusHP"}
-{"$$deleted":true,"_id":"fD1kD9eLbz2FGXqC"}
-{"$$deleted":true,"_id":"hZccwknfFWwNkSbm"}
-{"province":"Almeria","year":2018,"accidentWithVictims":1194,"mortalAccident":27,"death":27,"hospitalizedWounded":111,"notHospitalizedWounded":1780,"_id":"Wig3An5BteVi3Qyk"}
-{"province":"Las Palmas","year":2017,"accidentWithVictims":1302,"mortalAccident":29,"death":30,"hospitalizedWounded":115,"notHospitalizedWounded":1886,"_id":"9XxAE7SQTWk4R3PG"}
-{"province":"Pontevedra","year":2016,"accidentWithVictims":1726,"mortalAccident":35,"death":36,"hospitalizedWounded":260,"notHospitalizedWounded":2372,"_id":"Salfrrlm6DW1CYCt"}
-{"province":"Madrid","year":2015,"accidentWithVictims":15442,"mortalAccident":101,"death":111,"hospitalizedWounded":1314,"notHospitalizedWounded":18689,"_id":"840OJIADJ1aqwfY1"}
-{"province":"Cadiz","year":2018,"accidentWithVictims":1872,"mortalAccident":15,"death":15,"hospitalizedWounded":115,"notHospitalizedWounded":2644,"_id":"955d4rDLSm96H5Hn"}

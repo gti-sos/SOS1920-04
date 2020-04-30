@@ -16,7 +16,9 @@
 		truck: "",
 		total: ""
 	};
+
 	let errorMsg = false;
+	let successMsg = false;
 
 	onMount(getVehicles);
 
@@ -45,21 +47,30 @@
 		newVehicle.total = parseInt(newVehicle.total);
 
 		console.log("Inserting vehicle..." + JSON.stringify(newVehicle));
-		const dataBaseGet = await fetch("/api/v1/vehicles/" + newVehicle.province +"/"+ newVehicle.year);
-		if (!dataBaseGet.ok){
-			const res = await fetch("/api/v1/vehicles", {
-				method: "POST",
-				body: JSON.stringify(newVehicle),
-				headers: {
-					"Content-Type": "application/json"
-				}
-			}).then(function (res) {
-				getVehicles();
-			});
+
+		if (isNaN(newVehicle.year) || isNaN(newVehicle.car) || isNaN(newVehicle.bus) || isNaN(newVehicle.motorcycle)
+		|| isNaN(newVehicle.truck) || isNaN(newVehicle.total)){
+			errorMsg = "Alguno de los valores introducidos no es numérico.";
+			successMsg = false;
 		}else{
-			errorMsg = "Ya existe ese dato";
+			const dataBaseGet = await fetch("/api/v1/vehicles/" + newVehicle.province +"/"+ newVehicle.year);
+			if (!dataBaseGet.ok){
+				errorMsg = false;
+				const res = await fetch("/api/v1/vehicles", {
+					method: "POST",
+					body: JSON.stringify(newVehicle),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}).then(function (res) {
+					getVehicles();
+				});
+				successMsg = "El dato ha sido insertado correctamente."
+			}else{
+				errorMsg = "Ya existe ese dato";
+				successMsg = false;
+			}
 		}
-		
 
 	}
 
@@ -69,6 +80,7 @@
 		}).then(function (res) {
 			getVehicles();
 		});
+		successMsg = "El dato ha sido borrado correctamente."
 	};
 
 	async function deleteAllVehicles() {
@@ -77,6 +89,7 @@
 		}).then(function (res) {
 			getVehicles();
 		});
+		successMsg = "Se han borrado todos los datos correctamente."
 	};
 
 	async function loadInitialDataVehicles() {
@@ -85,15 +98,7 @@
 		const res = await fetch("/api/v1/vehicles/loadInitialData").then(function (res) {
 			getVehicles();
 		});;
-
-		if (res.ok) {
-			console.log("Ok:");
-			const json = await res.json();
-			vehicles = json;
-			console.log("Received " + vehicles.length + " vehicles.");
-		} else {
-			console.log("ERROR!");
-		}
+		successMsg = "Se han cargado los datos iniciales correctamente."
 	};
 
 </script>
@@ -146,8 +151,11 @@
 		</Table>
 	{/await}
 	{#if errorMsg}
-        <p style="color: red">ERROR: {errorMsg}</p>
-    {/if}
+		<p style="color: red">ERROR: {errorMsg}</p>
+	{/if}
+	{#if successMsg}
+		<p style="color: green">ÉXITO: {successMsg}</p>
+	{/if}
 	<Button outline color="danger" on:click="{deleteAllVehicles}">Borrar todo</Button>
 	<Button outline color="primary" on:click="{loadInitialDataVehicles}">Cargar datos iniciales</Button>
 </main>

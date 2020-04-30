@@ -41,25 +41,40 @@
     
     async function updateVehicle() {
         
-		console.log("Updating vehicle..." + JSON.stringify(params.vehicleProvince) + JSON.stringify(params.vehicleYear));
-        const res = await fetch("/api/v1/vehicles/"+ params.vehicleProvince +"/"+ params.vehicleYear, {
-            method: "PUT",
-            body: JSON.stringify({
-                province : params.vehicleProvince,
-                year : parseInt(params.vehicleYear),
-                car : parseInt(updatedCar),
-                bus : parseInt(updatedBus),
-                motorcycle : parseInt(updatedMotorcycle),
-                truck : parseInt(updatedTruck),
-                total : parseInt(updatedTotal)
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(function (res) {
-            getVehicle();
-        });
+        console.log("Updating vehicle..." + JSON.stringify(params.vehicleProvince) + JSON.stringify(params.vehicleYear));
 
+        updatedYear = parseInt(updatedYear);
+		updatedCar = parseInt(updatedCar);
+		updatedBus = parseInt(updatedBus);
+		updatedMotorcycle = parseInt(updatedMotorcycle);
+		updatedTruck = parseInt(updatedTruck);
+        updatedTotal = parseInt(updatedTotal);
+        
+        if (isNaN(updatedYear) || isNaN(updatedCar) || isNaN(updatedBus) || isNaN(updatedMotorcycle)
+		|| isNaN(updatedTruck) || isNaN(updatedTotal)){
+            errorMsg = "Alguno de los valores introducidos no es numérico.";
+            successMsg = false;
+		}else{
+            errorMsg = false;
+            const res = await fetch("/api/v1/vehicles/"+ params.vehicleProvince +"/"+ params.vehicleYear, {
+                method: "PUT",
+                body: JSON.stringify({
+                    province : params.vehicleProvince,
+                    year : updatedYear,
+                    car : updatedCar,
+                    bus : updatedBus,
+                    motorcycle : updatedMotorcycle,
+                    truck : updatedTruck,
+                    total : updatedTotal
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (res) {
+                getVehicle();
+            });
+            successMsg = "El dato se ha actualizado correctamente.";
+        };
     };
 </script>
 
