@@ -6,6 +6,8 @@
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
 
+	let successMsg = false;
+	let errorMsg = false;
 	let roads = [];
 	let newRoads = {
         province: "",
@@ -31,7 +33,19 @@
 		} else {
 			console.log("ERROR!");
 		}
-    }
+	}
+	async function loadInitialDataRoads() {
+
+		console.log("Fetching roads...");
+		const res = await fetch("/api/v1/roads/loadInitialData").then(function (res) {
+			getRoads();
+		});
+
+		console.log("Ok:");
+	
+		successMsg = "Se han cargado los datos iniciales";
+		errorMsg = false;
+	}
     async function insertRoads() {
 		newRoads.year = parseInt(newRoads.year);
 		newRoads.oneway = parseInt(newRoads.oneway);
@@ -39,17 +53,33 @@
 		newRoads.dualCarriagewayAndHighway = parseInt(newRoads.dualCarriagewayAndHighway);
 		newRoads.highwayWithToll = parseInt(newRoads.highwayWithToll);
 		newRoads.total = parseInt(newRoads.total);
-
-    console.log("Inserting roads..." + JSON.stringify(newRoads));
-    const res = await fetch("/api/v1/roads", {
-		method: "POST",
-        body: JSON.stringify(newRoads),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(function (res) {
-        getRoads();
-    });
+		console.log("Inserting road..." + JSON.stringify(newRoads));
+		if(isNaN(newRoads.year) || isNaN(newRoads.oneway) ||isNaN(newRoads.multipleway) || isNaN(newRoads.dualCarriagewayAndHighway) ||
+		isNaN(newRoads.highwayWithToll) || isNaN(newRoads.total)) {
+			errorMsg = "Alguno de los campos introducidos no son numericos";
+			successMsg = false;
+		}
+		else {
+			const dataBaseGet = await fetch("/api/v1/roads/" + newRoads.province +"/"+ newRoads.year);
+			if (!dataBaseGet.ok){
+				console.log("Inserting roads..." + JSON.stringify(newRoads));
+				const res = await fetch("/api/v1/roads", {
+					method: "POST",
+					body: JSON.stringify(newRoads),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}).then(function (res) {
+					getRoads();
+				});
+				errorMsg = false;
+				successMsg = "Valores insertados correctos";
+			}
+			else{
+				successMsg = false;
+				errorMsg = "Ya existe ese dato";
+			}
+		}
 
     }
     async function deleteRoads(province,year) {
@@ -58,6 +88,8 @@
 		}).then(function (res) {
 			getRoads();
 		});
+		successMsg = "Se ha borrado el dato";
+		errorMsg = false;
 	}
 	async function deleteAllRoads() {
 		const res = await fetch("/api/v1/roads", {
@@ -65,6 +97,8 @@
 		}).then(function (res) {
 			getRoads();
 		});
+		successMsg = "Se han borrado todos los datos";
+		errorMsg = false;
 	}
 
 </script>
@@ -114,5 +148,12 @@
 			</tbody>
 		</Table>
 	{/await}
+	{#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+	{/if}
+	{#if successMsg}
+        <p style="color: green">EXITO: {successMsg}</p>
+    {/if}
+	<Button outline color="secondary" on:click="{loadInitialDataRoads}">Cargar todo</Button>
 	<Button outline color="danger" on:click="{deleteAllRoads}">Borrar todo</Button>
 </main>

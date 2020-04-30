@@ -12,7 +12,7 @@
     import Button from "sveltestrap/src/Button.svelte";
 
     export let params = {};
-
+    let successMsg = false;;
     let errorMsg = false;
 	let roads = {};
     let updatedProvince = "";
@@ -48,28 +48,42 @@
     }
 
     async function updateRoad() {
+        updatedYear = parseInt(updatedYear);
+		updatedOneway = parseInt(updatedOneway);
+		updatedMultipleway = parseInt(updatedMultipleway);
+		updatedDualCarriagewayAndHighway = parseInt(updatedDualCarriagewayAndHighway);
+		updatedHighwayWithToll = parseInt(updatedHighwayWithToll);
+		updatedTotal = parseInt(updatedTotal);
+        console.log("Updating road..." + JSON.stringify(params.roadProvince) + " de " + JSON.stringify(params.roadYear));
 
-    console.log("Updating road..." + JSON.stringify(params.roadProvince) + " de " + JSON.stringify(params.roadProvince) );
-
-    const res = await fetch("/api/v1/roads/" + params.roadProvince + "/" + params.roadYear, {
-        method: "PUT",
-        body: JSON.stringify({
-            province: params.roadProvince,
-            year: parseInt(params.roadYear),
-            oneway : parseInt(updatedOneway),
-            multipleway : parseInt(updatedMultipleway),
-            dualCarriagewayAndHighway : parseInt(updatedDualCarriagewayAndHighway),
-            highwayWithToll : parseInt(updatedHighwayWithToll),
-            total : parseInt(updatedTotal)
-           
-        }),
-        headers: {
-            "Content-Type": "application/json"
+        if(isNaN(updatedYear) || isNaN(updatedOneway) ||isNaN(updatedMultipleway) || isNaN(updatedDualCarriagewayAndHighway) ||
+		isNaN(updatedHighwayWithToll) || isNaN(updatedTotal)) {
+            errorMsg = "Alguno de los campos introducidos no son numericos";
+            successMsg = false;
+		}
+        else {
+            const res = await fetch("/api/v1/roads/" + params.roadProvince + "/" + params.roadYear, {
+                method: "PUT",
+                body: JSON.stringify({
+                    province: params.roadProvince,
+                    year: updatedYear,
+                    oneway : updatedOneway,
+                    multipleway : updatedMultipleway,
+                    dualCarriagewayAndHighway : updatedDualCarriagewayAndHighway,
+                    highwayWithToll : updatedHighwayWithToll,
+                    total : updatedTotal
+                
+                }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (res) {
+                getRoads();
+            });
+            errorMsg = false;
+            successMsg = "Se han actualizado los datos";
         }
-    }).then(function (res) {
-        getRoads();
-    });
-}
+    }
 </script>
 
 <main>
@@ -106,6 +120,9 @@
     {/await}
     {#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+    {#if successMsg}
+        <p style="color: green">EXITO: {successMsg}</p>
     {/if}
     <Button outline color="secondary" on:click="{pop}">Atras</Button>
 </main>
