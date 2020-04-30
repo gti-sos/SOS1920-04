@@ -63,6 +63,14 @@
 			getTrafficAccidents();
 		});
 	}
+
+	async function deleteAll() {
+		const res = await fetch("/api/v1/traffic_accidents/", {
+			method: "DELETE"
+		}).then(function (res) {
+			getTrafficAccidents();
+		});
+	}
 </script>
 
 <main>
@@ -106,12 +114,12 @@
                         <td>{traffic_accident.death}</td>
                         <td>{traffic_accident.hospitalizedWounded}</td>
 						<td>{traffic_accident.notHospitalizedWounded}</td>
-						<td><Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">Delete</Button></td>
+						<td><Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">Borrar</Button></td>
 					</tr>
 				{/each}
 			</tbody>
 		</Table>
 	{/await}
-
+	<Button outline color="danger" on:click="{deleteAll()}">Borrar todo</Button>
 
 </main>
