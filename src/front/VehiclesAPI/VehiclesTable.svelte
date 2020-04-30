@@ -80,7 +80,7 @@
 		}).then(function (res) {
 			getVehicles();
 		});
-		successMsg = "El dato ha sido borrado correctamente."
+		successMsg = "El dato ha sido borrado correctamente.";
 	};
 
 	async function deleteAllVehicles() {
@@ -89,16 +89,16 @@
 		}).then(function (res) {
 			getVehicles();
 		});
-		successMsg = "Se han borrado todos los datos correctamente."
+		successMsg = "Se han borrado todos los datos correctamente.";
 	};
 
 	async function loadInitialDataVehicles() {
-
+		
 		console.log("Loading vehicles...");
 		const res = await fetch("/api/v1/vehicles/loadInitialData").then(function (res) {
 			getVehicles();
 		});;
-		successMsg = "Se han cargado los datos iniciales correctamente."
+		successMsg = "Se han cargado los datos iniciales correctamente.";
 	};
 
 </script>

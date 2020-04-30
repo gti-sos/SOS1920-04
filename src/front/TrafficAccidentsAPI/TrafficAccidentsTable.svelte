@@ -17,6 +17,7 @@
         notHospitalizedWounded: ""
 	};
 	let errorMsg = false;
+	let successMsg = false;
 	onMount(getTrafficAccidents);
 
 	async function getTrafficAccidents() {
@@ -47,26 +48,27 @@
 		if(isNan(newTraffic_accident.year) || isNan(newTraffic_accident.accidentWithVictims) || isNan(newTraffic_accident.mortalAccident)
 		|| isNan(newTraffic_accident.death) || isNan(newTraffic_accident.hospitalizedWounded)|| isNan(newTraffic_accident.notHospitalizedWounded)){
 			errorMsg = "Alguno de los valores introducidos no es numérico";
-		}
-		
-		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
-		const dataBaseGet = await fetch("/api/v1/traffic_accidents/" + newTraffic_accident.province +"/" + newTraffic_accident.year);
-		if(!dataBaseGet.ok){
-			errorMsg = false;
-			const res = await fetch("/api/v1/traffic_accidents", {
-			method: "POST",
-			body: JSON.stringify(newTraffic_accident),
-			headers: {
-				"Content-Type": "application/json"
-			}
-				}).then(function (res) {
-					getTrafficAccidents();
-				});
-
+			successMsg = false;
 		}else{
-			errorMsg = "Ya existe ese dato";	
-		}
 		
+			const dataBaseGet = await fetch("/api/v1/traffic_accidents/" + newTraffic_accident.province +"/" + newTraffic_accident.year);
+			if(!dataBaseGet.ok){
+				errorMsg = false;
+				const res = await fetch("/api/v1/traffic_accidents", {
+				method: "POST",
+				body: JSON.stringify(newTraffic_accident),
+				headers: {
+					"Content-Type": "application/json"
+				}
+					}).then(function (res) {
+						getTrafficAccidents();
+					});
+				successMsg = "El dato ha sido insertado correctamente."
+			}else{
+				errorMsg = "Ya existe ese dato";
+				successMsg = false;	
+			}
+		}
 
 	}
 	async function deleteTrafficAccident(province, year) {
@@ -76,7 +78,8 @@
 		}).then(function (res) {
 			getTrafficAccidents();
 		});
-	}
+		successMsg = "El dato ha sido borrado correctamente.";
+	};
 
 	async function deleteAllTrafficAccidents() {
 		errorMsg = false;
@@ -85,7 +88,8 @@
 		}).then(function (res) {
 			getTrafficAccidents();
 		});
-	}
+		successMsg = "Se han borrado todos los datos correctamente.";
+	};
 
 	async function loadInitialDataTrafficAccidents(){
 		errorMsg = false;
@@ -94,17 +98,9 @@
 		}).then(function (res) {
 			getTrafficAccidents();
 		});
+		successMsg = "Se han cargado los datos iniciales correctamente.";
 
-		if (res.ok) {
-			console.log("Ok:");
-			const json = await res.json();
-			trafficAccidents = json;
-			console.log("Received " + trafficAccidents.length + " trafficAccidents.");
-		} else {
-			console.log("ERROR!");
-		}
-
-	}
+	};
 </script>
 
 <main>
@@ -156,7 +152,10 @@
 	{/await}
 	{#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
-    {/if}
+	{/if}
+	{#if successMsg}
+		<p style="color: green">ÉXITO: {successMsg}</p>
+	{/if}
 	<Button outline color="danger" on:click="{deleteAllTrafficAccidents}">Borrar todo</Button>
 	<Button outline color="danger" on:click="{loadInitialDataTrafficAccidents}">Cargar datos iniciales</Button>
 
