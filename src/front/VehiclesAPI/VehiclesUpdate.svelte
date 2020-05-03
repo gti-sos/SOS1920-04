@@ -18,7 +18,6 @@
     let successMsg = false;
     onMount(getVehicle);
     let oneVehicle = false;
-    let noVehicle = false;
 
     async function getVehicle() {
 
@@ -38,8 +37,7 @@
             console.log("Received " + vehicle.length + " vehicle.");
             oneVehicle = true;
         } else {
-            noVehicle = true;
-            errorMsg = "El dato asociado a " + params.vehicleProvince + "y" + params.vehicleYear + " no existe.";
+            errorMsg = "El dato asociado a " + params.vehicleProvince + " y " + params.vehicleYear + " no existe.";
             console.log("ERROR!");
         }
     }
