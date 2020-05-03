@@ -48,15 +48,16 @@
 	}
 
 	async function insertTrafficAccident() {
-
-		newTraffic_accident.year = parseInt(newTraffic_accident.year);
-		newTraffic_accident.accidentWithVictims = parseInt(newTraffic_accident.accidentWithVictims);
-		newTraffic_accident.mortalAccident = parseInt(newTraffic_accident.mortalAccident);
-		newTraffic_accident.death = parseInt(newTraffic_accident.death);
-		newTraffic_accident.hospitalizedWounded = parseInt(newTraffic_accident.hospitalizedWounded);
-		newTraffic_accident.notHospitalizedWounded = parseInt(newTraffic_accident.notHospitalizedWounded);
+		let traffic_accident = {
+		province: newTraffic_accident.province,
+		year: parseInt(newTraffic_accident.year),
+		accidentWithVictims: parseInt(newTraffic_accident.accidentWithVictims),
+		mortalAccident: parseInt(newTraffic_accident.mortalAccident),
+		death: parseInt(newTraffic_accident.death),
+		hospitalizedWounded: parseInt(newTraffic_accident.hospitalizedWounded),
+		notHospitalizedWounded: parseInt(newTraffic_accident.notHospitalizedWounded),
+		};
 		console.log("Inserting trafficAccident..." + JSON.stringify(newTraffic_accident));
-
 		if(isNaN(newTraffic_accident.year) || isNaN(newTraffic_accident.accidentWithVictims) || isNaN(newTraffic_accident.mortalAccident)
 		|| isNaN(newTraffic_accident.death) || isNaN(newTraffic_accident.hospitalizedWounded)|| isNaN(newTraffic_accident.notHospitalizedWounded)){
 			errorMsg = "Alguno de los valores introducidos no es numérico";
@@ -75,7 +76,17 @@
 					}).then(function (res) {
 						getTrafficAccidents(offset);
 					});
-				successMsg = "El dato ha sido insertado correctamente."
+				successMsg = "El dato ha sido insertado correctamente.";
+				errorMsg = false;
+				newTraffic_accident = {
+					province: "",
+					year: "",
+					accidentWithVictims: "",
+					mortalAccident: "",
+					death: "",
+					hospitalizedWounded: "",
+					notHospitalizedWounded: ""
+				};
 			}else{
 				errorMsg = "Ya existe ese dato";
 				successMsg = false;	
@@ -154,7 +165,7 @@
 		if(!traffic_accident.province == ""){
 			url = url +"&province=" + traffic_accident.province;
 		};
-		
+		console.log(url);
 		const res = await fetch(url);
 
 		if (res.ok) {
@@ -205,7 +216,7 @@
 					<td><input bind:value="{searchTraffic_accident.death}"></td>
                     <td><input bind:value="{searchTraffic_accident.hospitalizedWounded}"></td>
                     <td><input bind:value="{searchTraffic_accident.notHospitalizedWounded}"></td>
-					<td> <Button outline  color="primary" on:click={searchTraffic_accidents}>Buscar</Button> </td>
+					<td> <Button outline  color="primary" on:click={searchTraffic_accidents(offset)}>Buscar</Button> </td>
 				</tr>
 
 				{#each trafficAccidents as traffic_accident}

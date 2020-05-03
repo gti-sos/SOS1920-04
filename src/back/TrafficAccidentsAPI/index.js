@@ -101,22 +101,22 @@ module.exports = function(app){
 				});
 			}if(year){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
-						return traffic_accident.year == province;
+						return traffic_accident.year == year;
 				});
 
 			}if(accidentWithVictims){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
-						return traffic_accident.accidentWithVictims == province;
+						return traffic_accident.accidentWithVictims == accidentWithVictims;
 				});
 
 			}if(mortalAccident){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
-						return traffic_accident.mortalAccident == province;
+						return traffic_accident.mortalAccident == mortalAccident;
 				});
 
 			}if(death){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
-						return traffic_accident.death == province;
+						return traffic_accident.death == death;
 				});
 			}if(limdeath){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
@@ -125,12 +125,12 @@ module.exports = function(app){
 
 			}if(hospitalizedWounded){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
-						return traffic_accident.hospitalizedWounded == province;
+						return traffic_accident.hospitalizedWounded == hospitalizedWounded;
 				});
 
 			}if(notHospitalizedWounded){
 				traffic_accidents = traffic_accidents.filter(function(traffic_accident){
-						return traffic_accident.notHospitalizedWounded == province;
+						return traffic_accident.notHospitalizedWounded == notHospitalizedWounded;
 				});
 			};
 
