@@ -69,7 +69,7 @@
 				errorMsg = false;
 				const res = await fetch("/api/v1/traffic_accidents", {
 				method: "POST",
-				body: JSON.stringify(newTraffic_accident),
+				body: JSON.stringify(traffic_accident),
 				headers: {
 					"Content-Type": "application/json"
 				}
