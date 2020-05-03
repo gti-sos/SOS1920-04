@@ -6,6 +6,8 @@
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
 
+	export let params = {};
+	let offset = 0;
 	let vehicles = [];
 	let newVehicle = {
 		province: "",
@@ -22,10 +24,9 @@
 
 	onMount(getVehicles);
 
-	async function getVehicles() {
-
+	async function getVehicles(offset) {
 		console.log("Fetching vehicles...");
-		const res = await fetch("/api/v1/vehicles");
+		const res = await fetch("/api/v1/vehicles?limit=10&offset="+ offset);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -63,7 +64,7 @@
 						"Content-Type": "application/json"
 					}
 				}).then(function (res) {
-					getVehicles();
+					getVehicles(offset);
 				});
 				successMsg = "El dato ha sido insertado correctamente."
 			}else{
@@ -78,7 +79,7 @@
 		const res = await fetch("/api/v1/vehicles/" + province +"/"+ year, {
 			method: "DELETE"
 		}).then(function (res) {
-			getVehicles();
+			getVehicles(offset);
 		});
 		successMsg = "El dato ha sido borrado correctamente.";
 		errorMsg = false;
@@ -88,7 +89,7 @@
 		const res = await fetch("/api/v1/vehicles", {
 			method: "DELETE"
 		}).then(function (res) {
-			getVehicles();
+			getVehicles(offset);
 		});
 		successMsg = "Se han borrado todos los datos correctamente.";
 		errorMsg = false;
@@ -98,10 +99,28 @@
 		
 		console.log("Loading vehicles...");
 		const res = await fetch("/api/v1/vehicles/loadInitialData").then(function (res) {
-			getVehicles();
+			getVehicles(offset);
 		});;
 		successMsg = "Se han cargado los datos iniciales correctamente.";
 		errorMsg = false;
+	};
+
+	async function siguientePagina() {
+		const res = await fetch("/api/v1/vehicles");
+		const json = await res.json();
+		if(offset < json.length - 10 ){
+			offset = offset + 10;
+			getVehicles(offset);
+		}
+	};
+
+	async function anteriorPagina() {
+		const res = await fetch("/api/v1/vehicles");
+		const json = await res.json();
+		if (offset -10 >= 0){
+			offset = offset - 10;
+			getVehicles(offset);
+		}
 	};
 
 </script>
@@ -161,4 +180,8 @@
 	{/if}
 	<Button outline color="danger" on:click="{deleteAllVehicles}">Borrar todo</Button>
 	<Button outline color="primary" on:click="{loadInitialDataVehicles}">Cargar datos iniciales</Button>
+	<p>
+		<Button outline color="primary" on:click="{anteriorPagina}">Anterior página</Button>
+		<Button outline color="primary" on:click="{siguientePagina}">Siguiente página</Button>
+	</p>
 </main>
