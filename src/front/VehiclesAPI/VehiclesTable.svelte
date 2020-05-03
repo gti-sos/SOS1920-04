@@ -79,6 +79,15 @@
 					getVehicles(offset);
 				});
 				successMsg = "El dato ha sido insertado correctamente."
+				newVehicle = {
+					province: "",
+					year: "",
+					car: "",
+					bus: "",
+					motorcycle: "",
+					truck: "",
+					total: ""
+				};
 			}else{
 				errorMsg = "Ya existe ese dato";
 				successMsg = false;
@@ -205,7 +214,7 @@
 					<td><input bind:value="{searchVehicle.motorcycle}"></td>
 					<td><input bind:value="{searchVehicle.truck}"></td>
 					<td><input bind:value="{searchVehicle.total}"></td>
-					<td> <Button outline  color="primary" on:click={searchVehicles}>Buscar</Button> </td>
+					<td> <Button outline  color="primary" on:click={searchVehicles(offset)}>Buscar</Button> </td>
 				</tr>
 
 				{#each vehicles as vehicle}
