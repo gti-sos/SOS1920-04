@@ -169,14 +169,14 @@
 			}else{
 				successMsg = false;
 				errorMsg = "La búsqueda no ha obtenido resultados.";
-			}
+			};
 			
 		} else {
 			console.log("ERROR!");
 			successMsg = false;
 			errorMsg = "La búsqueda no ha obtenido resultados.";
-		}
-	}
+		};
+	};
 
 </script>
 
