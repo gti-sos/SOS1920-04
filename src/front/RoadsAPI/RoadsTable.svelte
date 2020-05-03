@@ -6,10 +6,20 @@
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
 
+	let offset = 0;
 	let successMsg = false;
 	let errorMsg = false;
 	let roads = [];
 	let newRoads = {
+        province: "",
+        year: "",
+        oneway: "",
+		multipleway: "",
+		dualCarriagewayAndHighway: "",
+		highwayWithToll: "",
+		total: ""
+	};
+	let searchRoad = {
         province: "",
         year: "",
         oneway: "",
@@ -23,7 +33,7 @@
 	async function getRoads() {
 
 		console.log("Fetching roads...");
-		const res = await fetch("/api/v1/roads");
+		const res = await fetch("/api/v1/roads?limit=10&offset="+ offset);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -47,25 +57,29 @@
 		errorMsg = false;
 	}
     async function insertRoads() {
-		newRoads.year = parseInt(newRoads.year);
-		newRoads.oneway = parseInt(newRoads.oneway);
-		newRoads.multipleway = parseInt(newRoads.multipleway);
-		newRoads.dualCarriagewayAndHighway = parseInt(newRoads.dualCarriagewayAndHighway);
-		newRoads.highwayWithToll = parseInt(newRoads.highwayWithToll);
-		newRoads.total = parseInt(newRoads.total);
+		let road = {
+			province: newRoads.province,
+			year: parseInt(newRoads.year),
+			oneway: parseInt(newRoads.oneway),
+			multipleway: parseInt(newRoads.multipleway),
+			dualCarriagewayAndHighway: parseInt(newRoads.dualCarriagewayAndHighway),
+			highwayWithToll: parseInt(newRoads.highwayWithToll),
+			total: parseInt(newRoads.total)
+		};
+
 		console.log("Inserting road..." + JSON.stringify(newRoads));
-		if(isNaN(newRoads.year) || isNaN(newRoads.oneway) ||isNaN(newRoads.multipleway) || isNaN(newRoads.dualCarriagewayAndHighway) ||
-		isNaN(newRoads.highwayWithToll) || isNaN(newRoads.total)) {
+		if(isNaN(road.year) || isNaN(road.oneway) ||isNaN(road.multipleway) || isNaN(road.dualCarriagewayAndHighway) ||
+		isNaN(road.highwayWithToll) || isNaN(road.total)) {
 			errorMsg = "Alguno de los campos introducidos no son numericos";
 			successMsg = false;
 		}
 		else {
-			const dataBaseGet = await fetch("/api/v1/roads/" + newRoads.province +"/"+ newRoads.year);
+			const dataBaseGet = await fetch("/api/v1/roads/" + road.province +"/"+ road.year);
 			if (!dataBaseGet.ok){
-				console.log("Inserting roads..." + JSON.stringify(newRoads));
+				console.log("Inserting roads..." + JSON.stringify(road));
 				const res = await fetch("/api/v1/roads", {
 					method: "POST",
-					body: JSON.stringify(newRoads),
+					body: JSON.stringify(road),
 					headers: {
 						"Content-Type": "application/json"
 					}
@@ -73,7 +87,16 @@
 					getRoads();
 				});
 				errorMsg = false;
-				successMsg = "Valores insertados correctos";
+				successMsg = "Valores insertados correctamente";
+				newRoads = {
+					province: "",
+					year: "",
+					oneway: "",
+					multipleway: "",
+					dualCarriagewayAndHighway: "",
+					highwayWithToll: "",
+					total: ""
+				};
 			}
 			else{
 				successMsg = false;
@@ -81,7 +104,52 @@
 			}
 		}
 
-    }
+	}
+	async function searchRoads(offset) {
+		let url = "/api/v1/roads?limit=10&offset="+ offset;
+		console.log("Searching roads...");
+
+		let road = {
+			province: searchRoad.province,
+			year: parseInt(searchRoad.year),
+			oneway: parseInt(searchRoad.oneway),
+			multipleway: parseInt(searchRoad.multipleway),
+			dualCarriagewayAndHighway: parseInt(searchRoad.dualCarriagewayAndHighway),
+			highwayWithToll: parseInt(searchRoad.highwayWithToll),
+			total: parseInt(searchRoad.total)
+		};
+
+		Object.entries(road).forEach(([x,y]) => {
+			if(!isNaN(y)){
+				url = url + "&" + x + "=" + y;
+			}
+		});
+		if(!road.province == ""){
+			url = url +"&province=" + road.province;
+		};
+		
+		const res = await fetch(url);
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			roads = json;
+			console.log("Received " + roads.length + " roads.");
+			if (roads.length > 0){
+				successMsg = "Se ha realizado la búsqueda.";
+				errorMsg = false;
+			}else{
+				successMsg = false;
+				errorMsg = "La búsqueda no ha obtenido resultados.";
+			};
+			
+		} else {
+			console.log("ERROR!");
+			successMsg = false;
+			errorMsg = "La búsqueda no ha obtenido resultados.";
+		};
+	};
+
     async function deleteRoads(province,year) {
 		const res = await fetch("/api/v1/roads/" + province + "/" + year, {
 			method: "DELETE"
@@ -100,6 +168,21 @@
 		successMsg = "Se han borrado todos los datos";
 		errorMsg = false;
 	}
+	async function siguientePagina() {
+		const res = await fetch("/api/v1/roads");
+		const json = await res.json();
+		if(offset < json.length - 10 ){
+			offset = offset + 10;
+			getRoads(offset);
+		}
+	};
+
+	async function anteriorPagina() {
+		if (offset -10 >= 0){
+			offset = offset - 10;
+			getRoads(offset);
+		}
+	};
 
 </script>
 
@@ -123,14 +206,14 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><input bind:value="{newRoads.province}"></td>
-					<td><input bind:value="{newRoads.year}"></td>
-                    <td><input bind:value="{newRoads.oneway}"></td>
-                    <td><input bind:value="{newRoads.multipleway}"></td>
-					<td><input bind:value="{newRoads.dualCarriagewayAndHighway}"></td>
-					<td><input bind:value="{newRoads.highwayWithToll}"></td>
-					<td><input bind:value="{newRoads.total}"></td>
-					<td> <Button outline  color="primary" on:click={insertRoads}>Insertar</Button> </td>
+					<td><input bind:value="{searchRoad.province}"></td>
+					<td><input bind:value="{searchRoad.year}"></td>
+                    <td><input bind:value="{searchRoad.oneway}"></td>
+                    <td><input bind:value="{searchRoad.multipleway}"></td>
+					<td><input bind:value="{searchRoad.dualCarriagewayAndHighway}"></td>
+					<td><input bind:value="{searchRoad.highwayWithToll}"></td>
+					<td><input bind:value="{searchRoad.total}"></td>
+					<td> <Button outline  color="primary" on:click={searchRoads}>Buscar</Button> </td>
 				</tr>
 
 				{#each roads as road}
@@ -145,6 +228,16 @@
 						<td><Button outline color="danger" on:click="{deleteRoads(road.province, road.year)}">Eliminar</Button></td>
 					</tr>
 				{/each}
+				<tr>
+					<td><input bind:value="{newRoads.province}"></td>
+					<td><input bind:value="{newRoads.year}"></td>
+                    <td><input bind:value="{newRoads.oneway}"></td>
+                    <td><input bind:value="{newRoads.multipleway}"></td>
+					<td><input bind:value="{newRoads.dualCarriagewayAndHighway}"></td>
+					<td><input bind:value="{newRoads.highwayWithToll}"></td>
+					<td><input bind:value="{newRoads.total}"></td>
+					<td> <Button outline  color="primary" on:click={insertRoads}>Insertar</Button> </td>
+				</tr>
 			</tbody>
 		</Table>
 	{/await}
@@ -156,4 +249,8 @@
     {/if}
 	<Button outline color="secondary" on:click="{loadInitialDataRoads}">Cargar todo</Button>
 	<Button outline color="danger" on:click="{deleteAllRoads}">Borrar todo</Button>
+	<p>
+		<Button outline color="primary" on:click="{anteriorPagina}">Anterior página</Button>
+		<Button outline color="primary" on:click="{siguientePagina}">Siguiente página</Button>
+	</p>
 </main>

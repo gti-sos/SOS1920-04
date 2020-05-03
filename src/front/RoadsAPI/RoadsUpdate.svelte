@@ -14,6 +14,8 @@
     export let params = {};
     let successMsg = false;;
     let errorMsg = false;
+    let oneRoad = true;
+
 	let roads = {};
     let updatedProvince = "";
     let updatedYear = "";
@@ -42,7 +44,8 @@
             updatedTotal = roads.total;
             console.log("Received road.");
         } else {
-            errorMsg = res.status + ": " + res.statusText;
+            oneRoad = false;
+            errorMsg = "El dato asociado a " + params.roadProvince + " y " + params.roadYear + " no existe.";
             console.log("ERROR!" + errorMsg);
         }
     }
@@ -87,10 +90,11 @@
 </script>
 
 <main>
-    <h3>Edit Roads <strong>{params.roadProvince}</strong></h3>
+    <h3><strong>Edita el dato de carreteras asociado a {params.roadProvince} y {params.roadYear}</strong></h3>
 	{#await roads}
 		Cargando carreteras...
-	{:then roads}
+    {:then roads}
+    {#if oneRoad}
 		<Table bordered>
 			<thead>
 				<tr>
@@ -116,7 +120,8 @@
                     <td> <Button outline  color="primary" on:click={updateRoad}>Actualizar</Button> </td>
                 </tr>
 			</tbody>
-		</Table>
+        </Table>
+    {/if}
     {/await}
     {#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
