@@ -76,7 +76,17 @@
 					}).then(function (res) {
 						getTrafficAccidents(offset);
 					});
-				successMsg = "El dato ha sido insertado correctamente."
+				successMsg = "El dato ha sido insertado correctamente.";
+				errorMsg = false;
+				newTraffic_accident = {
+					province: "",
+					year: "",
+					accidentWithVictims: "",
+					mortalAccident: "",
+					death: "",
+					hospitalizedWounded: "",
+					notHospitalizedWounded: ""
+				};
 			}else{
 				errorMsg = "Ya existe ese dato";
 				successMsg = false;	
