@@ -155,7 +155,7 @@
 		if(!vehicle.province == ""){
 			url = url +"&province=" + vehicle.province;
 		};
-		
+		console.log(url);
 		const res = await fetch(url);
 
 		if (res.ok) {
