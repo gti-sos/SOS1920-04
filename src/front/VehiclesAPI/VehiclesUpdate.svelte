@@ -15,7 +15,10 @@
     let updatedTruck;
     let updatedTotal;
     let errorMsg = false;
+    let successMsg = false;
     onMount(getVehicle);
+    let oneVehicle = false;
+    let noVehicle = false;
 
     async function getVehicle() {
 
@@ -33,8 +36,10 @@
             updatedTruck = vehicle.truck;
             updatedTotal = vehicle.total;
             console.log("Received " + vehicle.length + " vehicle.");
+            oneVehicle = true;
         } else {
-            errorMsg = res.status + ": " + res.statusText;
+            noVehicle = true;
+            errorMsg = "El dato asociado a " + params.vehicleProvince + "y" + params.vehicleYear + " no existe.";
             console.log("ERROR!");
         }
     }
@@ -83,7 +88,9 @@
 
     {#await vehicle}
 		Cargando vehículo...
-	{:then vehicle}
+    {:then vehicle}
+    {#if oneVehicle}
+    
 		<Table bordered>
 			<thead>
 				<tr>
@@ -110,7 +117,8 @@
 				</tr>
 
 			</tbody>
-		</Table>
+        </Table>
+    {/if}
     {/await}
     {#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
