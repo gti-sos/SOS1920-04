@@ -115,8 +115,6 @@
 	};
 
 	async function anteriorPagina() {
-		const res = await fetch("/api/v1/vehicles");
-		const json = await res.json();
 		if (offset -10 >= 0){
 			offset = offset - 10;
 			getVehicles(offset);
