@@ -7,6 +7,7 @@
 	import Button from "sveltestrap/src/Button.svelte";
 
 	let trafficAccidents = [];
+	let offset = 0;
 	let newTraffic_accident = {
 		province: "",
 		year: "",
@@ -16,14 +17,25 @@
         hospitalizedWounded: "",
         notHospitalizedWounded: ""
 	};
+
+	let searchTraffic_accident = {
+		province: "",
+		year: "",
+        accidentWithVictims: "",
+        mortalAccident: "",
+        death: "",
+        hospitalizedWounded: "",
+        notHospitalizedWounded: ""
+	};
+
 	let errorMsg = false;
 	let successMsg = false;
 	onMount(getTrafficAccidents);
 
-	async function getTrafficAccidents() {
+	async function getTrafficAccidents(offset) {
 
 		console.log("Fetching trafficAccidents...");
-		const res = await fetch("/api/v1/traffic_accidents");
+		const res = await fetch("/api/v1/traffic_accidents?limit=10&offset="+ offset);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -61,7 +73,7 @@
 					"Content-Type": "application/json"
 				}
 					}).then(function (res) {
-						getTrafficAccidents();
+						getTrafficAccidents(offset);
 					});
 				successMsg = "El dato ha sido insertado correctamente."
 			}else{
@@ -76,9 +88,10 @@
 		const res = await fetch("/api/v1/traffic_accidents/" + province +"/" + year, {
 			method: "DELETE"
 		}).then(function (res) {
-			getTrafficAccidents();
+			getTrafficAccidents(offset);
 		});
 		successMsg = "El dato ha sido borrado correctamente.";
+		errorMsg = false;
 	};
 
 	async function deleteAllTrafficAccidents() {
@@ -86,20 +99,82 @@
 		const res = await fetch("/api/v1/traffic_accidents/", {
 			method: "DELETE"
 		}).then(function (res) {
-			getTrafficAccidents();
+			getTrafficAccidents(offset);
 		});
 		successMsg = "Se han borrado todos los datos correctamente.";
+		errorMsg = false;
 	};
 
 	async function loadInitialDataTrafficAccidents(){
-		errorMsg = false;
+		
 		console.log("Loading trafficAccidents...");
 		const res = await fetch("/api/v1/traffic_accidents/loadInitialData", {
 		}).then(function (res) {
-			getTrafficAccidents();
+			getTrafficAccidents(offset);
 		});
 		successMsg = "Se han cargado los datos iniciales correctamente.";
+		errorMsg = false;
+	};
 
+	async function siguientePagina() {
+		const res = await fetch("/api/v1/traffic_accidents");
+		const json = await res.json();
+		if(offset < json.length - 10 ){
+			offset = offset + 10;
+			getTrafficAccidents(offset);
+		}
+	};
+
+	async function anteriorPagina() {
+		if (offset -10 >= 0){
+			offset = offset - 10;
+			getTrafficAccidents(offset);
+		}
+	};
+
+	async function searchTraffic_accidents(offset) {
+		let url = "/api/v1/traffic_accidents?limit=10&offset="+ offset;
+		console.log("Searching traffic accidents...");
+
+		let traffic_accident = {
+			province: searchTraffic_accident.province,
+			year: parseInt(searchTraffic_accident.year),
+			accidentWithVictims: parseInt(searchTraffic_accident.accidentWithVictims),
+			mortalAccident: parseInt(searchTraffic_accident.mortalAccident),
+			death: parseInt(searchTraffic_accident.death),
+			hospitalizedWounded: parseInt(searchTraffic_accident.hospitalizedWounded),
+			notHospitalizedWounded: parseInt(searchTraffic_accident.notHospitalizedWounded)
+		};
+
+		Object.entries(traffic_accident).forEach(([x,y]) => {
+			if(!isNaN(y)){
+				url = url + "&" + x + "=" + y;
+			}
+		});
+		if(!traffic_accident.province == ""){
+			url = url +"&province=" + traffic_accident.province;
+		};
+		
+		const res = await fetch(url);
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			trafficAccidents = json;
+			console.log("Received " + trafficAccidents.length + " traffic accidents.");
+			if (trafficAccidents.length > 0){
+				successMsg = "Se ha realizado la búsqueda.";
+				errorMsg = false;
+			}else{
+				successMsg = false;
+				errorMsg = "La búsqueda no ha obtenido resultados.";
+			};
+			
+		} else {
+			console.log("ERROR!");
+			successMsg = false;
+			errorMsg = "La búsqueda no ha obtenido resultados.";
+		};
 	};
 </script>
 
@@ -123,14 +198,14 @@
 			</thead>
 			<tbody>
 				<tr>						
-					<td><input bind:value="{newTraffic_accident.province}"></td>
-					<td><input bind:value="{newTraffic_accident.year}"></td>
-                    <td><input bind:value="{newTraffic_accident.accidentWithVictims}"></td>
-                    <td><input bind:value="{newTraffic_accident.mortalAccident}"></td>
-					<td><input bind:value="{newTraffic_accident.death}"></td>
-                    <td><input bind:value="{newTraffic_accident.hospitalizedWounded}"></td>
-                    <td><input bind:value="{newTraffic_accident.notHospitalizedWounded}"></td>
-					<td> <Button outline  color="primary" on:click={insertTrafficAccident}>Insertar</Button> </td>
+					<td><input bind:value="{searchTraffic_accident.province}"></td>
+					<td><input bind:value="{searchTraffic_accident.year}"></td>
+                    <td><input bind:value="{searchTraffic_accident.accidentWithVictims}"></td>
+                    <td><input bind:value="{searchTraffic_accident.mortalAccident}"></td>
+					<td><input bind:value="{searchTraffic_accident.death}"></td>
+                    <td><input bind:value="{searchTraffic_accident.hospitalizedWounded}"></td>
+                    <td><input bind:value="{searchTraffic_accident.notHospitalizedWounded}"></td>
+					<td> <Button outline  color="primary" on:click={searchTraffic_accidents}>Buscar</Button> </td>
 				</tr>
 
 				{#each trafficAccidents as traffic_accident}
@@ -147,6 +222,16 @@
 						<td><Button outline color="danger" on:click="{deleteTrafficAccident(traffic_accident.province, traffic_accident.year)}">Borrar</Button></td>
 					</tr>
 				{/each}
+				<tr>						
+					<td><input bind:value="{newTraffic_accident.province}"></td>
+					<td><input bind:value="{newTraffic_accident.year}"></td>
+                    <td><input bind:value="{newTraffic_accident.accidentWithVictims}"></td>
+                    <td><input bind:value="{newTraffic_accident.mortalAccident}"></td>
+					<td><input bind:value="{newTraffic_accident.death}"></td>
+                    <td><input bind:value="{newTraffic_accident.hospitalizedWounded}"></td>
+                    <td><input bind:value="{newTraffic_accident.notHospitalizedWounded}"></td>
+					<td> <Button outline  color="primary" on:click={insertTrafficAccident}>Insertar</Button> </td>
+				</tr>
 			</tbody>
 		</Table>
 	{/await}
@@ -158,5 +243,8 @@
 	{/if}
 	<Button outline color="danger" on:click="{deleteAllTrafficAccidents}">Borrar todo</Button>
 	<Button outline color="primary" on:click="{loadInitialDataTrafficAccidents}">Cargar datos iniciales</Button>
-
+	<p>
+		<Button outline color="primary" on:click="{anteriorPagina}">Anterior página</Button>
+		<Button outline color="primary" on:click="{siguientePagina}">Siguiente página</Button>
+	</p>
 </main>
