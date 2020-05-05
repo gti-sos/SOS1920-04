@@ -182,7 +182,7 @@ module.exports = function (app) {
 				delete v._id;
 			});
 			
-			if(vehicles.length == 1){
+			if(vehicles.length >= 1){
 				res.send(JSON.stringify(vehicles[0],null,2));
 				console.log("Data sent:"+JSON.stringify(vehicles[0],null,2));
 			}else{

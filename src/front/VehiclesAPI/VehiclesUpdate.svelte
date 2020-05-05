@@ -17,12 +17,13 @@
     let errorMsg = false;
     let successMsg = false;
     onMount(getVehicle);
-    let oneVehicle = false;
+    let oneVehicle = true;
 
     async function getVehicle() {
 
         console.log("Fetching vehicles...");
         const res = await fetch("/api/v1/vehicles/" + params.vehicleProvince +"/" + params.vehicleYear);
+        console.log(res);
         if (res.ok) {
             console.log("Ok:");
             const json = await res.json();
@@ -35,8 +36,8 @@
             updatedTruck = vehicle.truck;
             updatedTotal = vehicle.total;
             console.log("Received " + vehicle.length + " vehicle.");
-            oneVehicle = true;
         } else {
+            oneVehicle = false;
             errorMsg = "El dato asociado a " + params.vehicleProvince + " y " + params.vehicleYear + " no existe.";
             console.log("ERROR!");
         }
@@ -76,6 +77,7 @@
             }).then(function (res) {
                 getVehicle();
             });
+            errorMsg=false;
             successMsg = "El dato se ha actualizado correctamente.";
         };
     };
@@ -122,7 +124,7 @@
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
     {#if successMsg}
-        <p style="color: green">ERROR: {errorMsg}</p>
+        <p style="color: green">EXITO: {successMsg}</p>
     {/if}
 	<Button outline color="secondary" on:click="{pop}">Atrás</Button>
 </main>

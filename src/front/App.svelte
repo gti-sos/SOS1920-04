@@ -24,6 +24,6 @@
 </script>
 
 <main>
-	<h1>API Manager</h1>
+	<h1>Análisis del tráfico en España</h1>
 	<Router {routes}/>
 </main>
