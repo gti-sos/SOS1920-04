@@ -10,12 +10,14 @@
 	import EditRoad from './RoadsAPI/RoadsUpdate.svelte';
 	import EditVehicle from './VehiclesAPI/VehiclesUpdate.svelte';
 	import EditTrafficAccidents from './TrafficAccidentsAPI/TrafficAccidentsUpdate.svelte';
+	import VehiclesStatistics from './VehiclesAPI/VehiclesStatistics.svelte';
 
 	const routes = {
 		"/" : Home,
 		"/vehicles": VehiclesAPI,
 		"/traffic_accidents": TrafficAccidentsAPI,
 		"/roads": RoadsAPI,
+		"/vehicles/statistics": VehiclesStatistics,
 		"/vehicles/:vehicleProvince/:vehicleYear" : EditVehicle,
 		"/roads/:roadProvince/:roadYear" : EditRoad,
 		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentYear" : EditTrafficAccidents,
