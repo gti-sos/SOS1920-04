@@ -10,21 +10,51 @@
         MyData = await resData.json();
         let parsed_data = [];
         let provinces = [];
-        MyData.forEach( (v) => {provinces.push(v.province)});
+        let accidentWithVictims = [];
+        let mortalAccident = [];
+        let death = [];
+        let hospitalizedWounded = [];
+        let notHospitalizedWounded = [];
+
         MyData.forEach( (v) => {
-            let graphic_data1 = {
-                name: v.province + " en el año " + v.year,
-                data: [v.accidentWithVictims, v.mortalAccident],
-                stack: 'Accidentes'
-            }
-            let graphic_data2 = {
-                name: v.province + " en el año " + v.year,
-                data: [v.death, v.hospitalizedWounded, v.notHospitalizedWounded],
-                stack: 'Víctimas'
-            }
-            parsed_data.push(graphic_data1);
-            parsed_data.push(graphic_data2);
+            provinces.push(v.province);
+            accidentWithVictims.push(v.accidentWithVictims);
+            mortalAccident.push(v.mortalAccident);
+            death.push(v.death);
+            hospitalizedWounded.push(v.hospitalizedWounded);
+            notHospitalizedWounded.push(v.notHospitalizedWounded);
         });
+
+        let graphic_data1 = {
+            name: 'Accidentes con víctimas',
+            data: accidentWithVictims,
+            stack: 'Accidentes'
+        };
+        let graphic_data2 = {
+            name: 'Accidentes mortales',
+            data: mortalAccident,
+            stack: 'Accidentes'
+        };
+        let graphic_data3 = {
+            name: 'Muertes',
+            data: death,
+            stack: 'Víctimas'
+        };
+        let graphic_data4 = {
+            name: 'Víctimas hospitalizadas',
+            data: hospitalizedWounded,
+            stack: 'Víctimas'
+        };
+        let graphic_data5 = {
+            name: 'Víctimas no hospitalizadas',
+            data: notHospitalizedWounded,
+            stack: 'Víctimas'
+        };
+        parsed_data.push(graphic_data2);
+        parsed_data.push(graphic_data1);
+        parsed_data.push(graphic_data3);
+        parsed_data.push(graphic_data4);
+        parsed_data.push(graphic_data5);
 
         Highcharts.chart('container', {
             chart: {
