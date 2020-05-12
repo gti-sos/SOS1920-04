@@ -67,25 +67,24 @@
         });
         console.log(parsed_data);  
     }
+    </script>
     
-</script>
-    
-<svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
-</svelte:head>
+    <svelte:head>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+    </svelte:head>
     
     
-<main>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            Este gráfico muestra distintos datos del número de vehículos en España, según la provincia.
-        </p>
-    </figure>
-</main>
+    <main>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+                Este gráfico muestra distintos datos del número de vehículos en España, según la provincia.
+            </p>
+        </figure>
+    </main>
 
 <style>
     .highcharts-figure, .highcharts-data-table table {
