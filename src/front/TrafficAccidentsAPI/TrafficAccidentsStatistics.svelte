@@ -17,7 +17,8 @@
         let notHospitalizedWounded = [];
 
         MyData.forEach( (v) => {
-            provinces.push(v.province);
+            let provinceyear = v.province + " (" + v.year + ")";
+            provinces.push(provinceyear);
             accidentWithVictims.push(v.accidentWithVictims);
             mortalAccident.push(v.mortalAccident);
             death.push(v.death);
