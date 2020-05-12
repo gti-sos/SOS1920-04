@@ -10,4 +10,7 @@
 <p>
     <a href="#/traffic_accidents">GUI del número de accidentes de tráfico</a>
 </p>
+<p>
+    <a href="#/traffic_accidents/statistics">Estadísticas del número de accidentes de tráfico</a>
+</p>
 
