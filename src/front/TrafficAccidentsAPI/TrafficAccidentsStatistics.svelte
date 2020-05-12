@@ -17,7 +17,7 @@
                 data: [v.accidentWithVictims, v.mortalAccident],
                 stack: 'Accidentes'
             }
-            let graphic_data1 = {
+            let graphic_data2 = {
                 name: v.province + " en el año " + v.year,
                 data: [v.death, v.hospitalizedWounded, v.notHospitalizedWounded],
                 stack: 'Víctimas'
@@ -43,7 +43,7 @@
         },
 
         xAxis: {
-            categories: province,
+            categories: provinces,
             labels: {
             skew3d: true,
             style: {
