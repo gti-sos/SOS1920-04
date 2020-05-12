@@ -4,31 +4,26 @@
     async function loadGraph(){
     
         let MyData = [];
+        
 
         const resData = await fetch("/api/v1/traffic_accidents");
         MyData = await resData.json();
         let parsed_data = [];
+        let provinces = [];
+        MyData.forEach( (v) => {provinces.push(v.province)});
         MyData.forEach( (v) => {
-            let graphic_data = {
+            let graphic_data1 = {
                 name: v.province + " en el año " + v.year,
-                data: [{
-                    name:"Accidentes con víctimas",
-                    value: v.accidentWithVictims / 1000
-                },{
-                    name:"Accidentes mortales",
-                    value: v.mortalAccident / 1000
-                },{
-                    name:"Muertes",
-                    value: v.death / 1000
-                },{
-                    name:"Hospitalizados",
-                    value: v.hospitalizedWounded / 1000
-                },{
-                    name:"No hospitalizados",
-                    value: v.notHospitalizedWounded / 1000
-                }]
+                data: [v.accidentWithVictims, v.mortalAccident],
+                stack: 'Accidentes'
             }
-            parsed_data.push(graphic_data);
+            let graphic_data1 = {
+                name: v.province + " en el año " + v.year,
+                data: [v.death, v.hospitalizedWounded, v.notHospitalizedWounded],
+                stack: 'Víctimas'
+            }
+            parsed_data.push(graphic_data1);
+            parsed_data.push(graphic_data2);
         });
 
         Highcharts.chart('container', {
@@ -44,11 +39,11 @@
         },
 
         title: {
-            text: 'Total fruit consumption, grouped by gender'
+            text: 'Total de Accidentes de Tráfico agrupado por accidentes y víctimas'
         },
 
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
+            categories: province,
             labels: {
             skew3d: true,
             style: {
@@ -61,7 +56,7 @@
             allowDecimals: false,
             min: 0,
             title: {
-            text: 'Number of fruits',
+            text: 'Números',
             skew3d: true
         }
         },
