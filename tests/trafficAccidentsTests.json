@@ -523,7 +523,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 0,\n\t\"mortalaccident\": 0,\n\t\"death\": 0,\n\t\"hospitalizedWounded\": 0,\n\t\"notHospitalizedWounded\": 0\n}",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 0,\n\t\"mortalAccident\": 0,\n\t\"death\": 0,\n\t\"hospitalizedWounded\": 0,\n\t\"notHospitalizedWounded\": 0\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -564,7 +564,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"province\":\"test\",\r\n\t\"year\": 0,\r\n\t\"accidentWithVictims\": 0,\r\n\t\"mortalAccident\": 0,\r\n\t\"death\": 0,\r\n\t\"hospitalizedWounded\": 0,\r\n\t\"nothHspitalizedWounded\": 0\r\n\t\t}",
+					"raw": "{\r\n\t\"province\":\"test\",\r\n\t\"year\": 0,\r\n\t\"accidentWithVictims\": 0,\r\n\t\"mortalAccident\": 0,\r\n\t\"death\": 0,\r\n\t\"notHospitalizedWounded\": 0\r\n\t\t}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -679,7 +679,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 1,\n\t\"mortalaccident\": 1,\n\t\"death\": 1,\n\t\"hospitalizedWounded\": 1,\n\t\"notHospitalizedWounded\": 1\n}",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 1,\n\t\"mortalAccident\": 1,\n\t\"death\": 1,\n\t\"hospitalizedWounded\": 1,\n\t\"notHospitalizedWounded\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
