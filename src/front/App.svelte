@@ -13,10 +13,14 @@
 	import VehiclesStatistics from './VehiclesAPI/VehiclesStatistics.svelte';
 	import RoadsStatistics from './RoadsAPI/RoadsStatistics.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
-	
+	import Analytics from './analytics/statistics.svelte';
+	import About from './about/about.svelte';
+
 
 	const routes = {
 		"/" : Home,
+		"/analytics": Analytics,
+		"/about": About,
 		"/vehicles": VehiclesAPI,
 		"/traffic_accidents": TrafficAccidentsAPI,
 		"/traffic_accidents/statistics": TrafficAccidentsStatistics,
