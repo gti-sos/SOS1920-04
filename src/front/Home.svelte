@@ -8,7 +8,7 @@
     <a href="#/traffic_accidents">GUI del número de accidentes de tráfico</a>
 </p>
 <p>
-    <a href="#/about">About</a>
+    <a href="#/about">Videos de presentación</a>
 </p>
 <h2><strong> Estadísticas:</strong></h2>
 <p>
