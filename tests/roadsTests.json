@@ -229,13 +229,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{BASE_URL}}api/v1/vehicles?province=Almeria&year=2018",
+					"raw": "{{BASE_URL}}api/v1/roads?province=Almeria&year=2018",
 					"host": [
 						"{{BASE_URL}}api"
 					],
 					"path": [
 						"v1",
-						"vehicles"
+						"roads"
 					],
 					"query": [
 						{
