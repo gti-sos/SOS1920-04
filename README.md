@@ -1,4 +1,4 @@
-
+[![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS1920-04/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gti-sos/SOS1920-04?targetFile=package.json)
 ## SOS1920-04
 
 - **Team**
