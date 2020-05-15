@@ -1,12 +1,13 @@
 {
-  "name": "f02",
+  "name": "d03",
   "version": "1.0.0",
   "description": "This will show a page with readme text.",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "node index"
+    "start": "node index",
+    "test": "npx newman run tests/roadsTests.json & tests/trafficAccidentsTests.json & tests/vehiclesTests.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",

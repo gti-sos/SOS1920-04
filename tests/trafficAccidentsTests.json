@@ -1,0 +1,934 @@
+{
+	"info": {
+		"_postman_id": "d88fb4d3-04a1-485e-97ad-02ecd0dc0bdb",
+		"name": "Traffic_accidents",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get traffic_accidents Initial Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/loadInitialData",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than one datum\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents pagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are two datums\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?limit=2&offset=1",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search province",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has Almeria as province\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Almeria\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?province=Almeria",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Almeria"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search province and year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has Almeria as province\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Almeria\");",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?province=Almeria&year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Almeria"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search accidentWithVictims",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 1726 as accidentWithVictims\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1726\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?accidentWithVictims=1726",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "accidentWithVictims",
+							"value": "1726"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search mortalAccidents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 27 as mortalAccident\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"27\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?mortalAccidents=27",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "mortalAccidents",
+							"value": "27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search death",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 36 as death\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"36\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?death=36",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "death",
+							"value": "36"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search limdeath",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datums has more than 50 deaths\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(compare) {",
+							"    var death = compare.death;",
+							"     pm.expect(death).to.be.above(50);",
+							"    });",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?limdeath=50",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "limdeath",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search hospitalizedWounded",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 260 as hospitalizedWounded\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"260\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?hospitalizedWounded=260",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "hospitalizedWounded",
+							"value": "260"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents search notHospitalizedWounded",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 2644 as notHospitalizedWoundeds\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2644\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents?notHospitalizedWounded=2644",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					],
+					"query": [
+						{
+							"key": "notHospitalizedWounded",
+							"value": "2644"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post traffic_accidents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 0,\n\t\"mortalaccident\": 0,\n\t\"death\": 0,\n\t\"hospitalizedWounded\": 0,\n\t\"notHospitalizedWounded\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post traffic_accidents wrong body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"province\":\"test\",\r\n\t\"year\": 0,\r\n\t\"accidentWithVictims\": 0,\r\n\t\"mortalAccident\": 0,\r\n\t\"death\": 0,\r\n\t\"hospitalizedWounded\": 0,\r\n\t\"nothHspitalizedWounded\": 0\r\n\t\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The returned datum is Test\", function () {",
+							"    var province = pm.response.json().province;",
+							"    pm.expect(province).to.equal(\"Test\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get traffic_accidents/Inexistent/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Inexistent/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Inexistent",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put traffic_accidents/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 1,\n\t\"mortalaccident\": 1,\n\t\"death\": 1,\n\t\"hospitalizedWounded\": 1,\n\t\"notHospitalizedWounded\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put traffic_accidents/Test/0 wrong body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"province\":\"test\",\r\n\t\"year\": 0,\r\n\t\"accidentWithVictims\": 0,\r\n\t\"mortalAccident\": 0,\r\n\t\"death\": 0,\r\n\t\"hospitalizedWounded\": 0,\r\n\t\"nothHspitalizedWounded\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Inexistent/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Inexistent",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete traffic_accidents/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete traffic_accidents/Inexistent/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Inexistent/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Inexistent",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post traffic_accidents/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"accidentWithVictims\": 1,\n\t\"mortalaccident\": 1,\n\t\"death\": 1,\n\t\"hospitalizedWounded\": 1,\n\t\"notHospitalizedWounded\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put traffic_accidents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 0,\n\t\"motorcycle\": 0,\n\t\"bus\": 0,\n\t\"truck\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete traffic_accidents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/traffic_accidents",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"traffic_accidents"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,944 @@
+{
+	"info": {
+		"_postman_id": "93a3bae4-6022-41db-b1f6-18e104f23248",
+		"name": "Vehicles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get vehicles Initial Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/loadInitialData",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"province\":\"Jaen\",\r\n\t\"year\": 2018,\r\n\t\"car\": 361888,\r\n\t\"bus\": 831,\r\n\t\"motorcycle\": 44574,\r\n\t\"truck\": 96518,\r\n\t\"total\": 533067\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://isatrugom.run-eu-central1.goorm.io/api/v1/v",
+					"protocol": "https",
+					"host": [
+						"isatrugom",
+						"run-eu-central1",
+						"goorm",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"v"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles pagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are two datums\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?limit=2&offset=1",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search province",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has Almeria as province\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Almeria\");",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?province=Almeria&year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Almeria"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search province and year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has Almeria as province\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Almeria\");",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?province=Almeria&year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Almeria"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 361888 as car\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"361888\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?car=361888",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "car",
+							"value": "361888"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search bus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 831 as bus\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"831\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?bus=831",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "bus",
+							"value": "831"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search motorcycle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 44574 as motorcycle\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"44574\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?motorcycle=44574",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "motorcycle",
+							"value": "44574"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search truck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 96518 as truck\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"96518\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?truck=96518",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "truck",
+							"value": "96518"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search total",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 533067 as total\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"533067\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?total=533067",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "total",
+							"value": "533067"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles search from year to year sorted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has years from 2015 to 2017\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(data) {",
+							"        var year = data.year;",
+							"        pm.expect(year).to.be.below(2017).and.to.be.above(2014);",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?fromYear=2015&toYear=2017",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "fromYear",
+							"value": "2015"
+						},
+						{
+							"key": "toYear",
+							"value": "2017"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post vehicles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 0,\n\t\"motorcycle\": 0,\n\t\"bus\": 0,\n\t\"truck\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post vehicles wrong body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 0,\n\t\"motorcycle\": 0,\n\t\"bus\": 0,\n\t\"truck\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The returned datum is Test\", function () {",
+							"    var province = pm.response.json().province;",
+							"    pm.expect(province).to.equal(\"Test\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get vehicles/Inexistent/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Inexistent/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Inexistent",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put vehicles/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 1,\n\t\"motorcycle\": 1,\n\t\"bus\": 1,\n\t\"truck\": 1,\n\t\"total\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put vehicles/Test/0 wrong body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 1,\n\t\"motorcycle\": 1,\n\t\"bus\": 1,\n\t\"truck\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete vehicles/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete vehicles/Inexistent/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Inexistent/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Inexistent",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post vehicles/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 0,\n\t\"motorcycle\": 0,\n\t\"bus\": 0,\n\t\"truck\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put vehicles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 0,\n\t\"motorcycle\": 0,\n\t\"bus\": 0,\n\t\"truck\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete vehicles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

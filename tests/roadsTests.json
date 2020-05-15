@@ -1,0 +1,930 @@
+{
+	"info": {
+		"_postman_id": "96de68d9-b96c-4106-bb05-e1dfd5b43e74",
+		"name": "Roads",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get roads Initial Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/loadInitialData",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than one datum\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads pagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99703465-bf84-4bf9-8452-1157af129620",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are two datums\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?limit=2&offset=1",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search province",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8e8b1bd7-294d-43b5-9c75-bda944102e4d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has Almeria as province\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Almeria\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?province=Almeria",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Almeria"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a9e8fe27-ce7a-4eb2-97f7-48f6ffa28749",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search province and year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has Almeria as province\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Almeria\");",
+							"});",
+							"pm.test(\"The found datum has 2018 as year\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2018\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/vehicles?province=Almeria&year=2018",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": "Almeria"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search oneway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5be9baa6-1bb3-40fd-a696-28e89d68cb93",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 1804 as oneway\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"oneway\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?oneway=1804",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "oneway",
+							"value": "1804"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search multiway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cebc53a3-8106-4038-abe3-67f00241cafa",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 208 as multiway\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"208\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?multiway=208",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "multiway",
+							"value": "208"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search dualCarriagewayAndHighway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 109 as dualCarriagewayAndHighway\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"109\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?dualCarriagewayAndHighway=109",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "dualCarriagewayAndHighway",
+							"value": "109"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search highwayWithToll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than one datum\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search total",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has 2168 as total\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"2168\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?total=2168",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "total",
+							"value": "2168"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads search minTotal and maxTotal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"The found datum has total from 2149 to 3000\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    jsonData.forEach(function(compare) {",
+							"        var total = compare.total;",
+							"        pm.expect(total).to.be.below(3000).and.to.be.above(2149);",
+							"    });",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads?minTotal=2149&maxTotal=3000",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					],
+					"query": [
+						{
+							"key": "minTotal",
+							"value": "2149"
+						},
+						{
+							"key": "maxTotal",
+							"value": "3000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post roads",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"oneway\": 0,\n\t\"multipleway\": 0,\n\t\"dualCarriagewayAndHighway\": 0,\n\t\"highwayWithToll\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post roads wrong body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"oneway\": 0,\n\t\"multipleway\": 0,\n\t\"dualCarriagewayAndHighway\": 0,\n\t\"highwayWithToll\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4a360a5-7250-4aac-9b98-6e8ce90e2065",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roads/Inexistent/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"There are more than one datum\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.lengthOf.above(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put roads/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"oneway\": 1,\n\t\"multipleway\": 1,\n\t\"dualCarriagewayAndHighway\": 1,\n\t\"highwayWithToll\": 1,\n\t\"total\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put roads/Test/0 wrong body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"oneway\": 1,\n\t\"multipleway\": 1,\n\t\"dualCarriagewayAndHighway\": 1,\n\t\"highwayWithToll\": 1,\n\t\"total\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete roads/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete roads/Inexistent/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/Inexistent/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"Inexistent",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post roads/Test/0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"oneway\": 1,\n\t\"multipleway\": 1,\n\t\"dualCarriagewayAndHighway\": 1,\n\t\"highwayWithToll\": 1,\n\t\"total\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads/Test/0",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads",
+						"Test",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put roads",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb70edeb-165d-4b56-b2a8-d56b65e6d216",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"province\": \"Test\",\n\t\"year\": 0,\n\t\"car\": 0,\n\t\"motorcycle\": 0,\n\t\"bus\": 0,\n\t\"truck\": 0,\n\t\"total\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete roads",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "719a2f2c-ca3b-4a0f-893f-0d9941a04be1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/v1/roads",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"v1",
+						"roads"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
