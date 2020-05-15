@@ -19,7 +19,7 @@
                     if(r.province == v.province && v.province == t.province && r.year == v.year && v.year == t.year){
                         let graphic_data = {
                             name: v.province + " (" + v.year + ")",
-                            data: [0, r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, r.total, v.car, v.bus, v.motorcycle, v.truck, v.total, t.accidentWithVictims, t.mortalAccident, t.death, t.hospitalizedWounded, t.notHospitalizedWounded]
+                            data: [0, r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, r.total, v.car/1000, v.bus/1000, v.motorcycle/1000, v.truck/1000, v.total/1000, t.accidentWithVictims, t.mortalAccident, t.death, t.hospitalizedWounded, t.notHospitalizedWounded]
                          };
                     parsed_data.push(graphic_data);
                     }
@@ -76,7 +76,7 @@
                 maxPadding: 0,
                 type: 'category',
                 crosshair: true,
-                categories: [ '', 'Un carril', 'Doble carril', 'Autovía', 'Autopista', 'Total de kilómetros', 'Coches', 'Autobuses', 'Motos', 'Camiones', 'Total', 'Accidentes con víctimas', 'Accidentes mortales', 'Muertes', 'Hospitalizados', 'No hospitalizados'],
+                categories: [ '', 'Un carril', 'Doble carril', 'Autovía', 'Autopista', 'Total de carreteras', 'Coches', 'Autobuses', 'Motos', 'Camiones', 'Total de vehículos', 'Accidentes con víctimas', 'Accidentes mortales', 'Muertes', 'Hospitalizados', 'No hospitalizados'],
                 labels: {
                     align: 'left',
                     reserveSpace: false,
@@ -105,7 +105,7 @@
                         y: 30,
                         yAxis: 0
                     },
-                    text: 'Datos recogidos en kilómetros'
+                    text: 'Datos recogidos en kilómetros, número de coches en miles y accidentes'
                 }, {
                     point: {
                         x: 18,
