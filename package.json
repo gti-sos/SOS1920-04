@@ -9,7 +9,9 @@
     "start": "node index",
     "lint": "eslint index.js commands.js",
     "coverage": "nyc mocha tests/roadsTests.json",
-    "test": "npx newman run tests/roadsTests.json --environment tests/heroku.json & npx newman run tests/trafficAccidentsTests.json --environment tests/heroku.json & npx newman run tests/vehiclesTests.json --environment tests/heroku.json "
+    "test": "npx newman run tests/roadsTests.json --environment tests/heroku.json & npx newman run tests/trafficAccidentsTests.json --environment tests/heroku.json & npx newman run tests/vehiclesTests.json --environment tests/heroku.json ",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
@@ -49,6 +51,8 @@
     "path": "^0.12.7",
     "svelte": "^3.21.0",
     "svelte-spa-router": "^2.1.0",
-    "sveltestrap": "^3.3.3"
-  }
+    "sveltestrap": "^3.3.3",
+    "snyk": "^1.321.0"
+  },
+  "snyk": true
 }
