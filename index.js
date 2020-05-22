@@ -7,9 +7,6 @@ const backTrafficAccidents = require("./src/back/TrafficAccidentsAPI");
 const cors = require("cors");
 
 const port = process.env.PORT || 1234;
-if(!module.parent){
-    port = 3000;
-}
 const app = express();
 
 app.use(cors());

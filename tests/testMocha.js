@@ -21,5 +21,5 @@ describe('Testing Website', function () {
     });
 });
 afterEach(function (done) {
-    server.close(done);
+    app.close(done);
   });
