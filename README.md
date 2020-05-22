@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
-[![Build Status](https://travis-ci.org/gti-sos/SOS1920-04.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-04)
-
-=======
 [![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS1920-04/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gti-sos/SOS1920-04?targetFile=package.json)  [![Build Status](https://travis-ci.org/gti-sos/SOS1920-04.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-04) [![codecov](https://codecov.io/gh/gti-sos/SOS1920-04/branch/master/graph/badge.svg)](https://codecov.io/gh/gti-sos/SOS1920-04)
->>>>>>> c5a77398813e903addc76ecbc138c37856826a05
 ## SOS1920-04
 
 - **Team**
