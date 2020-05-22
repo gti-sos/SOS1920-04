@@ -8,24 +8,43 @@
     "dev": "rollup -c -w",
     "start": "node index",
     "lint": "eslint index.js commands.js",
-    "coverage": "nyc mocha tests/roadsTests.json",
+    "_comment": "Note: --exit in the test element is to force the test program to exit after finishing in case we use done()",
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "testMocha": "mocha ./tests/testMocha.js --timeout 10000 --exit",
     "test": "npx newman run tests/roadsTests.json --environment tests/heroku.json & npx newman run tests/trafficAccidentsTests.json --environment tests/heroku.json & npx newman run tests/vehiclesTests.json --environment tests/heroku.json "
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "codecov": "^3.6.5",
     "coveralls": "^3.1.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.0",
     "rollup": "^1.20.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0",
-    "codecov": "^3.6.5",
-    "eslint": "^6.8.0",
-    "mocha": "^7.0.1",
-    "nyc": "^15.0.0"
+    "svelte": "^3.0.0"
   },
-  "repository": {
+  "nyc": {
+    "_comment": "Purpose of this part: to do code coverage within Mocha/Chai using Istanbul",
+    "register": "babel-register",
+    "include": [
+      "**/*.js",
+      "./*.js"
+    ],
+    "exclude": [
+      "**/node_modules/**",
+      "**/test/**",
+      "**/coverage/**"
+    ],
+    "all": true
+  },"repository": {
     "type": "git",
     "url": "git+https://github.com/gti-sos/SOS1920-04.git"
   },
@@ -38,10 +57,10 @@
   "dependencies": {
     "apexcharts": "^3.19.0",
     "billboard.js": "^1.12.8",
-    "body-parser": "^1.19.0",
     "chartist": "^0.11.4",
     "codecov": "^3.6.5",
-    "express": "^4.17.1",
+    "d3": "^5.16.0",
+    "d3-scale": "^3.2.1",
     "express-pagination": "0.0.5",
     "fusioncharts": "^3.15.1-sr.1",
     "lint": "^0.7.0",

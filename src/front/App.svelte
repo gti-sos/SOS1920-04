@@ -11,6 +11,7 @@
 	import EditVehicle from './VehiclesAPI/VehiclesUpdate.svelte';
 	import EditTrafficAccidents from './TrafficAccidentsAPI/TrafficAccidentsUpdate.svelte';
 	import VehiclesStatistics from './VehiclesAPI/VehiclesStatistics.svelte';
+	import VehiclesStatistics2 from './VehiclesAPI/VehiclesStatistics2.svelte';
 	import RoadsStatistics from './RoadsAPI/RoadsStatistics.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
 	import Analytics from './analytics/statistics.svelte';
@@ -26,6 +27,7 @@
 		"/traffic_accidents/statistics": TrafficAccidentsStatistics,
 		"/roads": RoadsAPI,
 		"/vehicles/statistics": VehiclesStatistics,
+		"/vehicles/statistics2": VehiclesStatistics2,
 		"/roads/statistics": RoadsStatistics,
 		"/vehicles/:vehicleProvince/:vehicleYear" : EditVehicle,
 		"/roads/:roadProvince/:roadYear" : EditRoad,
