@@ -8,5 +8,4 @@ before_script:
   - "npm start &"
 script:
   - "npm test"
-  - npm run testMocha
   - npm run coverage
