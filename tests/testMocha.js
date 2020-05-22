@@ -4,13 +4,13 @@ const app = require('../index'),
     ;
 chai.use(chaiHttp);
 //chai.use(chaiSubset);
-describe('Testing Todo Website', function () {
+describe('Testing Website', function () {
     after(() => {});
-    var url = 'http://sos-sos.apps.us-east-1.starter.openshift-online.com/';
+    var url = 'https://sos1920-04.herokuapp.com/';
     var requester = chai.request.agent(url);//to keep the same session; without requester agent the get or post will act as opening a new window
     
     //When done is passed in, Mocha will wait until the call to done(), or until the timeout expires. done also accepts an error parameter when signaling completion.
-    it('should read the todolist.txt file successfully', function (done) { // <= Pass in done callback
+    it('should get a confirmation code', function (done) { // <= Pass in done callback
 
         requester
             .get('/')
