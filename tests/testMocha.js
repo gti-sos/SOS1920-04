@@ -1,4 +1,4 @@
-const app = require('./index.js'),
+const app = require('../index'),
     chai = require('chai'), chaiHttp = require('chai-http'),
     expect = chai.expect //to solve error when using done(): “ReferenceError: expect is not defined”
     ;
