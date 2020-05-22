@@ -6,7 +6,7 @@ chai.use(chaiHttp);
 //chai.use(chaiSubset);
 describe('Testing Website', function () {
     after(() => {});
-    var url = 'https://sos1920-04.herokuapp.com/';
+    var url = 'http://localhost:3000';
     var requester = chai.request.agent(url);//to keep the same session; without requester agent the get or post will act as opening a new window
     
     //When done is passed in, Mocha will wait until the call to done(), or until the timeout expires. done also accepts an error parameter when signaling completion.
