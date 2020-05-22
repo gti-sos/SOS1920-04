@@ -8,3 +8,12 @@ before_script:
   - "npm start &"
 script:
   - "npm test"
+  - npm run lint
+  - npm run coverage
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - codecov --disable=gcov
+
+sudo: required
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3ea1bf004c3fc4004876e0a7784bd21766f4eebc94adf83291908b872235d7af

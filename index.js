@@ -5,7 +5,7 @@ const backVehicles = require("./src/back/VehiclesAPI");
 const backRoads = require("./src/back/RoadsAPI");
 const backTrafficAccidents = require("./src/back/TrafficAccidentsAPI");
 
-const port = process.env.PORT || 1234;
+const port = process.env.PORT || 8080;
 
 const app = express();
 app.use(bodyParser.json());
