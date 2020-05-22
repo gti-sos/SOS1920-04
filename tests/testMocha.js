@@ -16,7 +16,6 @@ describe('Testing Website', function () {
             .get('/')
             .end(function (err, res) {
                 expect(res).to.have.status(200);
-                console.log(res.body);
                 done(); // <= Call done to signal callback end
             });
     });
