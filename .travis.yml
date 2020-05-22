@@ -9,4 +9,4 @@ before_script:
 script:
   - "npm test"
   - npm run testMocha
-  - npm run report-coverage
+  - npm run coverage
