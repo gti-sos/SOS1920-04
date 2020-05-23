@@ -33,7 +33,22 @@
             backgroundGridVlines: false,
             backgroundGridBorder: false,
             colorsStroke: 'rgba(0,0,0,0)',
-            shadowOffsety: -3
+            shadowOffsety: -3,
+            grouping: 'grouped',
+            tickmarksStyle: null,
+            linewidth: 7,
+            xaxis: false,
+            textColor: '#d7d5d6',
+            textSize: 12,
+            title: '2009 employee sales by department',
+            titleColor: 'white',
+            marginTop: 75,
+            marginBottom: 60,
+            key: nombres,
+            keyPosition: 'margin',
+            keyLabelsSize: 14,
+            keyLabelsColor: 'rgb(248,248,248)',
+            keyPositionY: 425,
         }
     }).on('draw', function (obj)
     {
