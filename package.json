@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/gti-sos/SOS1920-04#readme",
   "dependencies": {
-    "apexcharts": "^3.19.0",
+    "apexcharts": "^3.19.2",
     "billboard.js": "^1.12.8",
     "body-parser": "^1.19.0",
     "chartist": "^0.11.4",
@@ -48,7 +48,9 @@
     "nedb": "^1.8.0",
     "path": "^0.12.7",
     "svelte": "^3.21.0",
+    "svelte-fusioncharts": "^1.0.0",
     "svelte-spa-router": "^2.1.0",
-    "sveltestrap": "^3.3.3"
+    "sveltestrap": "^3.3.3",
+    "vue-apexcharts": "^1.5.3"
   }
 }
