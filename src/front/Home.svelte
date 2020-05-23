@@ -18,7 +18,10 @@
     <a href="#/vehicles/statistics2">Estadísticas del número de vehículos usando una librería externa</a>
 </p>
 <p>
-    <a href="#/roads/statistics">Estadísticas del número de carreteras</a>
+    <a href="#/roads/statistics">Estadísticas del número de carreteras usando HighCharts</a>
+</p>
+<p>
+    <a href="#/roads/statistics2">Estadísticas del número de carreteras usando una librería externa</a>
 </p>
 <p>
     <a href="#/traffic_accidents/statistics">Estadísticas del número de accidentes de tráfico</a>

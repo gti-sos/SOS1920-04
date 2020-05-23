@@ -1,192 +1,89 @@
 <script>
-    async function loadGraph(){
-        let MyData = [];
+  async function loadGraph(){
+    let MyData = [];
         const resData = await fetch("/api/v1/roads");
         MyData = await resData.json();
         let parsed_data = [];
+        let nombres = [];
+        let oneway = [];
+        let multipleway = [];
+        let dualCarriagewayAndHighway = [];
+        let highwayWithToll = [];
+        let total = [];
         MyData.forEach( (v) => {
-            let graphic_data = {
-                name: v.province + " (" + v.year + ")",
-                data: [0, v.oneway, v.multipleway, v.dualCarriagewayAndHighway, v.highwayWithToll, v.total]
-            };
-            parsed_data.push(graphic_data);
+            nombres.push(v.province + " (" + v.year + ")");
+            oneway.push(parseInt(v.oneway));
+            multipleway.push(parseInt(v.multipleway));
+            dualCarriagewayAndHighway.push(parseInt(v.dualCarriagewayAndHighway));
+            highwayWithToll.push(parseInt(v.highwayWithToll));
+            total.push(parseInt(v.total));
         });
+        console.log(parsed_data);
+    new RGraph.Bar({
+        id: 'cvs',
+        //data: [[47,75,47,75],[32,74,47,75],[71,85,47,75],[25,19,47,75],[23,71,47,75],[81,59,47,75],[43,130,47,75],[23,20,47,75]],
+        data: [oneway, multipleway, dualCarriagewayAndHighway, highwayWithToll, total],
+        options: {
+            marginLeft: 50,
+            colors: ['#00FFFF','#A52A2A','#4B0082','#FF1493','#008000','#35A0DA','#FFD700','#008000', '#4B0082'],
+            xaxisLabels: ['Un carril', 'Doble carril', 'Autovía', 'Autopista', 'Total'],
+            yaxisLabelsCount: 3,
+            yaxisTickmarksCount: 3,
+            backgroundGridHlinesCount: 3,
+            backgroundGridVlines: false,
+            backgroundGridBorder: false,
+            colorsStroke: 'rgba(0,0,0,0)',
+            shadowOffsety: -3,
+            grouping: 'grouped',
+            tickmarksStyle: null,
+            linewidth: 7,
+            xaxis: false,
+            textColor: '#d000000',
+            textSize: 12,
+            titleColor: 'black',
+            marginTop: 75,
+            marginBottom: 60,
+            key: nombres,
+            keyPosition: 'margin',
+            keyLabelsSize: 14,
+            keyPositionY: 425,
+        }
+    }).on('draw', function (obj)
+    {
+        var len = obj.coords.length;
+        for (var i=0; i<len; ++i) {
+            var x = obj.coords[i][0],
+                y = obj.coords[i][1],
+                w = obj.coords[i][2] / 2,
+                h = obj.coords[i][3];
+            obj.context.fillStyle = RGraph.linearGradient({
+                object: obj,
+                x1: 0, y1: 0, x2: 0, y2: 250,
+                colors: ['rgba(255,255,255,.75)','rgba(255,255,255,0)']
+            });
+            obj.context.fillRect(x,y,w,h)
+        }
+    }).draw().responsive([
+        {maxWidth: 900, width:850,height:425,options: {textSize:10,marginInner: 2,shadow:false,xaxis: false,yaxis: false,}, css: {'float': 'none'}},
+        {maxWidth: null,width:850,height:450,options: {textSize:14,marginInner: 5,shadow:true, xaxis: false,yaxis: false,}, css: {'float': 'left'}}
+    ], {delay: 0});
+  }
+  </script>
 
-            var colors = Highcharts.getOptions().colors;
-            Highcharts.chart('container', {
-
-            chart: {
-                type: 'streamgraph',
-                marginBottom: 30,
-                zoomType: 'x'
-            },
-
-            // Make sure connected countries have similar colors
-            colors: [
-                colors[0],
-                colors[1],
-                colors[2],
-                colors[3],
-                colors[4],
-                // East Germany, West Germany and Germany
-                Highcharts.color(colors[5]).brighten(0.2).get(),
-                Highcharts.color(colors[5]).brighten(0.1).get(),
-
-                colors[5],
-                colors[6],
-                colors[7],
-                colors[8],
-                colors[9],
-                colors[0],
-                colors[1],
-                colors[3],
-                // Soviet Union, Russia
-                Highcharts.color(colors[2]).brighten(-0.1).get(),
-                Highcharts.color(colors[2]).brighten(-0.2).get(),
-                Highcharts.color(colors[2]).brighten(-0.3).get()
-            ],
-
-            title: {
-                floating: true,
-                align: 'left',
-                text: 'Estadísticas de carreteras según la provincia y el año'
-            },
-            subtitle: {
-                floating: true,
-                align: 'left',
-                y: 30,
-            },
-            series: parsed_data,
-            xAxis: {
-                maxPadding: 0,
-                type: 'category',
-                crosshair: true,
-                categories: [ '', 'Un carril', 'Doble carril', 'Autovía', 'Autopista', 'Total'],
-                labels: {
-                    align: 'left',
-                    reserveSpace: false,
-                    rotation: 270
-                },
-                lineWidth: 0,
-                margin: 20,
-                tickWidth: 0
-            },
-
-            yAxis: {
-                visible: false,
-                startOnTick: false,
-                endOnTick: false
-            },
-
-            legend: {
-                enabled: false
-            },
-
-            annotations: [{
-                labels: [{
-                    point: {
-                        x: 5.5,
-                        xAxis: 0,
-                        y: 30,
-                        yAxis: 0
-                    },
-                    text: 'Datos recogidos en kilómetros'
-                }, {
-                    point: {
-                        x: 18,
-                        xAxis: 0,
-                        y: 90,
-                        yAxis: 0
-                    },
-                }],
-                labelOptions: {
-                    backgroundColor: 'rgba(255,255,255,0.5)',
-                    borderColor: 'silver'
-                }
-            }],
-
-            plotOptions: {
-                series: {
-                    label: {
-                        minFontSize: 5,
-                        maxFontSize: 15,
-                        style: {
-                            color: 'rgba(255,255,255,0.75)'
-                        }
-                    }
-                }
-            },
-
-            // Data parsed with olympic-medals.node.js
-
-            exporting: {
-                sourceWidth: 800,
-                sourceHeight: 600
-            }
-
-});
-    }
-
-</script>
-<svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/streamgraph.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/annotations.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+  <svelte:head>
+    <script src="libraries/RGraph.common.core.js"on:load="{loadGraph}"></script>
+    <script src="libraries/RGraph.common.key.js"on:load="{loadGraph}"></script>
+    <script src="libraries/RGraph.line.js"on:load="{loadGraph}"></script>
+    <script src="libraries/RGraph.bar.js"on:load="{loadGraph}"></script>
 </svelte:head>
-
-
-
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Este gráfico muestra distintos datos del número de carreteras en España, según la provincia y el año. 
-        Mostrando el numero de carreteras de diferentes categorias.
+    <h3>Análisis de carreteras en España</h3>
+    <main>
+         <canvas id="cvs" width="575" height="450">
+                [No canvas support]
+         </canvas>
+    </main>
+    <p>
+        Gráfica con RGraph del número de carreteras por categorias de España.
     </p>
-</figure>
 
 
-<style>
-    #container {
-	height: 600px;
-}
-
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 310px; 
-	max-width: 800px;
-	overflow: auto;
-    margin: 1em auto;
-}
-
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
-</style>
