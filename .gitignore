@@ -3,6 +3,4 @@ public/build
 src/back/RoadsAPI/RoadsAPI.db
 src/back/VehiclesAPI/VehiclesAPI.db
 src/back/TrafficAccidentsAPI/TrafficAccidentsAPI.db
-.nyc_output
-coverage
-*.lcov
+

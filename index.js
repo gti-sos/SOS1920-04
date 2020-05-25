@@ -4,12 +4,10 @@ const path = require("path");
 const backVehicles = require("./src/back/VehiclesAPI");
 const backRoads = require("./src/back/RoadsAPI");
 const backTrafficAccidents = require("./src/back/TrafficAccidentsAPI");
-const cors = require("cors");
 
 const port = process.env.PORT || 1234;
-const app = express();
 
-app.use(cors());
+const app = express();
 app.use(bodyParser.json());
 
 backVehicles(app);

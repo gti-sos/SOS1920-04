@@ -1,4 +1,4 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS1920-04/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gti-sos/SOS1920-04?targetFile=package.json)  [![Build Status](https://travis-ci.org/gti-sos/SOS1920-04.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-04) [![codecov](https://codecov.io/gh/gti-sos/SOS1920-04/branch/master/graph/badge.svg)](https://codecov.io/gh/gti-sos/SOS1920-04)
+[![Known Vulnerabilities](https://snyk.io/test/github/gti-sos/SOS1920-04/badge.svg?targetFile=package.json)](https://snyk.io/test/github/gti-sos/SOS1920-04?targetFile=package.json)  [![Build Status](https://travis-ci.org/gti-sos/SOS1920-04.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-04) [![Coverage Status](https://coveralls.io/repos/github/gti-sos/SOS1920-04/badge.svg?branch=master)](https://coveralls.io/github/gti-sos/SOS1920-04?branch=master)  [![Dependency Status](https://david-dm.org/isatrugom/gti-sos/SOS1920-04.svg)](https://david-dm.org/isatrugom/gti-sos/SOS1920-04) [![devDependency Status](https://david-dm.org/isatrugom/gti-sos/SOS1920-04/dev-status.svg)](https://david-dm.org/isatrugom/gti-sos/SOS1920-04?type=dev)
 ## SOS1920-04
 
 - **Team**
@@ -7,8 +7,7 @@
   - [Manuel Barrera Moya](https://github.com/manubarreram18)
 - **Project description**: Traffic Analysis about the roads
 - **Repository**: [gti-sos/SOS1920-04](https://github.com/gti-sos/SOS1920-04)
-- **URL**: [http://sos1920-04.herokuapp.com](http://sos1920-04.herokuapp.com) 
-- **URL extra**: [http://sos-sos.apps.us-east-1.starter.openshift-online.com/](http://sos-sos.apps.us-east-1.starter.openshift-online.com/)
+- **URL**: [http://sos1920-04.herokuapp.com](http://sos1920-04.herokuapp.com)
 -  **APIs**:
     - [https://sos1920-04.herokuapp.com/api/v1/vehicles/docs](https://documenter.getpostman.com/view/10637408/SzYUXzte?version=latest) (developed by [Isabel Maria Trujillo Gomez](https://github.com/isatrugom))
     - [https://sos1920-04.herokuapp.com/api/v1/roads/docs](https://documenter.getpostman.com/view/10653340/SzYUXztg?version=latest) (developed by [Daniel González Rey](https://github.com/dangonrey99))
