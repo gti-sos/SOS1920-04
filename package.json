@@ -29,7 +29,7 @@
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0"
+    "svelte": "^3.22.1"
   },
   "nyc": {
     "_comment": "Purpose of this part: to do code coverage within Mocha/Chai using Istanbul",
@@ -68,7 +68,7 @@
     "lint": "^0.7.0",
     "nedb": "^1.8.0",
     "path": "^0.12.7",
-    "svelte": "^3.21.0",
+    "svelte": "^3.22.1",
     "svelte-fusioncharts": "^1.0.0",
     "svelte-spa-router": "^2.1.0",
     "sveltestrap": "^3.3.3",
