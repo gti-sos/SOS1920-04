@@ -1,4 +1,8 @@
 <script>
+    import Button from "sveltestrap/src/Button.svelte";
+    import {
+        pop
+    } from "svelte-spa-router";
 
     async function loadGraph(){
     
@@ -85,6 +89,7 @@
             Este gráfico muestra distintos datos del número de vehículos en España, según la provincia.
         </p>
     </figure>
+    <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </main>
 
 <style>

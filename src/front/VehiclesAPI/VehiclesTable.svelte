@@ -2,6 +2,9 @@
 	import {
 		onMount
 	} from "svelte";
+    import {
+        pop
+    } from "svelte-spa-router";
 
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
@@ -250,10 +253,16 @@
 	{#if successMsg}
 		<p style="color: green">ÉXITO: {successMsg}</p>
 	{/if}
-	<Button outline color="danger" on:click="{deleteAllVehicles}">Borrar todo</Button>
-	<Button outline color="primary" on:click="{loadInitialDataVehicles}">Cargar datos iniciales</Button>
+	
+	<p>
+		<Button outline color="danger" on:click="{deleteAllVehicles}">Borrar todo</Button>
+		<Button outline color="primary" on:click="{loadInitialDataVehicles}">Cargar datos iniciales</Button>
+	</p>
 	<p>
 		<Button outline color="primary" on:click="{anteriorPagina}">Anterior página</Button>
 		<Button outline color="primary" on:click="{siguientePagina}">Siguiente página</Button>
+	</p>
+	<p>
+		<Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 	</p>
 </main>

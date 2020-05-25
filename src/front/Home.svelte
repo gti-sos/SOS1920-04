@@ -29,4 +29,7 @@
 <p>
     <a href="#/analytics">GUI de todos los recursos</a>
 </p>
-
+<h2><strong> Integraciones</strong></h2>
+<p>
+    <a href="#/vehicles/integrations">API de vehículos</a>
+</p>

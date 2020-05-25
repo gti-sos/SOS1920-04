@@ -15,6 +15,9 @@
 	import RoadsStatistics from './RoadsAPI/RoadsStatistics.svelte';
 	import RoadsStatistics2 from './RoadsAPI/RoadsStatistics2.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
+	import VehiclesIntegrations from './VehiclesAPI/Integrations/Home.svelte';
+	import Renewable_sources from './VehiclesAPI/Integrations/renewable_sources.svelte';
+	import Company from './VehiclesAPI/Integrations/company.svelte';
 	import Analytics from './analytics/statistics.svelte';
 	import About from './about/about.svelte';
 
@@ -34,6 +37,9 @@
 		"/vehicles/:vehicleProvince/:vehicleYear" : EditVehicle,
 		"/roads/:roadProvince/:roadYear" : EditRoad,
 		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentYear" : EditTrafficAccidents,
+		"/vehicles/integrations": VehiclesIntegrations,
+		"/vehicles2/integrations/renewable_sources": Renewable_sources,
+		"/vehicles2/integrations/company": Company,
 		"*" : NotFound
 	};
 </script>
