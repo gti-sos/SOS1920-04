@@ -63,6 +63,8 @@ module.exports = function(app){
 		}
 	];
 
+	db.remove({}, {multi:true});
+	db.insert(initialRoads);
 	// LOAD INITIAL DATA ROADS
 
 	app.get(BASE_API_URL+"/roads/loadInitialData", (req,res) =>{

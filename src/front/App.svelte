@@ -18,6 +18,13 @@
 	import VehiclesIntegrations from './VehiclesAPI/Integrations/Home.svelte';
 	import Renewable_sources from './VehiclesAPI/Integrations/renewable_sources.svelte';
 	import Company from './VehiclesAPI/Integrations/company.svelte';
+	import RoadsIntegrations from './RoadsAPI/Integrations/Home.svelte';
+	import sos1920_02 from './RoadsAPI/Integrations/sos1920-02.svelte';
+	import sos1920_06 from './RoadsAPI/Integrations/sos1920-06.svelte';
+	import sos1920_07 from './RoadsAPI/Integrations/sos1920-07.svelte';
+	import sos1920_09 from './RoadsAPI/Integrations/sos1920-09.svelte';
+	import sos1920_27 from './RoadsAPI/Integrations/sos1920-27.svelte';
+	import sos1920_30 from './RoadsAPI/Integrations/sos1920-30.svelte';
 	import Analytics from './analytics/statistics.svelte';
 	import About from './about/about.svelte';
 
@@ -40,6 +47,13 @@
 		"/vehicles/integrations": VehiclesIntegrations,
 		"/vehicles2/integrations/renewable_sources": Renewable_sources,
 		"/vehicles2/integrations/company": Company,
+		"/roads/integrations": RoadsIntegrations,
+		"/roads2/integrations/sos1920-02": sos1920_02,
+		"/roads2/integrations/sos1920-06": sos1920_06,
+		"/roads2/integrations/sos1920-07": sos1920_07,
+		"/roads2/integrations/sos1920-09": sos1920_09,
+		"/roads2/integrations/sos1920-27": sos1920_27,
+		"/roads2/integrations/sos1920-30": sos1920_30,
 		"*" : NotFound
 	};
 </script>

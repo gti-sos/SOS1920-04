@@ -1,4 +1,9 @@
 <script>
+     import {
+        pop
+    } from "svelte-spa-router";
+    import Button from "sveltestrap/src/Button.svelte";
+    
     async function loadGraph(){
         let MyData = [];
         const resData = await fetch("/api/v1/roads");
@@ -145,6 +150,9 @@
     <p class="highcharts-description">
         Este gráfico muestra distintos datos del número de carreteras en España, según la provincia y el año. 
         Mostrando el numero de carreteras de diferentes categorias.
+    </p>
+    <p>
+        <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
     </p>
 </figure>
 
