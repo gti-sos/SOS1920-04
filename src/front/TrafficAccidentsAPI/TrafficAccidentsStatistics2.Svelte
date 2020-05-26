@@ -55,6 +55,6 @@
     
 </script>
 <main>
-<p>Representación Gráfica del número de muertes.</p>
+<p>Representación Gráfica del número de muertes en 2016.</p>
 <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </main>
