@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-09.herokuapp.com/api/v2/renewable-sources-stats";
+	const url = "https://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats";
 	
 	onMount(getRenewableSources);
     let renewableSources = [];
@@ -27,100 +27,114 @@
 		}
 	}
 	async function loadGraph(){
-		Highcharts.chart('container', {
-
-			title: {
-				text: 'Solar Employment Growth by Sector, 2010-2016'
-			},
-
-			subtitle: {
-				text: 'Source: thesolarfoundation.com'
-			},
-
-			yAxis: {
-				title: {
-					text: 'Number of Employees'
-				}
-			},
-
-			xAxis: {
-				accessibility: {
-					rangeDescription: 'Range: 2010 to 2017'
-				}
-			},
-
-			legend: {
-				layout: 'vertical',
-				align: 'right',
-				verticalAlign: 'middle'
-			},
-
-			plotOptions: {
-				series: {
-					label: {
-						connectorAllowed: false
-					},
-					pointStart: 2010
-				}
-			},
-
-			series: [{
-				name: 'Installation',
-				data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-			}, {
-				name: 'Manufacturing',
-				data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-			}, {
-				name: 'Sales & Distribution',
-				data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-			}, {
-				name: 'Project Development',
-				data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-			}, {
-				name: 'Other',
-				data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-			}],
-
-			responsive: {
-				rules: [{
-					condition: {
-						maxWidth: 500
-					},
-					chartOptions: {
-						legend: {
-							layout: 'horizontal',
-							align: 'center',
-							verticalAlign: 'bottom'
-						}
-					}
-				}]
+		let MyData = [];
+		const resData = await fetch("/api/v1/vehicles");
+		MyData = await resData.json();
+		let parsed_data = [];
+		MyData.forEach( (v) => {
+			let porcentajeCoche = v.car/v.total*100;
+			porcentajeCoche = Math.round(porcentajeCoche * 100) / 100
+			let porcentajeBus = v.bus/v.total*100;
+			porcentajeBus = Math.round(porcentajeBus * 100) / 100
+			let data = {
+				name: v.province,
+				data: [porcentajeCoche, porcentajeBus, null]
+			};
+			parsed_data.push(data)
+		});
+		const resData2 = await fetch(url);
+		renewableSources = await resData2.json();
+		console.log(renewableSources);
+		renewableSources.forEach( (r) => {
+			if(r.country == "Spain"){
+				let data = {
+					name: "España",
+					data: [null, null, r["percentage-re-total"]]
+				};
+				parsed_data.push(data)
 			}
+		});
+		
+		Highcharts.chart('container', {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Coches y autobuses y uso de energías renovables'
+			},
+			xAxis: {
+				categories: ["Coches", "Autobuses", "Porcentaje de energías renovables"]
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Porcentaje'
+				},
+				stackLabels: {
+					enabled: true,
+					style: {
+						fontWeight: 'bold',
+						color: ( // theme
+							Highcharts.defaultOptions.title.style &&
+							Highcharts.defaultOptions.title.style.color
+						) || 'gray'
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				x: -30,
+				verticalAlign: 'top',
+				y: 25,
+				floating: true,
+				backgroundColor:
+					Highcharts.defaultOptions.legend.backgroundColor || 'white',
+				borderColor: '#CCC',
+				borderWidth: 1,
+				shadow: false
+			},
+			tooltip: {
+				headerFormat: '<b>{point.x}</b><br/>',
+				pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+			},
+			plotOptions: {
+				column: {
+					stacking: 'normal',
+					dataLabels: {
+						enabled: true
+					}
+				}
+			},
+			series: parsed_data
 		});
 	};
 </script>
 
 <svelte:head>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/series-label.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 <style>
-	.highcharts-figure, .highcharts-data-table table {
-    min-width: 360px; 
+	#container {
+    height: 400px; 
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
     max-width: 800px;
     margin: 1em auto;
 }
 
 .highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 .highcharts-data-table caption {
     padding: 1em 0;
@@ -152,9 +166,7 @@
 		<figure class="highcharts-figure">
 			<div id="container"></div>
 			<p class="highcharts-description">
-				Basic line chart showing trends in a dataset. This chart includes the
-				<code>series-label</code> module, which adds a label to each line for
-				enhanced readability.
+				El gráfico compara el porcentaje de coches existentes, con el de autobuses por provincias. Este resultado se compara también con el porcentaje de uso de energías renovables.
 			</p>
 		</figure>	
 		<Table bordered>
