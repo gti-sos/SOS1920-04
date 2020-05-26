@@ -27,6 +27,9 @@
     <a href="#/traffic_accidents/statistics">Estadísticas del número de accidentes de tráfico</a>
 </p>
 <p>
+    <a href="#/traffic_accidents/statistics2">Estadísticas del número de muertes en 2016</a>
+</p>
+<p>
     <a href="#/analytics">GUI de todos los recursos</a>
 </p>
 <h2><strong> Integraciones</strong></h2>

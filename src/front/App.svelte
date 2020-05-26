@@ -15,6 +15,7 @@
 	import RoadsStatistics from './RoadsAPI/RoadsStatistics.svelte';
 	import RoadsStatistics2 from './RoadsAPI/RoadsStatistics2.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
+	import TrafficAccidentsStatistics2 from './TrafficAccidentsAPI/TrafficAccidentsStatistics2.svelte';
 	import VehiclesIntegrations from './VehiclesAPI/Integrations/Home.svelte';
 	import Renewable_sources from './VehiclesAPI/Integrations/renewable_sources.svelte';
 	import Company from './VehiclesAPI/Integrations/company.svelte';
@@ -29,6 +30,7 @@
 		"/vehicles": VehiclesAPI,
 		"/traffic_accidents": TrafficAccidentsAPI,
 		"/traffic_accidents/statistics": TrafficAccidentsStatistics,
+		"/traffic_accidents/statistics2": TrafficAccidentsStatistics2,
 		"/roads": RoadsAPI,
 		"/vehicles/statistics": VehiclesStatistics,
 		"/vehicles/statistics2": VehiclesStatistics2,

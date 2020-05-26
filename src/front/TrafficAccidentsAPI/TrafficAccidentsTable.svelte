@@ -2,7 +2,9 @@
 	import {
 		onMount
 	} from "svelte";
-
+	import {
+        pop
+    } from "svelte-spa-router";
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
 
@@ -258,4 +260,5 @@
 		<Button outline color="primary" on:click="{anteriorPagina}">Anterior página</Button>
 		<Button outline color="primary" on:click="{siguientePagina}">Siguiente página</Button>
 	</p>
+	<Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </main>
