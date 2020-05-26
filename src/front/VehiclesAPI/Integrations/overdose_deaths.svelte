@@ -10,18 +10,18 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-09.herokuapp.com/api/v4/renewable-sources-stats";
+	const url = "https://sos1920-12.herokuapp.com/api/v2/overdose-deaths";
 	
-	onMount(getRenewableSources);
-    let renewableSources = [];
-	async function getRenewableSources() {
-		console.log("Fetching renewable sources stats...");	
+	onMount(getOverdoseDeaths);
+    let overdoseDeaths = [];
+	async function getOverdoseDeaths() {
+		console.log("Fetching overdose deaths...");	
 		const res = await fetch(url); 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-			renewableSources = json;
-			console.log("Received " + renewableSources.length + " renewable sources stats.");
+			overdoseDeaths = json;
+			console.log("Received " + overdoseDeaths.length + " roverdose deaths.");
 		} else {
 			console.log("ERROR!");
 		}
@@ -32,24 +32,21 @@
 		MyData = await resData.json();
 		let parsed_data = [];
 		MyData.forEach( (v) => {
-			let porcentajeCoche = v.car/v.total*100;
-			porcentajeCoche = Math.round(porcentajeCoche * 100) / 100
-			let porcentajeBus = v.bus/v.total*100;
-			porcentajeBus = Math.round(porcentajeBus * 100) / 100
+			let total = Math.round(v.total / 10) / 100
 			let data = {
-				name: v.province,
-				data: [porcentajeCoche, porcentajeBus, null]
+				name: v.province + " " + v.year,
+				data: [total, null]
 			};
 			parsed_data.push(data)
 		});
 		const resData2 = await fetch(url);
-		renewableSources = await resData2.json();
-		console.log(renewableSources);
-		renewableSources.forEach( (r) => {
-			if(r.country == "Spain"){
+		overdoseDeaths = await resData2.json();
+		console.log(overdoseDeaths);
+		overdoseDeaths.forEach( (o) => {
+			if(o.country == "France"){
 				let data = {
-					name: "España",
-					data: [null, null, r["percentage-re-total"]]
+					name: "España"+" " + o.year,
+					data: [null, o.death_total]
 				};
 				parsed_data.push(data)
 			}
@@ -60,16 +57,13 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Coches y autobuses y uso de energías renovables'
+				text: 'Total de vehículos y muertes por sobredosis'
 			},
 			xAxis: {
-				categories: ["Coches", "Autobuses", "Porcentaje de energías renovables"]
+				categories: ["Vehículos (en miles)", "Muertes por sobredosis"]
 			},
 			yAxis: {
 				min: 0,
-				title: {
-					text: 'Porcentaje'
-				},
 				stackLabels: {
 					enabled: true,
 					style: {
@@ -160,33 +154,35 @@
 
 <main>
 
-	{#await renewableSources}
-		Loading renewable sources...
-	{:then renewableSources}
+	{#await overdoseDeaths}
+		Loading overdose deaths ...
+	{:then overdoseDeaths}
 		<figure class="highcharts-figure">
 			<div id="container"></div>
 			<p class="highcharts-description">
-				El gráfico compara el porcentaje de coches existentes, con el de autobuses por provincias. Este resultado se compara también con el porcentaje de uso de energías renovables.
+				El gráfico compara el número total de vehículos según la provincia y las muertes por sobredosis en España.
 			</p>
 		</figure>	
 		<Table bordered>
 			<thead>
 				<tr>
-					<th> País </th>
-					<th> Año </th>
-					<th> Porcentaje de uso de energías renovables </th>
-					<th> Porcentaje de uso de energías hidroeléctricas </th>
-					<th> Porcentaje de uso de energías eólica </th>
+					<th>Pais</th>
+					<th>Año</th>
+					<th>Hombres fallecidos</th>
+					<th>Mujeres fallecidas</th>
+					<th>Total fallecidos</th>
+					<th>Edad media</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each renewableSources as renewableSource}
+				{#each overdoseDeaths as overdose_death}
 				<tr>
-					<td> {renewableSource.country} </td>
-					<td> {renewableSource.year} </td>
-					<td> {renewableSource['percentage-re-total']} </td>
-					<td> {renewableSource['percentage-hydropower-total']} </td>
-					<td> {renewableSource['percentage-wind-power-total']} </td>
+                    <td>{overdose_death.country}</td>
+                    <td>{overdose_death.year}</td>
+                    <td>{overdose_death.death_male}</td>
+                    <td>{overdose_death.death_female}</td>
+                    <td>{overdose_death.death_total}</td>
+                    <td>{overdose_death.mean_age}</td>
 				</tr>
 				{/each}
 			</tbody>

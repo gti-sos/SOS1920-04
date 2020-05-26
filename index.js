@@ -2,13 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const backVehicles = require("./src/back/VehiclesAPI");
-const backRoads = require("./src/back/RoadsAPI");
+const backRoads = require("./src/back/RoadsAPI/v1");
 const backTrafficAccidents = require("./src/back/TrafficAccidentsAPI");
+const cors = require("cors");
 
 const port = process.env.PORT || 1234;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 backVehicles(app);
 backRoads(app);

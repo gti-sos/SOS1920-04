@@ -36,3 +36,6 @@
 <p>
     <a href="#/vehicles/integrations">API de vehículos</a>
 </p>
+<p>
+    <a href="#/roads/integrations">API de carreteras</a>
+</p>
