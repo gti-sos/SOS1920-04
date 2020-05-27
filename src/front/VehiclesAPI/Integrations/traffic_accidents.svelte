@@ -30,8 +30,9 @@
 		let MyData = [];
 		const resData = await fetch("/api/v1/vehicles");
 		MyData = await resData.json();
+		let MyData2 = [];
         const resData2 = await fetch(url);
-        trafficAccidents = await resData2.json();
+        MyData2 = await resData2.json();
 		let parsed_data = [];
 		MyData.forEach( (v) => {
             MyData2.forEach( (t) =>{

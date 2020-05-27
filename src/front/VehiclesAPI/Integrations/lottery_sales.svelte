@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-06.herokuapp.com/api/v2/lottery-sales";
+	const url = "/api/v2/lottery-sales";
 	
 	onMount(getSales);
     let sales = [];
@@ -152,7 +152,7 @@
 <main>
 
 	{#await sales}
-		Loading overdose deaths ...
+		Loading sales ...
 	{:then sales}
 		<figure class="highcharts-figure">
 			<div id="container"></div>
