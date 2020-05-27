@@ -10,13 +10,12 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "https://sos1920-02.herokuapp.com/api/v2/evolution-of-cycling-routes";
 
     let pluginVehicles = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch(url); 
+		const res = await fetch('/api/v2/evolution-of-cycling-routes'); 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();

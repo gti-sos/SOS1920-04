@@ -15,6 +15,16 @@ module.exports = function(app){
 		req.pipe(request(url)).pipe(res);
 	});
 	app.use(express.static('.'));
+
+	var sos1920_02 = 'https://sos1920-02.herokuapp.com';
+	var recurso02 = '/api/v2/evolution-of-cycling-routes';
+
+    app.use(recurso02, function(req, res) {
+		var url = sos1920_02 + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+	app.use(express.static('.'));
 	
 	const db = new dataStore({
 					filename: dbFileName,
