@@ -46,8 +46,9 @@
 	import sos1920_02_TA from './TrafficAccidentsAPI/Integrations/sos1920-02.svelte';
 	import sos1920_05_TA from './TrafficAccidentsAPI/Integrations/sos1920-05.svelte';
 	import sos1920_22_TA from './TrafficAccidentsAPI/Integrations/sos1920-22.svelte';
-
-
+	import apiexternacontaminacionmadrid from './TrafficAccidentsAPI/Integrations/apiexternacontaminacionmadrid.svelte';
+	import apiexternapaises from './TrafficAccidentsAPI/Integrations/apiexternapaises.svelte';
+	
 	import About from './about/about.svelte';
 
 	const routes = {
@@ -95,6 +96,8 @@
 		"/traffic_accidentsI/integrations/sos1920-02": sos1920_02_TA,
 		"/traffic_accidentsI/integrations/sos1920-05": sos1920_05_TA,
 		"/traffic_accidentsI/integrations/sos1920-22": sos1920_22_TA,
+		"/traffic_accidentsI/integrations/apiexternacontaminacionmadrid": apiexternacontaminacionmadrid,
+		"/traffic_accidentsI/integrations/apiexternapaises": apiexternapaises,
 
 		"*" : NotFound
 	};
