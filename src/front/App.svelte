@@ -27,6 +27,7 @@
 	import sos1920_06_lottery_sales from './VehiclesAPI/Integrations/lottery_sales.svelte';
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
+	
 	import Company from './VehiclesAPI/Integrations/company.svelte';
 
 	import RoadsIntegrations from './RoadsAPI/integrations/Home.svelte';
