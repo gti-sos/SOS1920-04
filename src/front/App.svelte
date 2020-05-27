@@ -27,7 +27,7 @@
 	import sos1920_06_lottery_sales from './VehiclesAPI/Integrations/lottery_sales.svelte';
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
-	
+
 	import Company from './VehiclesAPI/Integrations/company.svelte';
 
 	import RoadsIntegrations from './RoadsAPI/integrations/Home.svelte';
@@ -40,13 +40,13 @@
 	import Analytics from './analytics/statistics.svelte';
 
 	import TrafficAccidentsIntegrations from './TrafficAccidentsAPI/integrations/Home.svelte';
-	import sos1920_09_TA from './TrafficAccidentsAPI/integrations/sos1920-09.svelte';
-	import sos1920_23_TA from './TrafficAccidentsAPI/integrations/sos1920-23.svelte';
-	import sos1920_01_TA from './TrafficAccidentsAPI/integrations/sos1920-01.svelte';
-	import sos1920_07_TA from './TrafficAccidentsAPI/integrations/sos1920-07.svelte';
-	import sos1920_02_TA from './TrafficAccidentsAPI/integrations/sos1920-02.svelte';
-	import sos1920_05_TA from './TrafficAccidentsAPI/integrations/sos1920-05.svelte';
-	import sos1920_22_TA from './TrafficAccidentsAPI/integrations/sos1920-22.svelte';
+	import sos1920_09_TA from './TrafficAccidentsAPI/Integrations/sos1920-09.svelte';
+	import sos1920_23_TA from './TrafficAccidentsAPI/Integrations/sos1920-23.svelte';
+	import sos1920_01_TA from './TrafficAccidentsAPI/Integrations/sos1920-01.svelte';
+	import sos1920_07_TA from './TrafficAccidentsAPI/Integrations/sos1920-07.svelte';
+	import sos1920_02_TA from './TrafficAccidentsAPI/Integrations/sos1920-02.svelte';
+	import sos1920_05_TA from './TrafficAccidentsAPI/Integrations/sos1920-05.svelte';
+	import sos1920_22_TA from './TrafficAccidentsAPI/Integrations/sos1920-22.svelte';
 
 
 	import About from './about/about.svelte';
