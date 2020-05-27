@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-02.herokuapp.com/API/v2/rural-tourism-stats";
+	const url = "/API/v2/rural-tourism-stats";
 	
 	onMount(getTourism);
     let tourism = [];

@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-23.herokuapp.com/API/v2/cigarretes-sales";
+	const url = "/API/v2/cigarretes-sales";
 	
 	onMount(getCigarretes);
     let cigarretes = [];

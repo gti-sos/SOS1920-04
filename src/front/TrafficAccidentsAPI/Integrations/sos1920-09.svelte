@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-09.herokuapp.com/api/v2/oil-coal-nuclear-energy-consumption-stats/";
+	const url = "/api/v2/oil-coal-nuclear-energy-consumption-stats/";
 	
 	onMount(getOilEnergy);
     let oilEnergy = [];
