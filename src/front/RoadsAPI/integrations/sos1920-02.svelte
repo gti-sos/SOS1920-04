@@ -10,12 +10,13 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
+    const url = "https://sos1920-09.herokuapp.com/api/v3/plugin-vehicles-stats";
 
     let pluginVehicles = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch('/api/v2/evolution-of-cycling-routes'); 
+		const res = await fetch(url); 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
@@ -26,182 +27,166 @@
         }
         const resData = await fetch("/api/v1/roads");
         MyData = await resData.json();
-        let yearsRoads = [];
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Ventas acumuladas", "Ventas anuales",
+         "Coches cada 1000"];
+        let valores = [];
+        let valor = {};
         MyData.forEach( (r) => {
-            yearsRoads.push(r.year);
+            valor = {
+                   name: r.province + "(" + r.year + ")",
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0]
+               }
+            valores.push(valor);
         });
-        let yearsVehicles = [];
         pluginVehicles.forEach( (v) => {
             if(v.country == "Spain"){
-                yearsVehicles.push(v.year);
+               valor = {
+                   name: v.country + "(" + v.year + ")",
+                   data: [0, 0, 0, 0, v['pev-stock'], v['annual-sale'], v['cars-per-1000']]
+               }
+               console.log("oneway: " + v['pev-stock']);
+               valores.push(valor);
             }
+            
         });
-        yearsRoads = yearsRoads.sort();
-        yearsVehicles = yearsVehicles.sort();
-        console.log("roads: " + yearsRoads);
-        console.log("vehicles: " + yearsVehicles);
 
         Highcharts.chart('container', {
             chart: {
                 type: 'area'
             },
             title: {
-                text: 'Historic and Estimated Worldwide Population Distribution by Region'
+                text: 'Integración entre carreteras y vehiculos electricos'
             },
             subtitle: {
-                text: 'Source: Wikipedia.org'
+                text: 'Source: SOS1920-09'
             },
             xAxis: {
-                //categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
-                categories: yearsRoads,
+                categories: items,
                 tickmarkPlacement: 'on',
                 title: {
-                enabled: false
+                    enabled: false
                 }
             },
             yAxis: {
-                labels: {
-                format: '{value}%'
-                },
                 title: {
-                enabled: false
+                    text: ''
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value ;
+                    }
                 }
             },
             tooltip: {
-                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f} millions)<br/>',
-                split: true
+                split: true,
+                valueSuffix: ''
             },
             plotOptions: {
                 area: {
-                stacking: 'percent',
-                lineColor: '#ffffff',
-                lineWidth: 1,
-                marker: {
+                    stacking: 'normal',
+                    lineColor: '#666666',
                     lineWidth: 1,
-                    lineColor: '#ffffff'
-                },
-                accessibility: {
-                    pointDescriptionFormatter: function (point) {
-                    function round(x) {
-                        return Math.round(x * 100) / 100;
+                    marker: {
+                        lineWidth: 1,
+                        lineColor: '#666666'
                     }
-                    return (point.index + 1) + ', ' + point.category + ', ' +
-                        point.y + ' millions, ' + round(point.percentage) + '%, ' +
-                        point.series.name;
-                    }
-                }
                 }
             },
-            series: [{
-                name: 'Asia',
-                data: [502, 635, 809, 0, 1402, 3634, 5268]
-            }, {
-                name: 'Africa',
-                data: [106, 107, 111, 133, 221, 767, 1766]
-            }, {
-                name: 'Europe',
-                data: [163, 203, 276, 408, 547, 729, 628]
-            }, {
-                name: 'America',
-                data: [18, 31, 54, 156, 339, 818, 1201]
-            }, {
-                name: 'Oceania',
-                data: [2, 2, 2, 6, 13, 30, 46]
-            }]
-            });
+            series: valores
+        });
 	};
 </script>
 
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 
 <figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-      Chart demonstrating a percentage-stacked area chart, a variation of the 
-      stacked area chart where each data series is visualized as a running
-      percentage of the total.
-    </p>
+        {#await  pluginVehicles}
+            Loading renewable sources...
+        {:then  pluginVehicles}
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+                <p>   </p>
+                <p class="highcharts-description">
+                    Grafica uniendo los datos de carreteras, con los de vehiculos eléctricos. Solo podemos
+                    mostrar los datos de España, ya que son los unicos datos comparables con los nuestros.
+                </p>
+                <p> <strong> Tabla con los datos proporcionados por la API de vehiculos eléctricos: </strong> </p>
+
+            </figure>	
+            <Table bordered>
+                <thead>
+                    <tr>
+                        <th> País </th>
+                        <th> Año </th>
+                        <th> Fabricados</th>
+                        <th> Ventas Anuales </th>
+                        <th> Coches por mil </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each  pluginVehicles as  pluginVehicles}
+                    <tr>
+                        <td> {pluginVehicles.country} </td>
+                        <td> {pluginVehicles.year} </td>
+                        <td> {pluginVehicles['pev-stock']} </td>
+                        <td> {pluginVehicles['annual-sale']} </td>
+                        <td> {pluginVehicles['cars-per-1000']} </td>
+                    </tr>
+                    {/each}
+                </tbody>
+            </Table>
+        {/await}
+        <p>
+            <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+        </p>
   </figure>
 
 
 
 <style>
-	.highcharts-figure, .highcharts-data-table table {
-  min-width: 310px; 
-  max-width: 800px;
-  margin: 1em auto;
+	#container {
+    height: 400px; 
 }
 
-#container {
-  height: 420px;
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 1em auto;
 }
 
 .highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 .highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
 }
 .highcharts-data-table th {
 	font-weight: 600;
-  padding: 0.5em;
+    padding: 0.5em;
 }
 .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-  padding: 0.5em;
+    padding: 0.5em;
 }
 .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
+    background: #f8f8f8;
 }
 .highcharts-data-table tr:hover {
-  background: #f1f7ff;
+    background: #f1f7ff;
 }
 
 </style>
 
-<main>
-	{#await  pluginVehicles}
-		Loading renewable sources...
-	{:then  pluginVehicles}
-		<figure class="highcharts-figure">
-			<div id="container"></div>
-			<p class="highcharts-description">
-				Basic line chart showing trends in a dataset. This chart includes the
-				<code>series-label</code> module, which adds a label to each line for
-				enhanced readability.
-			</p>
-		</figure>	
-		<Table bordered>
-			<thead>
-				<tr>
-                    <th> Año </th>
-				</tr>
-			</thead>
-			<tbody>
-				{#each  pluginVehicles as  pluginVehicles}
-				<tr>
-                    <td> {pluginVehicles.year} </td>
-					
-				</tr>
-				{/each}
-			</tbody>
-		</Table>
-	{/await}
 
-    <p>
-        <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
-    </p>
-</main>
