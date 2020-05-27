@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "https://sos1920-09.herokuapp.com/api/v3/plugin-vehicles-stats";
+    const url = "/api/v1/not-hospitalized-stats";
 
     let pluginVehicles = [];
     let MyData = [];

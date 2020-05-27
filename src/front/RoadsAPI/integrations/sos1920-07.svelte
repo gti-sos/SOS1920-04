@@ -10,9 +10,9 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "https://sos1920-09.herokuapp.com/api/v3/plugin-vehicles-stats";
+    const url = "https://sos1920-07.herokuapp.com/api/v2/imports";
 
-    let pluginVehicles = [];
+    let pluginImports = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
@@ -20,31 +20,30 @@
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginVehicles = json;
-			console.log("Received " +  pluginVehicles.length + " renewable sources stats.");
+            pluginImports = json;
+			console.log("Received " +  pluginImports.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
         }
         const resData = await fetch("/api/v1/roads");
         MyData = await resData.json();
-        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Ventas acumuladas", "Ventas anuales",
-         "Coches cada 1000"];
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Cebana", "Avena",
+         "Residuos", "Alcohol"];
         let valores = [];
         let valor = {};
         MyData.forEach( (r) => {
             valor = {
                    name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0]
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0, 0]
                }
             valores.push(valor);
         });
-        pluginVehicles.forEach( (v) => {
-            if(v.country == "Spain"){
+        pluginImports.forEach( (v) => {
+            if(v.country == "european-union-27" && v.year > 2014){
                valor = {
                    name: v.country + "(" + v.year + ")",
-                   data: [0, 0, 0, 0, v['pev-stock'], v['annual-sale'], v['cars-per-1000']]
+                   data: [0, 0, 0, 0, v['gdabarley'], v['gdaoat'],v['gdawaste'], v['gdaethylalcohol']]
                }
-               console.log("oneway: " + v['pev-stock']);
                valores.push(valor);
             }
             
@@ -55,10 +54,10 @@
                 type: 'area'
             },
             title: {
-                text: 'Integración entre carreteras y vehiculos electricos'
+                text: 'Integración entre carreteras y importaciones'
             },
             subtitle: {
-                text: 'Source: SOS1920-09'
+                text: 'Source: SOS1920-07'
             },
             xAxis: {
                 categories: items,
@@ -105,17 +104,18 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-        {#await  pluginVehicles}
+        {#await  pluginImports}
             Loading renewable sources...
-        {:then  pluginVehicles}
+        {:then  pluginImports}
             <figure class="highcharts-figure">
                 <div id="container"></div>
                 <p>   </p>
                 <p class="highcharts-description">
-                    Grafica uniendo los datos de carreteras, con los de vehiculos eléctricos. Solo podemos
-                    mostrar los datos de España, ya que son los unicos datos comparables con los nuestros.
+                    Gráfica uniendo los datos de carreteras, con los de importaciones. Solo podemos
+                    mostrar los datos de Europa por años, ya que son los unicos datos comparables
+                    con los nuestros.
                 </p>
-                <p> <strong> Tabla con los datos proporcionados por la API de vehiculos eléctricos: </strong> </p>
+                <p> <strong> Tabla con los datos proporcionados por la API de importaciones: </strong> </p>
 
             </figure>	
             <Table bordered>
@@ -123,19 +123,23 @@
                     <tr>
                         <th> País </th>
                         <th> Año </th>
-                        <th> Fabricados</th>
-                        <th> Ventas Anuales </th>
-                        <th> Coches por mil </th>
+                        <th> Malta</th>
+                        <th> Cebada</th>
+                        <th> Avena </th>
+                        <th> Residuos </th>
+                        <th> Alcohol </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {#each  pluginVehicles as  pluginVehicles}
+                    {#each  pluginImports as  pluginImports}
                     <tr>
-                        <td> {pluginVehicles.country} </td>
-                        <td> {pluginVehicles.year} </td>
-                        <td> {pluginVehicles['pev-stock']} </td>
-                        <td> {pluginVehicles['annual-sale']} </td>
-                        <td> {pluginVehicles['cars-per-1000']} </td>
+                        <td> {pluginImports.country} </td>
+                        <td> {pluginImports.year} </td>
+                        <td> {pluginImports['gdamalt']} </td>
+                        <td> {pluginImports['gdabarley']} </td>
+                        <td> {pluginImports['gdaoat']} </td>
+                        <td> {pluginImports['gdawaste']} </td>
+                        <td> {pluginImports['gdaethylalcohol']} </td>
                     </tr>
                     {/each}
                 </tbody>
@@ -150,7 +154,7 @@
 
 <style>
 	#container {
-    height: 400px; 
+    height: 550px; 
 }
 
 .highcharts-figure, .highcharts-data-table table {

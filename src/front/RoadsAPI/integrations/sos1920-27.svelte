@@ -151,7 +151,7 @@
 
 <style>
 	#container {
-    height: 400px; 
+        height: 550px; 
 }
 
 .highcharts-figure, .highcharts-data-table table {
