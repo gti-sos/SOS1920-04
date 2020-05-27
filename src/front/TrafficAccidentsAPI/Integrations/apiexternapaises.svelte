@@ -10,18 +10,18 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-23.herokuapp.com/API/v2/cigarretes-sales";
+	const url = "https://restcountries.eu/rest/v2/all?fields=name;area;population";
 	
-	onMount(getCigarretes);
-    let cigarretes = [];
-	async function getCigarretes() {
-		console.log("Fetching cigarretes stats...");	
+	onMount(getStats);
+    let stats = [];
+	async function getStats() {
+		console.log("Fetching stats...");	
 		const res = await fetch(url); 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-			cigarretes = json;
-			console.log("Received " + cigarretes.length + " cigarretes.");
+			stats = json;
+			console.log("Received " + stats.length + "  stats.");
 		} else {
 			console.log("ERROR!");
 		}
@@ -35,39 +35,31 @@
 	const resData = await fetch(url);
 	MyData = await resData.json();
 	let parsed_data = [];
-	let comunnity = [];
-	let cigarrete_sale = [];
-	let first_variation = [];
-	let second_variation = [];
+	let country = [];
+	let population = [];
+	let area = [];
 	
 
 	MyData.forEach( (v) => {
-		let comunnityyear = v.comunnity + " (" + v.year + ")";
-		comunnity.push(comunnityyear);
-		cigarrete_sale.push(v['cigarrete_sale']);
-		first_variation.push(v['first_variation']);
-		second_variation.push(v['second_variation']);
+		country.push(v.name);
+		population.push(v.population);
+		area.push(parseInt((v.area)));
 	});
 
 	let graphic_data1 = {
-		name: 'Ventas tabaco',
-		data: cigarrete_sale,
-		stack: 'Ventas'
+		name: 'Población',
+		data: population,
+		stack: 'Datos'
 	};
 	let graphic_data2 = {
-		name: 'Primera variación',
-		data: first_variation,
-		stack: 'Variación'
+		name: 'Area',
+		data: area,
+		stack: 'Datos'
 	};
-	let graphic_data3 = {
-		name: 'Segunda variación',
-		data: second_variation,
-		stack: 'Variación'
-	};
+	
 	
 	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data1);
-	parsed_data.push(graphic_data3);
 	
 
 	Highcharts.chart('container', {
@@ -83,11 +75,11 @@
 	},
 
 	title: {
-		text: 'Total ventas'
+		text: 'Total Datos'
 	},
 
 	xAxis: {
-		categories: comunnity,
+		categories: country,
 		labels: {
 		skew3d: true,
 		style: {
@@ -176,33 +168,29 @@
 
 <main>
 
-	{#await cigarretes}
-		Loading cigarretes...
-	{:then cigarretes}	
+	{#await stats}
+		Loading stats...
+	{:then stats}	
 	<figure class="highcharts-figure">
 		<div id="container"></div>
 		<p class="highcharts-description">
-			El gráfico muestra las ventas de cigarrillos.
+			El gráfico muestra el area y población de los países.
 		</p>
 	</figure>
 		<Table bordered>
 			<thead>
 				<tr>
-					<th>Comunidad</th>
-					<th>Año</th>
-					<th>Venta de paquetes</th>
-					<th>Primera variacion</th>
-					<th>Segunda variacion</th>
+					<th>País</th>
+                    <th>Población</th>
+                    <th>Area</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each cigarretes as cigarrete}
-				<tr>
-					<td>{cigarrete.community}</td>	
-					<td>{cigarrete.year}</td>
-					<td>{cigarrete.cigarrete_sale}</td>
-					<td>{cigarrete.first_variation}</td>
-					<td>{cigarrete.second_variation}</td>
+				{#each stats as stat}
+				<tr>	
+					<td> {stat.name} </td>
+					<td> {stat.population} </td>
+					<td> {stat.area} </td>
                 </tr>
 				{/each}
 			</tbody>

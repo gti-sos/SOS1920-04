@@ -26,7 +26,12 @@
 <p>
     <a href="#/traffic_accidentsI/integrations/sos1920-22">API grupo 22: Estadísticas natación</a>
 </p>
-
+<p>
+    <a href="#/traffic_accidentsI/integrations/apiexternacontaminacionmadrid">API externa contaminación Madrid</a>
+</p>
+<p>
+    <a href="#/traffic_accidentsI/integrations/apiexternapaises">API externa países</a>
+</p>
 <p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </p>

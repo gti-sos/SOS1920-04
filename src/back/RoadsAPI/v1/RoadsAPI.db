@@ -1,15 +1,15 @@
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"4ApRitwoHRJKWy56"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"BOQUqeB6jb1Poj3B"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"XJBUG1nJDQOtiSOg"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"n5CbdlfRWVtoIcjE"}
-{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"yoCvKfDNAbVAqpan"}
-{"$$deleted":true,"_id":"4ApRitwoHRJKWy56"}
-{"$$deleted":true,"_id":"BOQUqeB6jb1Poj3B"}
-{"$$deleted":true,"_id":"XJBUG1nJDQOtiSOg"}
-{"$$deleted":true,"_id":"n5CbdlfRWVtoIcjE"}
-{"$$deleted":true,"_id":"yoCvKfDNAbVAqpan"}
-{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"Pk5ZQkQdFhAK2Zvz"}
-{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"MBS4i3pKQy3Apqea"}
-{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"32DNt0IcyvEm3qpf"}
-{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"LaPUnpSuoVdGNPo4"}
-{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"KhCrHZnrAD5uNmtZ"}
+{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"FbQLQrTXVIf4ofXW"}
+{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"Ni6ycFwrZJzhQuFm"}
+{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"OkQyq9MVCsfcVFfc"}
+{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"pw9iqm74s6Q4Fy6X"}
+{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"tXaR7fzw3w9ZdbPR"}
+{"$$deleted":true,"_id":"FbQLQrTXVIf4ofXW"}
+{"$$deleted":true,"_id":"Ni6ycFwrZJzhQuFm"}
+{"$$deleted":true,"_id":"OkQyq9MVCsfcVFfc"}
+{"$$deleted":true,"_id":"pw9iqm74s6Q4Fy6X"}
+{"$$deleted":true,"_id":"tXaR7fzw3w9ZdbPR"}
+{"province":"Almeria","year":2018,"oneway":2003,"multipleway":4,"dualCarriagewayAndHighway":321,"highwayWithToll":28,"total":2356,"_id":"uRdhZ6HtCJxRlQWx"}
+{"province":"Las Palmas","year":2017,"oneway":1962,"multipleway":76,"dualCarriagewayAndHighway":129,"highwayWithToll":0,"total":2149,"_id":"ssEhzbsYhfqpI91C"}
+{"province":"Pontevedra","year":2016,"oneway":3220,"multipleway":16,"dualCarriagewayAndHighway":109,"highwayWithToll":148,"total":3492,"_id":"JvlLLIHdRvSgx5OG"}
+{"province":"Madrid","year":2015,"oneway":2347,"multipleway":208,"dualCarriagewayAndHighway":622,"highwayWithToll":161,"total":3338,"_id":"Nmw8OKa3vkZQKwtD"}
+{"province":"Cadiz","year":2018,"oneway":1804,"multipleway":40,"dualCarriagewayAndHighway":276,"highwayWithToll":48,"total":2168,"_id":"Kd5BNL1YKdDi0MHy"}
