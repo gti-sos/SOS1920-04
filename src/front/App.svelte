@@ -51,7 +51,6 @@
 
 	import About from './about/about.svelte';
 
-
 	const routes = {
 		"/" : Home,
 		"/analytics": Analytics,
