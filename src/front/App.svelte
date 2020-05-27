@@ -22,7 +22,7 @@
 	import sos1920_27_lq_stats from './VehiclesAPI/Integrations/lq_stats.svelte';
 	import sos1920_02_traffic_accidents from './VehiclesAPI/Integrations/traffic_accidents.svelte';
 	import sos1920_01_natality_stats from './VehiclesAPI/Integrations/natality_stats.svelte';
-	import sos1920_06_lottery_sales from './VehiclesAPI/Integrations/lq_stats.svelte';
+	import sos1920_06_lottery_sales from './VehiclesAPI/Integrations/lottery_sales.svelte';
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
 	import Company from './VehiclesAPI/Integrations/company.svelte';
