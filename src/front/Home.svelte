@@ -24,7 +24,10 @@
     <a href="#/roads/statistics2">Estadísticas del número de carreteras usando una librería externa</a>
 </p>
 <p>
-    <a href="#/traffic_accidents/statistics">Estadísticas del número de accidentes de tráfico</a>
+    <a href="#/traffic_accidents/statistics">Estadísticas del número de accidentes de tráfico usando HighCharts</a>
+</p>
+<p>
+    <a href="#/traffic_accidents/statistics2">Estadísticas del número de muertes en 2016 usando una librería externa</a>
 </p>
 <p>
     <a href="#/analytics">GUI de todos los recursos</a>
@@ -35,4 +38,7 @@
 </p>
 <p>
     <a href="#/roads/integrations">API de carreteras</a>
+</p>
+<p>
+    <a href="#/traffic_accidents/integrations">API de accidentes de tráfico</a>
 </p>

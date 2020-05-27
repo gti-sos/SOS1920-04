@@ -15,6 +15,8 @@
 	import RoadsStatistics from './RoadsAPI/RoadsStatistics.svelte';
 	import RoadsStatistics2 from './RoadsAPI/RoadsStatistics2.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
+	import TrafficAccidentsStatistics2 from './TrafficAccidentsAPI/TrafficAccidentsStatistics2.svelte';
+
 	import VehiclesIntegrations from './VehiclesAPI/Integrations/Home.svelte';
 	import sos1920_12_overdose_deaths from './VehiclesAPI/Integrations/overdose_deaths.svelte';
 	import sos1920_09_renewable_sources from './VehiclesAPI/Integrations/renewable_sources.svelte';
@@ -26,6 +28,7 @@
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
 	import Company from './VehiclesAPI/Integrations/company.svelte';
+
 	import RoadsIntegrations from './RoadsAPI/integrations/Home.svelte';
 	import sos1920_06 from './RoadsAPI/integrations/sos1920-06.svelte';
 	import sos1920_07 from './RoadsAPI/integrations/sos1920-07.svelte';
@@ -34,6 +37,17 @@
 	import sos1920_30 from './RoadsAPI/integrations/sos1920-30.svelte';
 	import sos1920_02 from './RoadsAPI/integrations/sos1920-02.svelte';
 	import Analytics from './analytics/statistics.svelte';
+
+	import TrafficAccidentsIntegrations from './TrafficAccidentsAPI/integrations/Home.svelte';
+	import sos1920_09_TA from './TrafficAccidentsAPI/integrations/sos1920-09.svelte';
+	import sos1920_23_TA from './TrafficAccidentsAPI/integrations/sos1920-23.svelte';
+	import sos1920_01_TA from './TrafficAccidentsAPI/integrations/sos1920-01.svelte';
+	import sos1920_07_TA from './TrafficAccidentsAPI/integrations/sos1920-07.svelte';
+	import sos1920_02_TA from './TrafficAccidentsAPI/integrations/sos1920-02.svelte';
+	import sos1920_05_TA from './TrafficAccidentsAPI/integrations/sos1920-05.svelte';
+	import sos1920_22_TA from './TrafficAccidentsAPI/integrations/sos1920-22.svelte';
+
+
 	import About from './about/about.svelte';
 
 
@@ -44,6 +58,7 @@
 		"/vehicles": VehiclesAPI,
 		"/traffic_accidents": TrafficAccidentsAPI,
 		"/traffic_accidents/statistics": TrafficAccidentsStatistics,
+		"/traffic_accidents/statistics2": TrafficAccidentsStatistics2,
 		"/roads": RoadsAPI,
 		"/vehicles/statistics": VehiclesStatistics,
 		"/vehicles/statistics2": VehiclesStatistics2,
@@ -52,6 +67,7 @@
 		"/vehicles/:vehicleProvince/:vehicleYear" : EditVehicle,
 		"/roads/:roadProvince/:roadYear" : EditRoad,
 		"/traffic_accidents/:traffic_accidentProvince/:traffic_accidentYear" : EditTrafficAccidents,
+		
 		"/vehicles/integrations": VehiclesIntegrations,
 		'/vehiclesI/integrations/overdose_deaths': sos1920_12_overdose_deaths,
 		'/vehiclesI/integrations/renewable_sources': sos1920_09_renewable_sources,
@@ -63,6 +79,7 @@
 		'/vehiclesI/integrations/lottery_sales': sos1920_06_lottery_sales,
 		'/vehiclesI/integrations/formula_stats': sos1920_22_formula_stats,
 		"/vehiclesI/integrations/company": Company,
+
 		"/roads/integrations": RoadsIntegrations,
 		"/roads2/integrations/sos1920-02": sos1920_02,
 		"/roads2/integrations/sos1920-06": sos1920_06,
@@ -70,6 +87,16 @@
 		"/roads2/integrations/sos1920-09": sos1920_09,
 		"/roads2/integrations/sos1920-27": sos1920_27,
 		"/roads2/integrations/sos1920-30": sos1920_30,
+
+		"/traffic_accidents/integrations": TrafficAccidentsIntegrations,
+		"/traffic_accidentsI/integrations/sos1920-09": sos1920_09_TA,
+		"/traffic_accidentsI/integrations/sos1920-23": sos1920_23_TA,
+		"/traffic_accidentsI/integrations/sos1920-01": sos1920_01_TA,
+		"/traffic_accidentsI/integrations/sos1920-07": sos1920_07_TA,
+		"/traffic_accidentsI/integrations/sos1920-02": sos1920_02_TA,
+		"/traffic_accidentsI/integrations/sos1920-05": sos1920_05_TA,
+		"/traffic_accidentsI/integrations/sos1920-22": sos1920_22_TA,
+
 		"*" : NotFound
 	};
 </script>

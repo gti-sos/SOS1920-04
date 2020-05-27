@@ -1,5 +1,8 @@
 <script>
-
+import Button from "sveltestrap/src/Button.svelte";
+  import {
+        pop
+    } from "svelte-spa-router";
 
     async function loadGraph(){
     
@@ -110,7 +113,7 @@
         console.log(parsed_data);  
     }
 </script>
-    
+  
     <svelte:head>
         <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
@@ -127,6 +130,7 @@
                 Este gráfico muestra distintos datos del número de accidentes de tráfico en España, según la provincia.
             </p>
         </figure>
+        <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>       
     </main>
 
 <style>
