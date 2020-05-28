@@ -6,10 +6,10 @@
 </script>
 <h2><strong> Integraciones</strong></h2>
 <p>
-    <a href="#/roads2/integrations/sos1920-02">API de la evolución de las rutas ciclistas</a>
+    <a href="#/roads2/integrations/sos1920-02">API de la evolución de las rutas ciclistas (PROXY)</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/sos1920-06">API de estadísticas de no hospitalizados</a>
+    <a href="#/roads2/integrations/sos1920-06">API de estadísticas de no hospitalizados (PROXY)</a>
 </p>
 <p>
     <a href="#/roads2/integrations/sos1920-07">API de importaciones</a>
@@ -32,6 +32,15 @@
 </p>
 <p>
     <a href="#/roads2/integrations/bitcoin">API de valores de los bitcoins</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/football">API de número de partidos de entrenador de futbol</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/aeropuertos">API de aeropuertos del mundo</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/poblacion">API del población de las ciudades de Estados Unidos</a>
 </p>
 <p>
     <a href="#/roads2/integrations/prueba">API del prueba</a>

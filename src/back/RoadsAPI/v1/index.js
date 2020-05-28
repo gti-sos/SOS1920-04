@@ -13,26 +13,25 @@ module.exports = function(app){
 					autoload: true
 	});
 	
+	//PROXY PARA SOS1920-06
 	var sos1920_06 = 'https://sos1920-06.herokuapp.com';
-	var recurso06 = '/api/v1/not-hospitalized-stats';
-
+	var recurso06 = '/api/v2/not-hospitalized-stats';
     app.use(recurso06, function(req, res) {
 		var url = sos1920_06 + req.baseUrl + req.url;
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
 
-
+	//PROXY PARA SOS1920-02
 	var sos1920_02 = 'https://sos1920-02.herokuapp.com';
 	var recurso02 = '/api/v2/evolution-of-cycling-routes';
-
     app.use(recurso02, function(req, res) {
 		var url = sos1920_02 + req.baseUrl + req.url;
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
+
+
 		// INITIAL DATA
 
 	var roads = [];
@@ -105,7 +104,7 @@ module.exports = function(app){
 		console.log("New GET .../roads");
 		var limit = req.query.limit;
 		var offset= req.query.offset;
-		
+
 		var province = req.query.province;
 		var year = parseInt(req.query.year);
 		var oneway = parseInt(req.query.oneway);

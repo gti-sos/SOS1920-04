@@ -16,10 +16,10 @@
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch("https://global-country-information-library.p.rapidapi.com/country/US", {
+		const res = await fetch("https://countries-cities.p.rapidapi.com/location/country/US/city/list?page=2&per_page=20&format=json&population=15000", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "global-country-information-library.p.rapidapi.com",
+		"x-rapidapi-host": "countries-cities.p.rapidapi.com",
 		"x-rapidapi-key": "1aadc89e2cmsh7affff1b7dc9661p1e119fjsneb577e40a33e"
 	}
 }); 
@@ -31,7 +31,6 @@
 		} else {
 			console.log("ERROR!");
 		}
-        console.log(pluginCities);
         let valor = {};
         let valores = [];
         pluginCities.cities.forEach( (v) => {

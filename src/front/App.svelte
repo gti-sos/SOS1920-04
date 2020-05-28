@@ -39,8 +39,12 @@
 	import mercados from './RoadsAPI/integrations/mercados.svelte';
 	import covid from './RoadsAPI/integrations/covid.svelte';
 	import bitcoin from './RoadsAPI/integrations/bitcoin.svelte';
+	import football from './RoadsAPI/integrations/football.svelte';
+	import aeropuertos from './RoadsAPI/integrations/aeropuertos.svelte';
+	import poblacion from './RoadsAPI/integrations/poblacion.svelte';
 	import prueba from './RoadsAPI/integrations/prueba.svelte';
 	import Analytics from './analytics/statistics.svelte';
+
 
 	import TrafficAccidentsIntegrations from './TrafficAccidentsAPI/Integrations/Home.svelte';
 	import sos1920_09_TA from './TrafficAccidentsAPI/Integrations/sos1920-09.svelte';
@@ -84,6 +88,7 @@
 		'/vehiclesI/integrations/formula_stats': sos1920_22_formula_stats,
 		"/vehiclesI/integrations/incidents": incidents,
 
+
 		"/roads/integrations": RoadsIntegrations,
 		"/roads2/integrations/sos1920-02": sos1920_02,
 		"/roads2/integrations/sos1920-06": sos1920_06,
@@ -94,7 +99,12 @@
 		"/roads2/integrations/mercados": mercados,
 		"/roads2/integrations/covid": covid,
 		"/roads2/integrations/bitcoin": bitcoin,
+		"/roads2/integrations/football": football,
+		"/roads2/integrations/aeropuertos": aeropuertos,
+		"/roads2/integrations/poblacion": poblacion,
 		"/roads2/integrations/prueba": prueba,
+
+
 
 
 

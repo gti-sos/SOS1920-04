@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "/api/v1/not-hospitalized-stats";
+    const url = "/api/v2/not-hospitalized-stats";
 
     let pluginHospitalized = [];
     let MyData = [];
