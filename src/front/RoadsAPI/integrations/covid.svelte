@@ -12,42 +12,38 @@
     
     const url = "https://sos1920-07.herokuapp.com/api/v2/imports";
 
-    let pluginImports = [];
+    let pluginCoronavirus = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary?region=US&lang=en", {
+		const res = await fetch("https://coronavirus-tracker-india-covid-19.p.rapidapi.com/api/getStatewise", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+		"x-rapidapi-host": "coronavirus-tracker-india-covid-19.p.rapidapi.com",
 		"x-rapidapi-key": "1aadc89e2cmsh7affff1b7dc9661p1e119fjsneb577e40a33e"
 	}
-}); 
+});
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginImports = json;
-			console.log("Received " +  pluginImports.length + " renewable sources stats.");
+            pluginCoronavirus = json;
+			console.log("Received " +  pluginCoronavirus.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
 		}
-        let items = ["Valor de cambio", "Valor del mercado antes de cerrarse", "Valor del mercado"];
+        let items = ["Casos", "Recuperados", "Muertos"];
         let valor = {};
         let valores = [];
-        let paises = [];
-        pluginImports = pluginImports.marketSummaryResponse.result;
-        pluginImports.forEach( (v) => {
-            if(paises.includes(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")")) {
-
-            }
-            else {
+        let i = 0;
+        pluginCoronavirus.forEach( (v) => {
+            if(i < 10) {
                 valor = {
-                   name: v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")",
-                   data: [v.regularMarketChange.raw,v.regularMarketPreviousClose.raw, v.regularMarketPrice.raw]
-               }
+                   name: v.name,
+                   data: [parseInt(v.cases), parseInt(v.recovered), parseInt(v.deaths)]
+                }
                 valores.push(valor);
-                paises.push(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")");
-            }            
+            }
+            i = i + 1;
         });
 
         Highcharts.chart('container', {
@@ -55,7 +51,7 @@
                 type: 'area'
             },
             title: {
-                text: 'Valores actuales de los mercados en el mundo'
+                text: 'Valores actuales del coronavirus en la India'
             },
             subtitle: {
                 text: 'Source: RapidAPI'
@@ -104,16 +100,16 @@
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 
-<figure class="highcharts-figure">
-    {#await  pluginImports}
+  <figure class="highcharts-figure">
+    {#await  pluginCoronavirus}
         Loading renewable sources...
-    {:then  pluginImports}
+    {:then  pluginCoronavirus}
         <figure class="highcharts-figure">
             <div id="container"></div>
             <p>   </p>
             <p class="highcharts-description">
-                Gráfica con API externa con los valores actuales de los mercados en el mundo. 
-                    Extraida de la API Yahoo Finance de Rapidapi.
+                Gráfica con API externa con los valores actuales del coronavirus en zonas de la India. 
+                    Extraida de la API Coronavirus Tracker India de Rapidapi.
                 
             </p>
             <p> <strong> Tabla con los datos proporcionados por la API de los valores de los mercados: </strong> </p>
@@ -123,20 +119,18 @@
             <thead>
                 <tr>
                     <th> Zona </th>
-                    <th> Hora </th>
-                    <th> Valor de cambio</th>
-                    <th> Valor del mercado antes de cerrarse </th>
-                    <th> Valor del mercado </th>
+                    <th> Casos </th>
+                    <th> Recuperados</th>
+                    <th> Muertos </th>
                 </tr>
             </thead>
             <tbody>
-                {#each  pluginImports as  pluginImports}
+                {#each  pluginCoronavirus as  pluginCoronavirus}
                 <tr>
-                    <td> {pluginImports.exchangeTimezoneName} </td>
-                    <td> {pluginImports.regularMarketTime.fmt} </td>
-                    <td> {pluginImports.regularMarketChange.raw} </td>
-                    <td> {pluginImports.regularMarketPreviousClose.raw} </td>
-                    <td> {pluginImports.regularMarketPrice.raw} </td>
+                    <td> {pluginCoronavirus.name} </td>
+                    <td> {pluginCoronavirus.cases} </td>
+                    <td> {pluginCoronavirus.recovered} </td>
+                    <td> {pluginCoronavirus.deaths} </td>
                 </tr>
                 {/each}
             </tbody>

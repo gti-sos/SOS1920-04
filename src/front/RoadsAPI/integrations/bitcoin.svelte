@@ -12,50 +12,45 @@
     
     const url = "https://sos1920-07.herokuapp.com/api/v2/imports";
 
-    let pluginImports = [];
+    let pluginBitcoin = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary?region=US&lang=en", {
+		const res = await fetch("https://alpha-vantage.p.rapidapi.com/query?market=CNY&symbol=BTC&function=DIGITAL_CURRENCY_DAILY", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+		"x-rapidapi-host": "alpha-vantage.p.rapidapi.com",
 		"x-rapidapi-key": "1aadc89e2cmsh7affff1b7dc9661p1e119fjsneb577e40a33e"
 	}
-}); 
+})
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginImports = json;
-			console.log("Received " +  pluginImports.length + " renewable sources stats.");
+            pluginBitcoin = json;
+			console.log("Received " +  pluginBitcoin.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
 		}
-        let items = ["Valor de cambio", "Valor del mercado antes de cerrarse", "Valor del mercado"];
+        let items = ["2017-10-28", "2018-05-28", "2018-10-28", "2019-05-28", "2019-10-28", "2020-05-28"];
         let valor = {};
         let valores = [];
-        let paises = [];
-        pluginImports = pluginImports.marketSummaryResponse.result;
-        pluginImports.forEach( (v) => {
-            if(paises.includes(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")")) {
-
-            }
-            else {
-                valor = {
-                   name: v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")",
-                   data: [v.regularMarketChange.raw,v.regularMarketPreviousClose.raw, v.regularMarketPrice.raw]
-               }
-                valores.push(valor);
-                paises.push(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")");
-            }            
+        let datos = [];
+        items.forEach( (v) => {
+            datos.push(parseInt(pluginBitcoin["Time Series (Digital Currency Daily)"][v]["1b. open (USD)"]));
         });
+        console.log(datos);
+        valor = {
+                name: "Bitcoin",
+                data: datos
+            }
+        valores.push(valor);
 
         Highcharts.chart('container', {
             chart: {
                 type: 'area'
             },
             title: {
-                text: 'Valores actuales de los mercados en el mundo'
+                text: 'Valores del bitcoin en euros'
             },
             subtitle: {
                 text: 'Source: RapidAPI'
@@ -105,47 +100,18 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-    {#await  pluginImports}
-        Loading renewable sources...
-    {:then  pluginImports}
-        <figure class="highcharts-figure">
-            <div id="container"></div>
-            <p>   </p>
-            <p class="highcharts-description">
-                Gráfica con API externa con los valores actuales de los mercados en el mundo. 
-                    Extraida de la API Yahoo Finance de Rapidapi.
-                
-            </p>
-            <p> <strong> Tabla con los datos proporcionados por la API de los valores de los mercados: </strong> </p>
-
-        </figure>	
-        <Table bordered>
-            <thead>
-                <tr>
-                    <th> Zona </th>
-                    <th> Hora </th>
-                    <th> Valor de cambio</th>
-                    <th> Valor del mercado antes de cerrarse </th>
-                    <th> Valor del mercado </th>
-                </tr>
-            </thead>
-            <tbody>
-                {#each  pluginImports as  pluginImports}
-                <tr>
-                    <td> {pluginImports.exchangeTimezoneName} </td>
-                    <td> {pluginImports.regularMarketTime.fmt} </td>
-                    <td> {pluginImports.regularMarketChange.raw} </td>
-                    <td> {pluginImports.regularMarketPreviousClose.raw} </td>
-                    <td> {pluginImports.regularMarketPrice.raw} </td>
-                </tr>
-                {/each}
-            </tbody>
-        </Table>
-    {/await}
-    <p>
-        <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
-    </p>
-</figure>
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+                <p>   </p>
+                <p class="highcharts-description">
+                    Gráfica con API externa con los valores del bitcoin en euros. 
+                    Extraida de la API Alpha Vantage de Rapidapi.
+                </p>
+            </figure>
+        <p>
+            <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+        </p>
+  </figure>
 
 
 

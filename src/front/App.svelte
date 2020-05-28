@@ -37,6 +37,9 @@
 	import sos1920_30 from './RoadsAPI/integrations/sos1920-30.svelte';
 	import sos1920_02 from './RoadsAPI/integrations/sos1920-02.svelte';
 	import mercados from './RoadsAPI/integrations/mercados.svelte';
+	import covid from './RoadsAPI/integrations/covid.svelte';
+	import bitcoin from './RoadsAPI/integrations/bitcoin.svelte';
+	import prueba from './RoadsAPI/integrations/prueba.svelte';
 	import Analytics from './analytics/statistics.svelte';
 
 	import TrafficAccidentsIntegrations from './TrafficAccidentsAPI/Integrations/Home.svelte';
@@ -89,6 +92,10 @@
 		"/roads2/integrations/sos1920-27": sos1920_27,
 		"/roads2/integrations/sos1920-30": sos1920_30,
 		"/roads2/integrations/mercados": mercados,
+		"/roads2/integrations/covid": covid,
+		"/roads2/integrations/bitcoin": bitcoin,
+		"/roads2/integrations/prueba": prueba,
+
 
 
 		"/traffic_accidents/integrations": TrafficAccidentsIntegrations,

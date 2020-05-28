@@ -28,5 +28,14 @@
     <a href="#/roads2/integrations/mercados">API de mercados del mundo</a>
 </p>
 <p>
+    <a href="#/roads2/integrations/covid">API del coronavirus en la India</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/bitcoin">API de valores de los bitcoins</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/prueba">API del prueba</a>
+</p>
+<p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </p>
