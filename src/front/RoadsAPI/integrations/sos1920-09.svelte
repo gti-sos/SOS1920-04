@@ -34,7 +34,7 @@
         MyData.forEach( (r) => {
             valor = {
                    name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0]
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, null, null, null]
                }
             valores.push(valor);
         });
@@ -42,7 +42,7 @@
             if(v.country == "Spain"){
                valor = {
                    name: v.country + "(" + v.year + ")",
-                   data: [0, 0, 0, 0, v['pev-stock'], v['annual-sale'], v['cars-per-1000']]
+                   data: [null, null, null, null, v['pev-stock'], v['annual-sale'], v['cars-per-1000']]
                }
                console.log("oneway: " + v['pev-stock']);
                valores.push(valor);

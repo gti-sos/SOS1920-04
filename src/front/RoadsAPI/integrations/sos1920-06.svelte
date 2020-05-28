@@ -12,7 +12,7 @@
     
     const url = "/api/v1/not-hospitalized-stats";
 
-    let pluginVehicles = [];
+    let pluginHospitalized = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
@@ -20,33 +20,31 @@
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginVehicles = json;
-			console.log("Received " +  pluginVehicles.length + " renewable sources stats.");
+            pluginHospitalized = json;
+			console.log("Received " +  pluginHospitalized.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
         }
         const resData = await fetch("/api/v1/roads");
         MyData = await resData.json();
-        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Ventas acumuladas", "Ventas anuales",
-         "Coches cada 1000"];
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Vias urbanas", "Vias interurbanas",
+         "Totales"];
         let valores = [];
         let valor = {};
         MyData.forEach( (r) => {
             valor = {
                    name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0]
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, null, null, null]
                }
             valores.push(valor);
         });
-        pluginVehicles.forEach( (v) => {
-            if(v.country == "Spain"){
-               valor = {
-                   name: v.country + "(" + v.year + ")",
-                   data: [0, 0, 0, 0, v['pev-stock'], v['annual-sale'], v['cars-per-1000']]
-               }
-               console.log("oneway: " + v['pev-stock']);
-               valores.push(valor);
+        pluginHospitalized.forEach( (v) => {
+            valor = {
+                name: v.province + "(" + v.year + ")",
+                data: [null, null, null, null, v['urban'], v['interurban'], v['total']]
             }
+            console.log("oneway: " + v['total']);
+            valores.push(valor);
             
         });
 
@@ -55,10 +53,10 @@
                 type: 'area'
             },
             title: {
-                text: 'Integración entre carreteras y vehiculos electricos'
+                text: 'Integración entre carreteras y no hospitalizados'
             },
             subtitle: {
-                text: 'Source: SOS1920-09'
+                text: 'Source: SOS1920-06'
             },
             xAxis: {
                 categories: items,
@@ -105,9 +103,9 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-        {#await  pluginVehicles}
+        {#await  pluginHospitalized}
             Loading renewable sources...
-        {:then  pluginVehicles}
+        {:then  pluginHospitalized}
             <figure class="highcharts-figure">
                 <div id="container"></div>
                 <p>   </p>
@@ -121,21 +119,21 @@
             <Table bordered>
                 <thead>
                     <tr>
-                        <th> País </th>
+                        <th> Provincia </th>
                         <th> Año </th>
-                        <th> Fabricados</th>
-                        <th> Ventas Anuales </th>
-                        <th> Coches por mil </th>
+                        <th> Urbano</th>
+                        <th> Interurbano </th>
+                        <th> Total </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {#each  pluginVehicles as  pluginVehicles}
+                    {#each  pluginHospitalized as  pluginHospitalized}
                     <tr>
-                        <td> {pluginVehicles.country} </td>
-                        <td> {pluginVehicles.year} </td>
-                        <td> {pluginVehicles['pev-stock']} </td>
-                        <td> {pluginVehicles['annual-sale']} </td>
-                        <td> {pluginVehicles['cars-per-1000']} </td>
+                        <td> {pluginHospitalized.province} </td>
+                        <td> {pluginHospitalized.year} </td>
+                        <td> {pluginHospitalized['urban']} </td>
+                        <td> {pluginHospitalized['interurban']} </td>
+                        <td> {pluginHospitalized['total']} </td>
                     </tr>
                     {/each}
                 </tbody>
@@ -150,7 +148,7 @@
 
 <style>
 	#container {
-    height: 400px; 
+    height: 550px; 
 }
 
 .highcharts-figure, .highcharts-data-table table {

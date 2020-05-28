@@ -33,7 +33,7 @@
         MyData.forEach( (r) => {
             valor = {
                    name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0]
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, null]
                }
             valores.push(valor);
         });
@@ -41,7 +41,7 @@
             if(v.place == "Europa"){
                valor = {
                    name: v.place + "(" + v.year + ")",
-                   data: [0, 0, 0, 0,  v['sugarconsume']]
+                   data: [null, null, null, null,  v['sugarconsume']]
                }
                console.log("oneway: " + parseInt(v['sugarconsume']));
                valores.push(valor);

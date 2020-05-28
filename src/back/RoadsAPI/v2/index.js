@@ -4,7 +4,7 @@ module.exports = function(app){
 	const path = require("path");
 	
 	const dbFileName = path.join(__dirname, "RoadsAPI.db");
-    const BASE_API_URL = "/api/v1";
+    const BASE_API_URL = "/api/v2";
 
     var sos1920_06 = 'https://sos1920-06.herokuapp.com';
 	var recurso06 = '/api/v1/not-hospitalized-stats';
@@ -17,7 +17,7 @@ module.exports = function(app){
 	app.use(express.static('.'));
 
 	var sos1920_02 = 'https://sos1920-02.herokuapp.com';
-	var recurso02 = '/api/v2/evolution-of-cycling-routes';
+	var recurso02 = '/api/v1/evolution-of-cycling-routes';
 
     app.use(recurso02, function(req, res) {
 		var url = sos1920_02 + req.baseUrl + req.url;

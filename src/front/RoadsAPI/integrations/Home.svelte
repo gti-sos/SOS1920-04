@@ -23,6 +23,10 @@
 <p>
     <a href="#/roads2/integrations/sos1920-30">API de consumo de azucar</a>
 </p>
+<h2><strong> Integraciones externas</strong></h2>
+<p>
+    <a href="#/roads2/integrations/mercados">API de mercados del mundo</a>
+</p>
 <p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </p>

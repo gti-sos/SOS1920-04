@@ -12,7 +12,7 @@
     
     const url = "/api/v2/evolution-of-cycling-routes";
 
-    let pluginVehicles = [];
+    let pluginCycling = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
@@ -20,34 +20,29 @@
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginVehicles = json;
-			console.log("Received " +  pluginVehicles.length + " renewable sources stats.");
+            pluginCycling = json;
+			console.log("Received " +  pluginCycling.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
         }
         const resData = await fetch("/api/v1/roads");
         MyData = await resData.json();
-        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Ventas acumuladas", "Ventas anuales",
-         "Coches cada 1000"];
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Metropolitano", "Urbano",
+         "Resto"];
         let valores = [];
         let valor = {};
         MyData.forEach( (r) => {
-            valor = {
-                   name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0]
-               }
-            valores.push(valor);
-        });
-        pluginVehicles.forEach( (v) => {
-            if(v.country == "Spain"){
-               valor = {
-                   name: v.country + "(" + v.year + ")",
-                   data: [0, 0, 0, 0, v['pev-stock'], v['annual-sale'], v['cars-per-1000']]
-               }
-               console.log("oneway: " + v['pev-stock']);
-               valores.push(valor);
-            }
-            
+            pluginCycling.forEach( (v) => {
+                if(r.province.toLowerCase() == v.province ){
+                    valor = {
+                        name: r.province + "(" + r.year + "-" + v.year + ")",
+                        data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 
+                                v['metropolitan'], v['urban'], v['rest']]
+                        }
+                    valores.push(valor);
+                }
+                
+            });    
         });
 
         Highcharts.chart('container', {
@@ -55,10 +50,10 @@
                 type: 'area'
             },
             title: {
-                text: 'Integración entre carreteras y vehiculos electricos'
+                text: 'Integración entre el numero de carreteras y los kilometros de carriles bici'
             },
             subtitle: {
-                text: 'Source: SOS1920-09'
+                text: 'Source: SOS1920-02'
             },
             xAxis: {
                 categories: items,
@@ -105,37 +100,40 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-        {#await  pluginVehicles}
+        {#await  pluginCycling}
             Loading renewable sources...
-        {:then  pluginVehicles}
+        {:then  pluginCycling}
             <figure class="highcharts-figure">
                 <div id="container"></div>
                 <p>   </p>
                 <p class="highcharts-description">
-                    Grafica uniendo los datos de carreteras, con los de vehiculos eléctricos. Solo podemos
-                    mostrar los datos de España, ya que son los unicos datos comparables con los nuestros.
+                    Grafica uniendo los datos de carreteras, con los carriles bici. En 
+                    este caso hemos podido unir ambos datos por las provincias en las que coinciden
+                    nuestras APIs. Entre parentesis ponemos el año al que se refiere nuestra API
+                    y el año al que se refiere la suya.
+                    
                 </p>
-                <p> <strong> Tabla con los datos proporcionados por la API de vehiculos eléctricos: </strong> </p>
+                <p> <strong> Tabla con los datos proporcionados por la API de carriles de bici: </strong> </p>
 
             </figure>	
             <Table bordered>
                 <thead>
                     <tr>
-                        <th> País </th>
+                        <th> Provincia </th>
                         <th> Año </th>
-                        <th> Fabricados</th>
-                        <th> Ventas Anuales </th>
-                        <th> Coches por mil </th>
+                        <th> Metropolitano</th>
+                        <th> Urbano </th>
+                        <th> Resto </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {#each  pluginVehicles as  pluginVehicles}
+                    {#each  pluginCycling as  pluginCycling}
                     <tr>
-                        <td> {pluginVehicles.country} </td>
-                        <td> {pluginVehicles.year} </td>
-                        <td> {pluginVehicles['pev-stock']} </td>
-                        <td> {pluginVehicles['annual-sale']} </td>
-                        <td> {pluginVehicles['cars-per-1000']} </td>
+                        <td> {pluginCycling.province} </td>
+                        <td> {pluginCycling.year} </td>
+                        <td> {pluginCycling['metropolitan']} </td>
+                        <td> {pluginCycling['urban']} </td>
+                        <td> {pluginCycling['rest']} </td>
                     </tr>
                     {/each}
                 </tbody>

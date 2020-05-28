@@ -34,7 +34,7 @@
         MyData.forEach( (r) => {
             valor = {
                    name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 0, 0, 0, 0]
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, null, null, null, null]
                }
             valores.push(valor);
         });
@@ -42,7 +42,7 @@
             if(v.country == "european-union-27" && v.year > 2014){
                valor = {
                    name: v.country + "(" + v.year + ")",
-                   data: [0, 0, 0, 0, v['gdabarley'], v['gdaoat'],v['gdawaste'], v['gdaethylalcohol']]
+                   data: [null, null, null, null, v['gdabarley'], v['gdaoat'],v['gdawaste'], v['gdaethylalcohol']]
                }
                valores.push(valor);
             }

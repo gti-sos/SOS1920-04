@@ -10,44 +10,43 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "http://sos1920-27.herokuapp.com/api/v2/spc-stats";
+    const url = "https://sos1920-07.herokuapp.com/api/v2/imports";
 
-    let pluginSPC = [];
+    let pluginImports = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch(url); 
+		const res = await fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary?region=US&lang=en", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
+		"x-rapidapi-key": "1aadc89e2cmsh7affff1b7dc9661p1e119fjsneb577e40a33e"
+	}
+}); 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginSPC = json;
-			console.log("Received " +  pluginSPC.length + " renewable sources stats.");
+            pluginImports = json;
+			console.log("Received " +  pluginImports.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
-        }
-        const resData = await fetch("/api/v1/roads");
-        MyData = await resData.json();
-        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Ambos sexos", "Rango de hombres",
-         "rango de mujeres"];
-        let valores = [];
+		}
+        let items = ["Valor de cambio", "Valor del mercado antes de cerrarse", "Valor del mercado"];
         let valor = {};
-        MyData.forEach( (r) => {
-            valor = {
-                   name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, null, null, null]
-               }
-            valores.push(valor);
-        });
-        pluginSPC.forEach( (v) => {
-            if(v['continent'] == "europe"){
-               valor = {
-                   name: v.country + "(" + v.year + ")",
-                   data: [null, null, null, null,  parseInt(v['both_sex']),v['male_rank'], v['female_rank']]
-               }
-               console.log("oneway: " + parseInt(v['both_sex']));
-               valores.push(valor);
+        let valores = [];
+        let paises = [];
+        pluginImports.marketSummaryResponse.result.forEach( (v) => {
+            if(paises.includes(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")")) {
+
             }
-            
+            else {
+                valor = {
+                   name: v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")",
+                   data: [v.regularMarketChange.raw,v.regularMarketPreviousClose.raw, v.regularMarketPrice.raw]
+               }
+                valores.push(valor);
+                paises.push(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")");
+            }            
         });
 
         Highcharts.chart('container', {
@@ -55,10 +54,10 @@
                 type: 'area'
             },
             title: {
-                text: 'Integración entre carreteras y SPCs'
+                text: 'Valores actuales de los mercados en el mundo'
             },
             subtitle: {
-                text: 'Source: SOS1920-27'
+                text: 'Source: RapidAPI'
             },
             xAxis: {
                 categories: items,
@@ -73,13 +72,13 @@
                 },
                 labels: {
                     formatter: function () {
-                        return this.value;
+                        return this.value ;
                     }
                 }
             },
             tooltip: {
                 split: true,
-                valueSuffix: ' '
+                valueSuffix: ''
             },
             plotOptions: {
                 area: {
@@ -105,42 +104,17 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-        {#await  pluginSPC}
+        {#await  pluginImports}
             Loading renewable sources...
-        {:then  pluginSPC}
+        {:then  pluginImports}
             <figure class="highcharts-figure">
                 <div id="container"></div>
                 <p>   </p>
                 <p class="highcharts-description">
-                    Grafica uniendo los datos de carreteras, con los de SPCs. Solo podemos
-                    mostrar los datos de algunos paises de Europa, ya que son los unicos datos
-                    comparables con los nuestros.
+                    Gráfica con API externa con los valores actuales de los mercados en el mundo. 
+                    Extraida de la API Yahoo Finance de Rapidapi.
                 </p>
-                <p> <strong> Tabla con los datos proporcionados por la API de vehiculos eléctricos: </strong> </p>
-
             </figure>	
-            <Table bordered>
-                <thead>
-                    <tr>
-                        <th> País </th>
-                        <th> Año </th>
-                        <th> Ambos sexos</th>
-                        <th> Rango de hombres </th>
-                        <th> Rango de mujeres </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {#each  pluginSPC as  pluginSPC}
-                    <tr>
-                        <td> {pluginSPC.country} </td>
-                        <td> {pluginSPC.year} </td>
-                        <td> {pluginSPC['both_sex']} </td>
-                        <td> {pluginSPC['male_rank']} </td>
-                        <td> {pluginSPC['female_rank']} </td>
-                    </tr>
-                    {/each}
-                </tbody>
-            </Table>
         {/await}
         <p>
             <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
@@ -151,7 +125,7 @@
 
 <style>
 	#container {
-        height: 550px; 
+    height: 550px; 
 }
 
 .highcharts-figure, .highcharts-data-table table {
