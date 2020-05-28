@@ -10,9 +10,9 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-01.herokuapp.com/api/v2/natality-stats";
+	const url = "/api/v2/natality-stats";
 	
-	onMount(getNatalitystats );
+	onMount(getNatalitystats);
     let natalitystats  = [];
 	async function getNatalitystats() {
 		console.log("Fetching natality stats...");	
@@ -32,10 +32,9 @@
 		MyData = await resData.json();
 		let parsed_data = [];
 		MyData.forEach( (v) => {
-            let total = Math.round(v.total / 10) / 100
 			let data = {
 				name: v.province + " " + v.year,
-				data: [total, null]
+				data: [v.total, null]
 			};
 			parsed_data.push(data)
 		});
@@ -43,11 +42,13 @@
 		natalitystats = await resData2.json();
 		console.log(natalitystats);
 		natalitystats.forEach( (n) => {
-            let data = {
-                name: n.country +" " + n.year,
+			if(n.country == "spain"){
+				let data = {
+                name: "España " + n.year,
                 data: [null, n.natality_totals]
-            };
-            parsed_data.push(data)
+            	};
+           	 parsed_data.push(data)
+			};
 		});
 		
 		Highcharts.chart('container', {

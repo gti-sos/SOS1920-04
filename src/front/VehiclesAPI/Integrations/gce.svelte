@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-28.herokuapp.com/api/v1/gce";
+	const url = "/api/v1/gce";
 	
 	onMount(getGce);
     let gce = [];
@@ -42,11 +42,14 @@
 		gce = await resData2.json();
 		console.log(gce);
 		gce.forEach( (g) => {
-            let data = {
-                name: g.country +" " + g.year,
+			if (g.country== "Spain"){
+				let data = {
+                name: "España " + g.year,
                 data: [null, g.gce_cars]
-            };
-            parsed_data.push(data)
+            	};
+            	parsed_data.push(data)
+			}
+            
 		});
 		
 		Highcharts.chart('container', {

@@ -27,8 +27,7 @@
 	import sos1920_06_lottery_sales from './VehiclesAPI/Integrations/lottery_sales.svelte';
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
-
-	import Company from './VehiclesAPI/Integrations/company.svelte';
+	import incidents from './VehiclesAPI/Integrations/incidents.svelte';
 
 	import RoadsIntegrations from './RoadsAPI/integrations/Home.svelte';
 	import sos1920_06 from './RoadsAPI/integrations/sos1920-06.svelte';
@@ -48,8 +47,9 @@
 	import sos1920_02_TA from './TrafficAccidentsAPI/Integrations/sos1920-02.svelte';
 	import sos1920_05_TA from './TrafficAccidentsAPI/Integrations/sos1920-05.svelte';
 	import sos1920_22_TA from './TrafficAccidentsAPI/Integrations/sos1920-22.svelte';
-
-
+	import apiexternacontaminacionmadrid from './TrafficAccidentsAPI/Integrations/apiexternacontaminacionmadrid.svelte';
+	import apiexternapaises from './TrafficAccidentsAPI/Integrations/apiexternapaises.svelte';
+	
 	import About from './about/about.svelte';
 
 	const routes = {
@@ -79,7 +79,7 @@
 		'/vehiclesI/integrations/gce': sos1920_28_gce,
 		'/vehiclesI/integrations/lottery_sales': sos1920_06_lottery_sales,
 		'/vehiclesI/integrations/formula_stats': sos1920_22_formula_stats,
-		"/vehiclesI/integrations/company": Company,
+		"/vehiclesI/integrations/incidents": incidents,
 
 		"/roads/integrations": RoadsIntegrations,
 		"/roads2/integrations/sos1920-02": sos1920_02,
@@ -99,6 +99,8 @@
 		"/traffic_accidentsI/integrations/sos1920-02": sos1920_02_TA,
 		"/traffic_accidentsI/integrations/sos1920-05": sos1920_05_TA,
 		"/traffic_accidentsI/integrations/sos1920-22": sos1920_22_TA,
+		"/traffic_accidentsI/integrations/apiexternacontaminacionmadrid": apiexternacontaminacionmadrid,
+		"/traffic_accidentsI/integrations/apiexternapaises": apiexternapaises,
 
 		"*" : NotFound
 	};

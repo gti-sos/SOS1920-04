@@ -10,18 +10,19 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-02.herokuapp.com/api/v2/traffic-accidents";
+	const url = "https://bikewise.org/api/v2/incidents";
 	
-	onMount(getTrafficAccidents);
-    let trafficAccidents = [];
-	async function getTrafficAccidents() {
-		console.log("Fetching traffic accidents...");	
+	onMount(getIncidents);
+    let incidents = [];
+	async function getIncidents() {
+		console.log("Fetching incidents...");	
 		const res = await fetch(url); 
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-			trafficAccidents = json;
-			console.log("Received " + trafficAccidents.length + " traffic accidents.");
+			incidents = json.incidents;
+			console.log(incidents)
+			console.log("Received " + incidents.length + " incidents.");
 		} else {
 			console.log("ERROR!");
 		}
@@ -30,32 +31,56 @@
 		let MyData = [];
 		const resData = await fetch("/api/v1/vehicles");
 		MyData = await resData.json();
-		let MyData2 = [];
-        const resData2 = await fetch(url);
-        MyData2 = await resData2.json();
 		let parsed_data = [];
 		MyData.forEach( (v) => {
-            MyData2.forEach( (t) =>{
-                if(v.province.toLowerCase()==t.province && v.year==t.year){
-                    let total = Math.round(v.total / 10) / 100
-                    let data = {
-                        name: v.province + " " + v.year,
-                        data: [total, t.trafficaccidentvictim]
-                    };
-                    parsed_data.push(data)
-                };
-            });
+			let total = Math.round(v.total / 100) / 100
+			let data = {
+				name: v.province + " " + v.year,
+				data: [total, null, null, null]
+			};
+			parsed_data.push(data)
 		});
+		const resData2 = await fetch(url);
+		let incidents2 = await resData2.json();
+		incidents2 = incidents2.incidents;
+		console.log(incidents2);
+		let theft = 0;
+		let hazzard = 0;
+		let unconfirmed = 0;
+		incidents2.forEach( (i) => {
+			if (i.type == "Theft"){
+				theft = theft + 1;
+			}else if (i.type == "Hazard"){
+				hazzard = hazzard + 1;
+			}else {
+				unconfirmed = unconfirmed + 1;
+			};
+		});
+		let data = {
+			name: "Robo",
+			data: [null, theft, null, null]
+		};
+		parsed_data.push(data)
+		data = {
+			name: "Peligro",
+			data: [null, null, hazzard, null]
+		};
+		parsed_data.push(data)
+		data = {
+			name: "Sin confirmar",
+			data: [null, null, null, unconfirmed]
+		};
+		parsed_data.push(data)
 		
 		Highcharts.chart('container', {
 			chart: {
 				type: 'column'
 			},
 			title: {
-				text: 'Total de vehículos y víctimas de accidentes de tráfico'
+				text: 'Total de vehículos y tipos de incidentes con bicicletas'
 			},
 			xAxis: {
-				categories: ["Vehículos (en miles)", "Víctimas de accidentes de tráfico"]
+				categories: ["Vehículos (10000)", "Robos", "Peligros", "Sin confirmar"]
 			},
 			yAxis: {
 				min: 0,
@@ -149,33 +174,29 @@
 
 <main>
 
-	{#await trafficAccidents}
-		Loading overdose deaths ...
-	{:then trafficAccidents}
+	{#await incidents}
+		Loading incidents ...
+	{:then incidents}
 		<figure class="highcharts-figure">
 			<div id="container"></div>
 			<p class="highcharts-description">
-				El gráfico compara el número total de vehículos y las víctimas de accidentes de tráfico.
+				El gráfico compara el número total de vehículos según la provincia y los incidentes con bicicletas en Gran Bretaña.
 			</p>
 		</figure>	
 		<Table bordered>
 			<thead>
 				<tr>
-                    <th>Provincia</th>
-                    <th>Año</th>
-                    <th>Accidentes con víctimas</th>
-                    <th>Fallecidos</th>
-                    <th>Heridos</th>
+                    <th>Dirección</th>
+					<th>Título</th>
+					<th>Tipo</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each trafficAccidents as trafficAccident}
+				{#each incidents as incident}
 				<tr>
-                    <td>{trafficAccident.province}</td>
-                    <td>{trafficAccident.year}</td>
-                    <td>{trafficAccident.trafficaccidentvictim}</td>
-                    <td>{trafficAccident.dead}</td>
-                    <td>{trafficAccident.injured}</td>
+                    <td>{incident.address}</td>
+                    <td>{incident.title}</td>
+                    <td>{incident.type}</td>
 				</tr>
 				{/each}
 			</tbody>
