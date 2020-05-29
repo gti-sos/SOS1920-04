@@ -136,6 +136,6 @@
 </script>
 
 <main>
-	<h1>Análisis del tráfico en España</h1>
+	<h1><strong>  Análisis del tráfico en España</strong></h1>
 	<Router {routes}/>
 </main>
