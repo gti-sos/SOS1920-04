@@ -16,6 +16,7 @@
 	import RoadsStatistics2 from './RoadsAPI/RoadsStatistics2.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
 	import TrafficAccidentsStatistics2 from './TrafficAccidentsAPI/TrafficAccidentsStatistics2.svelte';
+	import integrations from "./integrations.svelte";
 
 	import VehiclesIntegrations from './VehiclesAPI/Integrations/Home.svelte';
 	import sos1920_12_overdose_deaths from './VehiclesAPI/Integrations/overdose_deaths.svelte';
@@ -125,6 +126,7 @@
 		"/traffic_accidentsI/integrations/apiexternacontaminacionmadrid": apiexternacontaminacionmadrid,
 		"/traffic_accidentsI/integrations/apiexternapaises": apiexternapaises,
 
+		"/integrations": integrations,
 		"*" : NotFound
 	};
 </script>
