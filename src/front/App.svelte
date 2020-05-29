@@ -28,6 +28,9 @@
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
 	import incidents from './VehiclesAPI/Integrations/incidents.svelte';
+	import coronavirus from './VehiclesAPI/Integrations/coronavirus.svelte';
+	import incidenciasDGT from './VehiclesAPI/Integrations/incidenciasDGT.svelte';
+	import vehiculosZaragoza from './VehiclesAPI/Integrations/vehiculosZaragoza.svelte';
 
 	import RoadsIntegrations from './RoadsAPI/integrations/Home.svelte';
 	import sos1920_06 from './RoadsAPI/integrations/sos1920-06.svelte';
@@ -87,6 +90,9 @@
 		'/vehiclesI/integrations/lottery_sales': sos1920_06_lottery_sales,
 		'/vehiclesI/integrations/formula_stats': sos1920_22_formula_stats,
 		"/vehiclesI/integrations/incidents": incidents,
+		"/vehiclesI/integrations/coronavirus": coronavirus,
+		"/vehiclesI/integrations/incidenciasDGT": incidenciasDGT,
+		"/vehiclesI/integrations/vehiculosZaragoza": vehiculosZaragoza,
 
 
 		"/roads/integrations": RoadsIntegrations,
