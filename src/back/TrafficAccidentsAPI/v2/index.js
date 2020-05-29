@@ -2,29 +2,10 @@ module.exports = function(app){
 	console.log("Registering Traffic Accidents API...")
 	const dataStore = require("nedb");
 	const path = require("path");
-	
+	const request = require("request");
+
 	const dbFileName = path.join(__dirname,"TrafficAccidentsAPI.db");
 	const BASE_API_URL = "/api/v1";
-
-	var sos1920_09_TA = 'https://sos1920-09.herokuapp.com';
-	var recurso06_TA = '/api/v2/oil-coal-nuclear-energy-consumption-stats';
-
-    app.use(recurso06_TA, function(req, res) {
-		var url = sos1920_09_TA + req.baseUrl + req.url;
-		console.log('piped: ' + req.baseUrl + req.url);
-		req.pipe(request(url)).pipe(res);
-	});
-	app.use(express.static('.'));
-
-	var sos1920_23_TA = 'https://sos1920-23.herokuapp.com';
-	var recurso23_TA = '/API/v2/cigarretes-sales';
-
-    app.use(recurso23_TA, function(req, res) {
-		var url = sos1920_23_TA + req.baseUrl + req.url;
-		console.log('piped: ' + req.baseUrl + req.url);
-		req.pipe(request(url)).pipe(res);
-	});
-	app.use(express.static('.'));
 
 	var sos1920_01_TA = 'https://sos1920-01.herokuapp.com';
 	var recurso01_TA = '/api/v2/poverty-stats';
@@ -34,7 +15,7 @@ module.exports = function(app){
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
+
 
 	var sos1920_07_TA = 'https://sos1920-07.herokuapp.com';
 	var recurso07_TA = '/api/v2/foodsImports';
@@ -44,7 +25,7 @@ module.exports = function(app){
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
+
 
 	var sos1920_02_TA = 'https://sos1920-02.herokuapp.com';
 	var recurso02_TA = '/API/v2/rural-tourism-stats';
@@ -54,7 +35,7 @@ module.exports = function(app){
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
+
 
 	var sos1920_05_TA = 'https://sos1920-05.herokuapp.com';
 	var recurso05_TA = '/api/v1/health_public';
@@ -64,7 +45,7 @@ module.exports = function(app){
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
+
 
 	var sos1920_22_TA = 'https://sos1920-22.herokuapp.com';
 	var recurso22_TA = '/api/v1/swim-stats';
@@ -74,7 +55,7 @@ module.exports = function(app){
 		console.log('piped: ' + req.baseUrl + req.url);
 		req.pipe(request(url)).pipe(res);
 	});
-	app.use(express.static('.'));
+
 
 	
 	

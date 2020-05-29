@@ -31,9 +31,19 @@
 		} else {
 			console.log("ERROR!");
 		}
-        let items = ["Valor de cambio", "Valor del mercado antes de cerrarse", "Valor del mercado"];
+        const resData = await fetch("/api/v1/roads");
         let valor = {};
         let valores = [];
+        MyData = await resData.json();
+        MyData.forEach( (r) => {
+            valor = {
+                   name: r.province + "(" + r.year + ")",
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, r.total, null, null, null]
+               }
+            valores.push(valor);
+        });
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Total", 
+        "Valor de cambio", "Valor del mercado antes de cerrarse", "Valor del mercado"];
         let paises = [];
         pluginImports = pluginImports.marketSummaryResponse.result;
         pluginImports.forEach( (v) => {
@@ -43,7 +53,8 @@
             else {
                 valor = {
                    name: v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")",
-                   data: [v.regularMarketChange.raw,v.regularMarketPreviousClose.raw, v.regularMarketPrice.raw]
+                   data: [null, null, null, null, null,
+                   v.regularMarketChange.raw,v.regularMarketPreviousClose.raw, v.regularMarketPrice.raw]
                }
                 valores.push(valor);
                 paises.push(v.exchangeTimezoneName + "(" + v.regularMarketTime.fmt + ")");
@@ -105,43 +116,14 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-    {#await  pluginImports}
-        Loading renewable sources...
-    {:then  pluginImports}
         <figure class="highcharts-figure">
             <div id="container"></div>
             <p>   </p>
             <p class="highcharts-description">
-                Gráfica con API externa con los valores actuales de los mercados en el mundo. 
-                    Extraida de la API Yahoo Finance de Rapidapi.
-                
+                Gráfica con API externa con los valores actuales de los mercados en el mundo con mi API de numero de carreteras. 
+                Extraida de la API Yahoo Finance de Rapidapi.
             </p>
-            <p> <strong> Tabla con los datos proporcionados por la API de los valores de los mercados: </strong> </p>
-
         </figure>	
-        <Table bordered>
-            <thead>
-                <tr>
-                    <th> Zona </th>
-                    <th> Hora </th>
-                    <th> Valor de cambio</th>
-                    <th> Valor del mercado antes de cerrarse </th>
-                    <th> Valor del mercado </th>
-                </tr>
-            </thead>
-            <tbody>
-                {#each  pluginImports as  pluginImports}
-                <tr>
-                    <td> {pluginImports.exchangeTimezoneName} </td>
-                    <td> {pluginImports.regularMarketTime.fmt} </td>
-                    <td> {pluginImports.regularMarketChange.raw} </td>
-                    <td> {pluginImports.regularMarketPreviousClose.raw} </td>
-                    <td> {pluginImports.regularMarketPrice.raw} </td>
-                </tr>
-                {/each}
-            </tbody>
-        </Table>
-    {/await}
     <p>
         <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
     </p>

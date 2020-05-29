@@ -28,47 +28,118 @@
 	}
 
 	async function loadGraph(){
-    
-	let MyData = [];
-	
 
-	const resData = await fetch(url);
-	MyData = await resData.json();
+	let MyDataAPI = [];
+	let MyData = [];
 	let parsed_data = [];
-	let country = [];
+	const resData1 = await fetch(url);
+	MyData = await resData1.json();
+	const resData2 = await fetch("/api/v1/traffic_accidents");
+	MyDataAPI = await resData2.json();
+	let provinces = [];
+    let accidentWithVictims = [];
+	var accidentWithVictimsT = 0;
+
+    let mortalAccident = [];
+	var mortalAccidentT= 0;
+
+    let death = [];
+	var deathT= 0;
+
+    let hospitalizedWounded = [];
+	var hospitalizedWoundedT= 0;
+
+    let notHospitalizedWounded = [];
+	var notHospitalizedWoundedT= 0;
+
 	let oilConsuption = [];
 	let coalConsuption = [];
 	let nuclearEnergyConsumption = [];
-	
 
+    MyDataAPI.forEach( (v) => {
+		if(v.year == 2017){
+        let provinceyear = v.province + " (" + v.year + ")";
+        provinces.push(provinceyear);
+        accidentWithVictims.push(v.accidentWithVictims);
+		accidentWithVictimsT = accidentWithVictimsT + v.accidentWithVictims;
+        mortalAccident.push(v.mortalAccident);
+		mortalAccidentT = mortalAccidentT + v.mortalAccident;
+        death.push(v.death);
+		deathT = deathT + v.death;
+        hospitalizedWounded.push(v.hospitalizedWounded);
+		hospitalizedWoundedT = hospitalizedWoundedT + v.hospitalizedWounded;
+        notHospitalizedWounded.push(v.notHospitalizedWounded);
+		notHospitalizedWoundedT = notHospitalizedWoundedT + v.notHospitalizedWounded;
+		oilConsuption.push(0);
+		coalConsuption.push(0);
+		nuclearEnergyConsumption.push(0);
+		}
+    });
 	MyData.forEach( (v) => {
-		let countryyear = v.country + " (" + v.year + ")";
-		country.push(countryyear);
-		oilConsuption.push(v['oil-consumption']);
-		coalConsuption.push(v['coal-consumption']);
-		nuclearEnergyConsumption.push(v['nuclear-energy-consumption']);
+		if(v.country=="Spain"){
+			let countryyear = v.country + " (" + v.year + ")";
+			provinces.push(countryyear);
+			accidentWithVictims.push(accidentWithVictimsT);
+			mortalAccident.push(mortalAccidentT);
+			death.push(deathT);
+			hospitalizedWounded.push(hospitalizedWoundedT);
+			notHospitalizedWounded.push(notHospitalizedWoundedT);
+			oilConsuption.push(v['oil-consumption']);
+			coalConsuption.push(v['coal-consumption']);
+			nuclearEnergyConsumption.push(v['nuclear-energy-consumption']);
+		}
 	});
-
 	let graphic_data1 = {
+            name: 'Accidentes con víctimas',
+            data: accidentWithVictims,
+            stack: 'Accidentes'
+        };
+        let graphic_data2 = {
+            name: 'Accidentes mortales',
+            data: mortalAccident,
+            stack: 'Accidentes'
+        };
+        let graphic_data3 = {
+            name: 'Muertes',
+            data: death,
+            stack: 'Víctimas'
+        };
+        let graphic_data4 = {
+            name: 'Víctimas hospitalizadas',
+            data: hospitalizedWounded,
+            stack: 'Víctimas'
+        };
+        let graphic_data5 = {
+            name: 'Víctimas no hospitalizadas',
+            data: notHospitalizedWounded,
+            stack: 'Víctimas'
+        };
+
+	let graphic_data6 = {
 		name: 'Consumo aceite',
 		data: oilConsuption,
 		stack: 'Consumo'
 	};
-	let graphic_data2 = {
+	let graphic_data7 = {
 		name: 'Consumo carbón',
 		data: coalConsuption,
 		stack: 'Consumo'
 	};
-	let graphic_data3 = {
+	let graphic_data8 = {
 		name: 'Consumo energía nuclear',
 		data: nuclearEnergyConsumption,
 		stack: 'Consumo'
 	};
 	
-	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data1);
+	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data3);
-	
+	parsed_data.push(graphic_data4);
+	parsed_data.push(graphic_data5);
+	parsed_data.push(graphic_data6);
+	parsed_data.push(graphic_data7);
+	parsed_data.push(graphic_data8);
+
 
 	Highcharts.chart('container', {
 		chart: {
@@ -87,7 +158,7 @@
 	},
 
 	xAxis: {
-		categories: country,
+		categories: provinces,
 		labels: {
 		skew3d: true,
 		style: {
