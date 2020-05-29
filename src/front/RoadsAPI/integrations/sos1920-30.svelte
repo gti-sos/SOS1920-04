@@ -41,7 +41,7 @@
             if(v.place == "Europa"){
                valor = {
                    name: v.place + "(" + v.year + ")",
-                   data: [null, null, null, null,  v['sugarconsume']]
+                   data: [0, 0, 0, 0,  v['sugarconsume']]
                }
                console.log("oneway: " + parseInt(v['sugarconsume']));
                valores.push(valor);
