@@ -37,7 +37,13 @@
     <a href="#/vehiclesI/integrations/incidents">API externa de incidentes</a>
 </p>
 <p>
-    <a href="#/vehiclesI/integrations/university">API externa de universidades</a>
+    <a href="#/vehiclesI/integrations/coronavirus">API externa de Coronavirus</a>
+</p>
+<p>
+    <a href="#/vehiclesI/integrations/incidenciasDGT">API externa de incidencias de la DGT</a>
+</p>
+<p>
+    <a href="#/vehiclesI/integrations/vehiculosZaragoza">API externa de los vehículos que posee el Ayuntamiento de Zaragoza</a>
 </p>
 <p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
