@@ -7,36 +7,6 @@ module.exports = function(app){
 	const dbFileName = path.join(__dirname,"TrafficAccidentsAPI.db");
 	const BASE_API_URL = "/api/v1";
 
-	var sos1920_01_TA = 'https://sos1920-01.herokuapp.com';
-	var recurso01_TA = '/api/v2/poverty-stats';
-
-    app.use(recurso01_TA, function(req, res) {
-		var url = sos1920_01_TA + req.baseUrl + req.url;
-		console.log('piped: ' + req.baseUrl + req.url);
-		req.pipe(request(url)).pipe(res);
-	});
-
-
-	var sos1920_07_TA = 'https://sos1920-07.herokuapp.com';
-	var recurso07_TA = '/api/v2/foodsImports';
-
-    app.use(recurso07_TA, function(req, res) {
-		var url = sos1920_07_TA + req.baseUrl + req.url;
-		console.log('piped: ' + req.baseUrl + req.url);
-		req.pipe(request(url)).pipe(res);
-	});
-
-
-	var sos1920_02_TA = 'https://sos1920-02.herokuapp.com';
-	var recurso02_TA = '/API/v2/rural-tourism-stats';
-
-    app.use(recurso02_TA, function(req, res) {
-		var url = sos1920_02_TA + req.baseUrl + req.url;
-		console.log('piped: ' + req.baseUrl + req.url);
-		req.pipe(request(url)).pipe(res);
-	});
-
-
 	var sos1920_05_TA = 'https://sos1920-05.herokuapp.com';
 	var recurso05_TA = '/api/v1/health_public';
 
@@ -106,7 +76,7 @@ module.exports = function(app){
 		},
 		{
 			province:"Cadiz",
-			year: 2018,
+			year: 2016,
 			accidentWithVictims: 1872,
 			mortalAccident: 15,
 			death: 15,

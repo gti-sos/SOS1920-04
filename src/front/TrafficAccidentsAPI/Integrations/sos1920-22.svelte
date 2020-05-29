@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-22.herokuapp.com/api/v1/swim-stats";
+	const url = "/api/v1/swim-stats";
 	
 	onMount(getSwimmers);
     let swimmers = [];

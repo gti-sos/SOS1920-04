@@ -29,45 +29,102 @@
 
 	async function loadGraph(){
     
+	let MyDataAPI = [];
 	let MyData = [];
-	
-
-	const resData = await fetch(url);
-	MyData = await resData.json();
 	let parsed_data = [];
-	let country = [];
+	const resData1 = await fetch(url);
+	MyData = await resData1.json();
+	const resData2 = await fetch("/api/v1/traffic_accidents");
+	MyDataAPI = await resData2.json();
+
+	
+	let provinces = [];
+	let accidentWithVictims = [];
+    let mortalAccident = [];
+    let death = [];
+    let hospitalizedWounded = [];
+	let notHospitalizedWounded = [];
 	let poverty_prp = [];
 	let poverty_pt = [];
 	let poverty_ht = [];
 	
 
 	MyData.forEach( (v) => {
-		let countryyear = v.country + " (" + v.year + ")";
-		country.push(countryyear);
-		poverty_prp.push(v['poverty_prp']);
-		poverty_pt.push(v['poverty_pt']);
-		poverty_ht.push(v['poverty_ht']);
+		if(v.country == "spain" && v.year == 2017){
+			
+			provinces.push("España");
+			poverty_prp.push(v['poverty_prp']);
+			poverty_pt.push(v['poverty_pt']);
+			poverty_ht.push(v['poverty_ht']);
+		}
+		
 	});
 
+	accidentWithVictims.push(0);
+    mortalAccident.push(0);
+	death.push(0);
+    hospitalizedWounded.push(0);
+    notHospitalizedWounded.push(0);
+
+	MyDataAPI.forEach( (v) => {
+            provinces.push(v.province);
+            accidentWithVictims.push(v.accidentWithVictims);
+            mortalAccident.push(v.mortalAccident);
+            death.push(v.death);
+            hospitalizedWounded.push(v.hospitalizedWounded);
+            notHospitalizedWounded.push(v.notHospitalizedWounded);
+		});
+		
 	let graphic_data1 = {
+        name: 'Accidentes con víctimas',
+        data: accidentWithVictims,
+        stack: 'Accidentes'
+    };
+    let graphic_data2 = {
+        name: 'Accidentes mortales',
+        data: mortalAccident,
+        stack: 'Accidentes'
+     };
+     let graphic_data3 = {
+        name: 'Muertes',
+	    data: death,
+        stack: 'Víctimas'
+    };
+    let graphic_data4 = {
+        name: 'Víctimas hospitalizadas',
+        data: hospitalizedWounded,
+        stack: 'Víctimas'
+    };
+    let graphic_data5 = {
+        name: 'Víctimas no hospitalizadas',
+        data: notHospitalizedWounded,
+       stack: 'Víctimas'
+    };		
+
+	let graphic_data6 = {
 		name: 'Personas en riesgo de pobreza',
 		data: poverty_prp,
 		stack: 'Total'
 	};
-	let graphic_data2 = {
+	let graphic_data7 = {
 		name: 'Umbral persona',
 		data: poverty_pt,
 		stack: 'Umbral'
 	};
-	let graphic_data3 = {
+	let graphic_data8 = {
 		name: 'Umbral hogar',
 		data: poverty_ht,
 		stack: 'umbral'
 	};
 	
-	parsed_data.push(graphic_data2);
+	parsed_data.push(graphic_data6);
+	parsed_data.push(graphic_data7);
+	parsed_data.push(graphic_data8);
 	parsed_data.push(graphic_data1);
+	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data3);
+	parsed_data.push(graphic_data4);
+	parsed_data.push(graphic_data5);
 	
 
 	Highcharts.chart('container', {
@@ -87,7 +144,7 @@
 	},
 
 	xAxis: {
-		categories: country,
+		categories: provinces,
 		labels: {
 		skew3d: true,
 		style: {
