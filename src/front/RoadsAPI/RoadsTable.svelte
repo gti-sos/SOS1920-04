@@ -199,8 +199,8 @@
 				<tr>
 					<th>Provincia</th>
 					<th>Año</th>
-					<th>Unico Sentido</th>
-                    <th>Doble sentido</th>
+					<th>Un carril</th>
+                    <th>Doble carril</th>
                     <th>Autovia</th>
                     <th>Autopista</th>
                     <th>Total</th>
