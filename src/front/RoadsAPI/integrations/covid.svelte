@@ -31,15 +31,25 @@
 		} else {
 			console.log("ERROR!");
 		}
-        let items = ["Casos", "Recuperados", "Muertos"];
+        const resData = await fetch("/api/v1/roads");
         let valor = {};
         let valores = [];
+        MyData = await resData.json();
+        MyData.forEach( (r) => {
+            valor = {
+                   name: r.province + "(" + r.year + ")",
+                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, r.total, null, null, null]
+               }
+            valores.push(valor);
+        });
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Total","Casos", "Recuperados", "Muertos"];
         let i = 0;
         pluginCoronavirus.forEach( (v) => {
             if(i < 10) {
                 valor = {
                    name: v.name,
-                   data: [parseInt(v.cases), parseInt(v.recovered), parseInt(v.deaths)]
+                   data: [null, null, null, null, null,
+                       parseInt(v.cases), parseInt(v.recovered), parseInt(v.deaths)]
                 }
                 valores.push(valor);
             }
