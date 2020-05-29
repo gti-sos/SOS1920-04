@@ -37,5 +37,8 @@
     <a href="#/vehiclesI/integrations/incidents">API externa de incidentes</a>
 </p>
 <p>
+    <a href="#/vehiclesI/integrations/university">API externa de universidades</a>
+</p>
+<p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
 </p>
