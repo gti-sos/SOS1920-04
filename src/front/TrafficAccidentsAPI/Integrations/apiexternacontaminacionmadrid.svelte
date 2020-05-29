@@ -43,7 +43,7 @@
 				<tr>
 					<th>Distrito</th>
 					<th>Barrio</th>
-					<th>Mortalidad</th> 
+					<th>Actividad</th> 
 				</tr>
 			</thead>
 			<tbody>
