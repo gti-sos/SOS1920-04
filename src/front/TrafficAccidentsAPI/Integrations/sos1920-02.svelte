@@ -29,46 +29,96 @@
 
 	async function loadGraph(){
     
+	let MyDataAPI = [];
 	let MyData = [];
-	
-
-	const resData = await fetch(url);
-	MyData = await resData.json();
 	let parsed_data = [];
+	const resData1 = await fetch(url);
+	MyData = await resData1.json();
+	const resData2 = await fetch("/api/v1/traffic_accidents");
+	MyDataAPI = await resData2.json();
+
+
+
+	
 	let province = [];
+	let accidentWithVictims = [];
+	let mortalAccident = [];
+	let death = [];
+	let hospitalizedWounded = [];
+	let notHospitalizedWounded = [];
 	let traveller = [];
 	let overnightstay = [];
 	let averagestay = [];
 	
-
-	MyData.forEach( (v) => {
-		let provinceyear = v.province + " (" + v.year + ")";
-		province.push(provinceyear);
-		traveller.push(v.traveller);
-		overnightstay.push(v.overnightstay);
-		averagestay.push(v.averagestay);
+	MyDataAPI.forEach( (v1) => {
+		MyData.forEach( (v2) => {
+				if(v1.province.toLowerCase()  == v2.province){
+					if(v1.year == v2.year){
+						let provinceyear = v1.province + " (" + v1.year + ")";
+						province.push(provinceyear);
+						accidentWithVictims.push(v1.accidentWithVictims);
+						mortalAccident.push(v1.mortalAccident);
+						death.push(v1.death);
+						hospitalizedWounded.push(v1.hospitalizedWounded);
+						notHospitalizedWounded.push(v1.notHospitalizedWounded);
+						traveller.push(v2.traveller);
+						overnightstay.push(v2.overnightstay);
+						averagestay.push(v2.averagestay);}
+					
+				}
+			
+		});
 	});
-
 	let graphic_data1 = {
 		name: 'Viajeros',
 		data: traveller,
-		stack: 'Datos'
+		stack: 'Datos turismo'
 	};
 	let graphic_data2 = {
 		name: 'Pernoctaciones',
 		data: overnightstay,
-		stack: 'Datos'
+		stack: 'Datos turismo'
 	};
 	let graphic_data3 = {
 		name: 'Estancia media',
 		data: averagestay,
-		stack: 'Datoss'
+		stack: 'Datos turismo'
+	};
+	let graphic_data4 = {
+		name: 'Accidentes con víctimas',
+		data: accidentWithVictims,
+		stack: 'Datos accidentes'
+	};
+	let graphic_data5 = {
+		name: 'Accidentes mortales',
+		data: mortalAccident,
+		stack: 'Datos accidentes'
+	};
+	let graphic_data6 = {
+		name: 'Muertes',
+		data: death,
+		stack: 'Datos accidentes'
+	};
+	let graphic_data7 = {
+		name: 'Hospitalizados',
+		data: hospitalizedWounded,
+		stack: 'Datos accidentes'
+	};
+	let graphic_data8 = {
+		name: 'No hospitalizados',
+		data: notHospitalizedWounded,
+		stack: 'Datos accidentes'
 	};
 	
-	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data1);
+	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data3);
-	
+	parsed_data.push(graphic_data4);
+	parsed_data.push(graphic_data5);
+	parsed_data.push(graphic_data6);
+	parsed_data.push(graphic_data7);
+	parsed_data.push(graphic_data8);
+
 
 	Highcharts.chart('container', {
 		chart: {
@@ -83,7 +133,7 @@
 	},
 
 	title: {
-		text: 'Total turismo rural'
+		text: 'Total turismo rural y accidentes'
 	},
 
 	xAxis: {
