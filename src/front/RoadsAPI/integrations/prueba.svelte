@@ -16,10 +16,10 @@
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
-		const res = await fetch("https://global-country-information-library.p.rapidapi.com/country/US", {
+		const res = await fetch("https://referential.p.rapidapi.com/v1/timezone?fields=offset%252Cdaylights_offset%252Cdaylights%252Cdaylights_code%252Ctimezone&lang=de", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "global-country-information-library.p.rapidapi.com",
+		"x-rapidapi-host": "referential.p.rapidapi.com",
 		"x-rapidapi-key": "1aadc89e2cmsh7affff1b7dc9661p1e119fjsneb577e40a33e"
 	}
 }); 
