@@ -28,10 +28,10 @@
     <a href="#/roads2/integrations/mercados">API de mercados del mundo</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/covid">API del coronavirus en la India</a>
+    <a href="#/roads2/integrations/covid">API del coronavirus en la India (integrada con mis datos)</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/bitcoin">API de valores de los bitcoins</a>
+    <a href="#/roads2/integrations/bitcoin">API de valores de los bitcoins (integrada con mis datos)</a>
 </p>
 <p>
     <a href="#/roads2/integrations/football">API de número de partidos de entrenador de futbol</a>
@@ -43,7 +43,13 @@
     <a href="#/roads2/integrations/poblacion">API del población de las ciudades de Estados Unidos</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/prueba">API del prueba</a>
+    <a href="#/roads2/integrations/notas">API de las notas de corte (integrada con mis datos)</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/gasolina">API de los precios de la gasolina</a>
+</p>
+<p>
+    <a href="#/roads2/integrations/terremotos">API de los terremotos de EEUU</a>
 </p>
 <p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>

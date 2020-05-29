@@ -42,7 +42,9 @@
 	import football from './RoadsAPI/integrations/football.svelte';
 	import aeropuertos from './RoadsAPI/integrations/aeropuertos.svelte';
 	import poblacion from './RoadsAPI/integrations/poblacion.svelte';
-	import prueba from './RoadsAPI/integrations/prueba.svelte';
+	import notas from './RoadsAPI/integrations/notas.svelte';
+	import gasolina from './RoadsAPI/integrations/gasolina.svelte';
+	import terremotos from './RoadsAPI/integrations/terremotos.svelte';
 	import Analytics from './analytics/statistics.svelte';
 
 
@@ -102,7 +104,9 @@
 		"/roads2/integrations/football": football,
 		"/roads2/integrations/aeropuertos": aeropuertos,
 		"/roads2/integrations/poblacion": poblacion,
-		"/roads2/integrations/prueba": prueba,
+		"/roads2/integrations/notas": notas,
+		"/roads2/integrations/gasolina": gasolina,
+		"/roads2/integrations/terremotos": terremotos,
 
 
 
