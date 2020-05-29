@@ -16,6 +16,7 @@
 	import RoadsStatistics2 from './RoadsAPI/RoadsStatistics2.svelte';
 	import TrafficAccidentsStatistics from './TrafficAccidentsAPI/TrafficAccidentsStatistics.svelte';
 	import TrafficAccidentsStatistics2 from './TrafficAccidentsAPI/TrafficAccidentsStatistics2.svelte';
+	import integrations from "./integrations.svelte";
 
 	import VehiclesIntegrations from './VehiclesAPI/Integrations/Home.svelte';
 	import sos1920_12_overdose_deaths from './VehiclesAPI/Integrations/overdose_deaths.svelte';
@@ -28,6 +29,9 @@
 	import sos1920_28_gce from './VehiclesAPI/Integrations/gce.svelte';
 	import sos1920_22_formula_stats from './VehiclesAPI/Integrations/formula_stats.svelte';
 	import incidents from './VehiclesAPI/Integrations/incidents.svelte';
+	import coronavirus from './VehiclesAPI/Integrations/coronavirus.svelte';
+	import incidenciasDGT from './VehiclesAPI/Integrations/incidenciasDGT.svelte';
+	import vehiculosZaragoza from './VehiclesAPI/Integrations/vehiculosZaragoza.svelte';
 
 	import RoadsIntegrations from './RoadsAPI/integrations/Home.svelte';
 	import sos1920_06 from './RoadsAPI/integrations/sos1920-06.svelte';
@@ -89,6 +93,9 @@
 		'/vehiclesI/integrations/lottery_sales': sos1920_06_lottery_sales,
 		'/vehiclesI/integrations/formula_stats': sos1920_22_formula_stats,
 		"/vehiclesI/integrations/incidents": incidents,
+		"/vehiclesI/integrations/coronavirus": coronavirus,
+		"/vehiclesI/integrations/incidenciasDGT": incidenciasDGT,
+		"/vehiclesI/integrations/vehiculosZaragoza": vehiculosZaragoza,
 
 
 		"/roads/integrations": RoadsIntegrations,
@@ -123,6 +130,7 @@
 		"/traffic_accidentsI/integrations/apiexternacontaminacionmadrid": apiexternacontaminacionmadrid,
 		"/traffic_accidentsI/integrations/apiexternapaises": apiexternapaises,
 
+		"/integrations": integrations,
 		"*" : NotFound
 	};
 </script>

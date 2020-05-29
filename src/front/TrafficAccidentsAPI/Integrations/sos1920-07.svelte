@@ -29,13 +29,20 @@
 
 	async function loadGraph(){
     
+	let MyDataAPI = [];
 	let MyData = [];
-	
-
-	const resData = await fetch(url);
-	MyData = await resData.json();
 	let parsed_data = [];
-	let country = [];
+	const resData1 = await fetch(url);
+	MyData = await resData1.json();
+	const resData2 = await fetch("/api/v1/traffic_accidents");
+	MyDataAPI = await resData2.json();
+	
+	let provinces = [];
+    let accidentWithVictims = [];
+    let mortalAccident = [];
+    let death = [];
+    let hospitalizedWounded = [];
+	let notHospitalizedWounded = [];
 	let vegetalesYpreparados = [];
 	let zumoDeFrutas = [];
 	let dulcesYcaramelos = [];
@@ -43,14 +50,30 @@
 	let filetesYdesmenuzados = [];
 
 	MyData.forEach( (v) => {
-		let countryyear = v.name + " (" + v.year + ")";
-		country.push(countryyear);
-		vegetalesYpreparados.push(v.TVegANDPrep);
-		zumoDeFrutas.push(v.fruitJuice);
-		dulcesYcaramelos.push(v.TSweANDCndy);
-		animalesVivos.push(v.TLiveAnimal);
-		filetesYdesmenuzados.push(v.FishFilletANDMince);
+		if(v.name == "SPAIN" && v.year == "2013"){
+			provinces.push(v.name);
+			vegetalesYpreparados.push(v.TVegANDPrep);
+			zumoDeFrutas.push(v.fruitJuice);
+			dulcesYcaramelos.push(v.TSweANDCndy);
+			animalesVivos.push(v.TLiveAnimal);
+			filetesYdesmenuzados.push(v.FishFilletANDMince);
+		}
 	});
+	accidentWithVictims.push(0);
+    mortalAccident.push(0);
+	death.push(0);
+    hospitalizedWounded.push(0);
+	notHospitalizedWounded.push(0);
+	
+	MyDataAPI.forEach( (v) => {
+            provinces.push(v.province);
+            accidentWithVictims.push(v.accidentWithVictims);
+            mortalAccident.push(v.mortalAccident);
+            death.push(v.death);
+            hospitalizedWounded.push(v.hospitalizedWounded);
+            notHospitalizedWounded.push(v.notHospitalizedWounded);
+        });
+	
 
 	let graphic_data1 = {
 		name: 'Vegetales y preparados',
@@ -77,12 +100,42 @@
 		data: filetesYdesmenuzados,
 		stack: 'Importación'
 	};
+	let graphic_data6 = {
+        name: 'Accidentes con víctimas',
+        data: accidentWithVictims,
+        stack: 'Accidentes'
+    };
+    let graphic_data7 = {
+        name: 'Accidentes mortales',
+        data: mortalAccident,
+        stack: 'Accidentes'
+    };
+    let graphic_data8 = {
+        name: 'Muertes',
+        data: death,
+        stack: 'Víctimas'
+    };
+    let graphic_data9 = {
+        name: 'Víctimas hospitalizadas',
+        data: hospitalizedWounded,
+        stack: 'Víctimas'
+    };
+    let graphic_data10 = {
+        name: 'Víctimas no hospitalizadas',
+        data: notHospitalizedWounded,
+        stack: 'Víctimas'
+    };	
 	
-	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data1);
+	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data3);
 	parsed_data.push(graphic_data4);
 	parsed_data.push(graphic_data5);
+	parsed_data.push(graphic_data6);
+	parsed_data.push(graphic_data7);
+	parsed_data.push(graphic_data8);
+	parsed_data.push(graphic_data9);
+	parsed_data.push(graphic_data10);
 	
 
 	Highcharts.chart('container', {
@@ -102,7 +155,7 @@
 	},
 
 	xAxis: {
-		categories: country,
+		categories: provinces,
 		labels: {
 		skew3d: true,
 		style: {

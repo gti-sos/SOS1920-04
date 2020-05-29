@@ -10,7 +10,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-	const url = "https://sos1920-05.herokuapp.com/api/v1/health_public";
+	const url = "/api/v1/health_public";
 	
 	onMount(getHealthPublics);
     let health_publics = [];
@@ -29,25 +29,40 @@
 
 	async function loadGraph(){
     
+		let MyDataAPI = [];
 	let MyData = [];
+	let parsed_data = [];
+	const resData1 = await fetch(url);
+	MyData = await resData1.json();
+	const resData2 = await fetch("/api/v1/traffic_accidents");
+	MyDataAPI = await resData2.json();
 	
 
-	const resData = await fetch(url);
-	MyData = await resData.json();
-	let parsed_data = [];
-	let country = [];
+	let provinces = [];
 	let total_spending = [];
 	let public_spending = [];
 	let public_spending_pib = [];
-	
+	let death = [];
+    let hospitalizedWounded = [];
+	let notHospitalizedWounded = [];
 
 	MyData.forEach( (v) => {
-		let countryyear = v.country + " (" + v.year + ")";
-		country.push(countryyear);
-		total_spending.push(v['total_spending']);
-		public_spending.push(v['public_spending']);
-		public_spending_pib.push(v['public_spending_pib']);
+		if(v.country == "españa"){
+			provinces.push(v.country);
+			total_spending.push(v['total_spending']);
+			public_spending.push(v['public_spending']);
+			public_spending_pib.push(v['public_spending_pib']);}
+		
 	});
+	death.push(0);
+    hospitalizedWounded.push(0);
+    notHospitalizedWounded.push(0);
+	MyDataAPI.forEach( (v) => {
+            provinces.push(v.province);
+            death.push(v.death);
+            hospitalizedWounded.push(v.hospitalizedWounded);
+            notHospitalizedWounded.push(v.notHospitalizedWounded);
+        });
 
 	let graphic_data1 = {
 		name: 'Total gastado',
@@ -64,11 +79,28 @@
 		data: public_spending_pib,
 		stack: 'Público'
 	};
+	let graphic_data4 = {
+            name: 'Muertes',
+            data: death,
+            stack: 'Víctimas'
+        };
+    let graphic_data5 = {
+        name: 'Víctimas hospitalizadas',
+        data: hospitalizedWounded,
+        stack: 'Víctimas'
+        };
+    let graphic_data6 = {
+        name: 'Víctimas no hospitalizadas',
+        data: notHospitalizedWounded,
+        stack: 'Víctimas'
+        };
 	
-	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data1);
+	parsed_data.push(graphic_data2);
 	parsed_data.push(graphic_data3);
-	
+	parsed_data.push(graphic_data4);
+	parsed_data.push(graphic_data5);
+	parsed_data.push(graphic_data6);
 
 	Highcharts.chart('container', {
 		chart: {
@@ -87,7 +119,7 @@
 	},
 
 	xAxis: {
-		categories: country,
+		categories: provinces,
 		labels: {
 		skew3d: true,
 		style: {
