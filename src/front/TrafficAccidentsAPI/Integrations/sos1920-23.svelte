@@ -35,18 +35,18 @@
 	const resData = await fetch(url);
 	MyData = await resData.json();
 	let parsed_data = [];
-	let comunnity = [];
+	let community = [];
 	let cigarrete_sale = [];
 	let first_variation = [];
 	let second_variation = [];
 	
 
 	MyData.forEach( (v) => {
-		let comunnityyear = v.comunnity + " (" + v.year + ")";
-		comunnity.push(comunnityyear);
-		cigarrete_sale.push(v['cigarrete_sale']);
-		first_variation.push(v['first_variation']);
-		second_variation.push(v['second_variation']);
+		let communityyear = v.community + " (" + v.year + ")";
+		community.push(communityyear);
+		cigarrete_sale.push(Math.abs(v['cigarrete_sale']));
+		first_variation.push(Math.abs(v['first_variation']));
+		second_variation.push(Math.abs(v['second_variation']));
 	});
 
 	let graphic_data1 = {
@@ -87,7 +87,7 @@
 	},
 
 	xAxis: {
-		categories: comunnity,
+		categories: community,
 		labels: {
 		skew3d: true,
 		style: {
