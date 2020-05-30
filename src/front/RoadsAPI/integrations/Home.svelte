@@ -46,10 +46,10 @@
     <a href="#/roads2/integrations/notas">API de las notas de corte (integrada con mis datos)</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/gasolina">API de los precios de la gasolina</a>
+    <a href="#/roads2/integrations/gasolina">API de los precios de la gasolina (integrada con mis datos)</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/terremotos">API de los terremotos de EEUU</a>
+    <a href="#/roads2/integrations/terremotos">API de los terremotos de EEUU (integrada con mis datos)</a>
 </p>
 <p>
     <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
