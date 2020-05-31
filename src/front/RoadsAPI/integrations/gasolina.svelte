@@ -10,9 +10,9 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "https://sos1920-30.herokuapp.com/api/v2/sugarconsume";
+    const url = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=prix_des_carburants_j_7&q=&sort=update&facet=cp&facet=pop&facet=city&facet=automate_24_24&facet=fuel&facet=shortage&facet=update&facet=services&facet=brand";
 
-    let pluginSugar = [];
+    let pluginGasolina = [];
     let MyData = [];
 	async function loadGraph(){
         console.log("Fetching renewable sources stats...");	
@@ -20,44 +20,49 @@
 		if (res.ok) {
 			console.log("Ok:");
 			const json = await res.json();
-            pluginSugar = json;
-			console.log("Received " +  pluginSugar.length + " renewable sources stats.");
+            pluginGasolina = json;
+			console.log("Received " +  pluginGasolina.length + " renewable sources stats.");
 		} else {
 			console.log("ERROR!");
         }
+        pluginGasolina = pluginGasolina["records"];
+        console.log(pluginGasolina);
         const resData = await fetch("/api/v1/roads");
         MyData = await resData.json();
-        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Consumo de azucar"];
+        let items = ["Un carril", "Doble carril", "Autovía", "Autopista", "Precio de E10", "Precio de gasolina",
+         "Precio de gplc", "Precio de sp95", "Precio de sp98"];
         let valores = [];
         let valor = {};
+        let provincias = [];
         MyData.forEach( (r) => {
+            provincias.push(r.province);
             valor = {
-                   name: r.province + "(" + r.year + ")",
-                   data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, null]
-               }
+                name: r.province,
+                data: [r.oneway, r.multipleway, r.dualCarriagewayAndHighway, r.highwayWithToll, 
+                    null, null, null]
+            }
             valores.push(valor);
         });
-        pluginSugar.forEach( (v) => {
-            if(v.place == "Europa"){
-               valor = {
-                   name: v.place + "(" + v.year + ")",
-                   data: [0, 0, 0, 0,  v['sugarconsume']]
-               }
-               console.log("oneway: " + parseInt(v['sugarconsume']));
-               valores.push(valor);
+        for(var i = 0; i < pluginGasolina.length; i++) {
+            if(pluginGasolina[i].fields.price_e10 != undefined) {
+                valor = {
+                    name: pluginGasolina[i].fields.city,
+                    data: [null, null, null, null, pluginGasolina[i].fields.price_e10, pluginGasolina[i].fields.price_gazole,
+                    pluginGasolina[i].fields.price_sp98]
+                }
+                valores.push(valor);
             }
-            
-        });
-
+        }
+        console.log(valores)
         Highcharts.chart('container', {
             chart: {
                 type: 'area'
             },
             title: {
-                text: 'Integración entre carreteras y consumo de azucar'
+                text: 'Integración entre el numero de carreteras y los precios de la gasolina'
             },
             subtitle: {
-                text: 'Source: SOS1920-30'
+                text: 'Source: Public.opendatasoft '
             },
             xAxis: {
                 categories: items,
@@ -72,13 +77,13 @@
                 },
                 labels: {
                     formatter: function () {
-                        return this.value;
+                        return this.value ;
                     }
                 }
             },
             tooltip: {
                 split: true,
-                valueSuffix: ' '
+                valueSuffix: ''
             },
             plotOptions: {
                 area: {
@@ -104,48 +109,18 @@
 </svelte:head>
 
 <figure class="highcharts-figure">
-        {#await  pluginSugar}
-            Loading renewable sources...
-        {:then  pluginSugar}
             <figure class="highcharts-figure">
                 <div id="container"></div>
                 <p>   </p>
                 <p class="highcharts-description">
-                    Grafica uniendo los datos de carreteras, con los de consumo de azucar. Solo podemos
-                    mostrar los datos de Europa por años, ya que son los unicos datos
-                    comparables con los nuestros.
+                    Grafica uniendo los datos de carreteras, con los precios de gasolinas. 
+                    Extraida de Public.opendatasoft mediante la API de Prix des carburants - J-7 (una fuente francesa).
                 </p>
-                <p> <strong> Tabla con los datos proporcionados por la API de consumo de azucar: </strong> </p>
-
             </figure>	
-            <Table bordered>
-                <thead>
-                    <tr>
-                        <th> Zona </th>
-                        <th> Año </th>
-                        <th> Consumo de azucar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {#each  pluginSugar
-                 as  pluginSugar
-        }
-                    <tr>
-                        <td> {pluginSugar.place} </td>
-                        <td> {pluginSugar.year} </td>
-                        <td> {pluginSugar['sugarconsume']} </td>
-                    </tr>
-                    {/each}
-                </tbody>
-            </Table>
-        {/await}
         <p>
             <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
         </p>
   </figure>
-
-
-
 <style>
 	#container {
         height: 550px; 

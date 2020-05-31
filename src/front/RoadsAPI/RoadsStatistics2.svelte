@@ -85,13 +85,17 @@
          <canvas id="cvs" width="575" height="450">
                 [No canvas support]
          </canvas>
-         <p>
+    </main>  
+    <main>
+        <p>
             Gráfica con RGraph del número de carreteras por categorias de España.
         </p>
         <p>
             <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
         </p>
     </main>
+        
+   
     
 
 

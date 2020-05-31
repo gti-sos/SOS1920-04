@@ -31,6 +31,26 @@ module.exports = function(app){
 		req.pipe(request(url)).pipe(res);
 	});
 
+	//PROXY PARA API EXTERNA
+
+	var notas = 'https://zaguan.unizar.es/record/87664/files/JSON.json';
+	var recursoNotas = '/record/87664/files/JSON.json';
+    app.use(recursoNotas, function(req, res) {
+		var url = notas + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+	//PROXY PARA API EXTERNA
+
+	var barcelona = 'https://opendata-ajuntament.barcelona.cat';
+	var recursoBarcelona = '/data/api/3/action/package_search';
+    app.use(recursoBarcelona, function(req, res) {
+		var url = barcelona + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
 
 		// INITIAL DATA
 
