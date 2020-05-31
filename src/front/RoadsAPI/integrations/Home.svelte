@@ -25,13 +25,13 @@
 </p>
 <h2><strong> Integraciones externas</strong></h2>
 <p>
-    <a href="#/roads2/integrations/mercados">API de mercados del mundo</a>
+    <a href="#/roads2/integrations/mercados">API de mercados del mundo (integrada con mis datos)</a>
 </p>
 <p>
     <a href="#/roads2/integrations/covid">API del coronavirus en la India (integrada con mis datos)</a>
 </p>
 <p>
-    <a href="#/roads2/integrations/bitcoin">API de valores de los bitcoins (integrada con mis datos)</a>
+    <a href="#/roads2/integrations/bitcoin">API de valores de los bitcoins </a>
 </p>
 <p>
     <a href="#/roads2/integrations/football">API de número de partidos de entrenador de futbol</a>
