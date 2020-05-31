@@ -2,9 +2,37 @@ module.exports = function (app) {
 	console.log("Registering vehicles API...");
 	const dataStore = require("nedb");
 	const path = require("path");
+	const request = require("request");
 	
 	const dbFileName = path.join(__dirname,"VehiclesAPI.db");
 	const BASE_API_URL = "/api/v1";
+
+	var sos1920_28 = 'https://sos1920-28.herokuapp.com';
+	var recurso28 = '/api/v1/gce';
+
+    app.use(recurso28, function(req, res) {
+		var url = sos1920_28 + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+	var sos1920_01 = 'https://sos1920-01.herokuapp.com';
+	var recurso01 = '/api/v2/natality-stats';
+
+    app.use(recurso01, function(req, res) {
+		var url = sos1920_01 + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+	var sos1920_06 = 'https://sos1920-06.herokuapp.com';
+	var recurso06 = '/api/v2/lottery-sales';
+
+    app.use(recurso06, function(req, res) {
+		var url = sos1920_06 + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
 	
 	const db = new dataStore({
 					filename: dbFileName,
