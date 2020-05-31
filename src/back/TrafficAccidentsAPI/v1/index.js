@@ -2,9 +2,32 @@ module.exports = function(app){
 	console.log("Registering Traffic Accidents API...")
 	const dataStore = require("nedb");
 	const path = require("path");
-	
+	const request = require("request");
+
 	const dbFileName = path.join(__dirname,"TrafficAccidentsAPI.db");
 	const BASE_API_URL = "/api/v1";
+
+	var sos1920_05_TA = 'https://sos1920-05.herokuapp.com';
+	var recurso05_TA = '/api/v1/health_public';
+
+    app.use(recurso05_TA, function(req, res) {
+		var url = sos1920_05_TA + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+
+	var sos1920_22_TA = 'https://sos1920-22.herokuapp.com';
+	var recurso22_TA = '/api/v1/swim-stats';
+
+    app.use(recurso22_TA, function(req, res) {
+		var url = sos1920_22_TA + req.baseUrl + req.url;
+		console.log('piped: ' + req.baseUrl + req.url);
+		req.pipe(request(url)).pipe(res);
+	});
+
+
+	
 	
 	const db = new dataStore({
 				filename: dbFileName,

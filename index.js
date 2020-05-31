@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const backVehicles = require("./src/back/VehiclesAPI/v2");
+const backVehicles = require("./src/back/VehiclesAPI/v1");
 const backRoads = require("./src/back/RoadsAPI/v1");
-const backTrafficAccidents = require("./src/back/TrafficAccidentsAPI/v2");
+const backTrafficAccidents = require("./src/back/TrafficAccidentsAPI/v1");
 const cors = require("cors");
 
 const port = process.env.PORT || 1234;
