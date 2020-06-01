@@ -10,8 +10,6 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
     
-    const url = "https://sos1920-07.herokuapp.com/api/v2/imports";
-
     let pluginImports = [];
     let MyData = [];
     let valores = [];
