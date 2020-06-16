@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/gti-sos/SOS1920-04#readme",
   "dependencies": {
-    "billboard.js": "^1.12.9",
+    "billboard.js": "^1.12.10",
     "body-parser": "^1.19.0",
     "codecov": "^3.6.5",
     "cors": "^2.8.5",
