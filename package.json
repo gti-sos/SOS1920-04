@@ -32,7 +32,7 @@
   "dependencies": {
     "billboard.js": "^1.12.9",
     "body-parser": "^1.19.0",
-    "codecov": "^3.6.5",
+    "codecov": "^3.7.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-pagination": "0.0.5",
